@@ -4,5 +4,5 @@ export interface Player {
   rank: number;
   place: number;
   isTied: boolean;
-  score: number;
+  fantasyScore: number;
 }

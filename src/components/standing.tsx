@@ -16,7 +16,9 @@ export default function Standing({ standing }: { standing: StandingType }) {
           <p className="p-1 w-10 text-white text-sm font-bold bg-gray-600 text-center rounded">{`${standing.isTied ? "T" : ""}${standing.rank}`}</p>
           <p>{standing.name}</p>
         </div>
-        <p>{standing.score}</p>
+        <p className="font-bold text-sm w-14 bg-gray-200 rounded p-1">
+          {standing.score}
+        </p>
       </Button>
 
       <div ref={playersRef}>
@@ -29,8 +31,18 @@ export default function Standing({ standing }: { standing: StandingType }) {
                   key={name}
                   className="flex bg-white items-center justify-between p-1"
                 >
-                  <p>{name}</p>
-                  <p>{player.score}</p>
+                  <div className="flex items-center gap-1">
+                    <p className="font-bold bg-gray-200 text-sm rounded p-1 w-10 text-center">
+                      {`${player.isTied ? "T" : ""}${player.place}`}
+                    </p>
+                    <p className="font-bold bg-gray-200 text-sm rounded-full p-1 size-7 text-center">
+                      {player.rank}
+                    </p>
+                    <p>{name}</p>
+                  </div>
+                  <p className="font-bold text-sm w-14 bg-gray-200 rounded p-1 text-center">
+                    {player.fantasyScore}
+                  </p>
                 </div>
               );
             })}

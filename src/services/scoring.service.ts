@@ -65,7 +65,7 @@ export default class ScoringService {
           firstName: player.firstName,
           lastName: player.lastName,
           rank: player.rank,
-          score: playerTotal * multiplier,
+          fantasyScore: playerTotal * multiplier,
           place: p.place,
           isTied: p.isTied,
         });
@@ -77,7 +77,7 @@ export default class ScoringService {
       standings.push({
         name: team.name,
         score,
-        players: players.sort((a, b) => b.score - a.score),
+        players: players.sort((a, b) => b.fantasyScore - a.fantasyScore),
         rank: 0,
         isTied: false,
       });
@@ -85,10 +85,11 @@ export default class ScoringService {
     standings.forEach((team) => {
       team.players.forEach((player) => {
         if (player.rank === lowestRankedPlayerInTop25) {
-          player.score += 15;
+          player.fantasyScore += 15;
           team.score += 15;
         }
       });
+      team.players.sort((a, b) => a.place - b.place);
     });
     standings.sort((a, b) => b.score - a.score);
     let currentRank = 1;
