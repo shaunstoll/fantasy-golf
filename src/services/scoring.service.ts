@@ -78,6 +78,8 @@ export default class ScoringService {
         name: team.name,
         score,
         players: players.sort((a, b) => b.score - a.score),
+        rank: 0,
+        isTied: false,
       });
     });
     standings.forEach((team) => {
@@ -89,6 +91,19 @@ export default class ScoringService {
       });
     });
     standings.sort((a, b) => b.score - a.score);
+    let currentRank = 1;
+    let currentScore = standings[0]?.score;
+    standings.forEach((standing, index) => {
+      if (standing.score !== currentScore) {
+        currentRank = index + 1;
+        currentScore = standing.score;
+      }
+      standing.rank = currentRank;
+      standing.isTied =
+        (index > 0 && standings[index - 1].score === standing.score) ||
+        (index < standings.length - 1 &&
+          standings[index + 1].score === standing.score);
+    });
     return standings;
   }
 }

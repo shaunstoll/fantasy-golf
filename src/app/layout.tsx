@@ -28,10 +28,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-hidden`}
       >
         <TRPCReactProvider>
-          <div className="max-w-screen-lg mx-auto h-dvh">{children}</div>
+          <div className="max-w-screen-lg mx-auto h-dvh overflow-auto">
+            {children}
+          </div>
         </TRPCReactProvider>
         <Analytics />
         <SpeedInsights />
