@@ -15,7 +15,7 @@ export default class HerokuClient {
         return {
           name: values[1],
           players: Array.from({ length: 8 }, (_, i) => values[2 + i * 2]).map(
-            (value) => value.split(" ")[0],
+            (value) => value.split(" ")[0].toLowerCase(),
           ),
         };
       })

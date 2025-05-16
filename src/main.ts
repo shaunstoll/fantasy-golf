@@ -1,12 +1,13 @@
 import ScoringService from "./scoring.service";
 import DataGolfClient from "./clients/data-golf.client";
 import HerokuClient from "./clients/heroku.client";
+import { TournamentType } from "./enums/tournament.enum";
 
 const cutLine = {
-  masters: 50,
-  usOpen: 60,
-  pga: 70,
-  open: 70,
+  [TournamentType.MASTER]: 50,
+  [TournamentType.US_OPEN]: 60,
+  [TournamentType.PGA]: 70,
+  [TournamentType.OPEN]: 70,
 };
 
 async function main() {
@@ -17,7 +18,7 @@ async function main() {
     teams,
     leaderboard,
     rankings,
-    cutLine.masters,
+    cutLine[process.env.NEXT_PUBLIC_TOURNAMENT_TYPE as TournamentType],
   );
   console.log(scores);
 }

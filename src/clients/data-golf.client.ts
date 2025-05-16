@@ -16,7 +16,7 @@ export default class DataGolfClient {
     const rankings: Record<string, Ranking> = {};
     JSON.parse(jsonString).data.table_data.data.forEach(
       (p: { last: string; first: string; dg_rank: number }) => {
-        rankings[p.last] = {
+        rankings[p.last.toLowerCase()] = {
           firstName: p.first,
           lastName: p.last,
           rank: p.dg_rank,
