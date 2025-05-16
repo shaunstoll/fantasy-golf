@@ -1,8 +1,10 @@
 "use client";
 import Standing from "@/components/standing";
 import { api } from "@/trpc/react";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 export default function Home() {
+  const [standingsRef] = useAutoAnimate();
   const standingsQuery = api.leaderboard.get.useQuery(undefined, {
     refetchInterval: 5000,
   });
@@ -18,7 +20,7 @@ export default function Home() {
 
   return (
     <main className="p-2 bg-gray-200">
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2" ref={standingsRef}>
         {standingsQuery.data.map((standing, idx) =>
           idx < 3 ? <Standing key={standing.name} standing={standing} /> : null,
         )}
