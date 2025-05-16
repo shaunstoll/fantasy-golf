@@ -1,27 +1,27 @@
 import type { Leaderboard } from "./interfaces/leaderboard.interface";
 import { Player } from "./interfaces/player.interface";
-import type { Ranking } from "./interfaces/ranking.interface";
-
+import { Team } from "./interfaces/team.interface";
+import { Standing } from "./interfaces/standing.interface";
 export default class ScoringService {
   static getStandings(
-    teams: { name: string; players: string[] }[],
+    teams: Team[],
     leaderboard: Leaderboard,
-    rankings: Record<string, Ranking>,
     cutLine: number,
   ) {
-    const standings: { name: string; score: number; players: Player[] }[] = [];
+    const standings: Standing[] = [];
     let lowestRankedPlayerInTop25 = 0;
     teams.forEach((team) => {
       let hasCutBonus = true;
       const players: Player[] = [];
-      let score = team.players.reduce((acc, playerName, index) => {
-        const rank = rankings[playerName];
-        if (rank.rank > lowestRankedPlayerInTop25) {
-          lowestRankedPlayerInTop25 = rank.rank;
+      let score = team.players.reduce((acc, player, index) => {
+        if (player.rank > lowestRankedPlayerInTop25) {
+          lowestRankedPlayerInTop25 = player.rank;
         }
-        const p = leaderboard[rank.firstName + " " + rank.lastName];
+        const p = leaderboard[player.firstName + " " + player.lastName];
         if (!p) {
-          console.error(`Player ${playerName} not found in leaderboard`);
+          console.error(
+            `Player ${player.firstName} ${player.lastName} not found in leaderboard`,
+          );
           return acc;
         }
         const multiplier = index === 0 ? 2 : index === 1 ? 1.5 : 1;
@@ -35,11 +35,11 @@ export default class ScoringService {
         if (p.place <= 15) {
           playerTotal += 4;
           // Bonus for player outside top 10
-          if (rank.rank > 10 && rank.rank <= 20) {
+          if (player.rank > 10 && player.rank <= 20) {
             playerTotal += 6;
           }
           // Bonus for player outside top 20
-          if (rank.rank > 20) {
+          if (player.rank > 20) {
             playerTotal += 11;
           }
         }
@@ -49,13 +49,13 @@ export default class ScoringService {
         if (p.place > cutLine) {
           hasCutBonus = false;
           // Made Cut Bonus
-        } else if (rank.rank > 5) {
+        } else if (player.rank > 5) {
           playerTotal += 5;
         }
         players.push({
-          firstName: rank.firstName,
-          lastName: rank.lastName,
-          rank: rank.rank,
+          firstName: player.firstName,
+          lastName: player.lastName,
+          rank: player.rank,
           score: playerTotal * multiplier,
           place: p.place,
           isTied: p.isTied,

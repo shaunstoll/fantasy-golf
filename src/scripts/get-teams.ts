@@ -13,7 +13,7 @@ async function main() {
     players: team.players.map((player) => {
       const ranking = rankings[player];
       if (!ranking) {
-        console.warn(`No ranking found for player: ${player}`);
+        console.error(`No ranking found for player: ${player}`);
       }
       return ranking;
     }),

@@ -1,7 +1,8 @@
 import ScoringService from "./scoring.service";
 import DataGolfClient from "./clients/data-golf.client";
-import HerokuClient from "./clients/heroku.client";
 import { TournamentType } from "./enums/tournament.enum";
+import fs from "fs/promises";
+import path from "path";
 
 const cutLine = {
   [TournamentType.MASTER]: 50,
@@ -11,13 +12,14 @@ const cutLine = {
 };
 
 async function main() {
-  const rankings = await DataGolfClient.getRankings();
+  const teams = await fs.readFile(
+    path.join(process.cwd(), "data", "teams.json"),
+    "utf8",
+  );
   const leaderboard = await DataGolfClient.getLeaderboard();
-  const teams = await HerokuClient.getTeams();
   const scores = ScoringService.getStandings(
-    teams,
+    JSON.parse(teams),
     leaderboard,
-    rankings,
     cutLine[process.env.NEXT_PUBLIC_TOURNAMENT_TYPE as TournamentType],
   );
   console.log(scores);
