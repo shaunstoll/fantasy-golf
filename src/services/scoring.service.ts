@@ -1,12 +1,21 @@
-import type { Leaderboard } from "./interfaces/leaderboard.interface";
-import { Player } from "./interfaces/player.interface";
-import { Team } from "./interfaces/team.interface";
-import { Standing } from "./interfaces/standing.interface";
+import type { Leaderboard } from "../interfaces/leaderboard.interface";
+import { Player } from "../interfaces/player.interface";
+import { Team } from "../interfaces/team.interface";
+import { Standing } from "../interfaces/standing.interface";
+import { TournamentType } from "@/enums/tournament.enum";
+
 export default class ScoringService {
-  static getStandings(
+  private static cutLine = {
+    [TournamentType.Masters]: 50,
+    [TournamentType.UsOpen]: 60,
+    [TournamentType.Pga]: 70,
+    [TournamentType.Open]: 70,
+  };
+
+  getStandings(
     teams: Team[],
     leaderboard: Leaderboard,
-    cutLine: number,
+    tournament: TournamentType,
   ) {
     const standings: Standing[] = [];
     let lowestRankedPlayerInTop25 = 0;
@@ -46,7 +55,7 @@ export default class ScoringService {
         if (p.place <= 25) {
           playerTotal += 3;
         }
-        if (p.place > cutLine) {
+        if (p.place > ScoringService.cutLine[tournament]) {
           hasCutBonus = false;
           // Made Cut Bonus
         } else if (player.rank > 5) {

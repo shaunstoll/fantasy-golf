@@ -6,8 +6,10 @@ import path from "path";
 const filePath = path.join(process.cwd(), "data", "teams.json");
 
 async function main() {
-  const rankings = await DataGolfClient.getRankings();
-  const teams = await HerokuClient.getTeams();
+  const dataGolfClient = new DataGolfClient();
+  const rankings = await dataGolfClient.getRankings();
+  const herokuClient = new HerokuClient();
+  const teams = await herokuClient.getTeams();
   const teamsWithRankings = teams.map((team) => ({
     ...team,
     players: team.players.map((player) => {

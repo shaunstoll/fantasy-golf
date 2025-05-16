@@ -1,6 +1,6 @@
 export enum TournamentType {
-  MASTER = "master",
-  PGA = "pga",
-  US_OPEN = "us-open",
-  OPEN = "open",
+  Masters = "master",
+  Pga = "pga",
+  UsOpen = "us-open",
+  Open = "open",
 }

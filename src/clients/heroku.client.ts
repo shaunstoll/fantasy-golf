@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as Cheerio from "cheerio";
 export default class HerokuClient {
-  static async getTeams() {
+  async getTeams() {
     const response = await axios.get(
       "https://golf-competition-193e590fabff.herokuapp.com/",
     );

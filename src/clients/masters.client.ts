@@ -2,7 +2,7 @@ import axios from "axios";
 import type { MastersData } from "../interfaces/masters.interface";
 
 export default class MastersClient {
-  static async getLeaderboard() {
+  async getLeaderboard() {
     const response = await axios.get<MastersData>(
       "https://www.masters.com/en_US/scores/feeds/2025/scores.json",
       {

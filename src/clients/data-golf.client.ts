@@ -4,7 +4,7 @@ import type { Leaderboard } from "../interfaces/leaderboard.interface";
 import type { Ranking } from "../interfaces/ranking.interface";
 
 export default class DataGolfClient {
-  static async getRankings(): Promise<Record<string, Ranking>> {
+  async getRankings(): Promise<Record<string, Ranking>> {
     const response = await axios.get("https://datagolf.com/datagolf-rankings");
     const html = response.data;
     const pullDataIndex = html.indexOf("function pull_data()");
@@ -26,7 +26,7 @@ export default class DataGolfClient {
     return rankings;
   }
 
-  static async getLeaderboard() {
+  async getLeaderboard() {
     const response = await axios.get<TournamentData>(
       "https://letzig.datagolf.com/live-model/get-main-data/mini",
     );

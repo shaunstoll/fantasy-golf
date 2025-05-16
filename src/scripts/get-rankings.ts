@@ -5,7 +5,8 @@ import path from "path";
 const filePath = path.join(process.cwd(), "data", "rankings.json");
 
 async function main() {
-  const rankings = await DataGolfClient.getRankings();
+  const client = new DataGolfClient();
+  const rankings = await client.getRankings();
   await fs.writeFile(filePath, JSON.stringify(rankings, null, 2));
 }
 
