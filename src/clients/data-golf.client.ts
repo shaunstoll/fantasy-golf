@@ -16,11 +16,18 @@ export default class DataGolfClient {
     const rankings: Record<string, Ranking> = {};
     JSON.parse(jsonString).data.table_data.data.forEach(
       (p: { last: string; first: string; dg_rank: number }) => {
-        rankings[p.last.toLowerCase()] = {
-          firstName: p.first,
-          lastName: p.last,
-          rank: p.dg_rank,
-        };
+        const key = p.last.toLowerCase();
+        if (rankings[key]) {
+          console.error(
+            `Duplicate player last name found: ${p.first} ${p.last} and ${rankings[key].firstName} ${rankings[key].lastName}`,
+          );
+        } else {
+          rankings[key] = {
+            firstName: p.first,
+            lastName: p.last,
+            rank: p.dg_rank,
+          };
+        }
       },
     );
     return rankings;

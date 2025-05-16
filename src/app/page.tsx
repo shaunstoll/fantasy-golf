@@ -1,9 +1,9 @@
 "use client";
 import Standing from "@/components/standing";
-import { trpc } from "@/utils/trpc.utils";
+import { api } from "@/trpc/react";
 
 export default function Home() {
-  const standingsQuery = trpc.leaderboard.getStandings.useQuery();
+  const standingsQuery = api.leaderboard.get.useQuery();
 
   if (standingsQuery.error) {
     console.error(standingsQuery.error);

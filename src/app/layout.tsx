@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import TRPCProvider from "@/providers/trpc.provider";
+import { TRPCReactProvider } from "@/trpc/react";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,9 +30,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TRPCProvider>
+        <TRPCReactProvider>
           <div className="max-w-screen-lg mx-auto h-dvh">{children}</div>
-        </TRPCProvider>
+        </TRPCReactProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
