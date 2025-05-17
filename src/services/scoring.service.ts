@@ -21,6 +21,7 @@ export default class ScoringService {
     let lowestRankedPlayerInTop25 = 0;
     teams.forEach((team) => {
       let hasCutBonus = true;
+      let hasFirstPlaceBonus = false;
       const players: Player[] = [];
       let score = team.players.reduce((acc, player, index) => {
         if (player.rank > lowestRankedPlayerInTop25) {
@@ -40,6 +41,7 @@ export default class ScoringService {
         if (p.place === 1 && !p.isTied) {
           playerTotal += 15;
           firstPlaceBonus = true;
+          hasFirstPlaceBonus = true;
         }
         if (p.place <= 10) {
           playerTotal += 11 - p.place;
@@ -92,7 +94,7 @@ export default class ScoringService {
         isTied: false,
         lowestRankedPlayerBonus: false,
         madeCutBonus: hasCutBonus,
-        firstPlaceBonus: false,
+        firstPlaceBonus: hasFirstPlaceBonus,
       });
     });
     standings.forEach((team) => {
