@@ -35,31 +35,33 @@ export default class ScoringService {
         }
         const multiplier = index === 0 ? 2 : index === 1 ? 1.5 : 1;
         let playerTotal = 0;
-        if (p.place === 1) {
+        let insideCutLineBonus = false;
+        let firstPlaceBonus = false;
+        if (p.place === 1 && !p.isTied) {
           playerTotal += 15;
+          firstPlaceBonus = true;
         }
         if (p.place <= 10) {
           playerTotal += 11 - p.place;
         }
         if (p.place <= 15) {
           playerTotal += 4;
-          // Bonus for player outside top 10
-          if (player.rank > 10 && player.rank <= 20) {
-            playerTotal += 6;
-          }
-          // Bonus for player outside top 20
-          if (player.rank > 20) {
-            playerTotal += 11;
-          }
         }
         if (p.place <= 25) {
           playerTotal += 3;
+          if (player.rank > 10 && player.rank <= 20) {
+            playerTotal += 6;
+          }
+          if (player.rank > 20) {
+            playerTotal += 11;
+          }
         }
         if (p.place > ScoringService.cutLine[tournament]) {
           hasCutBonus = false;
           // Made Cut Bonus
         } else if (player.rank > 5) {
           playerTotal += 5;
+          insideCutLineBonus = true;
         }
         players.push({
           firstName: player.firstName,
@@ -68,6 +70,14 @@ export default class ScoringService {
           fantasyScore: playerTotal * multiplier,
           place: p.place,
           isTied: p.isTied,
+          nationality: p.nationality,
+          status: p.status,
+          score: p.score,
+          thru: p.thru,
+          lowestRankedPlayerBonus: false,
+          madeCutBonus: insideCutLineBonus,
+          firstPlaceBonus: firstPlaceBonus,
+          multiplier: multiplier,
         });
         return acc + playerTotal * multiplier;
       }, 0);
@@ -80,6 +90,9 @@ export default class ScoringService {
         players: players.sort((a, b) => b.fantasyScore - a.fantasyScore),
         rank: 0,
         isTied: false,
+        lowestRankedPlayerBonus: false,
+        madeCutBonus: hasCutBonus,
+        firstPlaceBonus: false,
       });
     });
     standings.forEach((team) => {
@@ -87,6 +100,8 @@ export default class ScoringService {
         if (player.rank === lowestRankedPlayerInTop25) {
           player.fantasyScore += 15;
           team.score += 15;
+          player.lowestRankedPlayerBonus = true;
+          team.lowestRankedPlayerBonus = true;
         }
       });
       team.players.sort((a, b) => a.place - b.place);

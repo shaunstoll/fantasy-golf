@@ -1,8 +1,18 @@
+import { PlayerStatus } from "@/enums/player-status.enum";
+
 export interface Player {
   firstName: string;
   lastName: string;
   rank: number;
   place: number;
+  nationality: string;
+  status: PlayerStatus;
+  score: number;
+  thru: number;
+  lowestRankedPlayerBonus: boolean;
+  madeCutBonus: boolean;
+  firstPlaceBonus: boolean;
   isTied: boolean;
   fantasyScore: number;
+  multiplier: number;
 }

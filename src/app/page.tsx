@@ -20,16 +20,14 @@ export default function Home() {
 
   return (
     <main className="p-2 bg-gray-200">
-      <div className="flex flex-col gap-2" ref={standingsRef}>
-        {standingsQuery.data.map((standing, idx) =>
-          idx < 3 ? <Standing key={standing.name} standing={standing} /> : null,
-        )}
-        <hr />
-        {standingsQuery.data.map((standing, idx) =>
-          idx >= 3 ? (
-            <Standing key={standing.name} standing={standing} />
-          ) : null,
-        )}
+      <div className="flex flex-col gap-1" ref={standingsRef}>
+        {standingsQuery.data.slice(0, 3).map((standing) => (
+          <Standing key={standing.name} standing={standing} />
+        ))}
+        <hr className="border-gray-800" />
+        {standingsQuery.data.slice(3).map((standing) => (
+          <Standing key={standing.name} standing={standing} />
+        ))}
       </div>
     </main>
   );

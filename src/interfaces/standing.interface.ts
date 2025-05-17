@@ -5,5 +5,8 @@ export interface Standing {
   score: number;
   rank: number;
   isTied: boolean;
+  lowestRankedPlayerBonus: boolean;
+  madeCutBonus: boolean;
+  firstPlaceBonus: boolean;
   players: Player[];
 }

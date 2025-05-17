@@ -2,48 +2,69 @@ import { Standing as StandingType } from "@/interfaces/standing.interface";
 import Button from "./button";
 import { useState } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import Player from "./player";
 export default function Standing({ standing }: { standing: StandingType }) {
   const [isOpen, setIsOpen] = useState(false);
   const [playersRef] = useAutoAnimate();
 
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-px">
       <Button
         className="flex items-center justify-between bg-white rounded shadow p-2 w-full"
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className="flex items-center gap-2">
-          <p className="p-1 w-10 text-white text-sm font-bold bg-gray-600 text-center rounded">{`${standing.isTied ? "T" : ""}${standing.rank}`}</p>
-          <p>{standing.name}</p>
+          <div className="flex flex-col items-center">
+            <label className="text-xs text-gray-500">Rank</label>
+            <p className="p-1 w-10 text-white text-sm font-bold bg-gray-600 text-center rounded">
+              {`${standing.isTied ? "T" : ""}${standing.rank}`}
+            </p>
+          </div>
+          <p className="text-black">{standing.name}</p>
         </div>
-        <p className="font-bold text-sm w-14 bg-gray-200 rounded p-1">
-          {standing.score}
-        </p>
+        <div className="flex items-center gap-1">
+          {standing.lowestRankedPlayerBonus && (
+            <div className="flex flex-col items-center">
+              <label className="text-xs text-gray-500">Bonus</label>
+              <p className="font-bold text-sm w-10 rounded p-1 text-center bg-purple-200 text-purple-800">
+                Low
+              </p>
+            </div>
+          )}
+          {standing.firstPlaceBonus && (
+            <div className="flex flex-col items-center">
+              <label className="text-xs text-gray-500">Bonus</label>
+              <p className="font-bold text-sm w-10 rounded p-1 text-center bg-amber-200 text-amber-800">
+                First
+              </p>
+            </div>
+          )}
+          {standing.madeCutBonus && (
+            <div className="flex flex-col items-center">
+              <label className="text-xs text-gray-500">Bonus</label>
+              <p className="font-bold text-sm w-10 rounded p-1 text-center bg-green-200 text-green-800">
+                MC
+              </p>
+            </div>
+          )}
+          <div className="flex flex-col items-center">
+            <label className="text-xs text-gray-500">Points</label>
+            <p className="font-bold text-sm w-11 bg-gray-200 rounded p-1 text-center text-black">
+              {standing.score}
+            </p>
+          </div>
+        </div>
       </Button>
 
       <div ref={playersRef}>
         {isOpen && (
-          <div className="flex flex-col gap-px">
+          <div className="flex flex-col gap-px rounded-b overflow-hidden">
             {standing.players.map((player) => {
-              const name = `${player.firstName} ${player.lastName}`;
               return (
-                <div
-                  key={name}
-                  className="flex bg-white items-center justify-between p-1"
-                >
-                  <div className="flex items-center gap-1">
-                    <p className="font-bold bg-gray-200 text-sm rounded p-1 w-10 text-center">
-                      {`${player.isTied ? "T" : ""}${player.place}`}
-                    </p>
-                    <p className="font-bold bg-gray-200 text-sm rounded-full p-1 size-7 text-center">
-                      {player.rank}
-                    </p>
-                    <p>{name}</p>
-                  </div>
-                  <p className="font-bold text-sm w-14 bg-gray-200 rounded p-1 text-center">
-                    {player.fantasyScore}
-                  </p>
-                </div>
+                <Player
+                  key={`${player.firstName} ${player.lastName}`}
+                  player={player}
+                />
               );
             })}
           </div>
