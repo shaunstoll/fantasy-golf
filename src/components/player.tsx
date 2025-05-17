@@ -77,7 +77,11 @@ export default function Player({ player }: { player: PlayerType }) {
                   : "bg-gray-700"
             }`}
           >
-            {player.score > 0 ? `+${player.score}` : player.score}
+            {player.score > 0
+              ? `+${player.score}`
+              : player.score === 0
+                ? "E"
+                : player.score}
           </p>
         </div>
       </div>

@@ -61,10 +61,11 @@ export default class DataGolfClient {
       const isCut = p.p === "CUT";
       const withdrawn = p.p === "WD";
       const isTied = p.p.startsWith("T");
+      const isEvenPar = p.s === "E";
       leaderboard[`${p.f} ${p.l}`] = {
         nationality: p.n,
-        score: parseInt(p.s),
-        thru: parseInt(p.t.toString().replace("R", "")),
+        score: isEvenPar ? 0 : parseInt(p.s),
+        thru: parseInt(p.t.toString()),
         isTied,
         place: isCut || withdrawn ? Infinity : parseInt(p.p.replace("T", "")),
         status: isCut
