@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Baloo_2 as Font } from "next/font/google";
 import "./globals.css";
 import { TRPCReactProvider } from "@/trpc/react";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const font = Font({
