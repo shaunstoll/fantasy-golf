@@ -8,7 +8,7 @@ export interface Player {
   nationality: string;
   status: PlayerStatus;
   score: number;
-  thru: number;
+  thru: string;
   lowestRankedPlayerBonus: boolean;
   madeCutBonus: boolean;
   firstPlaceBonus: boolean;

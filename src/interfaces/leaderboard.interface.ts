@@ -4,7 +4,7 @@ export interface Leaderboard {
   [key: string]: {
     nationality: string;
     score: number;
-    thru: number;
+    thru: string;
     isTied: boolean;
     place: number;
     status: PlayerStatus;
