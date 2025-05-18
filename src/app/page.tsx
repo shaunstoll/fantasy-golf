@@ -20,12 +20,10 @@ export default function Home() {
   if (!standingsQuery.data) return <main>No standings found</main>;
 
   return (
-    <main className="p-2">
-      <div className="flex flex-col gap-1" ref={standingsRef}>
-        {standingsQuery.data.map((standing) => (
-          <Standing key={standing.name} standing={standing} />
-        ))}
-      </div>
+    <main className="flex flex-col gap-1 overflow-auto" ref={standingsRef}>
+      {standingsQuery.data.map((standing) => (
+        <Standing key={standing.name} standing={standing} />
+      ))}
     </main>
   );
 }

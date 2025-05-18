@@ -13,6 +13,28 @@ const font = Font({
 export const metadata: Metadata = {
   title: "Fantasy Golf",
   description: "The Frankel Fantasy Golf League",
+  icons: {
+    icon: [
+      {
+        url: "/favicons/favicon-48x48.png",
+        sizes: "48x48",
+        type: "image/png",
+      },
+      {
+        url: "/favicons/favicon-1024x1024.png",
+        sizes: "1024x1024",
+        type: "image/png",
+      },
+    ],
+    apple: [
+      {
+        rel: "apple-touch-icon",
+        url: "/favicons/favicon-180x180.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -25,9 +47,7 @@ export default function RootLayout({
       <body className={`${font.variable} antialiased overflow-hidden`}>
         <TRPCReactProvider>
           <div className="bg-gray-200 dark:bg-gray-900 text-black dark:text-white">
-            <div className="max-w-screen-sm mx-auto h-dvh overflow-auto">
-              {children}
-            </div>
+            <div className="max-w-screen-sm mx-auto h-dvh">{children}</div>
           </div>
         </TRPCReactProvider>
         <Analytics />
