@@ -10,12 +10,14 @@ export default function Standing({ standing }: { standing: StandingType }) {
   return (
     <div className="flex flex-col gap-px">
       <Button
-        className="flex items-center justify-between gap-1 bg-white rounded shadow p-2 w-full"
+        className="flex items-center justify-between gap-1 bg-white dark:bg-gray-800 rounded shadow p-2 w-full"
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className="flex items-center gap-2 overflow-hidden">
           <div className="flex flex-col items-center">
-            <label className="text-xs text-gray-500">Rank</label>
+            <label className="text-xs text-gray-500 dark:text-white">
+              Rank
+            </label>
             <p
               className={`p-1 w-10 text-sm font-bold text-center rounded ${
                 standing.rank === 1
@@ -30,12 +32,14 @@ export default function Standing({ standing }: { standing: StandingType }) {
               {`${standing.isTied ? "T" : ""}${standing.rank}`}
             </p>
           </div>
-          <p className="text-black truncate">{standing.name}</p>
+          <p className=" truncate">{standing.name}</p>
         </div>
         <div className="flex items-center gap-1">
           {standing.lowestRankedPlayerBonus && (
             <div className="flex flex-col items-center">
-              <label className="text-xs text-gray-500">Bonus</label>
+              <label className="text-xs text-gray-500 dark:text-white">
+                Bonus
+              </label>
               <p className="font-bold text-sm w-10 rounded p-1 text-center bg-purple-200 text-purple-800">
                 Low
               </p>
@@ -43,7 +47,9 @@ export default function Standing({ standing }: { standing: StandingType }) {
           )}
           {standing.firstPlaceBonus && (
             <div className="flex flex-col items-center">
-              <label className="text-xs text-gray-500">Bonus</label>
+              <label className="text-xs text-gray-500 dark:text-white">
+                Bonus
+              </label>
               <p className="font-bold text-sm w-10 rounded p-1 text-center bg-amber-200 text-amber-800">
                 1st
               </p>
@@ -51,14 +57,18 @@ export default function Standing({ standing }: { standing: StandingType }) {
           )}
           {standing.madeCutBonus && (
             <div className="flex flex-col items-center">
-              <label className="text-xs text-gray-500">Bonus</label>
+              <label className="text-xs text-gray-500 dark:text-white">
+                Bonus
+              </label>
               <p className="font-bold text-sm w-10 rounded p-1 text-center bg-green-200 text-green-800">
                 MC
               </p>
             </div>
           )}
           <div className="flex flex-col items-center">
-            <label className="text-xs text-gray-500">Points</label>
+            <label className="text-xs text-gray-500 dark:text-white">
+              Points
+            </label>
             <p className="font-bold text-sm w-11 bg-gray-200 rounded p-1 text-center text-black">
               {standing.score}
             </p>

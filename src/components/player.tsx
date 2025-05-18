@@ -11,20 +11,22 @@ export default function Player({ player }: { player: PlayerType }) {
           ? `T${player.place}`
           : player.place;
   return (
-    <div className="flex bg-white items-center justify-between p-1 pr-2">
+    <div className="flex bg-white dark:bg-gray-800 items-center justify-between p-1 pr-2">
       <div className="flex items-center gap-1">
-        <p className="font-bold text-black text-sm rounded p-1 w-9 text-center">
+        <p className="font-bold  text-sm rounded p-1 w-9 text-center">
           {place}
         </p>
         <div>
-          <p className="text-black text-xs">{player.firstName}</p>
-          <p className="text-black">{player.lastName}</p>
+          <p className=" text-xs">{player.firstName}</p>
+          <p className="">{player.lastName}</p>
         </div>
       </div>
       <div className="flex items-center gap-1">
         {player.multiplier > 1 && (
           <div className="flex flex-col items-center">
-            <label className="text-xs text-gray-500">Weight</label>
+            <label className="text-xs text-gray-500 dark:text-white">
+              Weight
+            </label>
             <p className="font-bold text-xs w-9 rounded p-1 text-center bg-blue-200 text-blue-800">
               {player.multiplier}x
             </p>
@@ -32,7 +34,9 @@ export default function Player({ player }: { player: PlayerType }) {
         )}
         {player.lowestRankedPlayerBonus && (
           <div className="flex flex-col items-center">
-            <label className="text-xs text-gray-500">Bonus</label>
+            <label className="text-xs text-gray-500 dark:text-white">
+              Bonus
+            </label>
             <p className="font-bold text-xs w-9 rounded p-1 text-center bg-purple-200 text-purple-800">
               Low
             </p>
@@ -40,7 +44,9 @@ export default function Player({ player }: { player: PlayerType }) {
         )}
         {player.firstPlaceBonus && (
           <div className="flex flex-col items-center">
-            <label className="text-xs text-gray-500">Bonus</label>
+            <label className="text-xs text-gray-500 dark:text-white">
+              Bonus
+            </label>
             <p className="font-bold text-xs w-9 rounded p-1 text-center bg-amber-200 text-amber-800">
               1st
             </p>
@@ -48,32 +54,36 @@ export default function Player({ player }: { player: PlayerType }) {
         )}
         {player.madeCutBonus && (
           <div className="flex flex-col items-center">
-            <label className="text-xs text-gray-500">Bonus</label>
+            <label className="text-xs text-gray-500 dark:text-white">
+              Bonus
+            </label>
             <p className="font-bold text-xs w-9 rounded p-1 text-center bg-green-200 text-green-800">
               MC
             </p>
           </div>
         )}
         <div className="flex flex-col items-center">
-          <label className="text-xs text-gray-500">Rank</label>
+          <label className="text-xs text-gray-500 dark:text-white">Rank</label>
           <p className="text-gray-800 font-bold text-xs w-9 bg-gray-200 rounded p-1 text-center">
             {player.rank}
           </p>
         </div>
         <div className="flex flex-col items-center">
-          <label className="text-xs text-gray-500">Points</label>
+          <label className="text-xs text-gray-500 dark:text-white">
+            Points
+          </label>
           <p className="text-white font-bold text-xs w-9 bg-gray-600 rounded p-1 text-center">
             {player.fantasyScore}
           </p>
         </div>
         <div className="flex flex-col items-center">
-          <label className="text-xs text-gray-500">Thru</label>
+          <label className="text-xs text-gray-500 dark:text-white">Thru</label>
           <p className="text-gray-800 font-bold text-xs w-9 bg-gray-200 rounded p-1 text-center">
             {player.thru}
           </p>
         </div>
         <div className="flex flex-col items-center">
-          <label className="text-xs text-gray-500">Score</label>
+          <label className="text-xs text-gray-500 dark:text-white">Score</label>
           <p
             className={`font-bold text-xs w-9 text-white rounded p-1 text-center ${
               player.score > 0
