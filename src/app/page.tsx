@@ -1,9 +1,11 @@
 "use client";
+import Button from "@/components/button";
 import Footer from "@/components/footer";
 import StandingsSkeleton from "@/components/loaders/standings.skeleton";
 import Standing from "@/components/standing";
 import { api } from "@/trpc/react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import Link from "next/link";
 
 export default function Home() {
   const [standingsRef] = useAutoAnimate();
@@ -13,7 +15,20 @@ export default function Home() {
 
   if (standingsQuery.error) {
     console.error(standingsQuery.error);
-    return <main>Error: {standingsQuery.error.message}</main>;
+    return (
+      <main className="flex flex-col gap-2 items-center justify-center h-2/3 text-xl">
+        <div className="flex flex-col items-center">
+          <p>An error occurred.</p>
+          <p>Error: {standingsQuery.error.message}</p>
+          <p>Please try refreshing the page.</p>
+        </div>
+        <Link href="/">
+          <Button className="rounded bg-orange-500 py-1 px-2 font-bold shadow">
+            Refresh
+          </Button>
+        </Link>
+      </main>
+    );
   }
 
   if (standingsQuery.isLoading) return <StandingsSkeleton />;
