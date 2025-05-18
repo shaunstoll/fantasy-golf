@@ -21,11 +21,7 @@ export default function Home() {
   return (
     <main className="p-2 bg-gray-200">
       <div className="flex flex-col gap-1" ref={standingsRef}>
-        {standingsQuery.data.slice(0, 3).map((standing) => (
-          <Standing key={standing.name} standing={standing} />
-        ))}
-        <hr className="border-gray-800" />
-        {standingsQuery.data.slice(3).map((standing) => (
+        {standingsQuery.data.map((standing) => (
           <Standing key={standing.name} standing={standing} />
         ))}
       </div>

@@ -10,17 +10,27 @@ export default function Standing({ standing }: { standing: StandingType }) {
   return (
     <div className="flex flex-col gap-px">
       <Button
-        className="flex items-center justify-between bg-white rounded shadow p-2 w-full"
+        className="flex items-center justify-between gap-1 bg-white rounded shadow p-2 w-full"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 overflow-hidden">
           <div className="flex flex-col items-center">
             <label className="text-xs text-gray-500">Rank</label>
-            <p className="p-1 w-10 text-white text-sm font-bold bg-gray-600 text-center rounded">
+            <p
+              className={`p-1 w-10 text-sm font-bold text-center rounded ${
+                standing.rank === 1
+                  ? "bg-amber-200 text-amber-800"
+                  : standing.rank === 2
+                    ? "bg-slate-200 text-slate-800"
+                    : standing.rank === 3
+                      ? "bg-orange-200 text-orange-800"
+                      : "bg-gray-600 text-white"
+              }`}
+            >
               {`${standing.isTied ? "T" : ""}${standing.rank}`}
             </p>
           </div>
-          <p className="text-black">{standing.name}</p>
+          <p className="text-black truncate">{standing.name}</p>
         </div>
         <div className="flex items-center gap-1">
           {standing.lowestRankedPlayerBonus && (
@@ -35,7 +45,7 @@ export default function Standing({ standing }: { standing: StandingType }) {
             <div className="flex flex-col items-center">
               <label className="text-xs text-gray-500">Bonus</label>
               <p className="font-bold text-sm w-10 rounded p-1 text-center bg-amber-200 text-amber-800">
-                First
+                1st
               </p>
             </div>
           )}

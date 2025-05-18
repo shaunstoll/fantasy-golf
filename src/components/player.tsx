@@ -42,7 +42,7 @@ export default function Player({ player }: { player: PlayerType }) {
           <div className="flex flex-col items-center">
             <label className="text-xs text-gray-500">Bonus</label>
             <p className="font-bold text-xs w-9 rounded p-1 text-center bg-amber-200 text-amber-800">
-              First
+              1st
             </p>
           </div>
         )}
