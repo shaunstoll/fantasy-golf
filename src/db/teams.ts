@@ -388,9 +388,9 @@ export const teams = [
         rank: 5,
       },
       {
-        firstName: "Si Woo",
+        firstName: "Tom",
         lastName: "Kim",
-        rank: 30,
+        rank: 96,
       },
       {
         firstName: "Joaquin",
