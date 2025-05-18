@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="flex items-center justify-between text-sm">
       <div className="flex items-center">
-        <Image src={creator} alt="Creator" width={48} height={48} />
+        <Image src={creator} alt="Creator" className="w-12" />
         <div className="flex flex-col">
           <p>Have a Suggestion?</p>
           <div className="flex items-center gap-1">
@@ -22,7 +22,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="flex items-center gap-1 pr-1">
-        <Image src={icon} alt="YUFA" width={48} height={48} />
+        <Image src={icon} alt="YUFA" className="w-12" />
         <div className="flex flex-col">
           <p>Play Fantasy Football?</p>
           <div className="flex items-center gap-1">
