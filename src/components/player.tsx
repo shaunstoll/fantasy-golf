@@ -1,5 +1,6 @@
 import { Player as PlayerType } from "@/interfaces/player.interface";
 import { PlayerStatus } from "@/enums/player-status.enum";
+import Attribute from "./attribute";
 
 export default function Player({ player }: { player: PlayerType }) {
   const place =
@@ -23,83 +24,73 @@ export default function Player({ player }: { player: PlayerType }) {
       </div>
       <div className="flex flex-wrap items-center gap-1 justify-end">
         {player.multiplier > 1 && (
-          <div className="flex flex-col items-center">
-            <label className="text-xs text-gray-500 dark:text-white">
-              Weight
-            </label>
-            <p className="font-bold text-sm w-10 rounded p-1 text-center bg-blue-200 text-blue-800">
-              {player.multiplier}x
-            </p>
-          </div>
+          <Attribute
+            labelClassName="text-xs"
+            valueClassName="bg-blue-200 text-blue-800"
+            label="Weight"
+            value={`${player.multiplier}x`}
+          />
         )}
         {player.lowestRankedPlayerBonus && (
-          <div className="flex flex-col items-center">
-            <label className="text-xs text-gray-500 dark:text-white">
-              Bonus
-            </label>
-            <p className="font-bold text-sm w-10 rounded p-1 text-center bg-purple-200 text-purple-800">
-              Low
-            </p>
-          </div>
+          <Attribute
+            labelClassName="text-xs"
+            valueClassName="bg-purple-200 text-purple-800"
+            label="Bonus"
+            value="Low"
+          />
         )}
         {player.firstPlaceBonus && (
-          <div className="flex flex-col items-center">
-            <label className="text-xs text-gray-500 dark:text-white">
-              Bonus
-            </label>
-            <p className="font-bold text-sm w-10 rounded p-1 text-center bg-amber-200 text-amber-800">
-              1st
-            </p>
-          </div>
+          <Attribute
+            labelClassName="text-xs"
+            valueClassName="bg-amber-200 text-amber-800"
+            label="Bonus"
+            value="1st"
+          />
         )}
         {player.madeCutBonus && (
-          <div className="flex flex-col items-center">
-            <label className="text-xs text-gray-500 dark:text-white">
-              Bonus
-            </label>
-            <p className="font-bold text-sm w-10 rounded p-1 text-center bg-green-200 text-green-800">
-              MC
-            </p>
-          </div>
+          <Attribute
+            labelClassName="text-xs"
+            valueClassName="bg-green-200 text-green-800"
+            label="Bonus"
+            value="MC"
+          />
         )}
-        <div className="flex flex-col items-center">
-          <label className="text-xs text-gray-500 dark:text-white">Rank</label>
-          <p className="text-gray-800 font-bold text-sm w-10 bg-gray-200 rounded p-1 text-center">
-            {player.rank}
-          </p>
-        </div>
-        <div className="flex flex-col items-center">
-          <label className="text-xs text-gray-500 dark:text-white">
-            Points
-          </label>
-          <p className="text-white font-bold text-sm w-10 bg-gray-600 rounded p-1 text-center">
-            {player.fantasyScore}
-          </p>
-        </div>
-        <div className="flex flex-col items-center">
-          <label className="text-xs text-gray-500 dark:text-white">Thru</label>
-          <p className="text-gray-800 font-bold text-sm w-10 bg-gray-200 rounded p-1 text-center">
-            {player.thru}
-          </p>
-        </div>
-        <div className="flex flex-col items-center">
-          <label className="text-xs text-gray-500 dark:text-white">Score</label>
-          <p
-            className={`font-bold text-sm w-10 text-white rounded p-1 text-center ${
-              player.score > 0
-                ? "bg-green-700"
-                : player.score < 0
-                  ? "bg-red-700"
-                  : "bg-gray-600"
-            }`}
-          >
-            {player.score > 0
+        <Attribute
+          labelClassName="text-xs"
+          valueClassName="bg-gray-200 text-black"
+          label="Rank"
+          value={player.rank}
+        />
+        <Attribute
+          labelClassName="text-xs"
+          valueClassName="bg-gray-600 text-white"
+          label="Points"
+          value={player.fantasyScore}
+        />
+        <Attribute
+          labelClassName="text-xs"
+          valueClassName="bg-gray-200 text-black"
+          label="Thru"
+          value={player.thru}
+        />
+        <Attribute
+          labelClassName="text-xs"
+          valueClassName={`font-bold text-sm w-10 text-white rounded p-1 text-center ${
+            player.score > 0
+              ? "bg-green-700"
+              : player.score < 0
+                ? "bg-red-700"
+                : "bg-gray-600"
+          }`}
+          label="Score"
+          value={
+            player.score > 0
               ? `+${player.score}`
               : player.score === 0
                 ? "E"
-                : player.score}
-          </p>
-        </div>
+                : player.score
+          }
+        />
       </div>
     </div>
   );

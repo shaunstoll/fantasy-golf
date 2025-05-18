@@ -3,6 +3,7 @@ import Button from "./button";
 import { useState } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import Player from "./player";
+import Attribute from "./attribute";
 export default function Standing({ standing }: { standing: StandingType }) {
   const [isOpen, setIsOpen] = useState(false);
   const [playersRef] = useAutoAnimate();
@@ -14,65 +15,53 @@ export default function Standing({ standing }: { standing: StandingType }) {
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className="flex items-center gap-2 overflow-hidden">
-          <div className="flex flex-col items-center">
-            <label className="text-sm text-gray-500 dark:text-white">
-              Rank
-            </label>
-            <p
-              className={`p-1 w-10 text-sm font-bold text-center rounded ${
-                standing.rank === 1
-                  ? "bg-amber-200 text-amber-800"
-                  : standing.rank === 2
-                    ? "bg-slate-200 text-slate-800"
-                    : standing.rank === 3
-                      ? "bg-orange-200 text-orange-800"
-                      : "bg-gray-600 text-white"
-              }`}
-            >
-              {`${standing.isTied ? "T" : ""}${standing.rank}`}
-            </p>
-          </div>
+          <Attribute
+            labelClassName="text-sm"
+            valueClassName={
+              standing.rank === 1
+                ? "bg-amber-200 text-amber-800"
+                : standing.rank === 2
+                  ? "bg-slate-200 text-slate-800"
+                  : standing.rank === 3
+                    ? "bg-orange-200 text-orange-800"
+                    : "bg-gray-600 text-white"
+            }
+            label="Rank"
+            value={`${standing.isTied ? "T" : ""}${standing.rank}`}
+          />
           <p className="truncate">{standing.name}</p>
         </div>
         <div className="flex items-center gap-1">
           {standing.lowestRankedPlayerBonus && (
-            <div className="flex flex-col items-center">
-              <label className="text-sm text-gray-500 dark:text-white">
-                Bonus
-              </label>
-              <p className="font-bold text-sm w-10 rounded p-1 text-center bg-purple-200 text-purple-800">
-                Low
-              </p>
-            </div>
+            <Attribute
+              labelClassName="text-sm"
+              valueClassName="bg-purple-200 text-purple-800"
+              label="Bonus"
+              value="Low"
+            />
           )}
           {standing.firstPlaceBonus && (
-            <div className="flex flex-col items-center">
-              <label className="text-sm text-gray-500 dark:text-white">
-                Bonus
-              </label>
-              <p className="font-bold text-sm w-10 rounded p-1 text-center bg-amber-200 text-amber-800">
-                1st
-              </p>
-            </div>
+            <Attribute
+              labelClassName="text-sm"
+              valueClassName="bg-amber-200 text-amber-800"
+              label="Bonus"
+              value="1st"
+            />
           )}
           {standing.madeCutBonus && (
-            <div className="flex flex-col items-center">
-              <label className="text-sm text-gray-500 dark:text-white">
-                Bonus
-              </label>
-              <p className="font-bold text-sm w-10 rounded p-1 text-center bg-green-200 text-green-800">
-                MC
-              </p>
-            </div>
+            <Attribute
+              labelClassName="text-sm"
+              valueClassName="bg-green-200 text-green-800"
+              label="Bonus"
+              value="MC"
+            />
           )}
-          <div className="flex flex-col items-center">
-            <label className="text-sm text-gray-500 dark:text-white">
-              Points
-            </label>
-            <p className="font-bold text-sm w-11 bg-gray-200 rounded p-1 text-center text-black">
-              {standing.score}
-            </p>
-          </div>
+          <Attribute
+            labelClassName="text-sm"
+            valueClassName="bg-gray-200 text-black"
+            label="Points"
+            value={standing.score}
+          />
         </div>
       </Button>
 
