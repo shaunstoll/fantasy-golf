@@ -1,4 +1,5 @@
 "use client";
+import StandingsSkeleton from "@/components/loaders/standings.skeleton";
 import Standing from "@/components/standing";
 import { api } from "@/trpc/react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
@@ -14,7 +15,7 @@ export default function Home() {
     return <main>Error: {standingsQuery.error.message}</main>;
   }
 
-  if (standingsQuery.isLoading) return <main>Loading...</main>;
+  if (standingsQuery.isLoading) return <StandingsSkeleton />;
 
   if (!standingsQuery.data) return <main>No standings found</main>;
 
