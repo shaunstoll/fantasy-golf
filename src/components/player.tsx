@@ -1,6 +1,7 @@
 import { Player as PlayerType } from "@/interfaces/player.interface";
 import { PlayerStatus } from "@/enums/player-status.enum";
 import Attribute from "./attribute";
+import Image from "next/image";
 
 export default function Player({ player }: { player: PlayerType }) {
   const place =
@@ -11,12 +12,19 @@ export default function Player({ player }: { player: PlayerType }) {
         : player.isTied
           ? `T${player.place}`
           : player.place;
+
   return (
     <div className="flex bg-white dark:bg-gray-800 justify-between p-1 pr-2">
       <div className="flex items-center gap-1">
-        <p className="font-bold  text-sm rounded p-1 w-9 text-center">
-          {place}
-        </p>
+        <div className="flex items-center flex-col">
+          <Image
+            src={`https://datagolf.com/static/flags/${player.nationality}.png`}
+            alt={player.nationality}
+            width={20}
+            height={20}
+          />
+          <p className="font-bold  text-sm rounded w-9 text-center">{place}</p>
+        </div>
         <div>
           <p className="text-sm">{player.firstName}</p>
           <p>{player.lastName}</p>
