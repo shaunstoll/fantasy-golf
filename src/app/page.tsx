@@ -1,4 +1,5 @@
 "use client";
+import Footer from "@/components/footer";
 import StandingsSkeleton from "@/components/loaders/standings.skeleton";
 import Standing from "@/components/standing";
 import { api } from "@/trpc/react";
@@ -24,6 +25,7 @@ export default function Home() {
       {standingsQuery.data.map((standing) => (
         <Standing key={standing.name} standing={standing} />
       ))}
+      <Footer />
     </main>
   );
 }

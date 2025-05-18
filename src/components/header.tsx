@@ -7,7 +7,7 @@ export default function Header() {
       <Image
         className="rounded-full"
         src={logo}
-        alt="Frankel Fantasy Golf"
+        alt="Fantasy Golf"
         width={32}
         height={32}
       />
