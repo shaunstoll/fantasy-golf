@@ -24,9 +24,6 @@ export default class ScoringService {
       let hasFirstPlaceBonus = false;
       const players: Player[] = [];
       let score = team.players.reduce((acc, player, index) => {
-        if (player.rank > lowestRankedPlayerInTop25) {
-          lowestRankedPlayerInTop25 = player.rank;
-        }
         const p = leaderboard[player.firstName + " " + player.lastName];
         if (!p) {
           console.error(
@@ -56,6 +53,9 @@ export default class ScoringService {
           }
           if (player.rank > 20) {
             playerTotal += 11;
+          }
+          if (player.rank > lowestRankedPlayerInTop25) {
+            lowestRankedPlayerInTop25 = player.rank;
           }
         }
         if (p.place > ScoringService.cutLine[tournament]) {
