@@ -6,12 +6,14 @@ import { standingsSnapshot } from "./snapshots/standings.snapshot";
 import { Standing } from "@/interfaces/standing.interface";
 
 function getNamesAndScores(standings: Standing[]) {
-  return standings.map((standing) => {
-    return {
-      name: standing.name,
-      score: standing.score,
-    };
-  });
+  return standings
+    .map((standing) => {
+      return {
+        name: standing.name,
+        score: standing.score,
+      };
+    })
+    .sort((a, b) => b.score - a.score);
 }
 
 describe("Scoring Test", () => {
