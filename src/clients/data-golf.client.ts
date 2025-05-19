@@ -1,21 +1,20 @@
 import axios from "axios";
-import type { TournamentData } from "../interfaces/tournament.interface";
-import type { Leaderboard } from "../interfaces/leaderboard.interface";
+import type { TournamentData } from "../interfaces/tournament-data.interface";
 import type { Ranking } from "../interfaces/ranking.interface";
 import { PlayerStatus } from "@/enums/player-status.enum";
+import { Tournament } from "@/interfaces/tournament.interface";
+import { env } from "@/env";
+import { TournamentName } from "@/enums/tournament.enum";
 
 export default class DataGolfClient {
   private cache: {
-    leaderboard: Leaderboard;
+    tournament: Tournament | null;
     timestamp: number;
-  } = {
-    leaderboard: {},
-    timestamp: 0,
   };
 
   constructor() {
     this.cache = {
-      leaderboard: {},
+      tournament: null,
       timestamp: 0,
     };
   }
@@ -49,25 +48,33 @@ export default class DataGolfClient {
     return rankings;
   }
 
-  async getLeaderboard() {
+  async getTournament(): Promise<Tournament> {
     if (this.cache.timestamp > Date.now() - 5000) {
-      return this.cache.leaderboard;
+      if (!this.cache.tournament) {
+        throw new Error("Expected tournament to be cached.");
+      }
+      return this.cache.tournament;
     }
     const response = await axios.get<TournamentData>(
       "https://letzig.datagolf.com/live-model/get-main-data/mini",
     );
-    const leaderboard: Leaderboard = {};
-    response.data.pga.lb.forEach((p) => {
-      const isCut = p.p === "CUT";
-      const withdrawn = p.p === "WD";
-      const isTied = p.p.startsWith("T");
-      const isEvenPar = p.s === "E";
-      leaderboard[`${p.f} ${p.l}`] = {
-        nationality: p.n,
-        score: isEvenPar ? 0 : parseInt(p.s),
-        thru: p.t.toString(),
+    const tournamentData = response.data.pga;
+    const tournament: Tournament = {
+      name: env.NEXT_PUBLIC_TOURNAMENT as TournamentName,
+      round: parseInt(tournamentData.info.current_round),
+      leaderboard: {},
+    };
+    tournamentData.lb.forEach((player) => {
+      const isCut = player.p === "CUT";
+      const withdrawn = player.p === "WD";
+      const isTied = player.p.startsWith("T");
+      const isEvenPar = player.s === "E";
+      tournament.leaderboard[`${player.f} ${player.l}`] = {
+        nationality: player.n,
+        score: isEvenPar ? 0 : parseInt(player.s),
+        thru: player.t.toString(),
         isTied,
-        place: isCut || withdrawn ? Infinity : parseInt(p.p.replace("T", "")),
+        place: isCut || withdrawn ? null : parseInt(player.p.replace("T", "")),
         status: isCut
           ? PlayerStatus.MISSED_CUT
           : withdrawn
@@ -77,9 +84,9 @@ export default class DataGolfClient {
       };
     });
     this.cache = {
-      leaderboard,
+      tournament,
       timestamp: Date.now(),
     };
-    return leaderboard;
+    return tournament;
   }
 }

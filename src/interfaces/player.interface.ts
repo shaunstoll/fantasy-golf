@@ -4,7 +4,7 @@ export interface Player {
   firstName: string;
   lastName: string;
   rank: number;
-  place: number;
+  place: number | null;
   nationality: string;
   status: PlayerStatus;
   score: number;

@@ -1,30 +1,27 @@
-import type { Leaderboard } from "../interfaces/leaderboard.interface";
 import { Player } from "../interfaces/player.interface";
 import { Team } from "../interfaces/team.interface";
 import { Standing } from "../interfaces/standing.interface";
-import { TournamentType } from "@/enums/tournament.enum";
+import { TournamentName } from "@/enums/tournament.enum";
+import { Tournament } from "@/interfaces/tournament.interface";
 
 export default class ScoringService {
   private static cutLine = {
-    [TournamentType.Masters]: 50,
-    [TournamentType.UsOpen]: 60,
-    [TournamentType.Pga]: 70,
-    [TournamentType.Open]: 70,
+    [TournamentName.Masters]: 50,
+    [TournamentName.UsOpen]: 60,
+    [TournamentName.Pga]: 70,
+    [TournamentName.Open]: 70,
   };
 
-  getStandings(
-    teams: Team[],
-    leaderboard: Leaderboard,
-    tournament: TournamentType,
-  ) {
+  getStandings(teams: Team[], tournament: Tournament) {
     const standings: Standing[] = [];
     let lowestRankedPlayerInTop25 = 0;
     teams.forEach((team) => {
-      let hasCutBonus = true;
+      let allPlayersMadeCutBonus = true;
       let hasFirstPlaceBonus = false;
       const players: Player[] = [];
       let score = team.players.reduce((acc, player, index) => {
-        const p = leaderboard[player.firstName + " " + player.lastName];
+        const p =
+          tournament.leaderboard[player.firstName + " " + player.lastName];
         if (!p) {
           console.error(
             `Player ${player.firstName} ${player.lastName} not found in leaderboard`,
@@ -33,37 +30,44 @@ export default class ScoringService {
         }
         const multiplier = index === 0 ? 2 : index === 1 ? 1.5 : 1;
         let playerTotal = 0;
-        let insideCutLineBonus = false;
+        let insideCutLineOrMadCutBonus = false;
         let firstPlaceBonus = false;
-        if (p.place === 1 && !p.isTied) {
-          playerTotal += 15;
-          firstPlaceBonus = true;
-          hasFirstPlaceBonus = true;
-        }
-        if (p.place <= 10) {
-          playerTotal += 11 - p.place;
-        }
-        if (p.place <= 15) {
-          playerTotal += 4;
-        }
-        if (p.place <= 25) {
-          playerTotal += 3;
-          if (player.rank > 10 && player.rank <= 20) {
-            playerTotal += 6;
+
+        if (!p.place) {
+          allPlayersMadeCutBonus = false;
+        } else {
+          if (p.place === 1 && !p.isTied) {
+            playerTotal += 15;
+            firstPlaceBonus = true;
+            hasFirstPlaceBonus = true;
           }
-          if (player.rank > 20) {
-            playerTotal += 11;
+          if (p.place <= 10) {
+            playerTotal += 11 - p.place;
           }
-          if (player.rank > lowestRankedPlayerInTop25) {
-            lowestRankedPlayerInTop25 = player.rank;
+          if (p.place <= 15) {
+            playerTotal += 4;
           }
-        }
-        if (p.place > ScoringService.cutLine[tournament]) {
-          hasCutBonus = false;
-          // Made Cut Bonus
-        } else if (player.rank > 5) {
-          playerTotal += 5;
-          insideCutLineBonus = true;
+          if (p.place <= 25) {
+            playerTotal += 3;
+            if (player.rank > 10 && player.rank <= 20) {
+              playerTotal += 6;
+            }
+            if (player.rank > 20) {
+              playerTotal += 11;
+            }
+            if (player.rank > lowestRankedPlayerInTop25) {
+              lowestRankedPlayerInTop25 = player.rank;
+            }
+          }
+          if (
+            tournament.round < 3 &&
+            p.place > ScoringService.cutLine[tournament.name]
+          ) {
+            allPlayersMadeCutBonus = false;
+          } else if (player.rank > 5) {
+            playerTotal += 5;
+            insideCutLineOrMadCutBonus = true;
+          }
         }
         players.push({
           firstName: player.firstName,
@@ -77,13 +81,13 @@ export default class ScoringService {
           score: p.score,
           thru: p.thru,
           lowestRankedPlayerBonus: false,
-          madeCutBonus: insideCutLineBonus,
+          madeCutBonus: insideCutLineOrMadCutBonus,
           firstPlaceBonus: firstPlaceBonus,
           multiplier: multiplier,
         });
         return acc + playerTotal * multiplier;
       }, 0);
-      if (hasCutBonus) {
+      if (allPlayersMadeCutBonus) {
         score += 15;
       }
       standings.push({
@@ -93,7 +97,7 @@ export default class ScoringService {
         rank: 0,
         isTied: false,
         lowestRankedPlayerBonus: false,
-        madeCutBonus: hasCutBonus,
+        madeCutBonus: allPlayersMadeCutBonus,
         firstPlaceBonus: hasFirstPlaceBonus,
       });
     });
@@ -106,7 +110,9 @@ export default class ScoringService {
           team.lowestRankedPlayerBonus = true;
         }
       });
-      team.players.sort((a, b) => a.place - b.place);
+      team.players.sort(
+        (a, b) => (a.place ?? Infinity) - (b.place ?? Infinity),
+      );
     });
     standings.sort((a, b) => b.score - a.score);
     let currentRank = 1;

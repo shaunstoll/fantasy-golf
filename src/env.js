@@ -1,6 +1,6 @@
 import { createEnv } from "@t3-oss/env-nextjs";
 import { z } from "zod";
-import { TournamentType } from "./enums/tournament.enum";
+import { TournamentName } from "./enums/tournament.enum";
 
 export const env = createEnv({
   /**
@@ -17,7 +17,7 @@ export const env = createEnv({
    * `NEXT_PUBLIC_`.
    */
   client: {
-    NEXT_PUBLIC_TOURNAMENT: z.enum(Object.values(TournamentType)),
+    NEXT_PUBLIC_TOURNAMENT: z.enum(Object.values(TournamentName)),
   },
 
   /**

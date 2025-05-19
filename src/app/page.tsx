@@ -9,7 +9,7 @@ import Link from "next/link";
 
 export default function Home() {
   const [standingsRef] = useAutoAnimate();
-  const standingsQuery = api.leaderboard.get.useQuery(undefined, {
+  const standingsQuery = api.tournament.get.useQuery(undefined, {
     refetchInterval: 5000,
   });
 

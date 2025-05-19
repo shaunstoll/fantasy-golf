@@ -6,7 +6,7 @@ export interface Leaderboard {
     score: number;
     thru: string;
     isTied: boolean;
-    place: number;
+    place: number | null;
     status: PlayerStatus;
   };
 }
