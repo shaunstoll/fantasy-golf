@@ -9,9 +9,11 @@ export default function Player({ player }: { player: PlayerType }) {
       ? "MC"
       : player.status === PlayerStatus.WITHDRAWN
         ? "WD"
-        : player.isTied
-          ? `T${player.place}`
-          : player.place;
+        : player.status === PlayerStatus.DID_NOT_START
+          ? "-"
+          : player.isTied
+            ? `T${player.place}`
+            : player.place;
 
   return (
     <div className="flex bg-white dark:bg-gray-800 justify-between p-1 pr-2">

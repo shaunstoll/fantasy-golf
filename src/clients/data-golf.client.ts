@@ -68,19 +68,24 @@ export default class DataGolfClient {
       const isCut = player.p === "CUT";
       const withdrawn = player.p === "WD";
       const isTied = player.p.startsWith("T");
+      const didNotStart = player.p === "-";
       const isEvenPar = player.s === "E";
       tournament.leaderboard[`${player.f} ${player.l}`] = {
         nationality: player.n,
         score: isEvenPar ? 0 : parseInt(player.s),
         thru: player.t.toString(),
         isTied,
-        place: isCut || withdrawn ? null : parseInt(player.p.replace("T", "")),
+        place:
+          isCut || withdrawn || didNotStart
+            ? null
+            : parseInt(player.p.replace("T", "")),
         status: isCut
           ? PlayerStatus.MISSED_CUT
           : withdrawn
             ? PlayerStatus.WITHDRAWN
-            : PlayerStatus.PLAYING,
-        // TODO: Determine how "Did Not Start" is represented
+            : didNotStart
+              ? PlayerStatus.DID_NOT_START
+              : PlayerStatus.PLAYING,
       };
     });
     this.cache = {
