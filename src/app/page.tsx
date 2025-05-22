@@ -3,11 +3,13 @@ import Button from "@/components/button";
 import Footer from "@/components/footer";
 import StandingsSkeleton from "@/components/loaders/standings.skeleton";
 import Standing from "@/components/standing";
+import { useStore } from "@/store";
 import { api } from "@/trpc/react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import Link from "next/link";
 
 export default function Home() {
+  const { favoriteTeams } = useStore();
   const [standingsRef] = useAutoAnimate();
   const standingsQuery = api.tournament.get.useQuery(undefined, {
     refetchInterval: 5000,
@@ -33,10 +35,13 @@ export default function Home() {
 
   if (standingsQuery.isLoading) return <StandingsSkeleton />;
 
-  if (!standingsQuery.data) return <main>No standings found</main>;
+  if (!standingsQuery.data) return <main>No Standings Found</main>;
 
   return (
     <main className="flex flex-col gap-1 overflow-auto" ref={standingsRef}>
+      {favoriteTeams.map((team) => (
+        <Standing key={team.name} standing={team} />
+      ))}
       {standingsQuery.data.map((standing) => (
         <Standing key={standing.name} standing={standing} />
       ))}

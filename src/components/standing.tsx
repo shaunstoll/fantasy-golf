@@ -4,66 +4,88 @@ import { useState } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import Player from "./player";
 import Attribute from "./attribute";
+import { Star } from "lucide-react";
+import { useStore } from "@/store";
+
 export default function Standing({ standing }: { standing: StandingType }) {
+  const { favoriteTeams, toggleFavoriteTeam } = useStore();
   const [isOpen, setIsOpen] = useState(false);
   const [playersRef] = useAutoAnimate();
 
   return (
     <div className="flex flex-col gap-px">
-      <Button
-        className="flex items-center justify-between gap-1 bg-white dark:bg-gray-800 rounded shadow p-2 w-full"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <div className="flex items-center gap-2 overflow-hidden">
-          <Attribute
-            labelClassName="text-sm"
-            valueClassName={
-              standing.rank === 1
-                ? "bg-amber-200 text-amber-800"
-                : standing.rank === 2
-                  ? "bg-slate-200 text-slate-800"
-                  : standing.rank === 3
-                    ? "bg-orange-200 text-orange-800"
-                    : "bg-gray-600 text-white"
+      <div className="flex items-center">
+        <Button
+          className="bg-white dark:bg-gray-800 rounded-l shadow h-full p-2"
+          onClick={(e) => {
+            e.stopPropagation();
+            toggleFavoriteTeam(standing);
+          }}
+        >
+          <Star
+            className="size-6 text-gray-500 dark:text-white"
+            fill={
+              favoriteTeams.some((t) => t.name === standing.name)
+                ? "currentColor"
+                : "none"
             }
-            label="Rank"
-            value={`${standing.isTied ? "T" : ""}${standing.rank}`}
           />
-          <p className="truncate">{standing.name}</p>
-        </div>
-        <div className="flex items-center gap-1">
-          {standing.lowestRankedPlayerBonus && (
+        </Button>
+        <Button
+          className="flex items-center justify-between gap-2 w-full bg-white dark:bg-gray-800 p-2 rounded-r shadow"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <div className="flex gap-3 items-center overflow-hidden">
             <Attribute
               labelClassName="text-sm"
-              valueClassName="bg-purple-200 text-purple-800"
-              label="Bonus"
-              value="Low"
+              valueClassName={
+                standing.rank === 1
+                  ? "bg-amber-200 text-amber-800"
+                  : standing.rank === 2
+                    ? "bg-slate-200 text-slate-800"
+                    : standing.rank === 3
+                      ? "bg-orange-200 text-orange-800"
+                      : "bg-gray-600 text-white"
+              }
+              label="Rank"
+              value={`${standing.isTied ? "T" : ""}${standing.rank}`}
             />
-          )}
-          {standing.firstPlaceBonus && (
+            <p className="truncate">{standing.name}</p>
+          </div>
+          <div className="flex items-center gap-1">
+            {standing.lowestRankedPlayerBonus && (
+              <Attribute
+                labelClassName="text-sm"
+                valueClassName="bg-purple-200 text-purple-800"
+                label="Bonus"
+                value="Low"
+              />
+            )}
+            {standing.firstPlaceBonus && (
+              <Attribute
+                labelClassName="text-sm"
+                valueClassName="bg-amber-200 text-amber-800"
+                label="Bonus"
+                value="1st"
+              />
+            )}
+            {standing.madeCutBonus && (
+              <Attribute
+                labelClassName="text-sm"
+                valueClassName="bg-green-200 text-green-800"
+                label="Bonus"
+                value="MC"
+              />
+            )}
             <Attribute
               labelClassName="text-sm"
-              valueClassName="bg-amber-200 text-amber-800"
-              label="Bonus"
-              value="1st"
+              valueClassName="bg-gray-200 text-black"
+              label="Points"
+              value={standing.score}
             />
-          )}
-          {standing.madeCutBonus && (
-            <Attribute
-              labelClassName="text-sm"
-              valueClassName="bg-green-200 text-green-800"
-              label="Bonus"
-              value="MC"
-            />
-          )}
-          <Attribute
-            labelClassName="text-sm"
-            valueClassName="bg-gray-200 text-black"
-            label="Points"
-            value={standing.score}
-          />
-        </div>
-      </Button>
+          </div>
+        </Button>
+      </div>
 
       <div ref={playersRef}>
         {isOpen && (

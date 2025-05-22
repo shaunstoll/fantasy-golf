@@ -4,6 +4,7 @@ import "./globals.css";
 import { TRPCReactProvider } from "@/trpc/react";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Header from "@/components/header";
 
 const font = Font({
   subsets: ["latin"],
@@ -47,7 +48,10 @@ export default function RootLayout({
       <body className={`${font.variable} antialiased overflow-hidden`}>
         <TRPCReactProvider>
           <div className="bg-gray-200 dark:bg-gray-900 text-black dark:text-white">
-            <div className="max-w-screen-sm mx-auto h-dvh">{children}</div>
+            <div className="max-w-screen-sm mx-auto h-dvh flex flex-col gap-1 p-1">
+              <Header />
+              {children}
+            </div>
           </div>
         </TRPCReactProvider>
         <Analytics />
