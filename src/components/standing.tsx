@@ -19,13 +19,13 @@ export default function Standing({ standing }: { standing: StandingType }) {
           className="bg-white dark:bg-gray-800 rounded-l shadow h-full p-2"
           onClick={(e) => {
             e.stopPropagation();
-            toggleFavoriteTeam(standing);
+            toggleFavoriteTeam(standing.name);
           }}
         >
           <Star
             className="size-6 text-gray-500 dark:text-white"
             fill={
-              favoriteTeams.some((t) => t.name === standing.name)
+              favoriteTeams.some((teamName) => teamName === standing.name)
                 ? "currentColor"
                 : "none"
             }

@@ -37,10 +37,14 @@ export default function Home() {
 
   if (!standingsQuery.data) return <main>No Standings Found</main>;
 
+  const favoriteStandings = standingsQuery.data.filter((standing) =>
+    favoriteTeams.includes(standing.name),
+  );
+
   return (
     <main className="flex flex-col gap-1 overflow-auto" ref={standingsRef}>
-      {favoriteTeams.map((team) => (
-        <Standing key={team.name} standing={team} />
+      {favoriteStandings.map((standing) => (
+        <Standing key={standing.name} standing={standing} />
       ))}
       {standingsQuery.data.map((standing) => (
         <Standing key={standing.name} standing={standing} />
