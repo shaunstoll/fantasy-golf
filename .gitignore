@@ -42,3 +42,6 @@ next-env.d.ts
 
 data/
 .vscode/
+
+test-results/
+playwright-report/
