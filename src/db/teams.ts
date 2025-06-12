@@ -2,587 +2,47 @@ import { Team } from "@/interfaces/team.interface";
 
 export const teams: Team[] = [
   {
-    name: "welch Wolfe",
-    players: [
-      {
-        firstName: "Rory",
-        lastName: "McIlroy",
-        rank: 2,
-      },
-      {
-        firstName: "Bryson",
-        lastName: "DeChambeau",
-        rank: 3,
-      },
-      {
-        firstName: "Scottie",
-        lastName: "Scheffler",
-        rank: 1,
-      },
-      {
-        firstName: "Justin",
-        lastName: "Thomas",
-        rank: 5,
-      },
-      {
-        firstName: "Hideki",
-        lastName: "Matsuyama",
-        rank: 16,
-      },
-      {
-        firstName: "Daniel",
-        lastName: "Berger",
-        rank: 17,
-      },
-      {
-        firstName: "Taylor",
-        lastName: "Pendrith",
-        rank: 65,
-      },
-      {
-        firstName: "Rasmus",
-        lastName: "Hojgaard",
-        rank: 77,
-      },
-    ],
-  },
-  {
-    name: "Searle Videlefsky",
-    players: [
-      {
-        firstName: "Scottie",
-        lastName: "Scheffler",
-        rank: 1,
-      },
-      {
-        firstName: "Ludvig",
-        lastName: "Aberg",
-        rank: 18,
-      },
-      {
-        firstName: "Daniel",
-        lastName: "Berger",
-        rank: 17,
-      },
-      {
-        firstName: "Xander",
-        lastName: "Schauffele",
-        rank: 8,
-      },
-      {
-        firstName: "Jordan",
-        lastName: "Spieth",
-        rank: 27,
-      },
-      {
-        firstName: "Jason",
-        lastName: "Day",
-        rank: 22,
-      },
-      {
-        firstName: "Max",
-        lastName: "Homa",
-        rank: 166,
-      },
-      {
-        firstName: "Rory",
-        lastName: "McIlroy",
-        rank: 2,
-      },
-    ],
-  },
-  {
-    name: "Chad Yoshinaka",
-    players: [
-      {
-        firstName: "Scottie",
-        lastName: "Scheffler",
-        rank: 1,
-      },
-      {
-        firstName: "Rory",
-        lastName: "McIlroy",
-        rank: 2,
-      },
-      {
-        firstName: "Collin",
-        lastName: "Morikawa",
-        rank: 6,
-      },
-      {
-        firstName: "Xander",
-        lastName: "Schauffele",
-        rank: 8,
-      },
-      {
-        firstName: "Ludvig",
-        lastName: "Aberg",
-        rank: 18,
-      },
-      {
-        firstName: "Viktor",
-        lastName: "Hovland",
-        rank: 26,
-      },
-      {
-        firstName: "Bryson",
-        lastName: "DeChambeau",
-        rank: 3,
-      },
-      {
-        firstName: "Adam",
-        lastName: "Scott",
-        rank: 63,
-      },
-    ],
-  },
-  {
-    name: "Ralston Welch",
-    players: [
-      {
-        firstName: "Xander",
-        lastName: "Schauffele",
-        rank: 8,
-      },
-      {
-        firstName: "Rory",
-        lastName: "McIlroy",
-        rank: 2,
-      },
-      {
-        firstName: "Scottie",
-        lastName: "Scheffler",
-        rank: 1,
-      },
-      {
-        firstName: "Bryson",
-        lastName: "DeChambeau",
-        rank: 3,
-      },
-      {
-        firstName: "Tommy",
-        lastName: "Fleetwood",
-        rank: 7,
-      },
-      {
-        firstName: "Justin",
-        lastName: "Thomas",
-        rank: 5,
-      },
-      {
-        firstName: "Keith",
-        lastName: "Mitchell",
-        rank: 35,
-      },
-      {
-        firstName: "Max",
-        lastName: "Homa",
-        rank: 166,
-      },
-    ],
-  },
-  {
-    name: "john Chronley",
-    players: [
-      {
-        firstName: "Viktor",
-        lastName: "Hovland",
-        rank: 26,
-      },
-      {
-        firstName: "Bryson",
-        lastName: "DeChambeau",
-        rank: 3,
-      },
-      {
-        firstName: "Scottie",
-        lastName: "Scheffler",
-        rank: 1,
-      },
-      {
-        firstName: "Justin",
-        lastName: "Thomas",
-        rank: 5,
-      },
-      {
-        firstName: "Xander",
-        lastName: "Schauffele",
-        rank: 8,
-      },
-      {
-        firstName: "Rory",
-        lastName: "McIlroy",
-        rank: 2,
-      },
-      {
-        firstName: "Shane",
-        lastName: "Lowry",
-        rank: 13,
-      },
-      {
-        firstName: "Ludvig",
-        lastName: "Aberg",
-        rank: 18,
-      },
-    ],
-  },
-  {
-    name: "Bill Mayer",
-    players: [
-      {
-        firstName: "Scottie",
-        lastName: "Scheffler",
-        rank: 1,
-      },
-      {
-        firstName: "Rory",
-        lastName: "McIlroy",
-        rank: 2,
-      },
-      {
-        firstName: "Bryson",
-        lastName: "DeChambeau",
-        rank: 3,
-      },
-      {
-        firstName: "Jon",
-        lastName: "Rahm",
-        rank: 4,
-      },
-      {
-        firstName: "Xander",
-        lastName: "Schauffele",
-        rank: 8,
-      },
-      {
-        firstName: "Justin",
-        lastName: "Thomas",
-        rank: 5,
-      },
-      {
-        firstName: "Max",
-        lastName: "Homa",
-        rank: 166,
-      },
-      {
-        firstName: "Seamus",
-        lastName: "Power",
-        rank: 94,
-      },
-    ],
-  },
-  {
-    name: "Jake Maziar",
-    players: [
-      {
-        firstName: "Jon",
-        lastName: "Rahm",
-        rank: 4,
-      },
-      {
-        firstName: "Ludvig",
-        lastName: "Aberg",
-        rank: 18,
-      },
-      {
-        firstName: "Akshay",
-        lastName: "Bhatia",
-        rank: 44,
-      },
-      {
-        firstName: "Harris",
-        lastName: "English",
-        rank: 46,
-      },
-      {
-        firstName: "Viktor",
-        lastName: "Hovland",
-        rank: 26,
-      },
-      {
-        firstName: "Brooks",
-        lastName: "Koepka",
-        rank: 59,
-      },
-      {
-        firstName: "Tony",
-        lastName: "Finau",
-        rank: 41,
-      },
-      {
-        firstName: "Tommy",
-        lastName: "Fleetwood",
-        rank: 7,
-      },
-    ],
-  },
-  {
-    name: "Danny Frankel",
-    players: [
-      {
-        firstName: "Ludvig",
-        lastName: "Aberg",
-        rank: 18,
-      },
-      {
-        firstName: "Jordan",
-        lastName: "Spieth",
-        rank: 27,
-      },
-      {
-        firstName: "Rory",
-        lastName: "McIlroy",
-        rank: 2,
-      },
-      {
-        firstName: "Scottie",
-        lastName: "Scheffler",
-        rank: 1,
-      },
-      {
-        firstName: "Justin",
-        lastName: "Thomas",
-        rank: 5,
-      },
-      {
-        firstName: "Viktor",
-        lastName: "Hovland",
-        rank: 26,
-      },
-      {
-        firstName: "Andrew",
-        lastName: "Novak",
-        rank: 29,
-      },
-      {
-        firstName: "Will",
-        lastName: "Zalatoris",
-        rank: 76,
-      },
-    ],
-  },
-  {
     name: "David Frankel",
     players: [
       {
-        firstName: "Rory",
-        lastName: "McIlroy",
-        rank: 2,
-      },
-      {
-        firstName: "Bryson",
-        lastName: "DeChambeau",
-        rank: 3,
-      },
-      {
         firstName: "Scottie",
         lastName: "Scheffler",
         rank: 1,
       },
       {
-        firstName: "Andrew",
-        lastName: "Novak",
-        rank: 29,
+        firstName: "Ludvig",
+        lastName: "Aberg",
+        rank: 20,
       },
       {
-        firstName: "Justin",
-        lastName: "Thomas",
-        rank: 5,
-      },
-      {
-        firstName: "Tom",
-        lastName: "Kim",
-        rank: 96,
+        firstName: "Ryan",
+        lastName: "Fox",
+        rank: 47,
       },
       {
         firstName: "Joaquin",
         lastName: "Niemann",
-        rank: 9,
-      },
-      {
-        firstName: "Daniel",
-        lastName: "Berger",
-        rank: 17,
-      },
-    ],
-  },
-  {
-    name: "George Monastra",
-    players: [
-      {
-        firstName: "Scottie",
-        lastName: "Scheffler",
-        rank: 1,
-      },
-      {
-        firstName: "Justin",
-        lastName: "Thomas",
         rank: 5,
       },
       {
         firstName: "Bryson",
         lastName: "DeChambeau",
-        rank: 3,
+        rank: 2,
       },
       {
-        firstName: "Patrick",
-        lastName: "Cantlay",
-        rank: 10,
-      },
-      {
-        firstName: "Shane",
-        lastName: "Lowry",
-        rank: 13,
-      },
-      {
-        firstName: "Tony",
-        lastName: "Finau",
-        rank: 41,
-      },
-      {
-        firstName: "Collin",
-        lastName: "Morikawa",
-        rank: 6,
-      },
-      {
-        firstName: "Corey",
-        lastName: "Conners",
-        rank: 15,
-      },
-    ],
-  },
-  {
-    name: "Michael Young",
-    players: [
-      {
-        firstName: "Scottie",
-        lastName: "Scheffler",
-        rank: 1,
-      },
-      {
-        firstName: "Bryson",
-        lastName: "DeChambeau",
-        rank: 3,
-      },
-      {
-        firstName: "Collin",
-        lastName: "Morikawa",
-        rank: 6,
-      },
-      {
-        firstName: "Jon",
-        lastName: "Rahm",
-        rank: 4,
-      },
-      {
-        firstName: "Xander",
-        lastName: "Schauffele",
-        rank: 8,
-      },
-      {
-        firstName: "Hideki",
-        lastName: "Matsuyama",
+        firstName: "Ben",
+        lastName: "Griffin",
         rank: 16,
-      },
-      {
-        firstName: "Rory",
-        lastName: "McIlroy",
-        rank: 2,
-      },
-      {
-        firstName: "Shane",
-        lastName: "Lowry",
-        rank: 13,
-      },
-    ],
-  },
-  {
-    name: "Sammy Frankel",
-    players: [
-      {
-        firstName: "Xander",
-        lastName: "Schauffele",
-        rank: 8,
-      },
-      {
-        firstName: "Bryson",
-        lastName: "DeChambeau",
-        rank: 3,
-      },
-      {
-        firstName: "Scottie",
-        lastName: "Scheffler",
-        rank: 1,
-      },
-      {
-        firstName: "Rory",
-        lastName: "McIlroy",
-        rank: 2,
-      },
-      {
-        firstName: "Akshay",
-        lastName: "Bhatia",
-        rank: 44,
-      },
-      {
-        firstName: "Tony",
-        lastName: "Finau",
-        rank: 41,
-      },
-      {
-        firstName: "Jon",
-        lastName: "Rahm",
-        rank: 4,
-      },
-      {
-        firstName: "Joaquin",
-        lastName: "Niemann",
-        rank: 9,
-      },
-    ],
-  },
-  {
-    name: "Hayden Brauer",
-    players: [
-      {
-        firstName: "Scottie",
-        lastName: "Scheffler",
-        rank: 1,
-      },
-      {
-        firstName: "Rory",
-        lastName: "McIlroy",
-        rank: 2,
-      },
-      {
-        firstName: "Bryson",
-        lastName: "DeChambeau",
-        rank: 3,
-      },
-      {
-        firstName: "Jon",
-        lastName: "Rahm",
-        rank: 4,
-      },
-      {
-        firstName: "Collin",
-        lastName: "Morikawa",
-        rank: 6,
-      },
-      {
-        firstName: "Justin",
-        lastName: "Thomas",
-        rank: 5,
       },
       {
         firstName: "Russell",
         lastName: "Henley",
-        rank: 11,
+        rank: 14,
       },
       {
-        firstName: "Xander",
-        lastName: "Schauffele",
-        rank: 8,
+        firstName: "Si Woo",
+        lastName: "Kim",
+        rank: 21,
       },
     ],
   },
@@ -595,114 +55,69 @@ export const teams: Team[] = [
         rank: 1,
       },
       {
-        firstName: "Rory",
-        lastName: "McIlroy",
-        rank: 2,
-      },
-      {
-        firstName: "Shane",
-        lastName: "Lowry",
-        rank: 13,
-      },
-      {
-        firstName: "Bryson",
-        lastName: "DeChambeau",
-        rank: 3,
+        firstName: "Collin",
+        lastName: "Morikawa",
+        rank: 8,
       },
       {
         firstName: "Ludvig",
         lastName: "Aberg",
-        rank: 18,
+        rank: 20,
       },
-      {
-        firstName: "Collin",
-        lastName: "Morikawa",
-        rank: 6,
-      },
-      {
-        firstName: "Justin",
-        lastName: "Thomas",
-        rank: 5,
-      },
-      {
-        firstName: "Xander",
-        lastName: "Schauffele",
-        rank: 8,
-      },
-    ],
-  },
-  {
-    name: "Don Campbell",
-    players: [
       {
         firstName: "Shane",
         lastName: "Lowry",
+        rank: 12,
+      },
+      {
+        firstName: "Corey",
+        lastName: "Conners",
         rank: 13,
-      },
-      {
-        firstName: "Scottie",
-        lastName: "Scheffler",
-        rank: 1,
-      },
-      {
-        firstName: "Rory",
-        lastName: "McIlroy",
-        rank: 2,
-      },
-      {
-        firstName: "Justin",
-        lastName: "Thomas",
-        rank: 5,
       },
       {
         firstName: "Bryson",
         lastName: "DeChambeau",
-        rank: 3,
+        rank: 2,
       },
       {
-        firstName: "Collin",
-        lastName: "Morikawa",
-        rank: 6,
+        firstName: "Rory",
+        lastName: "McIlroy",
+        rank: 4,
       },
       {
-        firstName: "Joaquin",
-        lastName: "Niemann",
-        rank: 9,
-      },
-      {
-        firstName: "Hideki",
-        lastName: "Matsuyama",
+        firstName: "Ben",
+        lastName: "Griffin",
         rank: 16,
       },
     ],
   },
   {
-    name: "Doug Ducray",
+    name: "Danny Frankel",
     players: [
-      {
-        firstName: "Bryson",
-        lastName: "DeChambeau",
-        rank: 3,
-      },
-      {
-        firstName: "Shane",
-        lastName: "Lowry",
-        rank: 13,
-      },
       {
         firstName: "Scottie",
         lastName: "Scheffler",
         rank: 1,
       },
       {
-        firstName: "Xander",
-        lastName: "Schauffele",
+        firstName: "Jordan",
+        lastName: "Spieth",
+        rank: 22,
+      },
+      {
+        firstName: "Keegan",
+        lastName: "Bradley",
+        rank: 17,
+      },
+      {
+        firstName: "Collin",
+        lastName: "Morikawa",
         rank: 8,
       },
       {
-        firstName: "Rory",
-        lastName: "McIlroy",
-        rank: 2,
+        firstName: "Harris",
+        lastName: "English",
+        rank: 24,
       },
       {
         firstName: "Tommy",
@@ -710,19 +125,19 @@ export const teams: Team[] = [
         rank: 7,
       },
       {
-        firstName: "Justin",
-        lastName: "Thomas",
-        rank: 5,
+        firstName: "Robert",
+        lastName: "MacIntyre",
+        rank: 28,
       },
       {
-        firstName: "Jon",
-        lastName: "Rahm",
+        firstName: "Rory",
+        lastName: "McIlroy",
         rank: 4,
       },
     ],
   },
   {
-    name: "Joey and Noah",
+    name: "Josh & Shaun",
     players: [
       {
         firstName: "Scottie",
@@ -730,23 +145,158 @@ export const teams: Team[] = [
         rank: 1,
       },
       {
-        firstName: "Justin",
-        lastName: "Thomas",
-        rank: 5,
-      },
-      {
-        firstName: "Rory",
-        lastName: "McIlroy",
+        firstName: "Bryson",
+        lastName: "DeChambeau",
         rank: 2,
       },
       {
-        firstName: "Xander",
-        lastName: "Schauffele",
+        firstName: "Jon",
+        lastName: "Rahm",
+        rank: 3,
+      },
+      {
+        firstName: "Joaquin",
+        lastName: "Niemann",
+        rank: 5,
+      },
+      {
+        firstName: "Corey",
+        lastName: "Conners",
+        rank: 13,
+      },
+      {
+        firstName: "Sam",
+        lastName: "Burns",
+        rank: 15,
+      },
+      {
+        firstName: "Ben",
+        lastName: "Griffin",
+        rank: 16,
+      },
+      {
+        firstName: "Si Woo",
+        lastName: "Kim",
+        rank: 21,
+      },
+    ],
+  },
+  {
+    name: "Ralston Welch",
+    players: [
+      {
+        firstName: "Scottie",
+        lastName: "Scheffler",
+        rank: 1,
+      },
+      {
+        firstName: "Jon",
+        lastName: "Rahm",
+        rank: 3,
+      },
+      {
+        firstName: "Collin",
+        lastName: "Morikawa",
         rank: 8,
+      },
+      {
+        firstName: "Sepp",
+        lastName: "Straka",
+        rank: 10,
+      },
+      {
+        firstName: "Ludvig",
+        lastName: "Aberg",
+        rank: 20,
+      },
+      {
+        firstName: "Si Woo",
+        lastName: "Kim",
+        rank: 21,
+      },
+      {
+        firstName: "Maverick",
+        lastName: "McNealy",
+        rank: 27,
+      },
+      {
+        firstName: "Cameron",
+        lastName: "Young",
+        rank: 66,
+      },
+    ],
+  },
+  {
+    name: "Ari and Micah",
+    players: [
+      {
+        firstName: "Scottie",
+        lastName: "Scheffler",
+        rank: 1,
       },
       {
         firstName: "Bryson",
         lastName: "DeChambeau",
+        rank: 2,
+      },
+      {
+        firstName: "Rory",
+        lastName: "McIlroy",
+        rank: 4,
+      },
+      {
+        firstName: "Xander",
+        lastName: "Schauffele",
+        rank: 9,
+      },
+      {
+        firstName: "Tyrrell",
+        lastName: "Hatton",
+        rank: 18,
+      },
+      {
+        firstName: "Ludvig",
+        lastName: "Aberg",
+        rank: 20,
+      },
+      {
+        firstName: "Shane",
+        lastName: "Lowry",
+        rank: 12,
+      },
+      {
+        firstName: "Cameron",
+        lastName: "Young",
+        rank: 66,
+      },
+    ],
+  },
+  {
+    name: "Searle Videlefsky",
+    players: [
+      {
+        firstName: "Scottie",
+        lastName: "Scheffler",
+        rank: 1,
+      },
+      {
+        firstName: "Bryson",
+        lastName: "DeChambeau",
+        rank: 2,
+      },
+      {
+        firstName: "Rory",
+        lastName: "McIlroy",
+        rank: 4,
+      },
+      {
+        firstName: "Daniel",
+        lastName: "Berger",
+        rank: 26,
+      },
+      {
+        firstName: "Jon",
+        lastName: "Rahm",
         rank: 3,
       },
       {
@@ -755,14 +305,194 @@ export const teams: Team[] = [
         rank: 7,
       },
       {
-        firstName: "Patrick",
-        lastName: "Reed",
+        firstName: "Xander",
+        lastName: "Schauffele",
+        rank: 9,
+      },
+      {
+        firstName: "Ludvig",
+        lastName: "Aberg",
         rank: 20,
+      },
+    ],
+  },
+  {
+    name: "Zev Frankel",
+    players: [
+      {
+        firstName: "Scottie",
+        lastName: "Scheffler",
+        rank: 1,
+      },
+      {
+        firstName: "Bryson",
+        lastName: "DeChambeau",
+        rank: 2,
+      },
+      {
+        firstName: "Tommy",
+        lastName: "Fleetwood",
+        rank: 7,
+      },
+      {
+        firstName: "Rory",
+        lastName: "McIlroy",
+        rank: 4,
+      },
+      {
+        firstName: "Joaquin",
+        lastName: "Niemann",
+        rank: 5,
+      },
+      {
+        firstName: "Ludvig",
+        lastName: "Aberg",
+        rank: 20,
+      },
+      {
+        firstName: "Xander",
+        lastName: "Schauffele",
+        rank: 9,
+      },
+      {
+        firstName: "Jon",
+        lastName: "Rahm",
+        rank: 3,
+      },
+    ],
+  },
+  {
+    name: "David Scoular",
+    players: [
+      {
+        firstName: "Scottie",
+        lastName: "Scheffler",
+        rank: 1,
+      },
+      {
+        firstName: "Bryson",
+        lastName: "DeChambeau",
+        rank: 2,
+      },
+      {
+        firstName: "Jon",
+        lastName: "Rahm",
+        rank: 3,
+      },
+      {
+        firstName: "Joaquin",
+        lastName: "Niemann",
+        rank: 5,
+      },
+      {
+        firstName: "Tommy",
+        lastName: "Fleetwood",
+        rank: 7,
+      },
+      {
+        firstName: "Rory",
+        lastName: "McIlroy",
+        rank: 4,
+      },
+      {
+        firstName: "Xander",
+        lastName: "Schauffele",
+        rank: 9,
+      },
+      {
+        firstName: "Ludvig",
+        lastName: "Aberg",
+        rank: 20,
+      },
+    ],
+  },
+  {
+    name: "Aj Robinson",
+    players: [
+      {
+        firstName: "Scottie",
+        lastName: "Scheffler",
+        rank: 1,
+      },
+      {
+        firstName: "Xander",
+        lastName: "Schauffele",
+        rank: 9,
+      },
+      {
+        firstName: "Ben",
+        lastName: "Griffin",
+        rank: 16,
+      },
+      {
+        firstName: "Harris",
+        lastName: "English",
+        rank: 24,
+      },
+      {
+        firstName: "Rory",
+        lastName: "McIlroy",
+        rank: 4,
+      },
+      {
+        firstName: "Shane",
+        lastName: "Lowry",
+        rank: 12,
       },
       {
         firstName: "Corey",
         lastName: "Conners",
-        rank: 15,
+        rank: 13,
+      },
+      {
+        firstName: "Ryan",
+        lastName: "Fox",
+        rank: 47,
+      },
+    ],
+  },
+  {
+    name: "Noah + Joey",
+    players: [
+      {
+        firstName: "Scottie",
+        lastName: "Scheffler",
+        rank: 1,
+      },
+      {
+        firstName: "Bryson",
+        lastName: "DeChambeau",
+        rank: 2,
+      },
+      {
+        firstName: "Jon",
+        lastName: "Rahm",
+        rank: 3,
+      },
+      {
+        firstName: "Rory",
+        lastName: "McIlroy",
+        rank: 4,
+      },
+      {
+        firstName: "Ludvig",
+        lastName: "Aberg",
+        rank: 20,
+      },
+      {
+        firstName: "Collin",
+        lastName: "Morikawa",
+        rank: 8,
+      },
+      {
+        firstName: "Shane",
+        lastName: "Lowry",
+        rank: 12,
+      },
+      {
+        firstName: "Joaquin",
+        lastName: "Niemann",
+        rank: 5,
       },
     ],
   },
@@ -775,129 +505,39 @@ export const teams: Team[] = [
         rank: 1,
       },
       {
-        firstName: "Rory",
-        lastName: "McIlroy",
-        rank: 2,
+        firstName: "Collin",
+        lastName: "Morikawa",
+        rank: 8,
       },
       {
         firstName: "Ludvig",
         lastName: "Aberg",
-        rank: 18,
-      },
-      {
-        firstName: "Collin",
-        lastName: "Morikawa",
-        rank: 6,
-      },
-      {
-        firstName: "Joaquin",
-        lastName: "Niemann",
-        rank: 9,
-      },
-      {
-        firstName: "Justin",
-        lastName: "Thomas",
-        rank: 5,
-      },
-      {
-        firstName: "Jordan",
-        lastName: "Spieth",
-        rank: 27,
-      },
-      {
-        firstName: "Shane",
-        lastName: "Lowry",
-        rank: 13,
-      },
-    ],
-  },
-  {
-    name: "Ed Hetherington",
-    players: [
-      {
-        firstName: "Justin",
-        lastName: "Thomas",
-        rank: 5,
-      },
-      {
-        firstName: "Scottie",
-        lastName: "Scheffler",
-        rank: 1,
-      },
-      {
-        firstName: "Bryson",
-        lastName: "DeChambeau",
-        rank: 3,
+        rank: 20,
       },
       {
         firstName: "Rory",
         lastName: "McIlroy",
-        rank: 2,
+        rank: 4,
       },
       {
-        firstName: "Shane",
-        lastName: "Lowry",
-        rank: 13,
-      },
-      {
-        firstName: "Xander",
-        lastName: "Schauffele",
-        rank: 8,
-      },
-      {
-        firstName: "Jordan",
-        lastName: "Spieth",
-        rank: 27,
+        firstName: "Akshay",
+        lastName: "Bhatia",
+        rank: 31,
       },
       {
         firstName: "Tommy",
         lastName: "Fleetwood",
         rank: 7,
       },
-    ],
-  },
-  {
-    name: "Noam Itzhak",
-    players: [
       {
-        firstName: "Rory",
-        lastName: "McIlroy",
-        rank: 2,
+        firstName: "Patrick",
+        lastName: "Cantlay",
+        rank: 11,
       },
       {
-        firstName: "Bryson",
-        lastName: "DeChambeau",
-        rank: 3,
-      },
-      {
-        firstName: "Scottie",
-        lastName: "Scheffler",
-        rank: 1,
-      },
-      {
-        firstName: "Xander",
-        lastName: "Schauffele",
-        rank: 8,
-      },
-      {
-        firstName: "Justin",
-        lastName: "Thomas",
-        rank: 5,
-      },
-      {
-        firstName: "Justin",
-        lastName: "Rose",
-        rank: 87,
-      },
-      {
-        firstName: "Ludvig",
-        lastName: "Aberg",
-        rank: 18,
-      },
-      {
-        firstName: "Tyrrell",
-        lastName: "Hatton",
-        rank: 12,
+        firstName: "Ryan",
+        lastName: "Fox",
+        rank: 47,
       },
     ],
   },
@@ -905,29 +545,14 @@ export const teams: Team[] = [
     name: "Paul Costa",
     players: [
       {
-        firstName: "Rory",
-        lastName: "McIlroy",
+        firstName: "Bryson",
+        lastName: "DeChambeau",
         rank: 2,
       },
       {
         firstName: "Scottie",
         lastName: "Scheffler",
         rank: 1,
-      },
-      {
-        firstName: "Xander",
-        lastName: "Schauffele",
-        rank: 8,
-      },
-      {
-        firstName: "Harris",
-        lastName: "English",
-        rank: 46,
-      },
-      {
-        firstName: "Justin",
-        lastName: "Thomas",
-        rank: 5,
       },
       {
         firstName: "Tommy",
@@ -935,104 +560,344 @@ export const teams: Team[] = [
         rank: 7,
       },
       {
-        firstName: "Bryson",
-        lastName: "DeChambeau",
-        rank: 3,
+        firstName: "Max",
+        lastName: "Greyserman",
+        rank: 42,
       },
       {
-        firstName: "Brian",
-        lastName: "Harman",
-        rank: 40,
-      },
-    ],
-  },
-  {
-    name: "Z F",
-    players: [
-      {
-        firstName: "Rory",
-        lastName: "McIlroy",
-        rank: 2,
+        firstName: "Corey",
+        lastName: "Conners",
+        rank: 13,
       },
       {
-        firstName: "Bryson",
-        lastName: "DeChambeau",
-        rank: 3,
-      },
-      {
-        firstName: "Jon",
-        lastName: "Rahm",
-        rank: 4,
-      },
-      {
-        firstName: "Akshay",
-        lastName: "Bhatia",
-        rank: 44,
-      },
-      {
-        firstName: "Brooks",
-        lastName: "Koepka",
-        rank: 59,
-      },
-      {
-        firstName: "Scottie",
-        lastName: "Scheffler",
-        rank: 1,
-      },
-      {
-        firstName: "Joaquin",
-        lastName: "Niemann",
-        rank: 9,
-      },
-      {
-        firstName: "Ludvig",
-        lastName: "Aberg",
-        rank: 18,
-      },
-    ],
-  },
-  {
-    name: "David Scoular",
-    players: [
-      {
-        firstName: "Rory",
-        lastName: "McIlroy",
-        rank: 2,
-      },
-      {
-        firstName: "Scottie",
-        lastName: "Scheffler",
-        rank: 1,
-      },
-      {
-        firstName: "Bryson",
-        lastName: "DeChambeau",
-        rank: 3,
-      },
-      {
-        firstName: "Tommy",
-        lastName: "Fleetwood",
-        rank: 7,
-      },
-      {
-        firstName: "Joaquin",
-        lastName: "Niemann",
-        rank: 9,
+        firstName: "Shane",
+        lastName: "Lowry",
+        rank: 12,
       },
       {
         firstName: "Patrick",
         lastName: "Cantlay",
+        rank: 11,
+      },
+      {
+        firstName: "Ludvig",
+        lastName: "Aberg",
+        rank: 20,
+      },
+    ],
+  },
+  {
+    name: "Ezra Weener",
+    players: [
+      {
+        firstName: "Scottie",
+        lastName: "Scheffler",
+        rank: 1,
+      },
+      {
+        firstName: "Collin",
+        lastName: "Morikawa",
+        rank: 8,
+      },
+      {
+        firstName: "Jon",
+        lastName: "Rahm",
+        rank: 3,
+      },
+      {
+        firstName: "Viktor",
+        lastName: "Hovland",
+        rank: 23,
+      },
+      {
+        firstName: "Maverick",
+        lastName: "McNealy",
+        rank: 27,
+      },
+      {
+        firstName: "Ben",
+        lastName: "Griffin",
+        rank: 16,
+      },
+      {
+        firstName: "Ludvig",
+        lastName: "Aberg",
+        rank: 20,
+      },
+      {
+        firstName: "Ryan",
+        lastName: "Fox",
+        rank: 47,
+      },
+    ],
+  },
+  {
+    name: "George Monastra",
+    players: [
+      {
+        firstName: "Scottie",
+        lastName: "Scheffler",
+        rank: 1,
+      },
+      {
+        firstName: "Bryson",
+        lastName: "DeChambeau",
+        rank: 2,
+      },
+      {
+        firstName: "Collin",
+        lastName: "Morikawa",
+        rank: 8,
+      },
+      {
+        firstName: "Jon",
+        lastName: "Rahm",
+        rank: 3,
+      },
+      {
+        firstName: "Tommy",
+        lastName: "Fleetwood",
+        rank: 7,
+      },
+      {
+        firstName: "Ludvig",
+        lastName: "Aberg",
+        rank: 20,
+      },
+      {
+        firstName: "Xander",
+        lastName: "Schauffele",
+        rank: 9,
+      },
+      {
+        firstName: "Keegan",
+        lastName: "Bradley",
+        rank: 17,
+      },
+    ],
+  },
+  {
+    name: "Hayden Brauer",
+    players: [
+      {
+        firstName: "Scottie",
+        lastName: "Scheffler",
+        rank: 1,
+      },
+      {
+        firstName: "Bryson",
+        lastName: "DeChambeau",
+        rank: 2,
+      },
+      {
+        firstName: "Rory",
+        lastName: "McIlroy",
+        rank: 4,
+      },
+      {
+        firstName: "Jon",
+        lastName: "Rahm",
+        rank: 3,
+      },
+      {
+        firstName: "Joaquin",
+        lastName: "Niemann",
+        rank: 5,
+      },
+      {
+        firstName: "Ben",
+        lastName: "Griffin",
+        rank: 16,
+      },
+      {
+        firstName: "Sepp",
+        lastName: "Straka",
         rank: 10,
       },
       {
         firstName: "Justin",
         lastName: "Thomas",
+        rank: 6,
+      },
+    ],
+  },
+  {
+    name: "Wolfe Welch",
+    players: [
+      {
+        firstName: "Scottie",
+        lastName: "Scheffler",
+        rank: 1,
+      },
+      {
+        firstName: "Harris",
+        lastName: "English",
+        rank: 24,
+      },
+      {
+        firstName: "Bryson",
+        lastName: "DeChambeau",
+        rank: 2,
+      },
+      {
+        firstName: "Jon",
+        lastName: "Rahm",
+        rank: 3,
+      },
+      {
+        firstName: "Joaquin",
+        lastName: "Niemann",
         rank: 5,
       },
       {
-        firstName: "Sepp",
-        lastName: "Straka",
+        firstName: "Tommy",
+        lastName: "Fleetwood",
+        rank: 7,
+      },
+      {
+        firstName: "Shane",
+        lastName: "Lowry",
+        rank: 12,
+      },
+      {
+        firstName: "Ben",
+        lastName: "Griffin",
+        rank: 16,
+      },
+    ],
+  },
+  {
+    name: "John Chronley",
+    players: [
+      {
+        firstName: "Xander",
+        lastName: "Schauffele",
+        rank: 9,
+      },
+      {
+        firstName: "Collin",
+        lastName: "Morikawa",
+        rank: 8,
+      },
+      {
+        firstName: "Bryson",
+        lastName: "DeChambeau",
+        rank: 2,
+      },
+      {
+        firstName: "Scottie",
+        lastName: "Scheffler",
+        rank: 1,
+      },
+      {
+        firstName: "Jon",
+        lastName: "Rahm",
+        rank: 3,
+      },
+      {
+        firstName: "Viktor",
+        lastName: "Hovland",
+        rank: 23,
+      },
+      {
+        firstName: "Tommy",
+        lastName: "Fleetwood",
+        rank: 7,
+      },
+      {
+        firstName: "Ludvig",
+        lastName: "Aberg",
+        rank: 20,
+      },
+    ],
+  },
+  {
+    name: "Chad Yoshinaka",
+    players: [
+      {
+        firstName: "Scottie",
+        lastName: "Scheffler",
+        rank: 1,
+      },
+      {
+        firstName: "Collin",
+        lastName: "Morikawa",
+        rank: 8,
+      },
+      {
+        firstName: "Bryson",
+        lastName: "DeChambeau",
+        rank: 2,
+      },
+      {
+        firstName: "Tommy",
+        lastName: "Fleetwood",
+        rank: 7,
+      },
+      {
+        firstName: "Tony",
+        lastName: "Finau",
+        rank: 32,
+      },
+      {
+        firstName: "Xander",
+        lastName: "Schauffele",
+        rank: 9,
+      },
+      {
+        firstName: "Ludvig",
+        lastName: "Aberg",
+        rank: 20,
+      },
+      {
+        firstName: "Shane",
+        lastName: "Lowry",
+        rank: 12,
+      },
+    ],
+  },
+  {
+    name: "Jake Maziar",
+    players: [
+      {
+        firstName: "Scottie",
+        lastName: "Scheffler",
+        rank: 1,
+      },
+      {
+        firstName: "Bryson",
+        lastName: "DeChambeau",
+        rank: 2,
+      },
+      {
+        firstName: "Ben",
+        lastName: "Griffin",
+        rank: 16,
+      },
+      {
+        firstName: "Russell",
+        lastName: "Henley",
         rank: 14,
+      },
+      {
+        firstName: "Patrick",
+        lastName: "Cantlay",
+        rank: 11,
+      },
+      {
+        firstName: "Keegan",
+        lastName: "Bradley",
+        rank: 17,
+      },
+      {
+        firstName: "Jon",
+        lastName: "Rahm",
+        rank: 3,
+      },
+      {
+        firstName: "Viktor",
+        lastName: "Hovland",
+        rank: 23,
       },
     ],
   },
@@ -1045,39 +910,219 @@ export const teams: Team[] = [
         rank: 1,
       },
       {
-        firstName: "Rory",
-        lastName: "McIlroy",
-        rank: 2,
+        firstName: "Ludvig",
+        lastName: "Aberg",
+        rank: 20,
       },
       {
-        firstName: "Patrick",
-        lastName: "Cantlay",
-        rank: 10,
-      },
-      {
-        firstName: "Hideki",
-        lastName: "Matsuyama",
-        rank: 16,
+        firstName: "Brooks",
+        lastName: "Koepka",
+        rank: 98,
       },
       {
         firstName: "Jordan",
         lastName: "Spieth",
-        rank: 27,
+        rank: 22,
       },
       {
-        firstName: "Tyrrell",
-        lastName: "Hatton",
+        firstName: "Viktor",
+        lastName: "Hovland",
+        rank: 23,
+      },
+      {
+        firstName: "Shane",
+        lastName: "Lowry",
         rank: 12,
+      },
+      {
+        firstName: "Sepp",
+        lastName: "Straka",
+        rank: 10,
+      },
+      {
+        firstName: "Xander",
+        lastName: "Schauffele",
+        rank: 9,
+      },
+    ],
+  },
+  {
+    name: "Ed Hetherington",
+    players: [
+      {
+        firstName: "Scottie",
+        lastName: "Scheffler",
+        rank: 1,
+      },
+      {
+        firstName: "Bryson",
+        lastName: "DeChambeau",
+        rank: 2,
+      },
+      {
+        firstName: "Sepp",
+        lastName: "Straka",
+        rank: 10,
+      },
+      {
+        firstName: "Tommy",
+        lastName: "Fleetwood",
+        rank: 7,
+      },
+      {
+        firstName: "Rory",
+        lastName: "McIlroy",
+        rank: 4,
+      },
+      {
+        firstName: "Jon",
+        lastName: "Rahm",
+        rank: 3,
+      },
+      {
+        firstName: "Shane",
+        lastName: "Lowry",
+        rank: 12,
+      },
+      {
+        firstName: "Xander",
+        lastName: "Schauffele",
+        rank: 9,
+      },
+    ],
+  },
+  {
+    name: "Sammy Frankel",
+    players: [
+      {
+        firstName: "Jon",
+        lastName: "Rahm",
+        rank: 3,
+      },
+      {
+        firstName: "Scottie",
+        lastName: "Scheffler",
+        rank: 1,
+      },
+      {
+        firstName: "Ben",
+        lastName: "Griffin",
+        rank: 16,
+      },
+      {
+        firstName: "Matt",
+        lastName: "Fitzpatrick",
+        rank: 51,
+      },
+      {
+        firstName: "Bryson",
+        lastName: "DeChambeau",
+        rank: 2,
+      },
+      {
+        firstName: "Collin",
+        lastName: "Morikawa",
+        rank: 8,
+      },
+      {
+        firstName: "Xander",
+        lastName: "Schauffele",
+        rank: 9,
+      },
+      {
+        firstName: "Tony",
+        lastName: "Finau",
+        rank: 32,
+      },
+    ],
+  },
+  {
+    name: "Douglas Ducray",
+    players: [
+      {
+        firstName: "Scottie",
+        lastName: "Scheffler",
+        rank: 1,
+      },
+      {
+        firstName: "Bryson",
+        lastName: "DeChambeau",
+        rank: 2,
+      },
+      {
+        firstName: "Xander",
+        lastName: "Schauffele",
+        rank: 9,
+      },
+      {
+        firstName: "Viktor",
+        lastName: "Hovland",
+        rank: 23,
+      },
+      {
+        firstName: "Shane",
+        lastName: "Lowry",
+        rank: 12,
+      },
+      {
+        firstName: "Collin",
+        lastName: "Morikawa",
+        rank: 8,
+      },
+      {
+        firstName: "Rory",
+        lastName: "McIlroy",
+        rank: 4,
+      },
+      {
+        firstName: "Jon",
+        lastName: "Rahm",
+        rank: 3,
+      },
+    ],
+  },
+  {
+    name: "Noam Itzhak",
+    players: [
+      {
+        firstName: "Scottie",
+        lastName: "Scheffler",
+        rank: 1,
+      },
+      {
+        firstName: "Bryson",
+        lastName: "DeChambeau",
+        rank: 2,
+      },
+      {
+        firstName: "Jon",
+        lastName: "Rahm",
+        rank: 3,
+      },
+      {
+        firstName: "Rory",
+        lastName: "McIlroy",
+        rank: 4,
+      },
+      {
+        firstName: "Xander",
+        lastName: "Schauffele",
+        rank: 9,
+      },
+      {
+        firstName: "Collin",
+        lastName: "Morikawa",
+        rank: 8,
       },
       {
         firstName: "Corey",
         lastName: "Conners",
-        rank: 15,
+        rank: 13,
       },
       {
-        firstName: "Dustin",
-        lastName: "Johnson",
-        rank: 137,
+        firstName: "Rasmus",
+        lastName: "Hojgaard",
+        rank: 87,
       },
     ],
   },
@@ -1085,49 +1130,49 @@ export const teams: Team[] = [
     name: "Peter Aaron",
     players: [
       {
-        firstName: "Bryson",
-        lastName: "DeChambeau",
-        rank: 3,
-      },
-      {
         firstName: "Scottie",
         lastName: "Scheffler",
         rank: 1,
       },
       {
+        firstName: "Bryson",
+        lastName: "DeChambeau",
+        rank: 2,
+      },
+      {
         firstName: "Justin",
-        lastName: "Thomas",
-        rank: 5,
+        lastName: "Rose",
+        rank: 125,
       },
       {
-        firstName: "Xander",
-        lastName: "Schauffele",
-        rank: 8,
+        firstName: "Daniel",
+        lastName: "Berger",
+        rank: 26,
       },
       {
-        firstName: "Hideki",
-        lastName: "Matsuyama",
-        rank: 16,
+        firstName: "Tommy",
+        lastName: "Fleetwood",
+        rank: 7,
       },
       {
         firstName: "Patrick",
         lastName: "Cantlay",
-        rank: 10,
+        rank: 11,
       },
       {
-        firstName: "Jordan",
-        lastName: "Spieth",
-        rank: 27,
+        firstName: "Collin",
+        lastName: "Morikawa",
+        rank: 8,
       },
       {
-        firstName: "Rory",
-        lastName: "McIlroy",
-        rank: 2,
+        firstName: "Jon",
+        lastName: "Rahm",
+        rank: 3,
       },
     ],
   },
   {
-    name: "A J Robinson",
+    name: "Michael Young",
     players: [
       {
         firstName: "Scottie",
@@ -1135,39 +1180,84 @@ export const teams: Team[] = [
         rank: 1,
       },
       {
-        firstName: "Rory",
-        lastName: "McIlroy",
-        rank: 2,
+        firstName: "Xander",
+        lastName: "Schauffele",
+        rank: 9,
+      },
+      {
+        firstName: "Collin",
+        lastName: "Morikawa",
+        rank: 8,
       },
       {
         firstName: "Bryson",
         lastName: "DeChambeau",
+        rank: 2,
+      },
+      {
+        firstName: "Tommy",
+        lastName: "Fleetwood",
+        rank: 7,
+      },
+      {
+        firstName: "Sepp",
+        lastName: "Straka",
+        rank: 10,
+      },
+      {
+        firstName: "Joaquin",
+        lastName: "Niemann",
+        rank: 5,
+      },
+      {
+        firstName: "Harris",
+        lastName: "English",
+        rank: 24,
+      },
+    ],
+  },
+  {
+    name: "Don Campbell",
+    players: [
+      {
+        firstName: "Jon",
+        lastName: "Rahm",
         rank: 3,
       },
       {
-        firstName: "Jordan",
-        lastName: "Spieth",
-        rank: 27,
+        firstName: "Scottie",
+        lastName: "Scheffler",
+        rank: 1,
       },
       {
-        firstName: "Ludvig",
-        lastName: "Aberg",
-        rank: 18,
+        firstName: "Collin",
+        lastName: "Morikawa",
+        rank: 8,
+      },
+      {
+        firstName: "Bryson",
+        lastName: "DeChambeau",
+        rank: 2,
+      },
+      {
+        firstName: "Patrick",
+        lastName: "Cantlay",
+        rank: 11,
+      },
+      {
+        firstName: "Sepp",
+        lastName: "Straka",
+        rank: 10,
+      },
+      {
+        firstName: "Shane",
+        lastName: "Lowry",
+        rank: 12,
       },
       {
         firstName: "Xander",
         lastName: "Schauffele",
-        rank: 8,
-      },
-      {
-        firstName: "Justin",
-        lastName: "Thomas",
-        rank: 5,
-      },
-      {
-        firstName: "Jason",
-        lastName: "Day",
-        rank: 22,
+        rank: 9,
       },
     ],
   },
@@ -1175,134 +1265,89 @@ export const teams: Team[] = [
     name: "Jacques Mosseri",
     players: [
       {
-        firstName: "Xander",
-        lastName: "Schauffele",
-        rank: 8,
-      },
-      {
-        firstName: "Justin",
-        lastName: "Thomas",
-        rank: 5,
-      },
-      {
-        firstName: "Sam",
-        lastName: "Burns",
-        rank: 28,
-      },
-      {
         firstName: "Bryson",
         lastName: "DeChambeau",
-        rank: 3,
+        rank: 2,
       },
       {
-        firstName: "Jason",
-        lastName: "Day",
-        rank: 22,
+        firstName: "Scottie",
+        lastName: "Scheffler",
+        rank: 1,
       },
       {
         firstName: "Maverick",
         lastName: "McNealy",
-        rank: 32,
-      },
-      {
-        firstName: "Ludvig",
-        lastName: "Aberg",
-        rank: 18,
-      },
-      {
-        firstName: "Min Woo",
-        lastName: "Lee",
-        rank: 48,
-      },
-    ],
-  },
-  {
-    name: "Ari and Micah",
-    players: [
-      {
-        firstName: "Rory",
-        lastName: "McIlroy",
-        rank: 2,
-      },
-      {
-        firstName: "Bryson",
-        lastName: "DeChambeau",
-        rank: 3,
-      },
-      {
-        firstName: "Scottie",
-        lastName: "Scheffler",
-        rank: 1,
-      },
-      {
-        firstName: "Corey",
-        lastName: "Conners",
-        rank: 15,
-      },
-      {
-        firstName: "Jordan",
-        lastName: "Spieth",
         rank: 27,
       },
       {
-        firstName: "Patrick",
-        lastName: "Cantlay",
-        rank: 10,
+        firstName: "Byeong Hun",
+        lastName: "An",
+        rank: 78,
       },
       {
-        firstName: "Xander",
-        lastName: "Schauffele",
-        rank: 8,
+        firstName: "Ryan",
+        lastName: "Fox",
+        rank: 47,
       },
       {
-        firstName: "Keith",
-        lastName: "Mitchell",
-        rank: 35,
-      },
-    ],
-  },
-  {
-    name: "Josh & Shaun",
-    players: [
-      {
-        firstName: "Rory",
-        lastName: "McIlroy",
-        rank: 2,
+        firstName: "Tom",
+        lastName: "Hoge",
+        rank: 54,
       },
       {
-        firstName: "Justin",
-        lastName: "Thomas",
+        firstName: "Joaquin",
+        lastName: "Niemann",
         rank: 5,
       },
       {
+        firstName: "Collin",
+        lastName: "Morikawa",
+        rank: 8,
+      },
+    ],
+  },
+  {
+    name: "Bill Mayer",
+    players: [
+      {
         firstName: "Scottie",
         lastName: "Scheffler",
         rank: 1,
       },
       {
-        firstName: "Bryson",
-        lastName: "DeChambeau",
-        rank: 3,
+        firstName: "Tommy",
+        lastName: "Fleetwood",
+        rank: 7,
+      },
+      {
+        firstName: "Nico",
+        lastName: "Echavarria",
+        rank: 110,
+      },
+      {
+        firstName: "Collin",
+        lastName: "Morikawa",
+        rank: 8,
       },
       {
         firstName: "Corey",
         lastName: "Conners",
-        rank: 15,
-      },
-      {
-        firstName: "Shane",
-        lastName: "Lowry",
         rank: 13,
       },
       {
-        firstName: "Sepp",
-        lastName: "Straka",
-        rank: 14,
+        firstName: "Sungjae",
+        lastName: "Im",
+        rank: 34,
       },
       {
-        firstName: "Jordan",
-        lastName: "Spieth",
-        rank: 27,
+        firstName: "Akshay",
+        lastName: "Bhatia",
+        rank: 31,
+      },
+      {
+        firstName: "Viktor",
+        lastName: "Hovland",
+        rank: 23,
       },
     ],
   },

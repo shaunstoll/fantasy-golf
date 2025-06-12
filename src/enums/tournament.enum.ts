@@ -1,5 +1,5 @@
 export enum TournamentName {
-  Masters = "master",
+  Masters = "masters",
   Pga = "pga",
   UsOpen = "us-open",
   Open = "open",
