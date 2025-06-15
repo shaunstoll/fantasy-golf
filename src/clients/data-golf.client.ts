@@ -5,6 +5,7 @@ import { PlayerStatus } from "@/enums/player-status.enum";
 import { Tournament } from "@/interfaces/tournament.interface";
 import { env } from "@/env";
 import { TournamentName } from "@/enums/tournament.enum";
+import { overrides } from "@/overrides";
 
 export default class DataGolfClient {
   private cache: {
@@ -75,8 +76,9 @@ export default class DataGolfClient {
         score: isEvenPar ? 0 : parseInt(player.s),
         thru: player.t.toString(),
         isTied,
-        place:
-          isCut || withdrawn || didNotStart
+        place: overrides.get(`${player.f} ${player.l}`)?.madeCut
+          ? Infinity
+          : isCut || withdrawn || didNotStart
             ? null
             : parseInt(player.p.replace("T", "")),
         status: isCut
