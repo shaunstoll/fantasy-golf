@@ -93,7 +93,7 @@ export default class ScoringService {
       standings.push({
         name: team.name,
         score,
-        players: players.sort((a, b) => b.fantasyScore - a.fantasyScore),
+        players,
         rank: 0,
         isTied: false,
         lowestRankedPlayerBonus: false,
@@ -110,9 +110,14 @@ export default class ScoringService {
           team.lowestRankedPlayerBonus = true;
         }
       });
-      team.players.sort(
-        (a, b) => (a.place ?? Infinity) - (b.place ?? Infinity),
-      );
+      team.players.sort((a, b) => {
+        const placeA = a.place ?? Infinity;
+        const placeB = b.place ?? Infinity;
+        if (placeA === placeB) {
+          return b.fantasyScore - a.fantasyScore;
+        }
+        return placeA - placeB;
+      });
     });
     standings.sort((a, b) => b.score - a.score);
     let currentRank = 1;
