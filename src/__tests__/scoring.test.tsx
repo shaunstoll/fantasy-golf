@@ -1,8 +1,8 @@
 import { describe, it, expect } from "vitest";
 import ScoringService from "@/services/scoring.service";
-import { mockTeams } from "./mocks/teams.mock";
-import { mockTournament } from "./mocks/tournament.mock";
-import { standingsSnapshot } from "./snapshots/standings.snapshot";
+import { mockTeams } from "@/__tests__/mocks/teams.mock";
+import { mockTournament } from "@/__tests__/mocks/tournament.mock";
+import { standingsSnapshot } from "@/__tests__/snapshots/standings.snapshot";
 import { Standing } from "@/interfaces/standing.interface";
 
 function getNamesAndScores(standings: Standing[]) {

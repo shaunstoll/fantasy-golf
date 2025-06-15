@@ -1,9 +1,9 @@
 import { Standing as StandingType } from "@/interfaces/standing.interface";
-import Button from "./button";
+import Button from "@/components/button";
 import { useState } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import Player from "./player";
-import Attribute from "./attribute";
+import Player from "@/components/player";
+import Attribute from "@/components/attribute";
 import { Star } from "lucide-react";
 import { useStore } from "@/store";
 

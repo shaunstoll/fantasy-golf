@@ -1,6 +1,6 @@
-import { Player } from "../interfaces/player.interface";
-import { Team } from "../interfaces/team.interface";
-import { Standing } from "../interfaces/standing.interface";
+import { Player } from "@/interfaces/player.interface";
+import { Team } from "@/interfaces/team.interface";
+import { Standing } from "@/interfaces/standing.interface";
 import { TournamentName } from "@/enums/tournament.enum";
 import { Tournament } from "@/interfaces/tournament.interface";
 

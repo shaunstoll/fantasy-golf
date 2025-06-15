@@ -1,6 +1,6 @@
 import axios from "axios";
-import type { TournamentData } from "../interfaces/tournament-data.interface";
-import type { Ranking } from "../interfaces/ranking.interface";
+import type { TournamentData } from "@/interfaces/tournament-data.interface";
+import type { Ranking } from "@/interfaces/ranking.interface";
 import { PlayerStatus } from "@/enums/player-status.enum";
 import { Tournament } from "@/interfaces/tournament.interface";
 import { env } from "@/env";

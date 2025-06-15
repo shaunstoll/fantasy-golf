@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { MastersData } from "../interfaces/masters.interface";
+import type { MastersData } from "@/interfaces/masters.interface";
 
 export default class MastersClient {
   async getLeaderboard() {

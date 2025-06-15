@@ -1,6 +1,6 @@
 import { Player as PlayerType } from "@/interfaces/player.interface";
 import { PlayerStatus } from "@/enums/player-status.enum";
-import Attribute from "./attribute";
+import Attribute from "@/components/attribute";
 import Image from "next/image";
 
 export default function Player({ player }: { player: PlayerType }) {
