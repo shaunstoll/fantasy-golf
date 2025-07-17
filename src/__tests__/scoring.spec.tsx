@@ -1,9 +1,10 @@
 import { describe, it, expect } from "vitest";
-import ScoringService from "@/services/scoring.service";
+
+import { standingsMock } from "@/__tests__/mocks/standings.mock";
 import { mockTeams } from "@/__tests__/mocks/teams.mock";
 import { mockTournament } from "@/__tests__/mocks/tournament.mock";
-import { standingsSnapshot } from "@/__tests__/snapshots/standings.snapshot";
-import { Standing } from "@/interfaces/standing.interface";
+import type { Standing } from "@/interfaces/standing.interface";
+import ScoringService from "@/services/scoring.service";
 
 function getNamesAndScores(standings: Standing[]) {
   return standings
@@ -18,7 +19,7 @@ function getNamesAndScores(standings: Standing[]) {
 
 describe("Scoring Test", () => {
   it("should score standings correctly", () => {
-    const expectedResults = getNamesAndScores(standingsSnapshot);
+    const expectedResults = getNamesAndScores(standingsMock);
     const scoringService = new ScoringService();
     const standings = scoringService.getStandings(mockTeams, mockTournament);
     const actualResults = getNamesAndScores(standings);

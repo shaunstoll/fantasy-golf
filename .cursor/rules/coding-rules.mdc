@@ -1,0 +1,7 @@
+---
+alwaysApply: true
+---
+
+- Understand the [eslint.config.mts](mdc:eslint.config.mts) rules.
+- Never use type "any".
+- Only show the relevant code. Don't print out the entire file.

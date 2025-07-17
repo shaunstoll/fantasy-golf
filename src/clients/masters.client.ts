@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import type { MastersData } from "@/interfaces/masters.interface";
 
 export default class MastersClient {
@@ -14,23 +15,21 @@ export default class MastersClient {
         },
       },
     );
-    return response.data.data.player.reduce(
-      (acc, player) => {
-        const pos = player.pos;
-        if (pos.toLowerCase().startsWith("t")) {
-          acc[player.full_name] = {
-            isTied: true,
-            place: parseInt(pos.substring(1)),
-          };
-        } else {
-          acc[player.full_name.normalize("NFD")] = {
-            isTied: false,
-            place: parseInt(pos),
-          };
-        }
-        return acc;
-      },
-      {} as Record<string, { isTied: boolean; place: number }>,
-    );
+    const result: Record<string, { isTied: boolean; place: number }> = {};
+    for (const player of response.data.data.player) {
+      const pos = player.pos;
+      if (pos.toLowerCase().startsWith("t")) {
+        result[player.full_name] = {
+          isTied: true,
+          place: Number.parseInt(pos.slice(1)),
+        };
+      } else {
+        result[player.full_name.normalize("NFD")] = {
+          isTied: false,
+          place: Number.parseInt(pos),
+        };
+      }
+    }
+    return result;
   }
 }

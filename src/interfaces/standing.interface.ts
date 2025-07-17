@@ -1,4 +1,4 @@
-import { Player } from "@/interfaces/player.interface";
+import type { Player } from "@/interfaces/player.interface";
 
 export interface Standing {
   name: string;

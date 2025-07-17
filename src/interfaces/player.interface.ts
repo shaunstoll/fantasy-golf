@@ -1,10 +1,10 @@
-import { PlayerStatus } from "@/enums/player-status.enum";
+import type { PlayerStatus } from "@/enums/player-status.enum";
 
 export interface Player {
   firstName: string;
   lastName: string;
   rank: number;
-  place: number | null;
+  place?: number;
   nationality: string;
   status: PlayerStatus;
   score: number;

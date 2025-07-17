@@ -1,7 +1,8 @@
 import Image from "next/image";
-import icon from "@/images/yufa.icon.webp";
-import creator from "@/images/creator.webp";
+
 import Button from "@/components/button";
+import creator from "@/images/creator.webp";
+import icon from "@/images/yufa.icon.webp";
 
 export default function Footer() {
   return (

@@ -1,4 +1,4 @@
-import { Team } from "@/interfaces/team.interface";
+import type { Team } from "@/interfaces/team.interface";
 
 export const mockTeams: Team[] = [
   {

@@ -1,7 +1,8 @@
-import { Player as PlayerType } from "@/interfaces/player.interface";
-import { PlayerStatus } from "@/enums/player-status.enum";
-import Attribute from "@/components/attribute";
 import Image from "next/image";
+
+import Attribute from "@/components/attribute";
+import { PlayerStatus } from "@/enums/player-status.enum";
+import type { Player as PlayerType } from "@/interfaces/player.interface";
 
 export default function Player({ player }: { player: PlayerType }) {
   const place =
@@ -16,23 +17,28 @@ export default function Player({ player }: { player: PlayerType }) {
             : player.place;
 
   return (
-    <div className="flex bg-white dark:bg-gray-800 justify-between p-1 pr-2">
+    <div
+      className={`
+        flex justify-between bg-white p-1 pr-2
+        dark:bg-gray-800
+      `}
+    >
       <div className="flex items-center gap-1">
-        <div className="flex items-center flex-col">
+        <div className="flex flex-col items-center">
           <Image
             src={`https://datagolf.com/static/flags/${player.nationality}.png`}
             alt={player.nationality}
             width={20}
             height={20}
           />
-          <p className="font-bold  text-sm rounded w-9 text-center">{place}</p>
+          <p className="w-9 rounded text-center text-sm font-bold">{place}</p>
         </div>
         <div>
           <p className="text-sm">{player.firstName}</p>
           <p>{player.lastName}</p>
         </div>
       </div>
-      <div className="flex flex-wrap items-center gap-1 justify-end">
+      <div className="flex flex-wrap items-center justify-end gap-1">
         {player.multiplier > 1 && (
           <Attribute
             labelClassName="text-xs"

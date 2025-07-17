@@ -62,10 +62,10 @@ interface MastersPlayer {
 }
 
 interface RoundDetails {
-  prior: number | null;
+  prior?: number;
   fantasy: number;
-  total: number | null;
+  total?: number;
   roundStatus: string;
   teetime: string;
-  scores: (number | null)[];
+  scores: Array<number | undefined>;
 }

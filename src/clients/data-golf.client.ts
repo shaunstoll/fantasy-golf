@@ -1,21 +1,22 @@
 import axios from "axios";
-import type { TournamentData } from "@/interfaces/tournament-data.interface";
-import type { Ranking } from "@/interfaces/ranking.interface";
+
 import { PlayerStatus } from "@/enums/player-status.enum";
-import { Tournament } from "@/interfaces/tournament.interface";
+import type { TournamentName } from "@/enums/tournament.enum";
 import { env } from "@/env";
-import { TournamentName } from "@/enums/tournament.enum";
+import type { Ranking } from "@/interfaces/ranking.interface";
+import type { TournamentData } from "@/interfaces/tournament-data.interface";
+import type { Tournament } from "@/interfaces/tournament.interface";
 import { overrides } from "@/overrides";
 
 export default class DataGolfClient {
   private cache: {
-    tournament: Tournament | null;
+    tournament?: Tournament;
     timestamp: number;
   };
 
   constructor() {
     this.cache = {
-      tournament: null,
+      tournament: undefined,
       timestamp: 0,
     };
   }
@@ -24,28 +25,26 @@ export default class DataGolfClient {
     const response = await axios.get("https://datagolf.com/datagolf-rankings");
     const html = response.data;
     const pullDataIndex = html.indexOf("function pull_data()");
-    const substring1 = html.substring(pullDataIndex);
+    const substring1 = html.slice(Math.max(0, pullDataIndex));
     const startIndex =
       substring1.indexOf("JSON.parse('") + "JSON.parse('".length;
     const endIndex = substring1.indexOf(";") - 2;
-    const jsonString = substring1.substring(startIndex, endIndex);
+    const jsonString = substring1.slice(startIndex, endIndex);
     const rankings: Record<string, Ranking> = {};
-    JSON.parse(jsonString).data.table_data.data.forEach(
-      (p: { last: string; first: string; dg_rank: number }) => {
-        const key = p.last.toLowerCase();
-        if (rankings[key]) {
-          console.error(
-            `Duplicate player last name found: ${p.first} ${p.last} and ${rankings[key].firstName} ${rankings[key].lastName}`,
-          );
-        } else {
-          rankings[key] = {
-            firstName: p.first,
-            lastName: p.last,
-            rank: p.dg_rank,
-          };
-        }
-      },
-    );
+    for (const p of JSON.parse(jsonString).data.table_data.data) {
+      const key = p.last.toLowerCase();
+      if (rankings[key]) {
+        console.error(
+          `Duplicate player last name found: ${p.first} ${p.last} and ${rankings[key].firstName} ${rankings[key].lastName}`,
+        );
+      } else {
+        rankings[key] = {
+          firstName: p.first,
+          lastName: p.last,
+          rank: p.dg_rank,
+        };
+      }
+    }
     return rankings;
   }
 
@@ -62,10 +61,10 @@ export default class DataGolfClient {
     const tournamentData = response.data.pga;
     const tournament: Tournament = {
       name: env.NEXT_PUBLIC_TOURNAMENT as TournamentName,
-      round: parseInt(tournamentData.info.current_round),
+      round: Number.parseInt(tournamentData.info.current_round),
       leaderboard: {},
     };
-    tournamentData.lb.forEach((player) => {
+    for (const player of tournamentData.lb) {
       const isCut = player.p === "CUT";
       const withdrawn = player.p === "WD";
       const isTied = player.p.startsWith("T");
@@ -73,14 +72,14 @@ export default class DataGolfClient {
       const isEvenPar = player.s === "E";
       tournament.leaderboard[`${player.f} ${player.l}`] = {
         nationality: player.n,
-        score: isEvenPar ? 0 : parseInt(player.s),
+        score: isEvenPar ? 0 : Number.parseInt(player.s),
         thru: player.t.toString(),
         isTied,
         place: overrides.get(`${player.f} ${player.l}`)?.madeCut
           ? Infinity
           : isCut || withdrawn || didNotStart
-            ? null
-            : parseInt(player.p.replace("T", "")),
+            ? undefined
+            : Number.parseInt(player.p.replace("T", "")),
         status: isCut
           ? PlayerStatus.MISSED_CUT
           : withdrawn
@@ -89,7 +88,7 @@ export default class DataGolfClient {
               ? PlayerStatus.DID_NOT_START
               : PlayerStatus.PLAYING,
       };
-    });
+    }
     this.cache = {
       tournament,
       timestamp: Date.now(),

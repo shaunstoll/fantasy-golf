@@ -1,8 +1,8 @@
-import { Player } from "@/interfaces/player.interface";
-import { Team } from "@/interfaces/team.interface";
-import { Standing } from "@/interfaces/standing.interface";
 import { TournamentName } from "@/enums/tournament.enum";
-import { Tournament } from "@/interfaces/tournament.interface";
+import type { Player } from "@/interfaces/player.interface";
+import type { Standing } from "@/interfaces/standing.interface";
+import type { Team } from "@/interfaces/team.interface";
+import type { Tournament } from "@/interfaces/tournament.interface";
 
 export default class ScoringService {
   private static cutLine = {
@@ -15,27 +15,26 @@ export default class ScoringService {
   getStandings(teams: Team[], tournament: Tournament) {
     const standings: Standing[] = [];
     let lowestRankedPlayerInTop25 = 0;
-    teams.forEach((team) => {
+    for (const team of teams) {
       let allPlayersMadeCutBonus = true;
       let hasFirstPlaceBonus = false;
       const players: Player[] = [];
-      let score = team.players.reduce((acc, player, index) => {
+      let score = 0;
+      for (const [index, player] of team.players.entries()) {
         const p =
-          tournament.leaderboard[player.firstName + " " + player.lastName];
+          tournament.leaderboard[`${player.firstName} ${player.lastName}`];
         if (!p) {
           console.error(
             `Player ${player.firstName} ${player.lastName} not found in leaderboard`,
           );
-          return acc;
+          continue;
         }
         const multiplier = index === 0 ? 2 : index === 1 ? 1.5 : 1;
         let playerTotal = 0;
         let insideCutLineOrMadCutBonus = false;
         let firstPlaceBonus = false;
 
-        if (!p.place) {
-          allPlayersMadeCutBonus = false;
-        } else {
+        if (p.place) {
           if (p.place === 1 && !p.isTied) {
             playerTotal += 15;
             firstPlaceBonus = true;
@@ -68,6 +67,8 @@ export default class ScoringService {
             playerTotal += 5;
             insideCutLineOrMadCutBonus = true;
           }
+        } else {
+          allPlayersMadeCutBonus = false;
         }
         players.push({
           firstName: player.firstName,
@@ -82,11 +83,11 @@ export default class ScoringService {
           thru: p.thru,
           lowestRankedPlayerBonus: false,
           madeCutBonus: insideCutLineOrMadCutBonus,
-          firstPlaceBonus: firstPlaceBonus,
-          multiplier: multiplier,
+          firstPlaceBonus,
+          multiplier,
         });
-        return acc + playerTotal * multiplier;
-      }, 0);
+        score += playerTotal * multiplier;
+      }
       if (allPlayersMadeCutBonus) {
         score += 15;
       }
@@ -100,16 +101,16 @@ export default class ScoringService {
         madeCutBonus: allPlayersMadeCutBonus,
         firstPlaceBonus: hasFirstPlaceBonus,
       });
-    });
-    standings.forEach((team) => {
-      team.players.forEach((player) => {
+    }
+    for (const team of standings) {
+      for (const player of team.players) {
         if (player.rank === lowestRankedPlayerInTop25) {
           player.fantasyScore += 15;
           team.score += 15;
           player.lowestRankedPlayerBonus = true;
           team.lowestRankedPlayerBonus = true;
         }
-      });
+      }
       team.players.sort((a, b) => {
         const placeA = a.place ?? Infinity;
         const placeB = b.place ?? Infinity;
@@ -118,11 +119,11 @@ export default class ScoringService {
         }
         return placeA - placeB;
       });
-    });
+    }
     standings.sort((a, b) => b.score - a.score);
     let currentRank = 1;
     let currentScore = standings[0]?.score;
-    standings.forEach((standing, index) => {
+    for (const [index, standing] of standings.entries()) {
       if (standing.score !== currentScore) {
         currentRank = index + 1;
         currentScore = standing.score;
@@ -132,7 +133,7 @@ export default class ScoringService {
         (index > 0 && standings[index - 1].score === standing.score) ||
         (index < standings.length - 1 &&
           standings[index + 1].score === standing.score);
-    });
+    }
     return standings;
   }
 }

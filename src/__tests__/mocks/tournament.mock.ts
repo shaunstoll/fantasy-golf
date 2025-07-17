@@ -1,5 +1,5 @@
-import { Tournament } from "@/interfaces/tournament.interface";
 import { TournamentName } from "@/enums/tournament.enum";
+import type { Tournament } from "@/interfaces/tournament.interface";
 export const mockTournament: Tournament = {
   name: TournamentName.Pga,
   round: 4,
@@ -601,7 +601,7 @@ export const mockTournament: Tournament = {
       score: 2,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Akshay Bhatia": {
@@ -609,7 +609,7 @@ export const mockTournament: Tournament = {
       score: 2,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Padraig Harrington": {
@@ -617,7 +617,7 @@ export const mockTournament: Tournament = {
       score: 2,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Sepp Straka": {
@@ -625,7 +625,7 @@ export const mockTournament: Tournament = {
       score: 2,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Jordan Spieth": {
@@ -633,7 +633,7 @@ export const mockTournament: Tournament = {
       score: 2,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Rasmus Neergaard-Petersen": {
@@ -641,7 +641,7 @@ export const mockTournament: Tournament = {
       score: 2,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Shane Lowry": {
@@ -649,7 +649,7 @@ export const mockTournament: Tournament = {
       score: 2,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Kurt Kitayama": {
@@ -657,7 +657,7 @@ export const mockTournament: Tournament = {
       score: 2,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Jake Knapp": {
@@ -665,7 +665,7 @@ export const mockTournament: Tournament = {
       score: 2,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Niklas Norgaard": {
@@ -673,7 +673,7 @@ export const mockTournament: Tournament = {
       score: 3,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Ludvig Aberg": {
@@ -681,7 +681,7 @@ export const mockTournament: Tournament = {
       score: 3,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "John Catlin": {
@@ -689,7 +689,7 @@ export const mockTournament: Tournament = {
       score: 3,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Takumi Kanaya": {
@@ -697,7 +697,7 @@ export const mockTournament: Tournament = {
       score: 3,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Thriston Lawrence": {
@@ -705,7 +705,7 @@ export const mockTournament: Tournament = {
       score: 3,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Hideki Matsuyama": {
@@ -713,7 +713,7 @@ export const mockTournament: Tournament = {
       score: 3,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Victor Perez": {
@@ -721,7 +721,7 @@ export const mockTournament: Tournament = {
       score: 3,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Justin Thomas": {
@@ -729,7 +729,7 @@ export const mockTournament: Tournament = {
       score: 3,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Keith Mitchell": {
@@ -737,7 +737,7 @@ export const mockTournament: Tournament = {
       score: 3,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Jimmy Walker": {
@@ -745,7 +745,7 @@ export const mockTournament: Tournament = {
       score: 4,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Gary Woodland": {
@@ -753,7 +753,7 @@ export const mockTournament: Tournament = {
       score: 4,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Matt McCarty": {
@@ -761,7 +761,7 @@ export const mockTournament: Tournament = {
       score: 4,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Eugenio Chacarra": {
@@ -769,7 +769,7 @@ export const mockTournament: Tournament = {
       score: 4,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Thomas Detry": {
@@ -777,7 +777,7 @@ export const mockTournament: Tournament = {
       score: 4,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Patrick Fishburn": {
@@ -785,7 +785,7 @@ export const mockTournament: Tournament = {
       score: 4,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Rickie Fowler": {
@@ -793,7 +793,7 @@ export const mockTournament: Tournament = {
       score: 4,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Min Woo Lee": {
@@ -801,7 +801,7 @@ export const mockTournament: Tournament = {
       score: 4,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Patrick Reed": {
@@ -809,7 +809,7 @@ export const mockTournament: Tournament = {
       score: 4,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Seamus Power": {
@@ -817,7 +817,7 @@ export const mockTournament: Tournament = {
       score: 4,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Sungjae Im": {
@@ -825,7 +825,7 @@ export const mockTournament: Tournament = {
       score: 5,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Max McGreevy": {
@@ -833,7 +833,7 @@ export const mockTournament: Tournament = {
       score: 5,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Keita Nakajima": {
@@ -841,7 +841,7 @@ export const mockTournament: Tournament = {
       score: 5,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Daniel Van Tonder": {
@@ -849,7 +849,7 @@ export const mockTournament: Tournament = {
       score: 5,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Jacob Bridgeman": {
@@ -857,7 +857,7 @@ export const mockTournament: Tournament = {
       score: 6,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Lee Hodges": {
@@ -865,7 +865,7 @@ export const mockTournament: Tournament = {
       score: 6,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Patrick Cantlay": {
@@ -873,7 +873,7 @@ export const mockTournament: Tournament = {
       score: 6,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Jason Day": {
@@ -881,7 +881,7 @@ export const mockTournament: Tournament = {
       score: 6,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Nick Taylor": {
@@ -889,7 +889,7 @@ export const mockTournament: Tournament = {
       score: 6,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Davis Thompson": {
@@ -897,7 +897,7 @@ export const mockTournament: Tournament = {
       score: 6,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Will Zalatoris": {
@@ -905,7 +905,7 @@ export const mockTournament: Tournament = {
       score: 6,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Dean Burmester": {
@@ -913,7 +913,7 @@ export const mockTournament: Tournament = {
       score: 6,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Cameron Smith": {
@@ -921,7 +921,7 @@ export const mockTournament: Tournament = {
       score: 7,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Johnny Keefer": {
@@ -929,7 +929,7 @@ export const mockTournament: Tournament = {
       score: 7,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Erik Van Rooyen": {
@@ -937,7 +937,7 @@ export const mockTournament: Tournament = {
       score: 7,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Laurie Canter": {
@@ -945,7 +945,7 @@ export const mockTournament: Tournament = {
       score: 8,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Martin Kaymer": {
@@ -953,7 +953,7 @@ export const mockTournament: Tournament = {
       score: 8,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Shaun Micheel": {
@@ -961,7 +961,7 @@ export const mockTournament: Tournament = {
       score: 8,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Andrew Novak": {
@@ -969,7 +969,7 @@ export const mockTournament: Tournament = {
       score: 8,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "John Parry": {
@@ -977,7 +977,7 @@ export const mockTournament: Tournament = {
       score: 8,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Nick Dunlap": {
@@ -985,7 +985,7 @@ export const mockTournament: Tournament = {
       score: 8,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Brooks Koepka": {
@@ -993,7 +993,7 @@ export const mockTournament: Tournament = {
       score: 9,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Tyler Collet": {
@@ -1001,7 +1001,7 @@ export const mockTournament: Tournament = {
       score: 9,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Mackenzie Hughes": {
@@ -1009,7 +1009,7 @@ export const mockTournament: Tournament = {
       score: 9,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Patrick Rodgers": {
@@ -1017,7 +1017,7 @@ export const mockTournament: Tournament = {
       score: 9,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Justin Rose": {
@@ -1025,7 +1025,7 @@ export const mockTournament: Tournament = {
       score: 9,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "John Somers": {
@@ -1033,7 +1033,7 @@ export const mockTournament: Tournament = {
       score: 9,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Sami Valimaki": {
@@ -1041,7 +1041,7 @@ export const mockTournament: Tournament = {
       score: 9,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Phil Mickelson": {
@@ -1049,7 +1049,7 @@ export const mockTournament: Tournament = {
       score: 9,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Eric Steger": {
@@ -1057,7 +1057,7 @@ export const mockTournament: Tournament = {
       score: 10,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Russell Henley": {
@@ -1065,7 +1065,7 @@ export const mockTournament: Tournament = {
       score: 10,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Tom Johnson": {
@@ -1073,7 +1073,7 @@ export const mockTournament: Tournament = {
       score: 10,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Michael Kartrude": {
@@ -1081,7 +1081,7 @@ export const mockTournament: Tournament = {
       score: 10,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Bob Sowards": {
@@ -1089,7 +1089,7 @@ export const mockTournament: Tournament = {
       score: 10,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Rico Hoey": {
@@ -1097,7 +1097,7 @@ export const mockTournament: Tournament = {
       score: 11,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Ryan Lenahan": {
@@ -1105,7 +1105,7 @@ export const mockTournament: Tournament = {
       score: 11,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Jesse Droemer": {
@@ -1113,7 +1113,7 @@ export const mockTournament: Tournament = {
       score: 11,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Dylan Newman": {
@@ -1121,7 +1121,7 @@ export const mockTournament: Tournament = {
       score: 11,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Karl Vilips": {
@@ -1129,7 +1129,7 @@ export const mockTournament: Tournament = {
       score: 11,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Adam Hadwin": {
@@ -1137,7 +1137,7 @@ export const mockTournament: Tournament = {
       score: 11,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Brandon Bingaman": {
@@ -1145,7 +1145,7 @@ export const mockTournament: Tournament = {
       score: 12,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Dustin Johnson": {
@@ -1153,7 +1153,7 @@ export const mockTournament: Tournament = {
       score: 12,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Jason Dufner": {
@@ -1161,7 +1161,7 @@ export const mockTournament: Tournament = {
       score: 13,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Bobby Gates": {
@@ -1169,7 +1169,7 @@ export const mockTournament: Tournament = {
       score: 13,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Timothy Wiseman": {
@@ -1177,7 +1177,7 @@ export const mockTournament: Tournament = {
       score: 13,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Justin Hicks": {
@@ -1185,7 +1185,7 @@ export const mockTournament: Tournament = {
       score: 13,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Brian Bergstol": {
@@ -1193,7 +1193,7 @@ export const mockTournament: Tournament = {
       score: 14,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Michael Block": {
@@ -1201,7 +1201,7 @@ export const mockTournament: Tournament = {
       score: 15,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Nic Ishee": {
@@ -1209,7 +1209,7 @@ export const mockTournament: Tournament = {
       score: 16,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Andre Chi": {
@@ -1217,7 +1217,7 @@ export const mockTournament: Tournament = {
       score: 19,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Larkin Gross": {
@@ -1225,7 +1225,7 @@ export const mockTournament: Tournament = {
       score: 19,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Rupe Taylor": {
@@ -1233,7 +1233,7 @@ export const mockTournament: Tournament = {
       score: 22,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Greg Koch": {
@@ -1241,7 +1241,7 @@ export const mockTournament: Tournament = {
       score: 23,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 1,
     },
     "Patton Kizzire": {
@@ -1249,7 +1249,7 @@ export const mockTournament: Tournament = {
       score: 0,
       thru: "-",
       isTied: false,
-      place: null,
+      place: undefined,
       status: 2,
     },
   },

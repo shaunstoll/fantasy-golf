@@ -1,4 +1,4 @@
-import { PlayerStatus } from "@/enums/player-status.enum";
+import type { PlayerStatus } from "@/enums/player-status.enum";
 
 export interface Leaderboard {
   [key: string]: {
@@ -6,7 +6,7 @@ export interface Leaderboard {
     score: number;
     thru: string;
     isTied: boolean;
-    place: number | null;
+    place?: number;
     status: PlayerStatus;
   };
 }

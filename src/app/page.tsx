@@ -1,12 +1,13 @@
 "use client";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
+import Link from "next/link";
+
 import Button from "@/components/button";
 import Footer from "@/components/footer";
 import StandingsSkeleton from "@/components/loaders/standings.skeleton";
 import Standing from "@/components/standing";
 import { useStore } from "@/store";
 import { api } from "@/trpc/react";
-import { useAutoAnimate } from "@formkit/auto-animate/react";
-import Link from "next/link";
 
 export default function Home() {
   const { favoriteTeams } = useStore();
@@ -18,14 +19,18 @@ export default function Home() {
   if (standingsQuery.error) {
     console.error(standingsQuery.error);
     return (
-      <main className="flex flex-col gap-2 items-center justify-center h-2/3 text-xl">
+      <main
+        className={`
+          flex h-2/3 flex-col items-center justify-center gap-2 text-xl
+        `}
+      >
         <div className="flex flex-col items-center">
           <p>An error occurred.</p>
           <p>Error: {standingsQuery.error.message}</p>
           <p>Please try refreshing the page.</p>
         </div>
         <Link href="/">
-          <Button className="rounded bg-orange-500 py-1 px-2 font-bold shadow">
+          <Button className="rounded bg-orange-500 px-2 py-1 font-bold shadow">
             Refresh
           </Button>
         </Link>

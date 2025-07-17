@@ -1,10 +1,11 @@
-import { Standing as StandingType } from "@/interfaces/standing.interface";
-import Button from "@/components/button";
-import { useState } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import Player from "@/components/player";
-import Attribute from "@/components/attribute";
 import { Star } from "lucide-react";
+import { useState } from "react";
+
+import Attribute from "@/components/attribute";
+import Button from "@/components/button";
+import Player from "@/components/player";
+import type { Standing as StandingType } from "@/interfaces/standing.interface";
 import { useStore } from "@/store";
 
 export default function Standing({ standing }: { standing: StandingType }) {
@@ -16,26 +17,35 @@ export default function Standing({ standing }: { standing: StandingType }) {
     <div className="flex flex-col gap-px">
       <div className="flex items-center">
         <Button
-          className="bg-white dark:bg-gray-800 rounded-l shadow h-full p-2"
+          className={`
+            h-full rounded-l bg-white p-2 shadow
+            dark:bg-gray-800
+          `}
           onClick={(e) => {
             e.stopPropagation();
             toggleFavoriteTeam(standing.name);
           }}
         >
           <Star
-            className="size-6 text-gray-500 dark:text-white"
+            className={`
+              size-6 text-gray-500
+              dark:text-white
+            `}
             fill={
-              favoriteTeams.some((teamName) => teamName === standing.name)
-                ? "currentColor"
-                : "none"
+              favoriteTeams.includes(standing.name) ? "currentColor" : "none"
             }
           />
         </Button>
         <Button
-          className="flex items-center justify-between gap-2 w-full bg-white dark:bg-gray-800 p-2 rounded-r shadow"
+          className={`
+            flex w-full items-center justify-between gap-2 rounded-r bg-white
+            p-2 shadow
+            dark:bg-gray-800
+          `}
           onClick={() => setIsOpen(!isOpen)}
+          aria-label={`team ${standing.name}`}
         >
-          <div className="flex gap-3 items-center overflow-hidden">
+          <div className="flex items-center gap-3 overflow-hidden">
             <Attribute
               labelClassName="text-sm"
               valueClassName={
@@ -89,7 +99,7 @@ export default function Standing({ standing }: { standing: StandingType }) {
 
       <div ref={playersRef}>
         {isOpen && (
-          <div className="flex flex-col gap-px rounded-b overflow-hidden">
+          <div className="flex flex-col gap-px overflow-hidden rounded-b">
             {standing.players.map((player) => {
               return (
                 <Player

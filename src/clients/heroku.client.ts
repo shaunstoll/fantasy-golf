@@ -1,11 +1,11 @@
 import axios from "axios";
-import * as Cheerio from "cheerio";
+import { load } from "cheerio";
 export default class HerokuClient {
   async getTeams() {
     const response = await axios.get(
       "https://golf-competition-193e590fabff.herokuapp.com/",
     );
-    const $ = Cheerio.load(response.data);
+    const $ = load(response.data);
     const tbody = $("tbody");
     const rows = tbody.find("tr");
     const teams = rows
