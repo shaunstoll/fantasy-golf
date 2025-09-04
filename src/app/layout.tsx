@@ -1,5 +1,4 @@
 import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Baloo_2 as Font } from "next/font/google";
 
@@ -68,7 +67,6 @@ export default function RootLayout({
           </div>
         </TRPCReactProvider>
         <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );
