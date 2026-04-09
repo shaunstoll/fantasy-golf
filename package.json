@@ -18,7 +18,7 @@
     "e2e:ui": "playwright test --ui",
     "typecheck": "npx tsc --noEmit",
     "get-rankings": "npx tsx src/scripts/get-rankings.ts",
-    "get-teams": "NODE_ENV=development NEXT_PUBLIC_TOURNAMENT=masters npx tsx src/scripts/get-teams.ts"
+    "get-teams": "npx tsx src/scripts/get-teams.ts"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.97.0",
@@ -39,7 +39,6 @@
   "devDependencies": {
     "@formkit/auto-animate": "^0.9.0",
     "@playwright/test": "^1.59.1",
-    "@t3-oss/env-nextjs": "^0.13.11",
     "@tailwindcss/postcss": "^4",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",

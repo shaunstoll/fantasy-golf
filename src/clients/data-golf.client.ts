@@ -1,8 +1,7 @@
 import axios from "axios";
 
 import { PlayerStatus } from "@/enums/player-status.enum";
-import type { TournamentName } from "@/enums/tournament.enum";
-import { env } from "@/env";
+import { currentTournament } from "@/env";
 import type { Ranking } from "@/interfaces/ranking.interface";
 import type { TournamentData } from "@/interfaces/tournament-data.interface";
 import type { Tournament } from "@/interfaces/tournament.interface";
@@ -57,7 +56,7 @@ export default class DataGolfClient {
     );
     const tournamentData = response.data.pga;
     const tournament: Tournament = {
-      name: env.NEXT_PUBLIC_TOURNAMENT as TournamentName,
+      name: currentTournament,
       round: Number.parseInt(tournamentData.info.current_round),
       leaderboard: {},
     };
