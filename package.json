@@ -16,7 +16,7 @@
     "e2e:ui": "playwright test --ui",
     "typecheck": "npx tsc --noEmit",
     "get-rankings": "npx tsx src/scripts/get-rankings.ts",
-    "get-teams": "npx tsx src/scripts/get-teams.ts"
+    "get-teams": "NODE_ENV=development NEXT_PUBLIC_TOURNAMENT=masters npx tsx src/scripts/get-teams.ts"
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.2",
@@ -28,7 +28,6 @@
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "axios": "^1.10.0",
-    "cheerio": "^1.1.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.525.0",
     "next": "15.4.1",

@@ -32,11 +32,9 @@ export default class DataGolfClient {
     const jsonString = substring1.slice(startIndex, endIndex);
     const rankings: Record<string, Ranking> = {};
     for (const p of JSON.parse(jsonString).data.table_data.data) {
-      const key = p.last.toLowerCase();
+      const key = `${p.first} ${p.last}`;
       if (rankings[key]) {
-        console.error(
-          `Duplicate player last name found: ${p.first} ${p.last} and ${rankings[key].firstName} ${rankings[key].lastName}`,
-        );
+        console.error(`Duplicate player name found: ${key}`);
       } else {
         rankings[key] = {
           firstName: p.first,
