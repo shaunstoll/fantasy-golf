@@ -92,7 +92,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 The project uses two testing frameworks:
 
 1. **Vitest** for unit testing:
-
    - Fast and modern test runner
    - React Testing Library integration
    - Coverage reporting

@@ -26,8 +26,7 @@ export default class DataGolfClient {
     const html = response.data;
     const pullDataIndex = html.indexOf("function pull_data()");
     const substring1 = html.slice(Math.max(0, pullDataIndex));
-    const startIndex =
-      substring1.indexOf("JSON.parse('") + "JSON.parse('".length;
+    const startIndex = substring1.indexOf("JSON.parse('") + "JSON.parse('".length;
     const endIndex = substring1.indexOf(";") - 2;
     const jsonString = substring1.slice(startIndex, endIndex);
     const rankings: Record<string, Ranking> = {};

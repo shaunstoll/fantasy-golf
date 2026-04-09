@@ -30,9 +30,7 @@ export default function Home() {
           <p>Please try refreshing the page.</p>
         </div>
         <Link href="/">
-          <Button className="rounded bg-orange-500 px-2 py-1 font-bold shadow">
-            Refresh
-          </Button>
+          <Button className="rounded bg-orange-500 px-2 py-1 font-bold shadow">Refresh</Button>
         </Link>
       </main>
     );

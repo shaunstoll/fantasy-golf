@@ -1,3 +1,4 @@
-npx lint-staged
+npx oxlint .
+npx oxfmt --check .
 npm run typecheck
 npm test

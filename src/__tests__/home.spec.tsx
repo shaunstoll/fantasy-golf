@@ -31,8 +31,6 @@ describe("Home Component", () => {
       name: `team ${standingsMock[0].name}`,
     });
     await userEvent.click(standingButton);
-    expect(
-      screen.getByText(standingsMock[0].players[0].lastName),
-    ).toBeInTheDocument();
+    expect(screen.getByText(standingsMock[0].players[0].lastName)).toBeInTheDocument();
   });
 });

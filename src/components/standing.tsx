@@ -31,9 +31,7 @@ export default function Standing({ standing }: { standing: StandingType }) {
               size-6 text-gray-500
               dark:text-white
             `}
-            fill={
-              favoriteTeams.includes(standing.name) ? "currentColor" : "none"
-            }
+            fill={favoriteTeams.includes(standing.name) ? "currentColor" : "none"}
           />
         </Button>
         <Button
@@ -101,12 +99,7 @@ export default function Standing({ standing }: { standing: StandingType }) {
         {isOpen && (
           <div className="flex flex-col gap-px overflow-hidden rounded-b">
             {standing.players.map((player) => {
-              return (
-                <Player
-                  key={`${player.firstName} ${player.lastName}`}
-                  player={player}
-                />
-              );
+              return <Player key={`${player.firstName} ${player.lastName}`} player={player} />;
             })}
           </div>
         )}

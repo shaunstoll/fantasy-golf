@@ -58,9 +58,7 @@ export default function RootLayout({
               dark:bg-gray-900 dark:text-white
             `}
           >
-            <div
-              className={`mx-auto flex h-dvh max-w-screen-sm flex-col gap-1 p-1`}
-            >
+            <div className={`mx-auto flex h-dvh max-w-screen-sm flex-col gap-1 p-1`}>
               <Header />
               {children}
             </div>

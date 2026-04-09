@@ -21,12 +21,9 @@ export default class ScoringService {
       const players: Player[] = [];
       let score = 0;
       for (const [index, player] of team.players.entries()) {
-        const p =
-          tournament.leaderboard[`${player.firstName} ${player.lastName}`];
+        const p = tournament.leaderboard[`${player.firstName} ${player.lastName}`];
         if (!p) {
-          console.error(
-            `Player ${player.firstName} ${player.lastName} not found in leaderboard`,
-          );
+          console.error(`Player ${player.firstName} ${player.lastName} not found in leaderboard`);
           continue;
         }
         const multiplier = index === 0 ? 2 : index === 1 ? 1.5 : 1;
@@ -58,10 +55,7 @@ export default class ScoringService {
               lowestRankedPlayerInTop25 = player.rank;
             }
           }
-          if (
-            tournament.round < 3 &&
-            p.place > ScoringService.cutLine[tournament.name]
-          ) {
+          if (tournament.round < 3 && p.place > ScoringService.cutLine[tournament.name]) {
             allPlayersMadeCutBonus = false;
           } else if (player.rank > 5) {
             playerTotal += 5;
@@ -131,8 +125,7 @@ export default class ScoringService {
       standing.rank = currentRank;
       standing.isTied =
         (index > 0 && standings[index - 1].score === standing.score) ||
-        (index < standings.length - 1 &&
-          standings[index + 1].score === standing.score);
+        (index < standings.length - 1 && standings[index + 1].score === standing.score);
     }
     return standings;
   }

@@ -92,20 +92,10 @@ export default function Player({ player }: { player: PlayerType }) {
         <Attribute
           labelClassName="text-xs"
           valueClassName={`font-bold text-sm w-10 text-white rounded p-1 text-center ${
-            player.score > 0
-              ? "bg-green-700"
-              : player.score < 0
-                ? "bg-red-700"
-                : "bg-gray-600"
+            player.score > 0 ? "bg-green-700" : player.score < 0 ? "bg-red-700" : "bg-gray-600"
           }`}
           label="Score"
-          value={
-            player.score > 0
-              ? `+${player.score}`
-              : player.score === 0
-                ? "E"
-                : player.score
-          }
+          value={player.score > 0 ? `+${player.score}` : player.score === 0 ? "E" : player.score}
         />
       </div>
     </div>

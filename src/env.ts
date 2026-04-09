@@ -18,9 +18,7 @@ export const env = createEnv({
    * `NEXT_PUBLIC_`.
    */
   client: {
-    NEXT_PUBLIC_TOURNAMENT: z.enum(
-      Object.values(TournamentName) as [string, ...string[]],
-    ),
+    NEXT_PUBLIC_TOURNAMENT: z.enum(Object.values(TournamentName) as [string, ...string[]]),
   },
 
   /**
