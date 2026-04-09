@@ -48,7 +48,7 @@ export default function RootLayout({
       <body
         className={`
           ${font.variable}
-          overflow-hidden antialiased
+          antialiased
         `}
       >
         <TRPCReactProvider>
@@ -58,7 +58,7 @@ export default function RootLayout({
               dark:bg-gray-900 dark:text-white
             `}
           >
-            <div className={`mx-auto flex h-dvh max-w-screen-sm flex-col gap-1 p-1`}>
+            <div className={`mx-auto flex min-h-dvh max-w-screen-sm flex-col gap-1 p-1`}>
               <Header />
               {children}
             </div>

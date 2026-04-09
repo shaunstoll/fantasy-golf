@@ -18,7 +18,7 @@ export default function Standing({ standing }: { standing: StandingType }) {
       <div className="flex items-center">
         <Button
           className={`
-            h-full rounded-l bg-white p-2 shadow
+            self-stretch rounded-l bg-white p-2 shadow
             dark:bg-gray-800
           `}
           onClick={(e) => {
@@ -27,10 +27,7 @@ export default function Standing({ standing }: { standing: StandingType }) {
           }}
         >
           <Star
-            className={`
-              size-6 text-gray-500
-              dark:text-white
-            `}
+            className="size-6 text-amber-400"
             fill={favoriteTeams.includes(standing.name) ? "currentColor" : "none"}
           />
         </Button>
