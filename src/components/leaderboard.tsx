@@ -58,9 +58,6 @@ export default function Leaderboard() {
   const sorted = [...filtered].sort((a, b) => {
     const aVal = getSortValue(a, sortKey);
     const bVal = getSortValue(b, sortKey);
-    if (aVal === Infinity && bVal === Infinity) return 0;
-    if (aVal === Infinity) return 1;
-    if (bVal === Infinity) return -1;
     return sortDir === "asc" ? aVal - bVal : bVal - aVal;
   });
 
