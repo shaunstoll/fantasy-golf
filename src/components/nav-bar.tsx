@@ -1,13 +1,15 @@
-import { Flag, Trophy } from "lucide-react";
+import { BarChart3, Flag, Trophy } from "lucide-react";
 
 import Button from "@/components/button";
+
+export type Tab = "standings" | "leaderboard" | "overall";
 
 export default function NavBar({
   activeTab,
   setActiveTab,
 }: {
-  activeTab: "standings" | "leaderboard";
-  setActiveTab: (tab: "standings" | "leaderboard") => void;
+  activeTab: Tab;
+  setActiveTab: (tab: Tab) => void;
 }) {
   return (
     <nav
@@ -37,6 +39,17 @@ export default function NavBar({
       >
         <Flag className="size-5" />
         Leaderboard
+      </Button>
+      <Button
+        className={`
+          flex flex-col items-center gap-0.5 text-xs text-black
+          dark:text-white
+          ${activeTab !== "overall" ? "opacity-50" : ""}
+        `}
+        onClick={() => setActiveTab("overall")}
+      >
+        <BarChart3 className="size-5" />
+        Overall
       </Button>
     </nav>
   );

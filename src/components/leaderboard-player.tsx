@@ -40,7 +40,7 @@ export default function LeaderboardPlayerRow({ player }: { player: LeaderboardPl
         `}
         onClick={() => setIsOpen(!isOpen)}
       >
-        <div className="flex min-w-0 items-center gap-1">
+        <div className="flex min-w-0 items-center gap-1 pr-1">
           <div className="flex shrink-0 flex-col items-center">
             <Image
               src={`https://datagolf.com/static/flags/${player.nationality}.png`}
