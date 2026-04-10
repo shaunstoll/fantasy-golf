@@ -1,7 +1,6 @@
 "use client";
 
 import { Search, X } from "lucide-react";
-import { useState } from "react";
 
 import Button from "@/components/button";
 import Footer from "@/components/footer";
@@ -10,8 +9,8 @@ import StandingsSkeleton from "@/components/loaders/standings.skeleton";
 import type { LeaderboardPlayer } from "@/interfaces/leaderboard-player.interface";
 import { api } from "@/trpc/react";
 
-type SortKey = "score" | "points" | "rank" | "owned";
-type SortDir = "asc" | "desc";
+export type SortKey = "score" | "points" | "rank" | "owned";
+export type SortDir = "asc" | "desc";
 
 const sortOptions: { key: SortKey; label: string; defaultDir: SortDir }[] = [
   { key: "score", label: "Score", defaultDir: "asc" },
@@ -33,10 +32,23 @@ function getSortValue(player: LeaderboardPlayer, key: SortKey): number {
   }
 }
 
-export default function Leaderboard() {
-  const [search, setSearch] = useState("");
-  const [sortKey, setSortKey] = useState<SortKey>("score");
-  const [sortDir, setSortDir] = useState<SortDir>("asc");
+interface Props {
+  search: string;
+  onSearchChange: (s: string) => void;
+  sortKey: SortKey;
+  setSortKey: (k: SortKey) => void;
+  sortDir: SortDir;
+  setSortDir: (d: SortDir) => void;
+}
+
+export default function Leaderboard({
+  search,
+  onSearchChange,
+  sortKey,
+  setSortKey,
+  sortDir,
+  setSortDir,
+}: Props) {
   const leaderboardQuery = api.tournament.leaderboard.useQuery(undefined, {
     refetchInterval: 5000,
   });
@@ -77,12 +89,12 @@ export default function Leaderboard() {
         <input
           type="text"
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => onSearchChange(e.target.value)}
           placeholder="Search players..."
           className="w-full bg-transparent px-3 py-2 text-base outline-none"
         />
         {search && (
-          <button type="button" className="pr-3" onClick={() => setSearch("")}>
+          <button type="button" className="pr-3" onClick={() => onSearchChange("")}>
             <X className="size-5 shrink-0 opacity-50" />
           </button>
         )}

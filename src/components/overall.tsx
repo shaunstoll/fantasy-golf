@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Search, X } from "lucide-react";
 
 import Attribute from "@/components/attribute";
 import Button from "@/components/button";
@@ -8,8 +8,8 @@ import Footer from "@/components/footer";
 import StandingsSkeleton from "@/components/loaders/standings.skeleton";
 import { api } from "@/trpc/react";
 
-type SortKey = "masters" | "pga" | "us" | "open" | "total";
-type SortDir = "asc" | "desc";
+export type SortKey = "masters" | "pga" | "us" | "open" | "total";
+export type SortDir = "asc" | "desc";
 
 const sortOptions: { key: SortKey; label: string }[] = [
   { key: "total", label: "Total" },
@@ -45,9 +45,23 @@ function getSortValue(team: OverallTeam, key: SortKey): number {
   }
 }
 
-export default function Overall() {
-  const [sortKey, setSortKey] = useState<SortKey>("total");
-  const [sortDir, setSortDir] = useState<SortDir>("desc");
+interface Props {
+  search: string;
+  onSearchChange: (s: string) => void;
+  sortKey: SortKey;
+  setSortKey: (k: SortKey) => void;
+  sortDir: SortDir;
+  setSortDir: (d: SortDir) => void;
+}
+
+export default function Overall({
+  search,
+  onSearchChange,
+  sortKey,
+  setSortKey,
+  sortDir,
+  setSortDir,
+}: Props) {
   const standingsQuery = api.tournament.get.useQuery(undefined, {
     refetchInterval: 5000,
   });
@@ -69,7 +83,10 @@ export default function Overall() {
     isTied: false,
   }));
 
-  teams.sort((a, b) => {
+  const query = search.toLowerCase();
+  const filteredTeams = query ? teams.filter((t) => t.name.toLowerCase().includes(query)) : teams;
+
+  filteredTeams.sort((a, b) => {
     const aVal = getSortValue(a, sortKey);
     const bVal = getSortValue(b, sortKey);
     return sortDir === "asc" ? aVal - bVal : bVal - aVal;
@@ -99,6 +116,22 @@ export default function Overall() {
 
   return (
     <>
+      <div className="flex items-center rounded-full bg-white dark:bg-gray-800">
+        <Search className="ml-3 size-5 shrink-0 opacity-50" />
+        <input
+          type="text"
+          value={search}
+          onChange={(e) => onSearchChange(e.target.value)}
+          placeholder="Search teams..."
+          className="w-full bg-transparent px-3 py-2 text-base outline-none"
+        />
+        {search && (
+          <button type="button" className="pr-3" onClick={() => onSearchChange("")}>
+            <X className="size-5 shrink-0 opacity-50" />
+          </button>
+        )}
+      </div>
+
       <div className="flex gap-1">
         {sortOptions.map((option) => {
           const isActive = sortKey === option.key;
@@ -123,7 +156,7 @@ export default function Overall() {
       </div>
 
       <main className="flex flex-col gap-1 pb-20">
-        {teams.map((team) => (
+        {filteredTeams.map((team) => (
           <div
             key={team.name}
             className={`

@@ -3,7 +3,6 @@
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { Search, X } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
 
 import Button from "@/components/button";
 import Footer from "@/components/footer";
@@ -20,7 +19,7 @@ const tournamentOptions: { key: TournamentName; label: string }[] = [
   { key: TournamentName.Open, label: "Open" },
 ];
 
-function getDefaultTournament(): TournamentName {
+export function getDefaultTournament(): TournamentName {
   const month = new Date().getMonth();
   switch (month) {
     case 3:
@@ -36,11 +35,16 @@ function getDefaultTournament(): TournamentName {
   }
 }
 
-export default function Standings() {
+interface Props {
+  search: string;
+  onSearchChange: (s: string) => void;
+  tournament: TournamentName;
+  onTournamentChange: (t: TournamentName) => void;
+}
+
+export default function Standings({ search, onSearchChange, tournament, onTournamentChange }: Props) {
   const { favoriteTeams } = useStore();
   const [standingsRef] = useAutoAnimate();
-  const [search, setSearch] = useState("");
-  const [tournament, setTournament] = useState(getDefaultTournament);
   const standingsQuery = api.tournament.get.useQuery(undefined, {
     refetchInterval: 5000,
   });
@@ -80,12 +84,12 @@ export default function Standings() {
         <input
           type="text"
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => onSearchChange(e.target.value)}
           placeholder="Search teams..."
           className="w-full bg-transparent px-3 py-2 text-base outline-none"
         />
         {search && (
-          <button type="button" className="pr-3" onClick={() => setSearch("")}>
+          <button type="button" className="pr-3" onClick={() => onSearchChange("")}>
             <X className="size-5 shrink-0 opacity-50" />
           </button>
         )}
@@ -103,7 +107,7 @@ export default function Standings() {
                   : "text-gray-500 dark:text-gray-400"
               }
             `}
-            onClick={() => setTournament(option.key)}
+            onClick={() => onTournamentChange(option.key)}
           >
             {option.label}
           </Button>
