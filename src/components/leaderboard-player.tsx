@@ -60,7 +60,7 @@ export default function LeaderboardPlayerRow({ player }: { player: LeaderboardPl
             labelClassName="text-xs"
             valueClassName="bg-blue-200 text-blue-800"
             label="Owned"
-            value={`${player.ownedPercentage}%`}
+            value={player.ownedCount}
           />
           <Attribute
             labelClassName="text-xs"

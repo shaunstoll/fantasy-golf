@@ -215,7 +215,8 @@ export default class ScoringService {
           madeCutBonusPoints +
           firstPlaceBonusPoints +
           lowestRankedBonusPoints,
-        ownedPercentage: Math.round(((ownershipCounts.get(name) ?? 0) / totalTeams) * 100),
+        ownedCount: ownershipCounts.get(name) ?? 0,
+        ownedTotal: totalTeams,
       });
     }
 

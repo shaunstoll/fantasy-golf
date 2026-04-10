@@ -29,7 +29,7 @@ function getSortValue(player: LeaderboardPlayer, key: SortKey): number {
     case "rank":
       return player.rank > 0 ? player.rank : Infinity;
     case "owned":
-      return player.ownedPercentage;
+      return player.ownedCount;
   }
 }
 

@@ -16,5 +16,6 @@ export interface LeaderboardPlayer {
   firstPlaceBonusPoints: number;
   lowestRankedBonusPoints: number;
   fantasyScore: number;
-  ownedPercentage: number;
+  ownedCount: number;
+  ownedTotal: number;
 }
