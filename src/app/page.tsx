@@ -2,7 +2,7 @@
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { Search, X } from "lucide-react";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 import Button from "@/components/button";
 import Footer from "@/components/footer";
@@ -15,8 +15,6 @@ export default function Home() {
   const { favoriteTeams } = useStore();
   const [standingsRef] = useAutoAnimate();
   const [search, setSearch] = useState("");
-  const [searchOpen, setSearchOpen] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
   const standingsQuery = api.tournament.get.useQuery(undefined, {
     refetchInterval: 5000,
   });
@@ -54,6 +52,22 @@ export default function Home() {
 
   return (
     <>
+      <div className="flex items-center rounded-full bg-white">
+        <Search className="ml-3 size-5 shrink-0 opacity-50" />
+        <input
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Search teams..."
+          className="w-full bg-transparent px-3 py-2 text-base outline-none"
+        />
+        {search && (
+          <button type="button" className="pr-3" onClick={() => setSearch("")}>
+            <X className="size-5 shrink-0 opacity-50" />
+          </button>
+        )}
+      </div>
+
       <main className="flex flex-col gap-1" ref={standingsRef}>
         {favoriteStandings.map((standing) => (
           <Standing key={standing.name} standing={standing} />
@@ -66,40 +80,6 @@ export default function Home() {
         ))}
         <Footer />
       </main>
-
-      {searchOpen ? (
-        <div className="fixed right-4 bottom-6 flex w-64 items-center rounded-full bg-white/15 shadow-xl backdrop-blur-lg">
-          <input
-            ref={inputRef}
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search teams..."
-            className="w-full bg-transparent px-4 py-2 text-sm outline-none dark:text-white"
-          />
-          <button
-            type="button"
-            className="pr-3"
-            onClick={() => {
-              setSearch("");
-              setSearchOpen(false);
-            }}
-          >
-            <X className="size-5 text-black dark:text-white" />
-          </button>
-        </div>
-      ) : (
-        <button
-          type="button"
-          className="fixed right-4 bottom-6 flex size-10 items-center justify-center rounded-full bg-white/15 shadow-xl backdrop-blur-sm"
-          onClick={() => {
-            setSearchOpen(true);
-            setTimeout(() => inputRef.current?.focus(), 0);
-          }}
-        >
-          <Search className="size-5 text-black dark:text-white" />
-        </button>
-      )}
     </>
   );
 }
