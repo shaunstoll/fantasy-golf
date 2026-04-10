@@ -9,13 +9,38 @@ import Button from "@/components/button";
 import Footer from "@/components/footer";
 import StandingsSkeleton from "@/components/loaders/standings.skeleton";
 import Standing from "@/components/standing";
+import { TournamentName } from "@/enums/tournament.enum";
 import { useStore } from "@/store";
 import { api } from "@/trpc/react";
+
+const tournamentOptions: { key: TournamentName; label: string }[] = [
+  { key: TournamentName.Masters, label: "Masters" },
+  { key: TournamentName.Pga, label: "PGA" },
+  { key: TournamentName.UsOpen, label: "US Open" },
+  { key: TournamentName.Open, label: "Open" },
+];
+
+function getDefaultTournament(): TournamentName {
+  const month = new Date().getMonth();
+  switch (month) {
+    case 3:
+      return TournamentName.Masters;
+    case 4:
+      return TournamentName.Pga;
+    case 5:
+      return TournamentName.UsOpen;
+    case 6:
+      return TournamentName.Open;
+    default:
+      return TournamentName.Open;
+  }
+}
 
 export default function Standings() {
   const { favoriteTeams } = useStore();
   const [standingsRef] = useAutoAnimate();
   const [search, setSearch] = useState("");
+  const [tournament, setTournament] = useState(getDefaultTournament);
   const standingsQuery = api.tournament.get.useQuery(undefined, {
     refetchInterval: 5000,
   });
@@ -40,10 +65,11 @@ export default function Standings() {
 
   if (!standingsQuery.data) return <main>No Standings Found</main>;
 
+  const isCurrentTournament = tournament === getDefaultTournament();
+  const data = isCurrentTournament ? standingsQuery.data : [];
+
   const query = search.toLowerCase();
-  const filtered = query
-    ? standingsQuery.data.filter((s) => s.name.toLowerCase().includes(query))
-    : standingsQuery.data;
+  const filtered = query ? data.filter((s) => s.name.toLowerCase().includes(query)) : data;
 
   const favoriteStandings = filtered.filter((standing) => favoriteTeams.includes(standing.name));
 
@@ -63,6 +89,25 @@ export default function Standings() {
             <X className="size-5 shrink-0 opacity-50" />
           </button>
         )}
+      </div>
+
+      <div className="flex gap-1">
+        {tournamentOptions.map((option) => (
+          <Button
+            key={option.key}
+            className={`
+              rounded-full px-2.5 py-1 text-xs font-medium
+              ${
+                tournament === option.key
+                  ? "bg-white text-black dark:bg-gray-700 dark:text-white"
+                  : "text-gray-500 dark:text-gray-400"
+              }
+            `}
+            onClick={() => setTournament(option.key)}
+          >
+            {option.label}
+          </Button>
+        ))}
       </div>
 
       <main className="flex flex-col gap-1 pb-20" ref={standingsRef}>
