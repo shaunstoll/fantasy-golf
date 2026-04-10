@@ -32,7 +32,7 @@ export default function Leaderboard() {
 
   return (
     <>
-      <div className="flex items-center rounded-full bg-white">
+      <div className="flex items-center rounded-full bg-white dark:bg-gray-800">
         <Search className="ml-3 size-5 shrink-0 opacity-50" />
         <input
           type="text"
