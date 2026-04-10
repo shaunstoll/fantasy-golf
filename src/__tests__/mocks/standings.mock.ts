@@ -20,6 +20,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Bryson",
@@ -36,6 +38,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Tony",
@@ -52,6 +56,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Corey",
@@ -68,6 +74,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Collin",
@@ -84,6 +92,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Justin",
@@ -100,6 +110,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Patrick",
@@ -116,6 +128,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Shane",
@@ -132,6 +146,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 1,
@@ -159,6 +175,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Bryson",
@@ -175,6 +193,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Adam",
@@ -191,6 +211,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Xander",
@@ -207,6 +229,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Viktor",
@@ -223,6 +247,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rory",
@@ -239,6 +265,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Collin",
@@ -255,6 +283,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Ludvig",
@@ -271,6 +301,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 2,
@@ -298,6 +330,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Harris",
@@ -314,6 +348,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Bryson",
@@ -330,6 +366,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Xander",
@@ -346,6 +384,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Tommy",
@@ -362,6 +402,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rory",
@@ -378,6 +420,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Brian",
@@ -394,6 +438,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Justin",
@@ -410,6 +456,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 3,
@@ -437,6 +485,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Bryson",
@@ -453,6 +503,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Taylor",
@@ -469,6 +521,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Daniel",
@@ -485,6 +539,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rory",
@@ -501,6 +557,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rasmus",
@@ -517,6 +575,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Justin",
@@ -533,6 +593,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Hideki",
@@ -549,6 +611,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 4,
@@ -576,6 +640,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Bryson",
@@ -592,6 +658,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Joaquin",
@@ -608,6 +676,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Jon",
@@ -624,6 +694,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Tony",
@@ -640,6 +712,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Xander",
@@ -656,6 +730,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rory",
@@ -672,6 +748,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Akshay",
@@ -688,6 +766,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 4,
@@ -715,6 +795,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Bryson",
@@ -731,6 +813,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Jon",
@@ -747,6 +831,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Xander",
@@ -763,6 +849,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rory",
@@ -779,6 +867,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Collin",
@@ -795,6 +885,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Hideki",
@@ -811,6 +903,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Shane",
@@ -827,6 +921,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 6,
@@ -854,6 +950,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Bryson",
@@ -870,6 +968,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Corey",
@@ -886,6 +986,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Xander",
@@ -902,6 +1004,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Tommy",
@@ -918,6 +1022,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rory",
@@ -934,6 +1040,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Justin",
@@ -950,6 +1058,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Patrick",
@@ -966,6 +1076,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 7,
@@ -993,6 +1105,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Bryson",
@@ -1009,6 +1123,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Jon",
@@ -1025,6 +1141,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Xander",
@@ -1041,6 +1159,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rory",
@@ -1057,6 +1177,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Max",
@@ -1073,6 +1195,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Justin",
@@ -1089,6 +1213,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Seamus",
@@ -1105,6 +1231,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 8,
@@ -1132,6 +1260,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Bryson",
@@ -1148,6 +1278,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Jon",
@@ -1164,6 +1296,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Xander",
@@ -1180,6 +1314,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rory",
@@ -1196,6 +1332,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Collin",
@@ -1212,6 +1350,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Justin",
@@ -1228,6 +1368,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Russell",
@@ -1244,6 +1386,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 8,
@@ -1271,6 +1415,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Bryson",
@@ -1287,6 +1433,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Xander",
@@ -1303,6 +1451,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rory",
@@ -1319,6 +1469,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Collin",
@@ -1335,6 +1487,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Shane",
@@ -1351,6 +1505,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Ludvig",
@@ -1367,6 +1523,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Justin",
@@ -1383,6 +1541,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 10,
@@ -1410,6 +1570,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Bryson",
@@ -1426,6 +1588,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Xander",
@@ -1442,6 +1606,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rory",
@@ -1458,6 +1624,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Justin",
@@ -1474,6 +1642,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Hideki",
@@ -1490,6 +1660,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Patrick",
@@ -1506,6 +1678,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Jordan",
@@ -1522,6 +1696,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 11,
@@ -1549,6 +1725,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Bryson",
@@ -1565,6 +1743,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Xander",
@@ -1581,6 +1761,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rory",
@@ -1597,6 +1779,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Jordan",
@@ -1613,6 +1797,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Ludvig",
@@ -1629,6 +1815,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Justin",
@@ -1645,6 +1833,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Jason",
@@ -1661,6 +1851,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 11,
@@ -1688,6 +1880,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Bryson",
@@ -1704,6 +1898,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Joaquin",
@@ -1720,6 +1916,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rory",
@@ -1736,6 +1934,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Collin",
@@ -1752,6 +1952,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Shane",
@@ -1768,6 +1970,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Justin",
@@ -1784,6 +1988,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Hideki",
@@ -1800,6 +2006,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 13,
@@ -1827,6 +2035,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Bryson",
@@ -1843,6 +2053,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Jon",
@@ -1859,6 +2071,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Xander",
@@ -1875,6 +2089,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Tommy",
@@ -1891,6 +2107,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rory",
@@ -1907,6 +2125,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Shane",
@@ -1923,6 +2143,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Justin",
@@ -1939,6 +2161,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 13,
@@ -1966,6 +2190,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Joaquin",
@@ -1982,6 +2208,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rory",
@@ -1998,6 +2226,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Collin",
@@ -2014,6 +2244,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Ludvig",
@@ -2030,6 +2262,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Justin",
@@ -2046,6 +2280,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Jordan",
@@ -2062,6 +2298,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Shane",
@@ -2078,6 +2316,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 13,
@@ -2105,6 +2345,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Bryson",
@@ -2121,6 +2363,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Joaquin",
@@ -2137,6 +2381,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Tommy",
@@ -2153,6 +2399,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rory",
@@ -2169,6 +2417,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Patrick",
@@ -2185,6 +2435,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Justin",
@@ -2201,6 +2453,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Sepp",
@@ -2217,6 +2471,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 13,
@@ -2244,6 +2500,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Corey",
@@ -2260,6 +2518,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rory",
@@ -2276,6 +2536,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Tyrrell",
@@ -2292,6 +2554,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Patrick",
@@ -2308,6 +2572,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Hideki",
@@ -2324,6 +2590,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Jordan",
@@ -2340,6 +2608,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Dustin",
@@ -2356,6 +2626,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 17,
@@ -2383,6 +2655,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Jon",
@@ -2399,6 +2673,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Tony",
@@ -2415,6 +2691,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Viktor",
@@ -2431,6 +2709,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Tommy",
@@ -2447,6 +2727,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Ludvig",
@@ -2463,6 +2745,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Akshay",
@@ -2479,6 +2763,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Brooks",
@@ -2495,6 +2781,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 18,
@@ -2522,6 +2810,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Bryson",
@@ -2538,6 +2828,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Joaquin",
@@ -2554,6 +2846,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Daniel",
@@ -2570,6 +2864,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rory",
@@ -2586,6 +2882,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Tom",
@@ -2602,6 +2900,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Andrew",
@@ -2618,6 +2918,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Justin",
@@ -2634,6 +2936,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 18,
@@ -2661,6 +2965,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Bryson",
@@ -2677,6 +2983,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Joaquin",
@@ -2693,6 +3001,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Jon",
@@ -2709,6 +3019,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rory",
@@ -2725,6 +3037,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Akshay",
@@ -2741,6 +3055,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Brooks",
@@ -2757,6 +3073,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Ludvig",
@@ -2773,6 +3091,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 18,
@@ -2800,6 +3120,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Xander",
@@ -2816,6 +3138,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Daniel",
@@ -2832,6 +3156,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rory",
@@ -2848,6 +3174,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Max",
@@ -2864,6 +3192,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Ludvig",
@@ -2880,6 +3210,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Jordan",
@@ -2896,6 +3228,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Jason",
@@ -2912,6 +3246,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 21,
@@ -2939,6 +3275,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Bryson",
@@ -2955,6 +3293,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Corey",
@@ -2971,6 +3311,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Xander",
@@ -2987,6 +3329,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rory",
@@ -3003,6 +3347,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Jordan",
@@ -3019,6 +3365,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Patrick",
@@ -3035,6 +3383,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Keith",
@@ -3051,6 +3401,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 22,
@@ -3078,6 +3430,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Bryson",
@@ -3094,6 +3448,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Xander",
@@ -3110,6 +3466,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Tommy",
@@ -3126,6 +3484,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rory",
@@ -3142,6 +3502,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Justin",
@@ -3158,6 +3520,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Shane",
@@ -3174,6 +3538,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Jordan",
@@ -3190,6 +3556,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 23,
@@ -3217,6 +3585,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Bryson",
@@ -3233,6 +3603,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Viktor",
@@ -3249,6 +3621,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Xander",
@@ -3265,6 +3639,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rory",
@@ -3281,6 +3657,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Justin",
@@ -3297,6 +3675,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Shane",
@@ -3313,6 +3693,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Ludvig",
@@ -3329,6 +3711,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 24,
@@ -3356,6 +3740,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Bryson",
@@ -3372,6 +3758,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Xander",
@@ -3388,6 +3776,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Tommy",
@@ -3404,6 +3794,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rory",
@@ -3420,6 +3812,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Max",
@@ -3436,6 +3830,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Justin",
@@ -3452,6 +3848,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Keith",
@@ -3468,6 +3866,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 25,
@@ -3495,6 +3895,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Bryson",
@@ -3511,6 +3913,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Xander",
@@ -3527,6 +3931,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rory",
@@ -3543,6 +3949,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Tyrrell",
@@ -3559,6 +3967,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Justin",
@@ -3575,6 +3985,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Justin",
@@ -3591,6 +4003,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Ludvig",
@@ -3607,6 +4021,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 26,
@@ -3634,6 +4050,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Bryson",
@@ -3650,6 +4068,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Corey",
@@ -3666,6 +4086,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rory",
@@ -3682,6 +4104,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Justin",
@@ -3698,6 +4122,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Shane",
@@ -3714,6 +4140,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Sepp",
@@ -3730,6 +4158,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Jordan",
@@ -3746,6 +4176,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 27,
@@ -3773,6 +4205,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Sam",
@@ -3789,6 +4223,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Xander",
@@ -3805,6 +4241,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Maverick",
@@ -3821,6 +4259,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Justin",
@@ -3837,6 +4277,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Jason",
@@ -3853,6 +4295,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Ludvig",
@@ -3869,6 +4313,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Min Woo",
@@ -3885,6 +4331,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 28,
@@ -3912,6 +4360,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: true,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Viktor",
@@ -3928,6 +4378,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: true,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Rory",
@@ -3944,6 +4396,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Ludvig",
@@ -3960,6 +4414,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 2,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Jordan",
@@ -3976,6 +4432,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1.5,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Justin",
@@ -3992,6 +4450,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Andrew",
@@ -4008,6 +4468,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
       {
         firstName: "Will",
@@ -4024,6 +4486,8 @@ export const standingsMock: Standing[] = [
         madeCutBonus: false,
         firstPlaceBonus: false,
         multiplier: 1,
+        ownedCount: 0,
+        ownedTotal: 0,
       },
     ],
     rank: 29,

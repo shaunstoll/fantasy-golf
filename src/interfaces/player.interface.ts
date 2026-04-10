@@ -15,4 +15,6 @@ export interface Player {
   isTied: boolean;
   fantasyScore: number;
   multiplier: number;
+  ownedCount: number;
+  ownedTotal: number;
 }

@@ -17,6 +17,14 @@ export default class ScoringService {
   getStandings(teams: Team[], tournament: Tournament) {
     const standings: Standing[] = [];
     let lowestRankedPlayerInTop25 = 0;
+    const totalTeams = teams.length;
+    const ownershipCounts = new Map<string, number>();
+    for (const team of teams) {
+      for (const player of team.players) {
+        const key = `${player.firstName} ${player.lastName}`;
+        ownershipCounts.set(key, (ownershipCounts.get(key) ?? 0) + 1);
+      }
+    }
     for (const team of teams) {
       let allPlayersMadeCutBonus = true;
       let hasFirstPlaceBonus = false;
@@ -81,6 +89,8 @@ export default class ScoringService {
           madeCutBonus: insideCutLineOrMadCutBonus,
           firstPlaceBonus,
           multiplier,
+          ownedCount: ownershipCounts.get(`${player.firstName} ${player.lastName}`) ?? 0,
+          ownedTotal: totalTeams,
         });
         score += playerTotal * multiplier;
       }
