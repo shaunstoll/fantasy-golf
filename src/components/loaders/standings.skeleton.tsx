@@ -12,7 +12,7 @@ export default function StandingsSkeleton() {
       </div>
       <div className="flex animate-pulse gap-1">
         {Array.from({ length: 4 }).map((_, index) => (
-          <div key={index} className="h-6 w-14 rounded-full bg-gray-200 dark:bg-gray-700" />
+          <div key={index} className="h-8 w-16 rounded-full bg-gray-200 dark:bg-gray-700" />
         ))}
       </div>
       {Array.from({ length: 29 }).map((_, index) => (
