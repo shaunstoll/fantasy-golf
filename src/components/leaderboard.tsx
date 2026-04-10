@@ -1,17 +1,42 @@
 "use client";
 
-import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { Search, X } from "lucide-react";
 import { useState } from "react";
 
+import Button from "@/components/button";
 import Footer from "@/components/footer";
 import LeaderboardPlayerRow from "@/components/leaderboard-player";
 import StandingsSkeleton from "@/components/loaders/standings.skeleton";
+import type { LeaderboardPlayer } from "@/interfaces/leaderboard-player.interface";
 import { api } from "@/trpc/react";
+
+type SortKey = "score" | "points" | "rank" | "owned";
+type SortDir = "asc" | "desc";
+
+const sortOptions: { key: SortKey; label: string; defaultDir: SortDir }[] = [
+  { key: "score", label: "Score", defaultDir: "asc" },
+  { key: "points", label: "Points", defaultDir: "desc" },
+  { key: "rank", label: "Rank", defaultDir: "asc" },
+  { key: "owned", label: "Owned", defaultDir: "desc" },
+];
+
+function getSortValue(player: LeaderboardPlayer, key: SortKey): number {
+  switch (key) {
+    case "score":
+      return player.place ?? Infinity;
+    case "points":
+      return player.fantasyScore;
+    case "rank":
+      return player.rank > 0 ? player.rank : Infinity;
+    case "owned":
+      return player.ownedPercentage;
+  }
+}
 
 export default function Leaderboard() {
   const [search, setSearch] = useState("");
-  const [listRef] = useAutoAnimate();
+  const [sortKey, setSortKey] = useState<SortKey>("score");
+  const [sortDir, setSortDir] = useState<SortDir>("asc");
   const leaderboardQuery = api.tournament.leaderboard.useQuery(undefined, {
     refetchInterval: 5000,
   });
@@ -29,6 +54,24 @@ export default function Leaderboard() {
         `${p.firstName} ${p.lastName}`.toLowerCase().includes(query),
       )
     : leaderboardQuery.data;
+
+  const sorted = [...filtered].sort((a, b) => {
+    const aVal = getSortValue(a, sortKey);
+    const bVal = getSortValue(b, sortKey);
+    if (aVal === Infinity && bVal === Infinity) return 0;
+    if (aVal === Infinity) return 1;
+    if (bVal === Infinity) return -1;
+    return sortDir === "asc" ? aVal - bVal : bVal - aVal;
+  });
+
+  const handleSortClick = (key: SortKey) => {
+    if (key === sortKey) {
+      setSortDir(sortDir === "asc" ? "desc" : "asc");
+    } else {
+      setSortKey(key);
+      setSortDir(sortOptions.find((o) => o.key === key)!.defaultDir);
+    }
+  };
 
   return (
     <>
@@ -48,8 +91,31 @@ export default function Leaderboard() {
         )}
       </div>
 
-      <main className="flex flex-col gap-1 pb-20" ref={listRef}>
-        {filtered.map((player) => (
+      <div className="flex gap-1">
+        {sortOptions.map((option) => {
+          const isActive = sortKey === option.key;
+          return (
+            <Button
+              key={option.key}
+              className={`
+                rounded-full px-2.5 py-1 text-xs font-medium
+                ${
+                  isActive
+                    ? "bg-white text-black dark:bg-gray-700 dark:text-white"
+                    : "text-gray-500 dark:text-gray-400"
+                }
+              `}
+              onClick={() => handleSortClick(option.key)}
+            >
+              {option.label}
+              {isActive && (sortDir === "asc" ? " ↑" : " ↓")}
+            </Button>
+          );
+        })}
+      </div>
+
+      <main className="flex flex-col gap-1 pb-20">
+        {sorted.map((player) => (
           <LeaderboardPlayerRow key={`${player.firstName} ${player.lastName}`} player={player} />
         ))}
         <div className="mt-4">
