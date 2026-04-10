@@ -49,7 +49,7 @@ export default function Player({ player }: { player: PlayerType }) {
           {player.multiplier > 1 && (
             <Attribute
               labelClassName="text-xs"
-              valueClassName="bg-blue-200 text-blue-800"
+              valueClassName="bg-amber-100 text-amber-900"
               label="Weight"
               value={`${player.multiplier}x`}
             />
