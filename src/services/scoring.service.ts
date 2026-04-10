@@ -1,5 +1,7 @@
 import { TournamentName } from "@/enums/tournament.enum";
+import type { LeaderboardPlayer } from "@/interfaces/leaderboard-player.interface";
 import type { Player } from "@/interfaces/player.interface";
+import type { Ranking } from "@/interfaces/ranking.interface";
 import type { Standing } from "@/interfaces/standing.interface";
 import type { Team } from "@/interfaces/team.interface";
 import type { Tournament } from "@/interfaces/tournament.interface";
@@ -128,5 +130,102 @@ export default class ScoringService {
         (index < standings.length - 1 && standings[index + 1].score === standing.score);
     }
     return standings;
+  }
+
+  getLeaderboard(
+    teams: Team[],
+    tournament: Tournament,
+    rankings: Record<string, Ranking>,
+  ): LeaderboardPlayer[] {
+    const ownershipCounts = new Map<string, number>();
+    for (const team of teams) {
+      for (const player of team.players) {
+        const key = `${player.firstName} ${player.lastName}`;
+        ownershipCounts.set(key, (ownershipCounts.get(key) ?? 0) + 1);
+      }
+    }
+
+    let lowestRankedInTop25 = 0;
+    for (const [name, entry] of Object.entries(tournament.leaderboard)) {
+      const rank = rankings[name]?.rank;
+      if (rank && entry.place && entry.place <= 25 && rank > lowestRankedInTop25) {
+        lowestRankedInTop25 = rank;
+      }
+    }
+
+    const totalTeams = teams.length;
+    const leaderboard: LeaderboardPlayer[] = [];
+
+    for (const [name, p] of Object.entries(tournament.leaderboard)) {
+      const rank = rankings[name]?.rank ?? 0;
+
+      let placementPoints = 0;
+      let rankingBonus = 0;
+      let madeCutBonusPoints = 0;
+      let firstPlaceBonusPoints = 0;
+
+      if (p.place) {
+        if (p.place === 1 && !p.isTied) {
+          firstPlaceBonusPoints = 15;
+        }
+        if (p.place <= 10) {
+          placementPoints += 11 - p.place;
+        }
+        if (p.place <= 15) {
+          placementPoints += 4;
+        }
+        if (p.place <= 25) {
+          placementPoints += 3;
+          if (rank > 10 && rank <= 20) {
+            rankingBonus = 6;
+          }
+          if (rank > 20) {
+            rankingBonus = 11;
+          }
+        }
+        const outsideCutLine =
+          tournament.round < 3 && p.place > ScoringService.cutLine[tournament.name];
+        if (!outsideCutLine && rank > 5) {
+          madeCutBonusPoints = 5;
+        }
+      }
+
+      const lowestRankedBonusPoints = rank === lowestRankedInTop25 ? 15 : 0;
+      const [firstName, ...lastParts] = name.split(" ");
+      const lastName = lastParts.join(" ");
+
+      leaderboard.push({
+        firstName,
+        lastName,
+        rank,
+        place: p.place,
+        nationality: p.nationality,
+        status: p.status,
+        score: p.score,
+        thru: p.thru,
+        isTied: p.isTied,
+        placementPoints,
+        rankingBonus,
+        madeCutBonusPoints,
+        firstPlaceBonusPoints,
+        lowestRankedBonusPoints,
+        fantasyScore:
+          placementPoints +
+          rankingBonus +
+          madeCutBonusPoints +
+          firstPlaceBonusPoints +
+          lowestRankedBonusPoints,
+        ownedPercentage: Math.round(((ownershipCounts.get(name) ?? 0) / totalTeams) * 100),
+      });
+    }
+
+    leaderboard.sort((a, b) => {
+      const placeA = a.place ?? Infinity;
+      const placeB = b.place ?? Infinity;
+      if (placeA !== placeB) return placeA - placeB;
+      return b.fantasyScore - a.fantasyScore;
+    });
+
+    return leaderboard;
   }
 }
