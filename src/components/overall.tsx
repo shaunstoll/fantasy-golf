@@ -106,7 +106,7 @@ export default function Overall() {
             <Button
               key={option.key}
               className={`
-                rounded-full px-2.5 py-1 text-xs font-medium
+                rounded-full px-3 py-1.5 text-sm font-medium
                 ${
                   isActive
                     ? "bg-white text-black dark:bg-gray-700 dark:text-white"

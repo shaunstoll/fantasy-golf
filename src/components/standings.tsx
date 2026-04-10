@@ -96,7 +96,7 @@ export default function Standings() {
           <Button
             key={option.key}
             className={`
-              rounded-full px-2.5 py-1 text-xs font-medium
+              rounded-full px-3 py-1.5 text-sm font-medium
               ${
                 tournament === option.key
                   ? "bg-white text-black dark:bg-gray-700 dark:text-white"

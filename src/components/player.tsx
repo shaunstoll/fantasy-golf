@@ -19,76 +19,80 @@ export default function Player({ player }: { player: PlayerType }) {
   return (
     <div
       className={`
-        flex justify-between bg-white p-1 pr-2
+        flex flex-col gap-1 bg-white p-1 pr-2
         dark:bg-gray-800
       `}
     >
-      <div className="flex items-center gap-1">
-        <div className="flex flex-col items-center">
-          <Image
-            src={`https://datagolf.com/static/flags/${player.nationality}.png`}
-            alt={player.nationality}
-            width={20}
-            height={20}
-          />
-          <p className="w-9 rounded text-center text-sm font-bold">{place}</p>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-1">
+          <div className="flex flex-col items-center">
+            <Image
+              src={`https://datagolf.com/static/flags/${player.nationality}.png`}
+              alt={player.nationality}
+              width={20}
+              height={20}
+            />
+            <p className="w-9 rounded text-center text-sm font-bold">{place}</p>
+          </div>
+          <div>
+            <p className="text-sm">{player.firstName}</p>
+            <p>{player.lastName}</p>
+          </div>
         </div>
-        <div>
-          <p className="text-sm">{player.firstName}</p>
-          <p>{player.lastName}</p>
-        </div>
-      </div>
-      <div className="flex flex-wrap items-center justify-end gap-1">
-        <Attribute
-          labelClassName="text-xs"
-          valueClassName="bg-blue-200 text-blue-800"
-          label="Owned"
-          value={`${player.ownedCount}/${player.ownedTotal}`}
-        />
-        {player.multiplier > 1 && (
+        <div className="flex flex-wrap items-center justify-end gap-1">
           <Attribute
             labelClassName="text-xs"
             valueClassName="bg-blue-200 text-blue-800"
-            label="Weight"
-            value={`${player.multiplier}x`}
+            label="Owned"
+            value={`${player.ownedCount}/${player.ownedTotal}`}
           />
-        )}
-        {player.lowestRankedPlayerBonus && (
+          {player.multiplier > 1 && (
+            <Attribute
+              labelClassName="text-xs"
+              valueClassName="bg-blue-200 text-blue-800"
+              label="Weight"
+              value={`${player.multiplier}x`}
+            />
+          )}
+          {player.lowestRankedPlayerBonus && (
+            <Attribute
+              labelClassName="text-xs"
+              valueClassName="bg-purple-200 text-purple-800"
+              label="Bonus"
+              value="Low"
+            />
+          )}
+          {player.firstPlaceBonus && (
+            <Attribute
+              labelClassName="text-xs"
+              valueClassName="bg-amber-200 text-amber-800"
+              label="Bonus"
+              value="1st"
+            />
+          )}
+          {player.madeCutBonus && (
+            <Attribute
+              labelClassName="text-xs"
+              valueClassName="bg-green-200 text-green-800"
+              label="Bonus"
+              value="MC"
+            />
+          )}
           <Attribute
             labelClassName="text-xs"
-            valueClassName="bg-purple-200 text-purple-800"
-            label="Bonus"
-            value="Low"
+            valueClassName="bg-gray-200 text-black"
+            label="Rank"
+            value={player.rank}
           />
-        )}
-        {player.firstPlaceBonus && (
           <Attribute
             labelClassName="text-xs"
-            valueClassName="bg-amber-200 text-amber-800"
-            label="Bonus"
-            value="1st"
+            valueClassName="bg-gray-600 text-white"
+            label="Points"
+            value={player.fantasyScore}
           />
-        )}
-        {player.madeCutBonus && (
-          <Attribute
-            labelClassName="text-xs"
-            valueClassName="bg-green-200 text-green-800"
-            label="Bonus"
-            value="MC"
-          />
-        )}
-        <Attribute
-          labelClassName="text-xs"
-          valueClassName="bg-gray-200 text-black"
-          label="Rank"
-          value={player.rank}
-        />
-        <Attribute
-          labelClassName="text-xs"
-          valueClassName="bg-gray-600 text-white"
-          label="Points"
-          value={player.fantasyScore}
-        />
+        </div>
+      </div>
+      <div className="flex items-center justify-end gap-1">
         <Attribute
           labelClassName="text-xs"
           valueClassName="bg-gray-200 text-black"

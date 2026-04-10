@@ -14,15 +14,16 @@ export default function NavBar({
   return (
     <nav
       className={`
-        fixed bottom-4 left-1/2 z-50 flex -translate-x-1/2 gap-8
-        rounded-full bg-white/15 px-8 py-2 shadow-2xl backdrop-blur-sm
+        fixed bottom-4 left-1/2 z-50 flex -translate-x-1/2 gap-1
+        rounded-full bg-white/15 px-4 py-2 shadow-2xl backdrop-blur-sm
       `}
     >
       <Button
         className={`
-          flex flex-col items-center gap-0.5 text-xs text-black
+          flex w-24 flex-col items-center gap-0.5 rounded-full py-1.5 text-xs
+          text-black
           dark:text-white
-          ${activeTab !== "standings" ? "opacity-50" : ""}
+          ${activeTab === "standings" ? "bg-black/10 dark:bg-white/15" : ""}
         `}
         onClick={() => setActiveTab("standings")}
       >
@@ -31,9 +32,10 @@ export default function NavBar({
       </Button>
       <Button
         className={`
-          flex flex-col items-center gap-0.5 text-xs text-black
+          flex w-24 flex-col items-center gap-0.5 rounded-full py-1.5 text-xs
+          text-black
           dark:text-white
-          ${activeTab !== "leaderboard" ? "opacity-50" : ""}
+          ${activeTab === "leaderboard" ? "bg-black/10 dark:bg-white/15" : ""}
         `}
         onClick={() => setActiveTab("leaderboard")}
       >
@@ -42,9 +44,10 @@ export default function NavBar({
       </Button>
       <Button
         className={`
-          flex flex-col items-center gap-0.5 text-xs text-black
+          flex w-24 flex-col items-center gap-0.5 rounded-full py-1.5 text-xs
+          text-black
           dark:text-white
-          ${activeTab !== "overall" ? "opacity-50" : ""}
+          ${activeTab === "overall" ? "bg-black/10 dark:bg-white/15" : ""}
         `}
         onClick={() => setActiveTab("overall")}
       >
