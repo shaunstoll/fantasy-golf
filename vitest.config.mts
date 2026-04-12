@@ -63,6 +63,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(process.cwd(), "src"),
+      "@data": path.resolve(process.cwd(), "data"),
     },
   },
 });

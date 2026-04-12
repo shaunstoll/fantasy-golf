@@ -45,17 +45,25 @@ interface Props {
 export default function Standings({ search, onSearchChange, tournament, onTournamentChange }: Props) {
   const { favoriteTeams } = useStore();
   const [standingsRef] = useAutoAnimate();
+  const isCurrentTournament = tournament === getDefaultTournament();
   const standingsQuery = api.tournament.get.useQuery(undefined, {
     refetchInterval: 5000,
+    enabled: isCurrentTournament,
   });
+  const resultsQuery = api.tournament.results.useQuery(
+    { tournament },
+    { enabled: !isCurrentTournament },
+  );
 
-  if (standingsQuery.error) {
-    console.error(standingsQuery.error);
+  const activeQuery = isCurrentTournament ? standingsQuery : resultsQuery;
+
+  if (activeQuery.error) {
+    console.error(activeQuery.error);
     return (
       <main className="flex h-2/3 flex-col items-center justify-center gap-2 text-xl">
         <div className="flex flex-col items-center">
           <p>An error occurred.</p>
-          <p>Error: {standingsQuery.error.message}</p>
+          <p>Error: {activeQuery.error.message}</p>
           <p>Please try refreshing the page.</p>
         </div>
         <Link href="/">
@@ -65,12 +73,11 @@ export default function Standings({ search, onSearchChange, tournament, onTourna
     );
   }
 
-  if (standingsQuery.isLoading) return <StandingsSkeleton />;
+  if (activeQuery.isLoading) return <StandingsSkeleton />;
 
-  if (!standingsQuery.data) return <main>No Standings Found</main>;
-
-  const isCurrentTournament = tournament === getDefaultTournament();
-  const data = isCurrentTournament ? standingsQuery.data : [];
+  const data = isCurrentTournament
+    ? (standingsQuery.data ?? [])
+    : (resultsQuery.data?.standings ?? []);
 
   const query = search.toLowerCase();
   const filtered = query ? data.filter((s) => s.name.toLowerCase().includes(query)) : data;

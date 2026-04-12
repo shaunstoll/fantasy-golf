@@ -6,6 +6,7 @@ import Attribute from "@/components/attribute";
 import Button from "@/components/button";
 import Footer from "@/components/footer";
 import StandingsSkeleton from "@/components/loaders/standings.skeleton";
+import { TournamentName } from "@/enums/tournament.enum";
 import { api } from "@/trpc/react";
 
 export type SortKey = "masters" | "pga" | "us" | "open" | "total";
@@ -62,26 +63,31 @@ export default function Overall({
   sortDir,
   setSortDir,
 }: Props) {
-  const standingsQuery = api.tournament.get.useQuery(undefined, {
-    refetchInterval: 5000,
+  const mastersQuery = api.tournament.results.useQuery({
+    tournament: TournamentName.Masters,
   });
 
-  if (standingsQuery.error) return <main className="p-4 text-center">Error loading overall</main>;
+  if (mastersQuery.error) return <main className="p-4 text-center">Error loading overall</main>;
 
-  if (standingsQuery.isLoading) return <StandingsSkeleton />;
+  if (mastersQuery.isLoading) return <StandingsSkeleton />;
 
-  if (!standingsQuery.data) return <main className="p-4 text-center">No data</main>;
+  const mastersScores = new Map((mastersQuery.data?.standings ?? []).map((s) => [s.name, s.score]));
 
-  const teams: OverallTeam[] = standingsQuery.data.map((s) => ({
-    name: s.name,
-    masters: s.score,
-    pga: 0,
-    usOpen: 0,
-    open: 0,
-    total: s.score,
-    rank: 0,
-    isTied: false,
-  }));
+  const teamNames = [...mastersScores.keys()];
+
+  const teams: OverallTeam[] = teamNames.map((name) => {
+    const masters = mastersScores.get(name) ?? 0;
+    return {
+      name,
+      masters,
+      pga: 0,
+      usOpen: 0,
+      open: 0,
+      total: masters,
+      rank: 0,
+      isTied: false,
+    };
+  });
 
   const query = search.toLowerCase();
   const filteredTeams = query ? teams.filter((t) => t.name.toLowerCase().includes(query)) : teams;

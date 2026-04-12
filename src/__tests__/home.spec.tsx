@@ -11,12 +11,26 @@ vi.mock("@/store", () => ({
   })),
 }));
 
+const resultsStandings = standingsMock.slice(0, 2);
+
 vi.mock("@/trpc/react", () => ({
   api: {
     tournament: {
       get: {
         useQuery: vi.fn(() => ({
           data: standingsMock,
+          isLoading: false,
+        })),
+      },
+      leaderboard: {
+        useQuery: vi.fn(() => ({
+          data: [],
+          isLoading: false,
+        })),
+      },
+      results: {
+        useQuery: vi.fn(() => ({
+          data: { standings: resultsStandings, leaderboard: [] },
           isLoading: false,
         })),
       },
@@ -32,5 +46,21 @@ describe("Home Component", () => {
     });
     await userEvent.click(standingButton);
     expect(screen.getByText(standingsMock[0].players[0].lastName)).toBeInTheDocument();
+  });
+
+  it("should render overall tab with masters results", async () => {
+    render(<Home />);
+    const overallButton = screen.getByRole("button", { name: "Overall" });
+    await userEvent.click(overallButton);
+    expect(screen.getByText(resultsStandings[0].name)).toBeInTheDocument();
+    expect(screen.getByText(resultsStandings[1].name)).toBeInTheDocument();
+  });
+
+  it("should render tournament filter buttons on standings tab", () => {
+    render(<Home />);
+    expect(screen.getByRole("button", { name: "Masters" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "PGA" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "US Open" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Open" })).toBeInTheDocument();
   });
 });

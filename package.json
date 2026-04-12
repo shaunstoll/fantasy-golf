@@ -16,9 +16,11 @@
     "coverage": "vitest run --coverage",
     "e2e": "playwright test",
     "e2e:ui": "playwright test --ui",
-    "typecheck": "npx tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run fmt && npm run lint:fix && npm run typecheck && vitest run",
     "get-rankings": "npx tsx src/scripts/get-rankings.ts",
-    "get-teams": "npx tsx src/scripts/get-teams.ts"
+    "get-teams": "npx tsx src/scripts/get-teams.ts",
+    "save-results": "npx tsx src/scripts/save-results.ts"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.97.0",
