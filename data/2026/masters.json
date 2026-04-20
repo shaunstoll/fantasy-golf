@@ -1568,5 +1568,50 @@
         "rank": 38
       }
     ]
+  },
+  {
+    "name": "Searle Videlefsky",
+    "players": [
+      {
+        "firstName": "Scottie",
+        "lastName": "Scheffler",
+        "rank": 1
+      },
+      {
+        "firstName": "Brooks",
+        "lastName": "Koepka",
+        "rank": 111
+      },
+      {
+        "firstName": "Xander",
+        "lastName": "Schauffele",
+        "rank": 4
+      },
+      {
+        "firstName": "Ludvig",
+        "lastName": "Aberg",
+        "rank": 10
+      },
+      {
+        "firstName": "Justin",
+        "lastName": "Rose",
+        "rank": 34
+      },
+      {
+        "firstName": "Tommy",
+        "lastName": "Fleetwood",
+        "rank": 5
+      },
+      {
+        "firstName": "Daniel",
+        "lastName": "Berger",
+        "rank": 54
+      },
+      {
+        "firstName": "Max",
+        "lastName": "Homa",
+        "rank": 116
+      }
+    ]
   }
 ]
