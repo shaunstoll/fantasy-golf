@@ -8,44 +8,60 @@ import Footer from "@/components/footer";
 import StandingsSkeleton from "@/components/loaders/standings.skeleton";
 import { getDefaultTournament } from "@/components/standings";
 import { TournamentName } from "@/enums/tournament.enum";
-import type { Standing } from "@/interfaces/standing.interface";
 import { api } from "@/trpc/react";
 
-export type SortKey = "masters" | "pga" | "us" | "open" | "total";
+interface TournamentConfig {
+  name: TournamentName;
+  sortLabel: string;
+  badgeLabel: string;
+  badgeColor: string;
+}
+
+const tournaments: TournamentConfig[] = [
+  {
+    name: TournamentName.Masters,
+    sortLabel: "Masters",
+    badgeLabel: "Masters",
+    badgeColor: "bg-green-800 text-white",
+  },
+  {
+    name: TournamentName.Pga,
+    sortLabel: "PGA",
+    badgeLabel: "PGA",
+    badgeColor: "bg-blue-800 text-white",
+  },
+  {
+    name: TournamentName.UsOpen,
+    sortLabel: "US Open",
+    badgeLabel: "US",
+    badgeColor: "bg-red-800 text-white",
+  },
+  {
+    name: TournamentName.Open,
+    sortLabel: "Open",
+    badgeLabel: "Open",
+    badgeColor: "bg-yellow-700 text-white",
+  },
+];
+
+export type SortKey = TournamentName | "total";
 export type SortDir = "asc" | "desc";
 
 const sortOptions: { key: SortKey; label: string }[] = [
   { key: "total", label: "Total" },
-  { key: "masters", label: "Masters" },
-  { key: "pga", label: "PGA" },
-  { key: "us", label: "US Open" },
-  { key: "open", label: "Open" },
+  ...tournaments.map((t) => ({ key: t.name, label: t.sortLabel })),
 ];
 
 interface OverallTeam {
   name: string;
-  masters: number;
-  pga: number;
-  usOpen: number;
-  open: number;
+  scores: Record<TournamentName, number>;
   total: number;
   rank: number;
   isTied: boolean;
 }
 
 function getSortValue(team: OverallTeam, key: SortKey): number {
-  switch (key) {
-    case "masters":
-      return team.masters;
-    case "pga":
-      return team.pga;
-    case "us":
-      return team.usOpen;
-    case "open":
-      return team.open;
-    case "total":
-      return team.total;
-  }
+  return key === "total" ? team.total : team.scores[key];
 }
 
 interface Props {
@@ -68,75 +84,33 @@ export default function Overall({
   const live = getDefaultTournament();
 
   const liveQuery = api.tournament.get.useQuery(undefined, { refetchInterval: 5000 });
-  const mastersResults = api.tournament.results.useQuery(
-    { tournament: TournamentName.Masters },
-    { enabled: live !== TournamentName.Masters },
-  );
-  const pgaResults = api.tournament.results.useQuery(
-    { tournament: TournamentName.Pga },
-    { enabled: live !== TournamentName.Pga },
-  );
-  const usOpenResults = api.tournament.results.useQuery(
-    { tournament: TournamentName.UsOpen },
-    { enabled: live !== TournamentName.UsOpen },
-  );
-  const openResults = api.tournament.results.useQuery(
-    { tournament: TournamentName.Open },
-    { enabled: live !== TournamentName.Open },
+  const resultsQueries = tournaments.map((t) =>
+    api.tournament.results.useQuery({ tournament: t.name }, { enabled: live !== t.name }),
   );
 
-  const activeQueries = [liveQuery, mastersResults, pgaResults, usOpenResults, openResults].filter(
-    (q) => q.fetchStatus !== "idle",
-  );
+  const activeQueries = [liveQuery, ...resultsQueries].filter((q) => q.fetchStatus !== "idle");
   if (activeQueries.some((q) => q.error))
     return <main className="p-4 text-center">Error loading overall</main>;
   if (activeQueries.some((q) => q.isLoading)) return <StandingsSkeleton />;
 
-  const getStandingsFor = (t: TournamentName): Standing[] => {
-    if (t === live) return liveQuery.data ?? [];
-    switch (t) {
-      case TournamentName.Masters:
-        return mastersResults.data?.standings ?? [];
-      case TournamentName.Pga:
-        return pgaResults.data?.standings ?? [];
-      case TournamentName.UsOpen:
-        return usOpenResults.data?.standings ?? [];
-      case TournamentName.Open:
-        return openResults.data?.standings ?? [];
-    }
-  };
+  const scoresByTournament = new Map<TournamentName, Map<string, number>>();
+  for (const [i, t] of tournaments.entries()) {
+    const standings =
+      t.name === live ? (liveQuery.data ?? []) : (resultsQueries[i].data?.standings ?? []);
+    scoresByTournament.set(t.name, new Map(standings.map((s) => [s.name, s.score])));
+  }
 
-  const mastersScores = new Map(
-    getStandingsFor(TournamentName.Masters).map((s) => [s.name, s.score]),
-  );
-  const pgaScores = new Map(getStandingsFor(TournamentName.Pga).map((s) => [s.name, s.score]));
-  const usOpenScores = new Map(
-    getStandingsFor(TournamentName.UsOpen).map((s) => [s.name, s.score]),
-  );
-  const openScores = new Map(getStandingsFor(TournamentName.Open).map((s) => [s.name, s.score]));
-
-  const teamNames = new Set<string>([
-    ...mastersScores.keys(),
-    ...pgaScores.keys(),
-    ...usOpenScores.keys(),
-    ...openScores.keys(),
-  ]);
+  const teamNames = new Set<string>();
+  for (const scoreMap of scoresByTournament.values()) {
+    for (const name of scoreMap.keys()) teamNames.add(name);
+  }
 
   const teams: OverallTeam[] = [...teamNames].map((name) => {
-    const masters = mastersScores.get(name) ?? 0;
-    const pga = pgaScores.get(name) ?? 0;
-    const usOpen = usOpenScores.get(name) ?? 0;
-    const open = openScores.get(name) ?? 0;
-    return {
-      name,
-      masters,
-      pga,
-      usOpen,
-      open,
-      total: masters + pga + usOpen + open,
-      rank: 0,
-      isTied: false,
-    };
+    const scores = Object.fromEntries(
+      tournaments.map((t) => [t.name, scoresByTournament.get(t.name)?.get(name) ?? 0]),
+    ) as Record<TournamentName, number>;
+    const total = Object.values(scores).reduce((sum, v) => sum + v, 0);
+    return { name, scores, total, rank: 0, isTied: false };
   });
 
   const teamsByTotal = [...teams].sort((a, b) => b.total - a.total);
@@ -239,30 +213,15 @@ export default function Overall({
               <p className="truncate">{team.name}</p>
             </div>
             <div className="flex shrink-0 items-center gap-1">
-              <Attribute
-                labelClassName="text-xs"
-                valueClassName="bg-green-800 text-white"
-                label="Masters"
-                value={team.masters}
-              />
-              <Attribute
-                labelClassName="text-xs"
-                valueClassName="bg-blue-800 text-white"
-                label="PGA"
-                value={team.pga}
-              />
-              <Attribute
-                labelClassName="text-xs"
-                valueClassName="bg-red-800 text-white"
-                label="US"
-                value={team.usOpen}
-              />
-              <Attribute
-                labelClassName="text-xs"
-                valueClassName="bg-yellow-700 text-white"
-                label="Open"
-                value={team.open}
-              />
+              {tournaments.map((t) => (
+                <Attribute
+                  key={t.name}
+                  labelClassName="text-xs"
+                  valueClassName={t.badgeColor}
+                  label={t.badgeLabel}
+                  value={team.scores[t.name]}
+                />
+              ))}
               <Attribute
                 labelClassName="text-xs"
                 valueClassName="bg-gray-200 text-black"
