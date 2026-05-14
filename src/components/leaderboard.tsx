@@ -1,11 +1,10 @@
 "use client";
 
-import { Search, X } from "lucide-react";
-
 import Button from "@/components/button";
 import Footer from "@/components/footer";
 import LeaderboardPlayerRow from "@/components/leaderboard-player";
 import StandingsSkeleton from "@/components/loaders/standings.skeleton";
+import SearchBar from "@/components/search-bar";
 import type { LeaderboardPlayer } from "@/interfaces/leaderboard-player.interface";
 import { api } from "@/trpc/react";
 
@@ -84,21 +83,7 @@ export default function Leaderboard({
 
   return (
     <>
-      <div className="flex items-center rounded-full bg-white dark:bg-gray-800">
-        <Search className="ml-3 size-5 shrink-0 opacity-50" />
-        <input
-          type="text"
-          value={search}
-          onChange={(e) => onSearchChange(e.target.value)}
-          placeholder="Search players..."
-          className="w-full bg-transparent px-3 py-2 text-base outline-none"
-        />
-        {search && (
-          <button type="button" className="pr-3" onClick={() => onSearchChange("")}>
-            <X className="size-5 shrink-0 opacity-50" />
-          </button>
-        )}
-      </div>
+      <SearchBar value={search} onChange={onSearchChange} placeholder="Search players..." />
 
       <div className="flex gap-1">
         {sortOptions.map((option) => {
