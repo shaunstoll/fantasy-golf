@@ -6,7 +6,9 @@ import Attribute from "@/components/attribute";
 import Button from "@/components/button";
 import Footer from "@/components/footer";
 import StandingsSkeleton from "@/components/loaders/standings.skeleton";
+import { getDefaultTournament } from "@/components/standings";
 import { TournamentName } from "@/enums/tournament.enum";
+import type { Standing } from "@/interfaces/standing.interface";
 import { api } from "@/trpc/react";
 
 export type SortKey = "masters" | "pga" | "us" | "open" | "total";
@@ -63,31 +65,93 @@ export default function Overall({
   sortDir,
   setSortDir,
 }: Props) {
-  const mastersQuery = api.tournament.results.useQuery({
-    tournament: TournamentName.Masters,
-  });
+  const live = getDefaultTournament();
 
-  if (mastersQuery.error) return <main className="p-4 text-center">Error loading overall</main>;
+  const liveQuery = api.tournament.get.useQuery(undefined, { refetchInterval: 5000 });
+  const mastersResults = api.tournament.results.useQuery(
+    { tournament: TournamentName.Masters },
+    { enabled: live !== TournamentName.Masters },
+  );
+  const pgaResults = api.tournament.results.useQuery(
+    { tournament: TournamentName.Pga },
+    { enabled: live !== TournamentName.Pga },
+  );
+  const usOpenResults = api.tournament.results.useQuery(
+    { tournament: TournamentName.UsOpen },
+    { enabled: live !== TournamentName.UsOpen },
+  );
+  const openResults = api.tournament.results.useQuery(
+    { tournament: TournamentName.Open },
+    { enabled: live !== TournamentName.Open },
+  );
 
-  if (mastersQuery.isLoading) return <StandingsSkeleton />;
+  const activeQueries = [liveQuery, mastersResults, pgaResults, usOpenResults, openResults].filter(
+    (q) => q.fetchStatus !== "idle",
+  );
+  if (activeQueries.some((q) => q.error))
+    return <main className="p-4 text-center">Error loading overall</main>;
+  if (activeQueries.some((q) => q.isLoading)) return <StandingsSkeleton />;
 
-  const mastersScores = new Map((mastersQuery.data?.standings ?? []).map((s) => [s.name, s.score]));
+  const getStandingsFor = (t: TournamentName): Standing[] => {
+    if (t === live) return liveQuery.data ?? [];
+    switch (t) {
+      case TournamentName.Masters:
+        return mastersResults.data?.standings ?? [];
+      case TournamentName.Pga:
+        return pgaResults.data?.standings ?? [];
+      case TournamentName.UsOpen:
+        return usOpenResults.data?.standings ?? [];
+      case TournamentName.Open:
+        return openResults.data?.standings ?? [];
+    }
+  };
 
-  const teamNames = [...mastersScores.keys()];
+  const mastersScores = new Map(
+    getStandingsFor(TournamentName.Masters).map((s) => [s.name, s.score]),
+  );
+  const pgaScores = new Map(getStandingsFor(TournamentName.Pga).map((s) => [s.name, s.score]));
+  const usOpenScores = new Map(
+    getStandingsFor(TournamentName.UsOpen).map((s) => [s.name, s.score]),
+  );
+  const openScores = new Map(getStandingsFor(TournamentName.Open).map((s) => [s.name, s.score]));
 
-  const teams: OverallTeam[] = teamNames.map((name) => {
+  const teamNames = new Set<string>([
+    ...mastersScores.keys(),
+    ...pgaScores.keys(),
+    ...usOpenScores.keys(),
+    ...openScores.keys(),
+  ]);
+
+  const teams: OverallTeam[] = [...teamNames].map((name) => {
     const masters = mastersScores.get(name) ?? 0;
+    const pga = pgaScores.get(name) ?? 0;
+    const usOpen = usOpenScores.get(name) ?? 0;
+    const open = openScores.get(name) ?? 0;
     return {
       name,
       masters,
-      pga: 0,
-      usOpen: 0,
-      open: 0,
-      total: masters,
+      pga,
+      usOpen,
+      open,
+      total: masters + pga + usOpen + open,
       rank: 0,
       isTied: false,
     };
   });
+
+  const teamsByTotal = [...teams].sort((a, b) => b.total - a.total);
+  let currentRank = 1;
+  let currentScore = teamsByTotal[0]?.total;
+  for (const [index, team] of teamsByTotal.entries()) {
+    if (team.total !== currentScore) {
+      currentRank = index + 1;
+      currentScore = team.total;
+    }
+    team.rank = currentRank;
+    team.isTied =
+      (index > 0 && teamsByTotal[index - 1].total === team.total) ||
+      (index < teamsByTotal.length - 1 && teamsByTotal[index + 1].total === team.total);
+  }
 
   const query = search.toLowerCase();
   const filteredTeams = query ? teams.filter((t) => t.name.toLowerCase().includes(query)) : teams;
@@ -97,19 +161,6 @@ export default function Overall({
     const bVal = getSortValue(b, sortKey);
     return sortDir === "asc" ? aVal - bVal : bVal - aVal;
   });
-
-  let currentRank = 1;
-  let currentScore = teams[0]?.total;
-  for (const [index, team] of teams.entries()) {
-    if (team.total !== currentScore) {
-      currentRank = index + 1;
-      currentScore = team.total;
-    }
-    team.rank = currentRank;
-    team.isTied =
-      (index > 0 && teams[index - 1].total === team.total) ||
-      (index < teams.length - 1 && teams[index + 1].total === team.total);
-  }
 
   const handleSortClick = (key: SortKey) => {
     if (key === sortKey) {

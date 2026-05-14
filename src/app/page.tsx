@@ -3,7 +3,10 @@
 import { useLayoutEffect, useRef, useState } from "react";
 
 import Leaderboard from "@/components/leaderboard";
-import type { SortDir as LeaderboardSortDir, SortKey as LeaderboardSortKey } from "@/components/leaderboard";
+import type {
+  SortDir as LeaderboardSortDir,
+  SortKey as LeaderboardSortKey,
+} from "@/components/leaderboard";
 import NavBar from "@/components/nav-bar";
 import type { Tab } from "@/components/nav-bar";
 import Overall from "@/components/overall";
@@ -17,7 +20,8 @@ export default function Home() {
 
   // Standings state
   const [standingsSearch, setStandingsSearch] = useState("");
-  const [standingsTournament, setStandingsTournament] = useState<TournamentName>(getDefaultTournament);
+  const [standingsTournament, setStandingsTournament] =
+    useState<TournamentName>(getDefaultTournament);
 
   // Leaderboard state
   const [leaderboardSearch, setLeaderboardSearch] = useState("");

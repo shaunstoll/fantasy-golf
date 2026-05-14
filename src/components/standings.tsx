@@ -42,7 +42,12 @@ interface Props {
   onTournamentChange: (t: TournamentName) => void;
 }
 
-export default function Standings({ search, onSearchChange, tournament, onTournamentChange }: Props) {
+export default function Standings({
+  search,
+  onSearchChange,
+  tournament,
+  onTournamentChange,
+}: Props) {
   const { favoriteTeams } = useStore();
   const [standingsRef] = useAutoAnimate();
   const isCurrentTournament = tournament === getDefaultTournament();
