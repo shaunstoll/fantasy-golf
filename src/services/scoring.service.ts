@@ -1,4 +1,4 @@
-import { TournamentName } from "@/enums/tournament.enum";
+import { getTournamentConfig } from "@/config/tournaments";
 import type { LeaderboardPlayer } from "@/interfaces/leaderboard-player.interface";
 import type { Player } from "@/interfaces/player.interface";
 import type { Ranking } from "@/interfaces/ranking.interface";
@@ -7,13 +7,6 @@ import type { Team } from "@/interfaces/team.interface";
 import type { Tournament } from "@/interfaces/tournament.interface";
 
 export default class ScoringService {
-  private static cutLine = {
-    [TournamentName.Masters]: 50,
-    [TournamentName.UsOpen]: 60,
-    [TournamentName.Pga]: 70,
-    [TournamentName.Open]: 70,
-  };
-
   getStandings(teams: Team[], tournament: Tournament) {
     const standings: Standing[] = [];
     let lowestRankedPlayerInTop25 = 0;
@@ -65,7 +58,7 @@ export default class ScoringService {
               lowestRankedPlayerInTop25 = player.rank;
             }
           }
-          if (tournament.round < 3 && p.place > ScoringService.cutLine[tournament.name]) {
+          if (tournament.round < 3 && p.place > getTournamentConfig(tournament.name).cutLine) {
             allPlayersMadeCutBonus = false;
           } else if (player.rank > 5) {
             playerTotal += 5;
@@ -194,7 +187,7 @@ export default class ScoringService {
           }
         }
         const outsideCutLine =
-          tournament.round < 3 && p.place > ScoringService.cutLine[tournament.name];
+          tournament.round < 3 && p.place > getTournamentConfig(tournament.name).cutLine;
         if (!outsideCutLine && rank > 5) {
           madeCutBonusPoints = 5;
         }

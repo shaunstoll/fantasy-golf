@@ -8,32 +8,12 @@ import Button from "@/components/button";
 import Footer from "@/components/footer";
 import StandingsSkeleton from "@/components/loaders/standings.skeleton";
 import Standing from "@/components/standing";
-import { TournamentName } from "@/enums/tournament.enum";
+import { getCurrentTournament, tournaments } from "@/config/tournaments";
+import type { TournamentName } from "@/enums/tournament.enum";
 import { useStore } from "@/store";
 import { api } from "@/trpc/react";
 
-const tournamentOptions: { key: TournamentName; label: string }[] = [
-  { key: TournamentName.Masters, label: "Masters" },
-  { key: TournamentName.Pga, label: "PGA" },
-  { key: TournamentName.UsOpen, label: "US Open" },
-  { key: TournamentName.Open, label: "Open" },
-];
-
-export function getDefaultTournament(): TournamentName {
-  const month = new Date().getMonth();
-  switch (month) {
-    case 3:
-      return TournamentName.Masters;
-    case 4:
-      return TournamentName.Pga;
-    case 5:
-      return TournamentName.UsOpen;
-    case 6:
-      return TournamentName.Open;
-    default:
-      return TournamentName.Open;
-  }
-}
+const tournamentOptions = tournaments.map((t) => ({ key: t.name, label: t.sortLabel }));
 
 interface Props {
   search: string;
@@ -50,7 +30,7 @@ export default function Standings({
 }: Props) {
   const { favoriteTeams } = useStore();
   const [standingsRef] = useAutoAnimate();
-  const isCurrentTournament = tournament === getDefaultTournament();
+  const isCurrentTournament = tournament === getCurrentTournament();
   const standingsQuery = api.tournament.get.useQuery(undefined, {
     refetchInterval: 5000,
     enabled: isCurrentTournament,

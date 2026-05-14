@@ -6,43 +6,9 @@ import Attribute from "@/components/attribute";
 import Button from "@/components/button";
 import Footer from "@/components/footer";
 import StandingsSkeleton from "@/components/loaders/standings.skeleton";
-import { getDefaultTournament } from "@/components/standings";
-import { TournamentName } from "@/enums/tournament.enum";
+import { getCurrentTournament, tournaments } from "@/config/tournaments";
+import type { TournamentName } from "@/enums/tournament.enum";
 import { api } from "@/trpc/react";
-
-interface TournamentConfig {
-  name: TournamentName;
-  sortLabel: string;
-  badgeLabel: string;
-  badgeColor: string;
-}
-
-const tournaments: TournamentConfig[] = [
-  {
-    name: TournamentName.Masters,
-    sortLabel: "Masters",
-    badgeLabel: "Masters",
-    badgeColor: "bg-green-800 text-white",
-  },
-  {
-    name: TournamentName.Pga,
-    sortLabel: "PGA",
-    badgeLabel: "PGA",
-    badgeColor: "bg-blue-800 text-white",
-  },
-  {
-    name: TournamentName.UsOpen,
-    sortLabel: "US Open",
-    badgeLabel: "US",
-    badgeColor: "bg-red-800 text-white",
-  },
-  {
-    name: TournamentName.Open,
-    sortLabel: "Open",
-    badgeLabel: "Open",
-    badgeColor: "bg-yellow-700 text-white",
-  },
-];
 
 export type SortKey = TournamentName | "total";
 export type SortDir = "asc" | "desc";
@@ -81,7 +47,7 @@ export default function Overall({
   sortDir,
   setSortDir,
 }: Props) {
-  const live = getDefaultTournament();
+  const live = getCurrentTournament();
 
   const liveQuery = api.tournament.get.useQuery(undefined, { refetchInterval: 5000 });
   const resultsQueries = tournaments.map((t) =>

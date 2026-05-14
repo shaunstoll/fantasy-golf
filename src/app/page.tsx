@@ -11,7 +11,8 @@ import NavBar from "@/components/nav-bar";
 import type { Tab } from "@/components/nav-bar";
 import Overall from "@/components/overall";
 import type { SortDir as OverallSortDir, SortKey as OverallSortKey } from "@/components/overall";
-import Standings, { getDefaultTournament } from "@/components/standings";
+import Standings from "@/components/standings";
+import { getCurrentTournament } from "@/config/tournaments";
 import { TournamentName } from "@/enums/tournament.enum";
 
 export default function Home() {
@@ -21,7 +22,7 @@ export default function Home() {
   // Standings state
   const [standingsSearch, setStandingsSearch] = useState("");
   const [standingsTournament, setStandingsTournament] =
-    useState<TournamentName>(getDefaultTournament);
+    useState<TournamentName>(getCurrentTournament);
 
   // Leaderboard state
   const [leaderboardSearch, setLeaderboardSearch] = useState("");

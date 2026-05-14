@@ -5,7 +5,7 @@ import { allRankings } from "@/db/rankings";
 import { getResults } from "@/db/results";
 import { teams } from "@/db/teams";
 import { TournamentName } from "@/enums/tournament.enum";
-import { currentTournament } from "@/env";
+import { currentTournament } from "@/config/tournaments";
 import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
 import ScoringService from "@/services/scoring.service";
 
