@@ -18,6 +18,8 @@ export default function DevThemeToggle() {
     document.documentElement.classList.toggle("dark", next);
   };
 
+  if (process.env.NODE_ENV !== "development") return null;
+
   return (
     <button
       type="button"
