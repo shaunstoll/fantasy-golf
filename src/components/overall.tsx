@@ -1,5 +1,8 @@
 "use client";
 
+import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { Star } from "lucide-react";
+
 import Attribute from "@/components/attribute";
 import Button from "@/components/button";
 import Footer from "@/components/footer";
@@ -7,6 +10,7 @@ import StandingsSkeleton from "@/components/loaders/standings.skeleton";
 import SearchBar from "@/components/search-bar";
 import { getCurrentTournament, tournaments } from "@/config/tournaments";
 import type { TournamentName } from "@/enums/tournament.enum";
+import { useStore } from "@/store";
 import { api } from "@/trpc/react";
 
 export type SortKey = TournamentName | "total";
@@ -46,6 +50,8 @@ export default function Overall({
   sortDir,
   setSortDir,
 }: Props) {
+  const { favoriteTeams, toggleFavoriteTeam } = useStore();
+  const [teamsRef] = useAutoAnimate();
   const live = getCurrentTournament();
 
   const liveQuery = api.tournament.get.useQuery(undefined, { refetchInterval: 5000 });
@@ -110,6 +116,67 @@ export default function Overall({
     }
   };
 
+  const favoriteFilteredTeams = filteredTeams.filter((t) => favoriteTeams.includes(t.name));
+
+  const renderTeam = (team: OverallTeam) => (
+    <div key={team.name} className="flex items-center gap-px">
+      <Button
+        className={`
+          self-stretch rounded-l bg-white p-2
+          dark:bg-gray-800
+        `}
+        onClick={() => toggleFavoriteTeam(team.name)}
+        aria-label={`favorite ${team.name}`}
+      >
+        <Star
+          className="size-5 text-amber-400"
+          fill={favoriteTeams.includes(team.name) ? "currentColor" : "none"}
+        />
+      </Button>
+      <div
+        className={`
+          flex w-full items-center justify-between rounded-r bg-white p-2
+          dark:bg-gray-800
+        `}
+      >
+        <div className="flex min-w-0 items-center gap-2 overflow-hidden pr-1">
+          <Attribute
+            labelClassName="text-xs"
+            valueClassName={
+              team.rank === 1
+                ? "bg-amber-200 text-amber-800"
+                : team.rank === 2
+                  ? "bg-slate-200 text-slate-800"
+                  : team.rank === 3
+                    ? "bg-orange-200 text-orange-800"
+                    : "bg-gray-600 text-white"
+            }
+            label="Rank"
+            value={`${team.isTied ? "T" : ""}${team.rank}`}
+          />
+          <p className="truncate">{team.name}</p>
+        </div>
+        <div className="flex shrink-0 items-center gap-1">
+          {tournaments.map((t) => (
+            <Attribute
+              key={t.name}
+              labelClassName="text-xs"
+              valueClassName={t.badgeColor}
+              label={t.badgeLabel}
+              value={team.scores[t.name]}
+            />
+          ))}
+          <Attribute
+            labelClassName="text-xs"
+            valueClassName="bg-gray-200 text-black"
+            label="Total"
+            value={team.total}
+          />
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <>
       <SearchBar value={search} onChange={onSearchChange} placeholder="Search teams..." />
@@ -137,51 +204,12 @@ export default function Overall({
         })}
       </div>
 
-      <main className="flex flex-col gap-1 pb-20">
-        {filteredTeams.map((team) => (
-          <div
-            key={team.name}
-            className={`
-              flex items-center justify-between bg-white p-2
-              dark:bg-gray-800
-            `}
-          >
-            <div className="flex min-w-0 items-center gap-2 overflow-hidden pr-1">
-              <Attribute
-                labelClassName="text-xs"
-                valueClassName={
-                  team.rank === 1
-                    ? "bg-amber-200 text-amber-800"
-                    : team.rank === 2
-                      ? "bg-slate-200 text-slate-800"
-                      : team.rank === 3
-                        ? "bg-orange-200 text-orange-800"
-                        : "bg-gray-600 text-white"
-                }
-                label="Rank"
-                value={`${team.isTied ? "T" : ""}${team.rank}`}
-              />
-              <p className="truncate">{team.name}</p>
-            </div>
-            <div className="flex shrink-0 items-center gap-1">
-              {tournaments.map((t) => (
-                <Attribute
-                  key={t.name}
-                  labelClassName="text-xs"
-                  valueClassName={t.badgeColor}
-                  label={t.badgeLabel}
-                  value={team.scores[t.name]}
-                />
-              ))}
-              <Attribute
-                labelClassName="text-xs"
-                valueClassName="bg-gray-200 text-black"
-                label="Total"
-                value={team.total}
-              />
-            </div>
-          </div>
-        ))}
+      <main className="flex flex-col gap-1 pb-20" ref={teamsRef}>
+        {favoriteFilteredTeams.map(renderTeam)}
+        {favoriteFilteredTeams.length > 0 && (
+          <div className="my-1 border-t border-gray-400 dark:border-gray-600" />
+        )}
+        {filteredTeams.map(renderTeam)}
         <div className="mt-4">
           <Footer />
         </div>
