@@ -48,16 +48,17 @@ describe("Home Component", () => {
     expect(screen.getByText(standingsMock[0].players[0].lastName)).toBeInTheDocument();
   });
 
-  it("should render overall tab with masters results", async () => {
+  it("should render total tab with aggregated standings", async () => {
     render(<Home />);
-    const overallButton = screen.getByRole("button", { name: "Overall" });
-    await userEvent.click(overallButton);
+    const totalButton = screen.getByRole("button", { name: "Total" });
+    await userEvent.click(totalButton);
     expect(screen.getByText(resultsStandings[0].name)).toBeInTheDocument();
     expect(screen.getByText(resultsStandings[1].name)).toBeInTheDocument();
   });
 
   it("should render tournament filter buttons on standings tab", () => {
     render(<Home />);
+    expect(screen.getByRole("button", { name: "Total" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Masters" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "PGA" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "US Open" })).toBeInTheDocument();

@@ -10,16 +10,22 @@ import SearchBar from "@/components/search-bar";
 import Standing from "@/components/standing";
 import { getCurrentTournament, tournaments } from "@/config/tournaments";
 import type { TournamentName } from "@/enums/tournament.enum";
+import type { Standing as StandingType } from "@/interfaces/standing.interface";
 import { useStore } from "@/store";
 import { api } from "@/trpc/react";
 
-const tournamentOptions = tournaments.map((t) => ({ key: t.name, label: t.sortLabel }));
+export type StandingsTab = TournamentName | "total";
+
+const tabOptions: { key: StandingsTab; label: string }[] = [
+  { key: "total", label: "Total" },
+  ...tournaments.map((t) => ({ key: t.name, label: t.sortLabel })),
+];
 
 interface Props {
   search: string;
   onSearchChange: (s: string) => void;
-  tournament: TournamentName;
-  onTournamentChange: (t: TournamentName) => void;
+  tournament: StandingsTab;
+  onTournamentChange: (t: StandingsTab) => void;
 }
 
 export default function Standings({
@@ -30,25 +36,32 @@ export default function Standings({
 }: Props) {
   const { favoriteTeams } = useStore();
   const [standingsRef] = useAutoAnimate();
-  const isCurrentTournament = tournament === getCurrentTournament();
-  const standingsQuery = api.tournament.get.useQuery(undefined, {
+  const live = getCurrentTournament();
+  const isTotal = tournament === "total";
+
+  const liveQuery = api.tournament.get.useQuery(undefined, {
     refetchInterval: 5000,
-    enabled: isCurrentTournament,
+    enabled: isTotal || tournament === live,
   });
-  const resultsQuery = api.tournament.results.useQuery(
-    { tournament },
-    { enabled: !isCurrentTournament },
+  const resultsQueries = tournaments.map((t) =>
+    api.tournament.results.useQuery(
+      { tournament: t.name },
+      {
+        enabled: isTotal ? t.name !== live : tournament === t.name && t.name !== live,
+      },
+    ),
   );
 
-  const activeQuery = isCurrentTournament ? standingsQuery : resultsQuery;
+  const activeQueries = [liveQuery, ...resultsQueries].filter((q) => q.fetchStatus !== "idle");
+  const errorQuery = activeQueries.find((q) => q.error);
 
-  if (activeQuery.error) {
-    console.error(activeQuery.error);
+  if (errorQuery) {
+    console.error(errorQuery.error);
     return (
       <main className="flex h-2/3 flex-col items-center justify-center gap-2 text-xl">
         <div className="flex flex-col items-center">
           <p>An error occurred.</p>
-          <p>Error: {activeQuery.error.message}</p>
+          <p>Error: {errorQuery.error?.message}</p>
           <p>Please try refreshing the page.</p>
         </div>
         <Link href="/">
@@ -58,11 +71,65 @@ export default function Standings({
     );
   }
 
-  if (activeQuery.isLoading) return <StandingsSkeleton />;
+  if (activeQueries.some((q) => q.isLoading)) return <StandingsSkeleton />;
 
-  const data = isCurrentTournament
-    ? (standingsQuery.data ?? [])
-    : (resultsQuery.data?.standings ?? []);
+  const standingsByTournament = new Map<TournamentName, StandingType[]>();
+  for (const [i, t] of tournaments.entries()) {
+    const standings =
+      t.name === live ? (liveQuery.data ?? []) : (resultsQueries[i].data?.standings ?? []);
+    standingsByTournament.set(t.name, standings);
+  }
+
+  let data: StandingType[];
+  let tournamentScoresByTeam: Map<string, Record<TournamentName, number>> | undefined;
+
+  if (isTotal) {
+    const scoresByTournament = new Map<TournamentName, Map<string, number>>();
+    const teamNames = new Set<string>();
+    for (const t of tournaments) {
+      const scoreMap = new Map(
+        (standingsByTournament.get(t.name) ?? []).map((s) => [s.name, s.score]),
+      );
+      scoresByTournament.set(t.name, scoreMap);
+      for (const name of scoreMap.keys()) teamNames.add(name);
+    }
+
+    const aggregated = [...teamNames].map((name) => {
+      const scores = Object.fromEntries(
+        tournaments.map((t) => [t.name, scoresByTournament.get(t.name)?.get(name) ?? 0]),
+      ) as Record<TournamentName, number>;
+      const total = Object.values(scores).reduce((sum, v) => sum + v, 0);
+      return { name, scores, total };
+    });
+
+    aggregated.sort((a, b) => b.total - a.total);
+
+    let currentRank = 1;
+    let currentScore = aggregated[0]?.total;
+    const ranked = aggregated.map((team, index) => {
+      if (team.total !== currentScore) {
+        currentRank = index + 1;
+        currentScore = team.total;
+      }
+      return { ...team, rank: currentRank };
+    });
+
+    tournamentScoresByTeam = new Map(ranked.map((t) => [t.name, t.scores]));
+    data = ranked.map((team, i) => ({
+      name: team.name,
+      score: team.total,
+      rank: team.rank,
+      isTied:
+        (i > 0 && ranked[i - 1].total === team.total) ||
+        (i < ranked.length - 1 && ranked[i + 1].total === team.total),
+      lowestRankedPlayerBonus: false,
+      madeCutBonus: false,
+      firstPlaceBonus: false,
+      players: [],
+    }));
+  } else {
+    data = standingsByTournament.get(tournament) ?? [];
+  }
 
   const query = search.toLowerCase();
   const filtered = query ? data.filter((s) => s.name.toLowerCase().includes(query)) : data;
@@ -74,7 +141,7 @@ export default function Standings({
       <SearchBar value={search} onChange={onSearchChange} placeholder="Search teams..." />
 
       <div className="flex gap-1">
-        {tournamentOptions.map((option) => (
+        {tabOptions.map((option) => (
           <Button
             key={option.key}
             className={`
@@ -94,13 +161,21 @@ export default function Standings({
 
       <main className="flex flex-col gap-1 pb-20" ref={standingsRef}>
         {favoriteStandings.map((standing) => (
-          <Standing key={standing.name} standing={standing} />
+          <Standing
+            key={standing.name}
+            standing={standing}
+            tournamentScores={tournamentScoresByTeam?.get(standing.name)}
+          />
         ))}
         {favoriteStandings.length > 0 && (
           <div className="my-1 border-t border-gray-400 dark:border-gray-600" />
         )}
         {filtered.map((standing) => (
-          <Standing key={standing.name} standing={standing} />
+          <Standing
+            key={standing.name}
+            standing={standing}
+            tournamentScores={tournamentScoresByTeam?.get(standing.name)}
+          />
         ))}
         <div className="mt-4">
           <Footer />

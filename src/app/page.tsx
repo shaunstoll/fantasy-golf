@@ -9,30 +9,23 @@ import type {
 } from "@/components/leaderboard";
 import NavBar from "@/components/nav-bar";
 import type { Tab } from "@/components/nav-bar";
-import Overall from "@/components/overall";
-import type { SortDir as OverallSortDir, SortKey as OverallSortKey } from "@/components/overall";
 import Standings from "@/components/standings";
+import type { StandingsTab } from "@/components/standings";
 import { getCurrentTournament } from "@/config/tournaments";
-import { TournamentName } from "@/enums/tournament.enum";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<Tab>("standings");
-  const scrollPositions = useRef({ standings: 0, leaderboard: 0, overall: 0 });
+  const scrollPositions = useRef({ standings: 0, leaderboard: 0 });
 
   // Standings state
   const [standingsSearch, setStandingsSearch] = useState("");
   const [standingsTournament, setStandingsTournament] =
-    useState<TournamentName>(getCurrentTournament);
+    useState<StandingsTab>(getCurrentTournament);
 
   // Leaderboard state
   const [leaderboardSearch, setLeaderboardSearch] = useState("");
   const [leaderboardSortKey, setLeaderboardSortKey] = useState<LeaderboardSortKey>("score");
   const [leaderboardSortDir, setLeaderboardSortDir] = useState<LeaderboardSortDir>("asc");
-
-  // Overall state
-  const [overallSearch, setOverallSearch] = useState("");
-  const [overallSortKey, setOverallSortKey] = useState<OverallSortKey>("total");
-  const [overallSortDir, setOverallSortDir] = useState<OverallSortDir>("desc");
 
   useLayoutEffect(() => {
     window.scrollTo(0, scrollPositions.current[activeTab]);
@@ -61,16 +54,6 @@ export default function Home() {
           setSortKey={setLeaderboardSortKey}
           sortDir={leaderboardSortDir}
           setSortDir={setLeaderboardSortDir}
-        />
-      )}
-      {activeTab === "overall" && (
-        <Overall
-          search={overallSearch}
-          onSearchChange={setOverallSearch}
-          sortKey={overallSortKey}
-          setSortKey={setOverallSortKey}
-          sortDir={overallSortDir}
-          setSortDir={setOverallSortDir}
         />
       )}
       <NavBar activeTab={activeTab} setActiveTab={handleTabChange} />
