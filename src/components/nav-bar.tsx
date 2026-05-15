@@ -1,8 +1,8 @@
-import { BarChart3, Flag, Trophy } from "lucide-react";
+import { Flag, Trophy } from "lucide-react";
 
 import Button from "@/components/button";
 
-export type Tab = "standings" | "leaderboard" | "overall";
+export type Tab = "standings" | "leaderboard";
 
 export default function NavBar({
   activeTab,
@@ -41,18 +41,6 @@ export default function NavBar({
       >
         <Flag className="size-5" />
         Leaderboard
-      </Button>
-      <Button
-        className={`
-          flex w-24 flex-col items-center gap-0.5 rounded-full py-1.5 text-xs
-          text-black
-          dark:text-white
-          ${activeTab === "overall" ? "bg-black/10 dark:bg-white/15" : ""}
-        `}
-        onClick={() => setActiveTab("overall")}
-      >
-        <BarChart3 className="size-5" />
-        Overall
       </Button>
     </nav>
   );

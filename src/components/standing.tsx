@@ -5,13 +5,101 @@ import { useState } from "react";
 import Attribute from "@/components/attribute";
 import Button from "@/components/button";
 import Player from "@/components/player";
+import { tournaments } from "@/config/tournaments";
+import type { TournamentName } from "@/enums/tournament.enum";
 import type { Standing as StandingType } from "@/interfaces/standing.interface";
 import { useStore } from "@/store";
 
-export default function Standing({ standing }: { standing: StandingType }) {
+interface Props {
+  standing: StandingType;
+  tournamentScores?: Record<TournamentName, number>;
+}
+
+export default function Standing({ standing, tournamentScores }: Props) {
   const { favoriteTeams, toggleFavoriteTeam } = useStore();
   const [isOpen, setIsOpen] = useState(false);
   const [playersRef] = useAutoAnimate();
+  const isTotalView = tournamentScores !== undefined;
+
+  const rankBadge = (
+    <Attribute
+      labelClassName={isTotalView ? "text-xs" : "text-sm"}
+      valueClassName={
+        standing.rank === 1
+          ? "bg-amber-200 text-amber-800"
+          : standing.rank === 2
+            ? "bg-slate-200 text-slate-800"
+            : standing.rank === 3
+              ? "bg-orange-200 text-orange-800"
+              : "bg-gray-600 text-white"
+      }
+      label="Rank"
+      value={`${standing.isTied ? "T" : ""}${standing.rank}`}
+    />
+  );
+
+  const rightCluster = isTotalView ? (
+    <div className="flex shrink-0 items-center gap-1">
+      {tournaments.map((t) => (
+        <Attribute
+          key={t.name}
+          labelClassName="text-xs"
+          valueClassName={t.badgeColor}
+          label={t.badgeLabel}
+          value={tournamentScores[t.name]}
+        />
+      ))}
+      <Attribute
+        labelClassName="text-xs"
+        valueClassName="bg-gray-200 text-black"
+        label="Total"
+        value={standing.score}
+      />
+    </div>
+  ) : (
+    <div className="flex items-center gap-1">
+      {standing.lowestRankedPlayerBonus && (
+        <Attribute
+          labelClassName="text-sm"
+          valueClassName="bg-purple-200 text-purple-800"
+          label="Bonus"
+          value="Low"
+        />
+      )}
+      {standing.firstPlaceBonus && (
+        <Attribute
+          labelClassName="text-sm"
+          valueClassName="bg-amber-200 text-amber-800"
+          label="Bonus"
+          value="1st"
+        />
+      )}
+      {standing.madeCutBonus && (
+        <Attribute
+          labelClassName="text-sm"
+          valueClassName="bg-green-200 text-green-800"
+          label="Bonus"
+          value="MC"
+        />
+      )}
+      <Attribute
+        labelClassName="text-sm"
+        valueClassName="bg-gray-200 text-black"
+        label="Points"
+        value={standing.score}
+      />
+    </div>
+  );
+
+  const rowContent = (
+    <>
+      <div className="flex min-w-0 items-center gap-3 overflow-hidden pr-1">
+        {rankBadge}
+        <p className="truncate">{standing.name}</p>
+      </div>
+      {rightCluster}
+    </>
+  );
 
   return (
     <div className="flex flex-col gap-px">
@@ -31,69 +119,33 @@ export default function Standing({ standing }: { standing: StandingType }) {
             fill={favoriteTeams.includes(standing.name) ? "currentColor" : "none"}
           />
         </Button>
-        <Button
-          className={`
-            flex w-full items-center justify-between gap-2 rounded-r bg-white
-            p-2 shadow
-            dark:bg-gray-800
-          `}
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label={`team ${standing.name}`}
-        >
-          <div className="flex items-center gap-3 overflow-hidden">
-            <Attribute
-              labelClassName="text-sm"
-              valueClassName={
-                standing.rank === 1
-                  ? "bg-amber-200 text-amber-800"
-                  : standing.rank === 2
-                    ? "bg-slate-200 text-slate-800"
-                    : standing.rank === 3
-                      ? "bg-orange-200 text-orange-800"
-                      : "bg-gray-600 text-white"
-              }
-              label="Rank"
-              value={`${standing.isTied ? "T" : ""}${standing.rank}`}
-            />
-            <p className="truncate">{standing.name}</p>
+        {isTotalView ? (
+          <div
+            className={`
+              flex w-full min-w-0 items-center justify-between gap-2 rounded-r
+              bg-white p-2 shadow
+              dark:bg-gray-800
+            `}
+          >
+            {rowContent}
           </div>
-          <div className="flex items-center gap-1">
-            {standing.lowestRankedPlayerBonus && (
-              <Attribute
-                labelClassName="text-sm"
-                valueClassName="bg-purple-200 text-purple-800"
-                label="Bonus"
-                value="Low"
-              />
-            )}
-            {standing.firstPlaceBonus && (
-              <Attribute
-                labelClassName="text-sm"
-                valueClassName="bg-amber-200 text-amber-800"
-                label="Bonus"
-                value="1st"
-              />
-            )}
-            {standing.madeCutBonus && (
-              <Attribute
-                labelClassName="text-sm"
-                valueClassName="bg-green-200 text-green-800"
-                label="Bonus"
-                value="MC"
-              />
-            )}
-            <Attribute
-              labelClassName="text-sm"
-              valueClassName="bg-gray-200 text-black"
-              label="Points"
-              value={standing.score}
-            />
-          </div>
-        </Button>
+        ) : (
+          <Button
+            className={`
+              flex w-full items-center justify-between gap-2 rounded-r bg-white
+              p-2 shadow
+              dark:bg-gray-800
+            `}
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={`team ${standing.name}`}
+          >
+            {rowContent}
+          </Button>
+        )}
       </div>
 
       <div ref={playersRef}>
-        {isOpen && (
+        {isOpen && !isTotalView && (
           <div className="flex flex-col gap-px overflow-hidden rounded-b">
             <div className="flex justify-around bg-white p-2 dark:bg-gray-800">
               {(
