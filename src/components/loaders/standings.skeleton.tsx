@@ -16,20 +16,30 @@ export default function StandingsSkeleton() {
         ))}
       </div>
       {Array.from({ length: 29 }).map((_, index) => (
-        <div
-          key={index}
-          className={`
-            flex h-16 w-full animate-pulse items-center justify-between
-            rounded-md bg-white p-2 shadow
-            dark:bg-gray-800
-          `}
-        >
-          <div className="flex items-center gap-3 overflow-hidden">
-            <div className="size-7 rounded bg-gray-200 dark:bg-gray-700" />
-            <div className="h-7 w-10 rounded bg-gray-200 dark:bg-gray-700" />
-            <div className="h-2 w-30 rounded-full bg-gray-200 dark:bg-gray-700" />
+        <div key={index} className="flex animate-pulse items-center gap-px">
+          <div
+            className={`
+              flex h-16 items-center justify-center rounded-l bg-white px-2
+              shadow
+              dark:bg-gray-800
+            `}
+          >
+            <div className="size-6 rounded bg-gray-200 dark:bg-gray-700" />
           </div>
-          <div className="h-7 w-10 rounded bg-gray-200 dark:bg-gray-700" />
+          <div
+            className={`
+              flex h-16 w-full items-center justify-between rounded-r bg-white
+              p-2 shadow
+              dark:bg-gray-800
+            `}
+          >
+            <div className="flex items-center gap-3 overflow-hidden">
+              <div className="size-7 rounded bg-gray-200 dark:bg-gray-700" />
+              <div className="h-7 w-10 rounded bg-gray-200 dark:bg-gray-700" />
+              <div className="h-2 w-30 rounded-full bg-gray-200 dark:bg-gray-700" />
+            </div>
+            <div className="h-7 w-10 rounded bg-gray-200 dark:bg-gray-700" />
+          </div>
         </div>
       ))}
     </div>

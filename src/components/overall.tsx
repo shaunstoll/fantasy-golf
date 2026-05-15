@@ -119,7 +119,7 @@ export default function Overall({
   const favoriteFilteredTeams = filteredTeams.filter((t) => favoriteTeams.includes(t.name));
 
   const renderTeam = (team: OverallTeam) => (
-    <div key={team.name} className="flex items-center gap-px">
+    <div key={team.name} className="flex min-w-0 items-center gap-px">
       <Button
         className={`
           self-stretch rounded-l bg-white p-2
@@ -135,7 +135,8 @@ export default function Overall({
       </Button>
       <div
         className={`
-          flex w-full items-center justify-between rounded-r bg-white p-2
+          flex min-w-0 flex-1 items-center justify-between rounded-r bg-white
+          p-2
           dark:bg-gray-800
         `}
       >
