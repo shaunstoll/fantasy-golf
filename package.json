@@ -20,7 +20,8 @@
     "check": "npm run fmt && npm run lint:fix && npm run typecheck && vitest run",
     "get-rankings": "npx tsx src/scripts/get-rankings.ts",
     "get-teams": "npx tsx src/scripts/get-teams.ts",
-    "save-results": "npx tsx src/scripts/save-results.ts"
+    "save-results": "npx tsx src/scripts/save-results.ts",
+    "build-pga-results": "npx tsx src/scripts/build-pga-results.ts"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.97.0",
