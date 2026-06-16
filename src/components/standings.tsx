@@ -10,6 +10,7 @@ import SearchBar from "@/components/search-bar";
 import Standing from "@/components/standing";
 import { getCurrentTournament, tournaments } from "@/config/tournaments";
 import type { TournamentName } from "@/enums/tournament.enum";
+import type { Player } from "@/interfaces/player.interface";
 import type { Standing as StandingType } from "@/interfaces/standing.interface";
 import { useStore } from "@/store";
 import { api } from "@/trpc/react";
@@ -82,24 +83,31 @@ export default function Standings({
 
   let data: StandingType[];
   let tournamentScoresByTeam: Map<string, Record<TournamentName, number>> | undefined;
+  let tournamentRostersByTeam: Map<string, Record<TournamentName, Player[]>> | undefined;
 
   if (isTotal) {
-    const scoresByTournament = new Map<TournamentName, Map<string, number>>();
+    const standingByTournament = new Map<TournamentName, Map<string, StandingType>>();
     const teamNames = new Set<string>();
     for (const t of tournaments) {
-      const scoreMap = new Map(
-        (standingsByTournament.get(t.name) ?? []).map((s) => [s.name, s.score]),
+      const standingMap = new Map(
+        (standingsByTournament.get(t.name) ?? []).map((s) => [s.name, s]),
       );
-      scoresByTournament.set(t.name, scoreMap);
-      for (const name of scoreMap.keys()) teamNames.add(name);
+      standingByTournament.set(t.name, standingMap);
+      for (const name of standingMap.keys()) teamNames.add(name);
     }
 
     const aggregated = [...teamNames].map((name) => {
       const scores = Object.fromEntries(
-        tournaments.map((t) => [t.name, scoresByTournament.get(t.name)?.get(name) ?? 0]),
+        tournaments.map((t) => [t.name, standingByTournament.get(t.name)?.get(name)?.score ?? 0]),
       ) as Record<TournamentName, number>;
+      const rosters = Object.fromEntries(
+        tournaments.map((t) => [
+          t.name,
+          standingByTournament.get(t.name)?.get(name)?.players ?? [],
+        ]),
+      ) as Record<TournamentName, Player[]>;
       const total = Object.values(scores).reduce((sum, v) => sum + v, 0);
-      return { name, scores, total };
+      return { name, scores, rosters, total };
     });
 
     aggregated.sort((a, b) => b.total - a.total);
@@ -115,6 +123,7 @@ export default function Standings({
     });
 
     tournamentScoresByTeam = new Map(ranked.map((t) => [t.name, t.scores]));
+    tournamentRostersByTeam = new Map(ranked.map((t) => [t.name, t.rosters]));
     data = ranked.map((team, i) => ({
       name: team.name,
       score: team.total,
@@ -165,6 +174,7 @@ export default function Standings({
             key={standing.name}
             standing={standing}
             tournamentScores={tournamentScoresByTeam?.get(standing.name)}
+            tournamentRosters={tournamentRostersByTeam?.get(standing.name)}
           />
         ))}
         {favoriteStandings.length > 0 && (
@@ -175,6 +185,7 @@ export default function Standings({
             key={standing.name}
             standing={standing}
             tournamentScores={tournamentScoresByTeam?.get(standing.name)}
+            tournamentRosters={tournamentRostersByTeam?.get(standing.name)}
           />
         ))}
         <div className="mt-4">

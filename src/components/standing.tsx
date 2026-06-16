@@ -4,20 +4,50 @@ import { useState } from "react";
 
 import Attribute from "@/components/attribute";
 import Button from "@/components/button";
-import Player from "@/components/player";
-import { tournaments } from "@/config/tournaments";
+import Roster from "@/components/roster";
+import { getCurrentTournament, tournaments } from "@/config/tournaments";
 import type { TournamentName } from "@/enums/tournament.enum";
+import type { Player } from "@/interfaces/player.interface";
 import type { Standing as StandingType } from "@/interfaces/standing.interface";
 import { useStore } from "@/store";
 
 interface Props {
   standing: StandingType;
   tournamentScores?: Record<TournamentName, number>;
+  tournamentRosters?: Record<TournamentName, Player[]>;
 }
 
-export default function Standing({ standing, tournamentScores }: Props) {
+/**
+ * Picks which major's roster to show first when a team is tapped in the Total view.
+ *
+ * TODO(you): implement this. The interesting cases:
+ *   - The "obvious" default is the live/current major: `getCurrentTournament()`.
+ *   - But early in a major's week (or for a team that didn't enter one), that
+ *     major's roster can be empty — `rosters[major].length === 0`. Showing an
+ *     empty roster on first tap is a poor first impression.
+ *   - `tournaments` is ordered Masters → PGA → US Open → Open (chronological).
+ *
+ * We honor the current major when the team has a roster there; otherwise we walk
+ * backward through the chronological order to the most recent major they actually
+ * fielded a roster for, so the first tap never opens to an empty list.
+ */
+function getDefaultMajor(rosters: Record<TournamentName, Player[]>): TournamentName {
+  const current = getCurrentTournament();
+  if (rosters[current]?.length) return current;
+
+  const order = tournaments.map((t) => t.name);
+  for (let i = order.indexOf(current) - 1; i >= 0; i--) {
+    if (rosters[order[i]]?.length) return order[i];
+  }
+  return current;
+}
+
+export default function Standing({ standing, tournamentScores, tournamentRosters }: Props) {
   const { favoriteTeams, toggleFavoriteTeam } = useStore();
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedMajor, setSelectedMajor] = useState<TournamentName>(() =>
+    tournamentRosters ? getDefaultMajor(tournamentRosters) : tournaments[0].name,
+  );
   const [playersRef] = useAutoAnimate();
   const isTotalView = tournamentScores !== undefined;
 
@@ -120,15 +150,17 @@ export default function Standing({ standing, tournamentScores }: Props) {
           />
         </Button>
         {isTotalView ? (
-          <div
+          <Button
             className={`
               flex w-full min-w-0 items-center justify-between gap-2 rounded-r
               bg-white p-2 shadow
               dark:bg-gray-800
             `}
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={`team ${standing.name}`}
           >
             {rowContent}
-          </div>
+          </Button>
         ) : (
           <Button
             className={`
@@ -145,35 +177,32 @@ export default function Standing({ standing, tournamentScores }: Props) {
       </div>
 
       <div ref={playersRef}>
-        {isOpen && !isTotalView && (
-          <div className="flex flex-col gap-px overflow-hidden rounded-b">
-            <div className="flex justify-around bg-white p-2 dark:bg-gray-800">
-              {(
-                [
-                  { label: "1-5", min: 1, max: 5 },
-                  { label: "6-10", min: 6, max: 10 },
-                  { label: "11-20", min: 11, max: 20 },
-                  { label: "21+", min: 21, max: Infinity },
-                ] as const
-              ).map((bracket) => {
-                const count = standing.players.filter(
-                  (p) => p.rank >= bracket.min && p.rank <= bracket.max,
-                ).length;
-                return (
-                  <div key={bracket.label} className="flex flex-col items-center">
-                    <span className="text-xs text-gray-500 dark:text-gray-400">
-                      {bracket.label}
-                    </span>
-                    <span className="text-sm font-bold">{count}</span>
-                  </div>
-                );
-              })}
+        {isOpen &&
+          (isTotalView && tournamentRosters ? (
+            <div className="flex flex-col gap-px overflow-hidden rounded-b">
+              <div className="flex gap-1 bg-gray-200 p-2 dark:bg-gray-700">
+                {tournaments.map((t) => (
+                  <Button
+                    key={t.name}
+                    className={`
+                      rounded-full px-3 py-1.5 text-sm font-medium
+                      ${
+                        selectedMajor === t.name
+                          ? "bg-white text-black dark:bg-gray-800 dark:text-white"
+                          : "text-gray-500 dark:text-gray-400"
+                      }
+                    `}
+                    onClick={() => setSelectedMajor(t.name)}
+                  >
+                    {t.sortLabel}
+                  </Button>
+                ))}
+              </div>
+              <Roster players={tournamentRosters[selectedMajor]} />
             </div>
-            {standing.players.map((player) => {
-              return <Player key={`${player.firstName} ${player.lastName}`} player={player} />;
-            })}
-          </div>
-        )}
+          ) : (
+            !isTotalView && <Roster players={standing.players} />
+          ))}
       </div>
     </div>
   );

@@ -56,6 +56,26 @@ describe("Home Component", () => {
     expect(screen.getByText(resultsStandings[1].name)).toBeInTheDocument();
   });
 
+  it("should open the roster with major selectors when tapping a team in total view", async () => {
+    render(<Home />);
+    await userEvent.click(screen.getByRole("button", { name: "Total" }));
+
+    // Top-level tabs exist once each before any team is expanded.
+    expect(screen.getAllByRole("button", { name: "Masters" })).toHaveLength(1);
+
+    await userEvent.click(screen.getByRole("button", { name: `team ${resultsStandings[0].name}` }));
+
+    // Expanding adds a second "Masters" control: the in-roster major selector.
+    expect(screen.getAllByRole("button", { name: "Masters" })).toHaveLength(2);
+    // The roster for the default major is shown.
+    expect(screen.getByText(standingsMock[0].players[0].lastName)).toBeInTheDocument();
+
+    // Switching majors via the in-roster selector keeps the roster open.
+    const mastersSelector = screen.getAllByRole("button", { name: "Masters" })[1];
+    await userEvent.click(mastersSelector);
+    expect(screen.getByText(resultsStandings[0].players[0].lastName)).toBeInTheDocument();
+  });
+
   it("should render tournament filter buttons on standings tab", () => {
     render(<Home />);
     expect(screen.getByRole("button", { name: "Total" })).toBeInTheDocument();
