@@ -28,6 +28,10 @@ Team rosters are stored as JSON in `data/{year}/{tournament}.json` and loaded vi
 - `npm run get-rankings` — scrape player rankings
 - `npm run get-teams` — scrape team rosters
 
+## Workflow
+
+- Solo project. Commit and push directly to `prod` — no feature branches, no PRs.
+
 ## Rules
 
 - Never use type `any`
