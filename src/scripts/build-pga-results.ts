@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
-import { allRankings } from "@/db/rankings";
+import { getRankings } from "@/db/rankings";
 import { PlayerStatus } from "@/enums/player-status.enum";
 import { TournamentName } from "@/enums/tournament.enum";
 import type { Team } from "@/interfaces/team.interface";
@@ -130,7 +130,11 @@ async function main() {
   const teams = pga as Team[];
   const scoringService = new ScoringService();
   const standings = scoringService.getStandings(teams, tournament);
-  const leaderboard = scoringService.getLeaderboard(teams, tournament, allRankings);
+  const leaderboard = scoringService.getLeaderboard(
+    teams,
+    tournament,
+    getRankings(TournamentName.Masters),
+  );
 
   const dir = path.join(process.cwd(), "data", "2026");
   const filePath = path.join(dir, "pga-results.json");
