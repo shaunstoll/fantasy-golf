@@ -15,12 +15,29 @@ Tournament slug must be one of the `TournamentName` enum values (`src/enums/tour
 
 2. **Check for name mismatches:** the script prints `No ranking found for player: <Name>` to stderr for any roster name that didn't match a DataGolf ranking. Player matching is exact `"FirstName LastName"` (see CLAUDE.md). Any such line means that player will be missing from the stored roster — investigate and resolve the name before moving on. Also confirm the team count looks right and no roster has a null/undefined player entry.
 
-3. **Wire it into the app:** `src/db/teams.ts` binds `teams` to `currentTournament` via the `teamsByTournament` map, and `currentTournament` is decided by month (`src/config/tournaments.ts`, 0-indexed `getMonth()`). A roster file the app doesn't import shows up as **empty**. So add the new tournament:
+3. **Reconcile team names against the prior majors:** the same people play every major, but they re-enter their team name each time and often type it differently (capitalization, nickname, `+` vs space, short vs full first name). The roster set should be **identical across all majors** — the prior majors agree with each other, so treat their shared spelling as canonical and rename the odd ones out in the new file. As a general rule, always run this diff after a pull and resolve every mismatch before wiring in. Compare against the existing tournaments:
+
+   ```bash
+   node -e "
+   const prior = new Set([
+     ...require('./data/{year}/masters.json'),
+     ...require('./data/{year}/pga.json'),
+   ].map(t => t.name));
+   const cur = require('./data/{year}/$1.json').map(t => t.name);
+   console.log('new file teams:', cur.length, '| canonical set:', prior.size);
+   console.log('in $1 but not canonical:', cur.filter(n => !prior.has(n)));
+   console.log('canonical but missing from $1:', [...prior].filter(n => !cur.includes(n)));
+   "
+   ```
+
+   The two lists should pair up 1:1 (same person, different spelling). Map each new-file name to its canonical name and rewrite `data/{year}/$1.json` with the canonical names. Real 2026 US Open cases: `Jacques mosseri`→`Jacques Mosseri`, `Neill VIDELEFSKY`→`Neill Videlefsky`, `Don Campbell`→`Donald Campbell`, `Noah + Joey`→`Noah Joey`, `William Mayer`→`Bill Mayer`. If a name can't be matched by elimination, ask rather than guess.
+
+4. **Wire it into the app:** `src/db/teams.ts` binds `teams` to `currentTournament` via the `teamsByTournament` map, and `currentTournament` is decided by month (`src/config/tournaments.ts`, 0-indexed `getMonth()`). A roster file the app doesn't import shows up as **empty**. So add the new tournament:
    - `import x from "@data/{year}/$1.json";`
    - add `"$1": x,` to `teamsByTournament` (key by the exact slug).
      Skip this only if the entry already exists.
 
-4. **Verify:** `npm run check` (fmt + lint + typecheck + tests). The data-integrity test expects the same team-name set across all tournament rosters — a failure there usually means a roster pulled differently than the others.
+5. **Verify:** `npm run check` (fmt + lint + typecheck + tests). The data-integrity test expects the same team-name set across all tournament rosters — a failure there means step 3 missed a mismatch.
 
 ## Related
 
