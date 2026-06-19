@@ -31,6 +31,7 @@ Team rosters are stored as JSON in `data/{year}/{tournament}.json` and loaded vi
 ## Workflow
 
 - Solo project. Commit and push directly to `prod` — no feature branches, no PRs.
+- Experimental vibe-coding repo. The owner reviews **intent, not code** — they won't read diffs. Confirm intent when it's genuinely ambiguous, but otherwise implement, verify (fmt/lint/typecheck/test), and push directly to `prod`.
 
 ## Rules
 

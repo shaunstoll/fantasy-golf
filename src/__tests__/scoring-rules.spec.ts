@@ -94,6 +94,13 @@ describe("Scoring rules contract", () => {
     expect(player.fantasyScore).toBe(74);
     expect(player.firstPlaceBonus).toBe(true);
     expect(player.lowestRankedPlayerBonus).toBe(false);
+    // Per-category breakdown parts powering the expandable player view. These
+    // are raw (pre-multiplier) — placement = 10 + 4 + 3 = 17.
+    expect(player.firstPlaceBonusPoints).toBe(15);
+    expect(player.placementPoints).toBe(17);
+    expect(player.rankingBonus).toBe(0);
+    expect(player.madeCutBonusPoints).toBe(5);
+    expect(player.lowestRankedBonusPoints).toBe(0);
   });
 
   it("captain owning the lowest-ranked top-25 finisher gets flat +15, not multiplied", () => {
@@ -111,6 +118,12 @@ describe("Scoring rules contract", () => {
     expect(player.fantasyScore).toBe(53);
     expect(player.lowestRankedPlayerBonus).toBe(true);
     expect(team.score).toBe(53);
+    // The breakdown keeps the +15 low bonus separate from the multiplied base,
+    // mirroring how the score is actually assembled.
+    expect(player.placementPoints).toBe(3);
+    expect(player.rankingBonus).toBe(11);
+    expect(player.madeCutBonusPoints).toBe(5);
+    expect(player.lowestRankedBonusPoints).toBe(15);
   });
 
   it("rank exactly 10 making top 25 gets no rank-tier bonus", () => {

@@ -30,29 +30,32 @@ export default class ScoringService {
           continue;
         }
         const multiplier = index === 0 ? 2 : index === 1 ? 1.5 : 1;
-        let playerTotal = 0;
+        let placementPoints = 0;
+        let rankingBonus = 0;
+        let madeCutBonusPoints = 0;
+        let firstPlaceBonusPoints = 0;
         let insideCutLineOrMadCutBonus = false;
         let firstPlaceBonus = false;
 
         if (p.place) {
           if (p.place === 1 && !p.isTied) {
-            playerTotal += 15;
+            firstPlaceBonusPoints = 15;
             firstPlaceBonus = true;
             hasFirstPlaceBonus = true;
           }
           if (p.place <= 10) {
-            playerTotal += 11 - p.place;
+            placementPoints += 11 - p.place;
           }
           if (p.place <= 15) {
-            playerTotal += 4;
+            placementPoints += 4;
           }
           if (p.place <= 25) {
-            playerTotal += 3;
+            placementPoints += 3;
             if (player.rank > 10 && player.rank <= 20) {
-              playerTotal += 6;
+              rankingBonus = 6;
             }
             if (player.rank > 20) {
-              playerTotal += 11;
+              rankingBonus = 11;
             }
             if (player.rank > lowestRankedPlayerInTop25) {
               lowestRankedPlayerInTop25 = player.rank;
@@ -61,12 +64,15 @@ export default class ScoringService {
           if (tournament.round < 3 && p.place > getTournamentConfig(tournament.name).cutLine) {
             allPlayersMadeCutBonus = false;
           } else if (player.rank > 5) {
-            playerTotal += 5;
+            madeCutBonusPoints = 5;
             insideCutLineOrMadCutBonus = true;
           }
         } else {
           allPlayersMadeCutBonus = false;
         }
+
+        const playerTotal =
+          placementPoints + rankingBonus + madeCutBonusPoints + firstPlaceBonusPoints;
         players.push({
           firstName: player.firstName,
           lastName: player.lastName,
@@ -84,6 +90,11 @@ export default class ScoringService {
           multiplier,
           ownedCount: ownershipCounts.get(`${player.firstName} ${player.lastName}`) ?? 0,
           ownedTotal: totalTeams,
+          placementPoints,
+          rankingBonus,
+          madeCutBonusPoints,
+          firstPlaceBonusPoints,
+          lowestRankedBonusPoints: 0,
         });
         score += playerTotal * multiplier;
       }
@@ -107,6 +118,7 @@ export default class ScoringService {
           player.fantasyScore += 15;
           team.score += 15;
           player.lowestRankedPlayerBonus = true;
+          player.lowestRankedBonusPoints = 15;
           team.lowestRankedPlayerBonus = true;
         }
       }
@@ -148,10 +160,15 @@ export default class ScoringService {
       }
     }
 
+    // The lowest-ranked +15 bonus is set by the worst-ranked *owned* player in
+    // the top 25, not the worst-ranked player in the whole field — a player must
+    // be on someone's roster to set the bar. This mirrors getStandings, which
+    // only ever iterates rostered players.
     let lowestRankedInTop25 = 0;
     for (const [name, entry] of Object.entries(tournament.leaderboard)) {
       const rank = rankings[name]?.rank;
-      if (rank && entry.place && entry.place <= 25 && rank > lowestRankedInTop25) {
+      const isOwned = (ownershipCounts.get(name) ?? 0) > 0;
+      if (isOwned && rank && entry.place && entry.place <= 25 && rank > lowestRankedInTop25) {
         lowestRankedInTop25 = rank;
       }
     }

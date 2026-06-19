@@ -17,4 +17,14 @@ export interface Player {
   multiplier: number;
   ownedCount: number;
   ownedTotal: number;
+  // Per-category point parts powering the expandable breakdown. Optional because
+  // results frozen before these existed (e.g. masters-results.json) lack them;
+  // the Player component falls back to the total when they're absent. These are
+  // raw, pre-multiplier points — except lowestRankedBonusPoints, which is the
+  // flat +15 added after the captain multiplier (see ScoringService).
+  placementPoints?: number;
+  rankingBonus?: number;
+  madeCutBonusPoints?: number;
+  firstPlaceBonusPoints?: number;
+  lowestRankedBonusPoints?: number;
 }

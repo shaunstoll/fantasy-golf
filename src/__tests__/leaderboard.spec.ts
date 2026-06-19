@@ -1,0 +1,50 @@
+import { describe, expect, it } from "vitest";
+
+import { PlayerStatus } from "@/enums/player-status.enum";
+import { TournamentName } from "@/enums/tournament.enum";
+import type { Leaderboard } from "@/interfaces/leaderboard.interface";
+import type { Ranking } from "@/interfaces/ranking.interface";
+import type { Team } from "@/interfaces/team.interface";
+import type { Tournament } from "@/interfaces/tournament.interface";
+import ScoringService from "@/services/scoring.service";
+
+function entry(place: number) {
+  return {
+    nationality: "USA",
+    score: 0,
+    thru: "F",
+    isTied: false,
+    place,
+    status: PlayerStatus.PLAYING,
+  };
+}
+
+describe("Leaderboard lowest-ranked bonus", () => {
+  it("sets the +15 low bonus from the worst-ranked OWNED top-25 player, ignoring unowned players", () => {
+    // An unowned long-shot finishes top 25 with a far worse rank than any owned
+    // player. It must NOT set the bar — only rostered players can.
+    const leaderboard: Leaderboard = {
+      "Owned Sleeper": entry(10),
+      "Unowned LongShot": entry(5),
+    };
+    const rankings: Record<string, Ranking> = {
+      "Owned Sleeper": { firstName: "Owned", lastName: "Sleeper", rank: 50 },
+      "Unowned LongShot": { firstName: "Unowned", lastName: "LongShot", rank: 999 },
+    };
+    const teams: Team[] = [
+      { name: "team-0", players: [{ firstName: "Owned", lastName: "Sleeper", rank: 50 }] },
+    ];
+    const tournament: Tournament = {
+      name: TournamentName.Pga,
+      round: 4,
+      leaderboard,
+    };
+
+    const players = new ScoringService().getLeaderboard(teams, tournament, rankings);
+    const owned = players.find((p) => p.lastName === "Sleeper");
+    const unowned = players.find((p) => p.lastName === "LongShot");
+
+    expect(owned?.lowestRankedBonusPoints).toBe(15);
+    expect(unowned?.lowestRankedBonusPoints).toBe(0);
+  });
+});
