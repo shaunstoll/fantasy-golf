@@ -1,5 +1,7 @@
 "use client";
 
+import { Fragment } from "react";
+
 import Button from "@/components/button";
 import Footer from "@/components/footer";
 import LeaderboardPlayerRow from "@/components/leaderboard-player";
@@ -59,18 +61,29 @@ export default function Leaderboard({
 
   if (!leaderboardQuery.data) return <main className="p-4 text-center">No leaderboard data</main>;
 
+  const { players, cutLine, round } = leaderboardQuery.data;
+
   const query = search.toLowerCase();
   const filtered = query
-    ? leaderboardQuery.data.filter((p) =>
+    ? players.filter((p: LeaderboardPlayer) =>
         `${p.firstName} ${p.lastName}`.toLowerCase().includes(query),
       )
-    : leaderboardQuery.data;
+    : players;
 
-  const sorted = [...filtered].sort((a, b) => {
+  const sorted = [...filtered].sort((a: LeaderboardPlayer, b: LeaderboardPlayer) => {
     const aVal = getSortValue(a, sortKey);
     const bVal = getSortValue(b, sortKey);
     return sortDir === "asc" ? aVal - bVal : bVal - aVal;
   });
+
+  const cutLabel = round < 3 ? "Projected Cut" : "Cut";
+  const cutInsertIndex = (() => {
+    if (sortKey !== "score" || query) return -1;
+    if (round < 3) {
+      return sorted.findIndex((p: LeaderboardPlayer) => (p.place ?? Infinity) > cutLine);
+    }
+    return sorted.findIndex((p: LeaderboardPlayer) => p.place === undefined);
+  })();
 
   const handleSortClick = (key: SortKey) => {
     if (key === sortKey) {
@@ -109,8 +122,17 @@ export default function Leaderboard({
       </div>
 
       <main className="flex flex-col gap-1 pb-20">
-        {sorted.map((player) => (
-          <LeaderboardPlayerRow key={`${player.firstName} ${player.lastName}`} player={player} />
+        {sorted.map((player: LeaderboardPlayer, index: number) => (
+          <Fragment key={`${player.firstName} ${player.lastName}`}>
+            {index === cutInsertIndex && (
+              <div className="flex items-center gap-2 py-1">
+                <div className="h-px flex-1 bg-red-500/60" />
+                <span className="text-xs font-semibold tracking-wide text-red-500">{cutLabel}</span>
+                <div className="h-px flex-1 bg-red-500/60" />
+              </div>
+            )}
+            <LeaderboardPlayerRow player={player} />
+          </Fragment>
         ))}
         <div className="mt-4">
           <Footer />

@@ -5,7 +5,7 @@ import { allRankings } from "@/db/rankings";
 import { getResults } from "@/db/results";
 import { teams } from "@/db/teams";
 import { TournamentName } from "@/enums/tournament.enum";
-import { currentTournament } from "@/config/tournaments";
+import { currentTournament, getTournamentConfig } from "@/config/tournaments";
 import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
 import ScoringService from "@/services/scoring.service";
 
@@ -27,10 +27,15 @@ export const tournamentRouter = createTRPCRouter({
     return scoringService.getStandings(teams, tournament);
   }),
   leaderboard: publicProcedure.query(async () => {
+    const { cutLine } = getTournamentConfig(currentTournament);
     const results = getResults(currentTournament);
-    if (results) return results.leaderboard;
+    if (results) return { players: results.leaderboard, cutLine, round: 4 };
     const tournament = await dataGolfClient.getTournament();
-    return scoringService.getLeaderboard(teams, tournament, allRankings);
+    return {
+      players: scoringService.getLeaderboard(teams, tournament, allRankings),
+      cutLine,
+      round: tournament.round,
+    };
   }),
   results: publicProcedure
     .input(z.object({ tournament: tournamentNameSchema }))
