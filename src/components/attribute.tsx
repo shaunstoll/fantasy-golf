@@ -8,12 +8,16 @@ export default function Attribute({
   valueClassName,
   label,
   value,
+  focused,
 }: {
   className?: string;
   labelClassName?: string;
   valueClassName?: string;
   label: string;
   value: string | number;
+  // When explicitly false, the attribute fades back (e.g. a score column that
+  // isn't the active sort). Undefined or true leaves it at full strength.
+  focused?: boolean;
 }) {
   const [showLabel, setShowLabel] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -60,9 +64,12 @@ export default function Attribute({
       >
         {label}
       </label>
+      {/* When not focused, fade the value box (fill + number); the label/title
+          above stays at full strength so you can still read what it is. */}
       <p
         className={`
           w-10 rounded p-1 text-center text-sm font-bold
+          ${focused === false ? "opacity-40" : ""}
           ${valueClassName}
         `}
       >

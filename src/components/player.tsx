@@ -56,13 +56,14 @@ export default function Player({ player }: { player: PlayerType }) {
     <div className="flex flex-col gap-px">
       <Button
         className={`
-          grid w-full grid-cols-[auto_1fr] gap-1 bg-white p-1 pr-2 text-left
+          flex w-full items-center justify-between gap-1 bg-white p-1 pr-2
+          text-left
           dark:bg-gray-800
         `}
         onClick={() => setIsOpen(!isOpen)}
         aria-label={`player ${player.firstName} ${player.lastName}`}
       >
-        <div className="row-span-2 flex items-center gap-1">
+        <div className="flex min-w-0 items-center gap-1">
           <div className="flex flex-col items-center">
             <Image
               src={`https://datagolf.com/static/flags/${flagCode(player.nationality)}.png`}
@@ -72,26 +73,26 @@ export default function Player({ player }: { player: PlayerType }) {
             />
             <p className="w-9 rounded text-center text-sm font-bold">{place}</p>
           </div>
-          <div>
-            <p className="text-sm">{player.firstName}</p>
-            <p>{player.lastName}</p>
+          <div className="min-w-0">
+            <p className="truncate text-sm">{player.firstName}</p>
+            <p className="truncate">{player.lastName}</p>
           </div>
         </div>
-        <div className="flex items-center justify-end gap-1">
+        <div className="flex shrink-0 items-center gap-1.5">
           {player.multiplier > 1 && (
-            <Attribute
-              labelClassName="hidden"
-              valueClassName="bg-amber-100 text-amber-900"
-              label="Weight"
-              value={`${player.multiplier}x`}
-            />
+            <span className="text-xs font-bold text-amber-600 dark:text-amber-400">
+              {player.multiplier}×
+            </span>
           )}
-          <Attribute
-            labelClassName="hidden"
-            valueClassName="bg-blue-200 text-blue-800"
-            label="Owned"
-            value={`${player.ownedCount}/${player.ownedTotal}`}
-          />
+          {player.firstPlaceBonus && (
+            <span title="Winner" className="size-2 rounded-full bg-amber-400" />
+          )}
+          {player.madeCutBonus && (
+            <span title="Made cut" className="size-2 rounded-full bg-green-500" />
+          )}
+          {player.lowestRankedPlayerBonus && (
+            <span title="Lowest-ranked top 25" className="size-2 rounded-full bg-purple-500" />
+          )}
           <Attribute
             labelClassName="hidden"
             valueClassName="bg-gray-200 text-black"
@@ -100,36 +101,10 @@ export default function Player({ player }: { player: PlayerType }) {
           />
           <Attribute
             labelClassName="hidden"
-            valueClassName="bg-gray-600 text-white"
-            label="Points"
-            value={player.fantasyScore}
+            valueClassName="bg-blue-200 text-blue-800"
+            label="Owned"
+            value={`${player.ownedCount}/${player.ownedTotal}`}
           />
-        </div>
-        <div className="flex items-center justify-end gap-1">
-          {player.lowestRankedPlayerBonus && (
-            <Attribute
-              labelClassName="hidden"
-              valueClassName="bg-purple-200 text-purple-800"
-              label="Bonus"
-              value="Low"
-            />
-          )}
-          {player.firstPlaceBonus && (
-            <Attribute
-              labelClassName="hidden"
-              valueClassName="bg-amber-200 text-amber-800"
-              label="Bonus"
-              value="1st"
-            />
-          )}
-          {player.madeCutBonus && (
-            <Attribute
-              labelClassName="hidden"
-              valueClassName="bg-green-200 text-green-800"
-              label="Bonus"
-              value="MC"
-            />
-          )}
           <Attribute
             labelClassName="hidden"
             valueClassName="bg-gray-200 text-black"
@@ -143,6 +118,12 @@ export default function Player({ player }: { player: PlayerType }) {
             }`}
             label="Score"
             value={player.score > 0 ? `+${player.score}` : player.score === 0 ? "E" : player.score}
+          />
+          <Attribute
+            labelClassName="hidden"
+            valueClassName="bg-gray-600 text-white"
+            label="Points"
+            value={player.fantasyScore}
           />
         </div>
       </Button>

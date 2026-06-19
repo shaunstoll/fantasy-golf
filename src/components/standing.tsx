@@ -101,11 +101,14 @@ export default function Standing({
     />
   );
 
+  // The badge for the active sort (a major, or Total) stays solid; the rest fade
+  // back so it's clear which column the list is ranked by.
   const scoreCluster = (
     <div className="flex shrink-0 items-center gap-1">
       {tournaments.map((t) => (
         <Attribute
           key={t.name}
+          focused={activeTab === t.name}
           labelClassName="text-xs"
           valueClassName={t.badgeColor}
           label={t.badgeLabel}
@@ -113,6 +116,7 @@ export default function Standing({
         />
       ))}
       <Attribute
+        focused={activeTab === "total"}
         labelClassName="text-xs"
         valueClassName="bg-gray-200 text-black"
         label="Total"
@@ -172,7 +176,7 @@ export default function Standing({
       <div ref={playersRef}>
         {isOpen && (
           <div className="flex flex-col gap-px overflow-hidden rounded-b">
-            <div className="flex gap-1 bg-gray-200 p-2 dark:bg-gray-700">
+            <div className="flex gap-1 bg-white p-2 dark:bg-gray-800">
               {tournaments.map((t) => (
                 <Button
                   key={t.name}
@@ -180,7 +184,7 @@ export default function Standing({
                     rounded-full px-3 py-1.5 text-sm font-medium
                     ${
                       selectedMajor === t.name
-                        ? "bg-white text-black dark:bg-gray-800 dark:text-white"
+                        ? "bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
                         : "text-gray-500 dark:text-gray-400"
                     }
                   `}
