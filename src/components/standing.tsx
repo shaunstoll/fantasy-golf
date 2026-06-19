@@ -73,13 +73,16 @@ export default function Standing({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTab]);
 
-  // Bonuses shown beneath the row reflect the active major filter; Total shows none.
+  // Bonus dots shown under the team name reflect the active major filter; Total
+  // shows none. Colors match the bonus chips used elsewhere in the app.
   const activeBonuses = activeTab === "total" ? undefined : tournamentBonuses[activeTab];
-  const hasBonus =
-    activeBonuses !== undefined &&
-    (activeBonuses.lowestRankedPlayerBonus ||
-      activeBonuses.firstPlaceBonus ||
-      activeBonuses.madeCutBonus);
+  const bonusDots: { key: string; title: string; color: string }[] = [];
+  if (activeBonuses?.firstPlaceBonus)
+    bonusDots.push({ key: "1st", title: "Winner", color: "bg-amber-400" });
+  if (activeBonuses?.madeCutBonus)
+    bonusDots.push({ key: "mc", title: "All made cut", color: "bg-green-500" });
+  if (activeBonuses?.lowestRankedPlayerBonus)
+    bonusDots.push({ key: "low", title: "Lowest-ranked top 25", color: "bg-purple-500" });
 
   const rankBadge = (
     <Attribute
@@ -147,46 +150,24 @@ export default function Standing({
         >
           <div className="flex min-w-0 items-center gap-3 overflow-hidden pr-1">
             {rankBadge}
-            <p className="truncate">{standing.name}</p>
+            <div className="min-w-0">
+              <p className="truncate">{standing.name}</p>
+              {bonusDots.length > 0 && (
+                <div data-testid="team-bonuses" className="mt-1 flex items-center gap-1">
+                  {bonusDots.map((d) => (
+                    <span
+                      key={d.key}
+                      title={d.title}
+                      className={`size-2 rounded-full ${d.color}`}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
           {scoreCluster}
         </Button>
       </div>
-
-      {hasBonus && activeBonuses && (
-        <div
-          data-testid="bonus-row"
-          className={`
-            flex items-center justify-end gap-1 bg-white/70 px-2 py-1
-            dark:bg-gray-800/70
-          `}
-        >
-          {activeBonuses.lowestRankedPlayerBonus && (
-            <Attribute
-              labelClassName="hidden"
-              valueClassName="bg-purple-200 text-purple-800"
-              label="Bonus"
-              value="Low"
-            />
-          )}
-          {activeBonuses.firstPlaceBonus && (
-            <Attribute
-              labelClassName="hidden"
-              valueClassName="bg-amber-200 text-amber-800"
-              label="Bonus"
-              value="1st"
-            />
-          )}
-          {activeBonuses.madeCutBonus && (
-            <Attribute
-              labelClassName="hidden"
-              valueClassName="bg-green-200 text-green-800"
-              label="Bonus"
-              value="MC"
-            />
-          )}
-        </div>
-      )}
 
       <div ref={playersRef}>
         {isOpen && (
