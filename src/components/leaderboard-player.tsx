@@ -6,6 +6,7 @@ import Attribute from "@/components/attribute";
 import Button from "@/components/button";
 import { PlayerStatus } from "@/enums/player-status.enum";
 import type { LeaderboardPlayer } from "@/interfaces/leaderboard-player.interface";
+import { flagCode } from "@/utils/nationality.utils";
 
 export default function LeaderboardPlayerRow({ player }: { player: LeaderboardPlayer }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,7 +44,7 @@ export default function LeaderboardPlayerRow({ player }: { player: LeaderboardPl
         <div className="flex min-w-0 items-center gap-1 pr-1">
           <div className="flex shrink-0 flex-col items-center">
             <Image
-              src={`https://datagolf.com/static/flags/${player.nationality}.png`}
+              src={`https://datagolf.com/static/flags/${flagCode(player.nationality)}.png`}
               alt={player.nationality}
               width={20}
               height={20}

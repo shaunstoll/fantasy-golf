@@ -6,6 +6,7 @@ import Attribute from "@/components/attribute";
 import Button from "@/components/button";
 import { PlayerStatus } from "@/enums/player-status.enum";
 import type { Player as PlayerType } from "@/interfaces/player.interface";
+import { flagCode } from "@/utils/nationality.utils";
 
 function Chip({ children }: { children: React.ReactNode }) {
   return (
@@ -64,7 +65,7 @@ export default function Player({ player }: { player: PlayerType }) {
         <div className="row-span-2 flex items-center gap-1">
           <div className="flex flex-col items-center">
             <Image
-              src={`https://datagolf.com/static/flags/${player.nationality}.png`}
+              src={`https://datagolf.com/static/flags/${flagCode(player.nationality)}.png`}
               alt={player.nationality}
               width={20}
               height={20}
