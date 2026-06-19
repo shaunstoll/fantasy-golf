@@ -4,6 +4,7 @@ import { Fragment, useState } from "react";
 
 import Attribute from "@/components/attribute";
 import Button from "@/components/button";
+import { earnedBonuses, type BonusFlags } from "@/config/bonuses";
 import type { LeaderboardPlayer } from "@/interfaces/leaderboard-player.interface";
 import { flagCode } from "@/utils/nationality.utils";
 import { formatPlace } from "@/utils/player.utils";
@@ -13,6 +14,13 @@ export default function LeaderboardPlayerRow({ player }: { player: LeaderboardPl
   const [detailRef] = useAutoAnimate();
 
   const place = formatPlace(player);
+
+  // The leaderboard carries bonus points (not booleans); derive the dot flags.
+  const bonusFlags: BonusFlags = {
+    firstPlaceBonus: player.firstPlaceBonusPoints > 0,
+    madeCutBonus: player.madeCutBonusPoints > 0,
+    lowestRankedPlayerBonus: player.lowestRankedBonusPoints > 0,
+  };
 
   const parts: { label: string; value: number }[] = [];
   if (player.firstPlaceBonusPoints > 0)
@@ -48,6 +56,9 @@ export default function LeaderboardPlayerRow({ player }: { player: LeaderboardPl
           </div>
         </div>
         <div className="flex shrink-0 flex-wrap items-center justify-end gap-1">
+          {earnedBonuses(bonusFlags).map((b) => (
+            <span key={b.key} title={b.label} className={`size-2 rounded-full ${b.dotColor}`} />
+          ))}
           <Attribute
             labelClassName="text-xs"
             valueClassName="bg-blue-200 text-blue-800"
