@@ -134,7 +134,7 @@ export default function Leaderboard({
           `}
           onClick={() => setHideUnowned(!hideUnowned)}
         >
-          Hide unowned
+          Hide Unowned
         </Button>
       </div>
 
