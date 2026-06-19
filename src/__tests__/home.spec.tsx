@@ -18,13 +18,13 @@ vi.mock("@/trpc/react", () => ({
     tournament: {
       get: {
         useQuery: vi.fn(() => ({
-          data: standingsMock,
+          data: { standings: standingsMock, cutLine: 70, round: 2 },
           isLoading: false,
         })),
       },
       leaderboard: {
         useQuery: vi.fn(() => ({
-          data: [],
+          data: { players: [], cutLine: 70, round: 2 },
           isLoading: false,
         })),
       },

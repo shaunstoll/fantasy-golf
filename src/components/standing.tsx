@@ -5,7 +5,7 @@ import { useState } from "react";
 import Attribute from "@/components/attribute";
 import Button from "@/components/button";
 import Roster from "@/components/roster";
-import { getCurrentTournament, tournaments } from "@/config/tournaments";
+import { getCurrentTournament, getTournamentConfig, tournaments } from "@/config/tournaments";
 import type { TournamentName } from "@/enums/tournament.enum";
 import type { Player } from "@/interfaces/player.interface";
 import type { Standing as StandingType } from "@/interfaces/standing.interface";
@@ -15,6 +15,9 @@ interface Props {
   standing: StandingType;
   tournamentScores?: Record<TournamentName, number>;
   tournamentRosters?: Record<TournamentName, Player[]>;
+  cutLine?: number;
+  round?: number;
+  liveRound?: number;
 }
 
 /**
@@ -42,7 +45,14 @@ function getDefaultMajor(rosters: Record<TournamentName, Player[]>): TournamentN
   return current;
 }
 
-export default function Standing({ standing, tournamentScores, tournamentRosters }: Props) {
+export default function Standing({
+  standing,
+  tournamentScores,
+  tournamentRosters,
+  cutLine,
+  round,
+  liveRound,
+}: Props) {
   const { favoriteTeams, toggleFavoriteTeam } = useStore();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedMajor, setSelectedMajor] = useState<TournamentName>(() =>
@@ -198,10 +208,14 @@ export default function Standing({ standing, tournamentScores, tournamentRosters
                   </Button>
                 ))}
               </div>
-              <Roster players={tournamentRosters[selectedMajor]} />
+              <Roster
+                players={tournamentRosters[selectedMajor]}
+                cutLine={getTournamentConfig(selectedMajor).cutLine}
+                round={selectedMajor === getCurrentTournament() ? (liveRound ?? 4) : 4}
+              />
             </div>
           ) : (
-            !isTotalView && <Roster players={standing.players} />
+            !isTotalView && <Roster players={standing.players} cutLine={cutLine} round={round} />
           ))}
       </div>
     </div>

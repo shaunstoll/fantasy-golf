@@ -8,7 +8,7 @@ import Footer from "@/components/footer";
 import StandingsSkeleton from "@/components/loaders/standings.skeleton";
 import SearchBar from "@/components/search-bar";
 import Standing from "@/components/standing";
-import { getCurrentTournament, tournaments } from "@/config/tournaments";
+import { getCurrentTournament, getTournamentConfig, tournaments } from "@/config/tournaments";
 import type { TournamentName } from "@/enums/tournament.enum";
 import type { Player } from "@/interfaces/player.interface";
 import type { Standing as StandingType } from "@/interfaces/standing.interface";
@@ -74,12 +74,25 @@ export default function Standings({
 
   if (activeQueries.some((q) => q.isLoading)) return <StandingsSkeleton />;
 
+  const liveRound = liveQuery.data?.round ?? 4;
+
   const standingsByTournament = new Map<TournamentName, StandingType[]>();
   for (const [i, t] of tournaments.entries()) {
     const standings =
-      t.name === live ? (liveQuery.data ?? []) : (resultsQueries[i].data?.standings ?? []);
+      t.name === live
+        ? (liveQuery.data?.standings ?? [])
+        : (resultsQueries[i].data?.standings ?? []);
     standingsByTournament.set(t.name, standings);
   }
+
+  const singleCutLine = !isTotal
+    ? getTournamentConfig(tournament as TournamentName).cutLine
+    : undefined;
+  const singleRound = !isTotal
+    ? (tournament as TournamentName) === live
+      ? liveRound
+      : 4
+    : undefined;
 
   let data: StandingType[];
   let tournamentScoresByTeam: Map<string, Record<TournamentName, number>> | undefined;
@@ -175,6 +188,9 @@ export default function Standings({
             standing={standing}
             tournamentScores={tournamentScoresByTeam?.get(standing.name)}
             tournamentRosters={tournamentRostersByTeam?.get(standing.name)}
+            cutLine={singleCutLine}
+            round={singleRound}
+            liveRound={isTotal ? liveRound : undefined}
           />
         ))}
         {favoriteStandings.length > 0 && (
@@ -186,6 +202,9 @@ export default function Standings({
             standing={standing}
             tournamentScores={tournamentScoresByTeam?.get(standing.name)}
             tournamentRosters={tournamentRostersByTeam?.get(standing.name)}
+            cutLine={singleCutLine}
+            round={singleRound}
+            liveRound={isTotal ? liveRound : undefined}
           />
         ))}
         <div className="mt-4">

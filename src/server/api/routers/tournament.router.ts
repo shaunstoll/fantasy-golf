@@ -21,10 +21,15 @@ const tournamentNameSchema = z.enum([
 
 export const tournamentRouter = createTRPCRouter({
   get: publicProcedure.query(async () => {
+    const { cutLine } = getTournamentConfig(currentTournament);
     const results = getResults(currentTournament);
-    if (results) return results.standings;
+    if (results) return { standings: results.standings, cutLine, round: 4 };
     const tournament = await dataGolfClient.getTournament();
-    return scoringService.getStandings(teams, tournament);
+    return {
+      standings: scoringService.getStandings(teams, tournament),
+      cutLine,
+      round: tournament.round,
+    };
   }),
   leaderboard: publicProcedure.query(async () => {
     const { cutLine } = getTournamentConfig(currentTournament);

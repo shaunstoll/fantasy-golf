@@ -1,3 +1,5 @@
+import { Fragment } from "react";
+
 import Player from "@/components/player";
 import type { Player as PlayerType } from "@/interfaces/player.interface";
 
@@ -8,7 +10,21 @@ const brackets = [
   { label: "21+", min: 21, max: Infinity },
 ] as const;
 
-export default function Roster({ players }: { players: PlayerType[] }) {
+interface Props {
+  players: PlayerType[];
+  cutLine?: number;
+  round?: number;
+}
+
+export default function Roster({ players, cutLine, round }: Props) {
+  const cutLabel = round !== undefined && round < 3 ? "Projected Cut" : "Cut";
+  const cutInsertIndex = (() => {
+    if (round !== undefined && round < 3 && cutLine !== undefined) {
+      return players.findIndex((p) => (p.place ?? Infinity) > cutLine);
+    }
+    return players.findIndex((p) => p.place === undefined);
+  })();
+
   return (
     <div className="flex flex-col gap-px overflow-hidden rounded-b">
       <div className="flex justify-around bg-white p-2 dark:bg-gray-800">
@@ -24,8 +40,17 @@ export default function Roster({ players }: { players: PlayerType[] }) {
           );
         })}
       </div>
-      {players.map((player) => (
-        <Player key={`${player.firstName} ${player.lastName}`} player={player} />
+      {players.map((player, index) => (
+        <Fragment key={`${player.firstName} ${player.lastName}`}>
+          {index === cutInsertIndex && cutInsertIndex >= 0 && (
+            <div className="flex items-center gap-2 bg-white px-2 py-1 dark:bg-gray-800">
+              <div className="h-px flex-1 bg-red-500/60" />
+              <span className="text-xs font-semibold tracking-wide text-red-500">{cutLabel}</span>
+              <div className="h-px flex-1 bg-red-500/60" />
+            </div>
+          )}
+          <Player player={player} />
+        </Fragment>
       ))}
     </div>
   );
