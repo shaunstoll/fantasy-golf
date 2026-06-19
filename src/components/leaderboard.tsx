@@ -40,6 +40,8 @@ interface Props {
   setSortKey: (k: SortKey) => void;
   sortDir: SortDir;
   setSortDir: (d: SortDir) => void;
+  hideUnowned: boolean;
+  setHideUnowned: (h: boolean) => void;
 }
 
 export default function Leaderboard({
@@ -49,6 +51,8 @@ export default function Leaderboard({
   setSortKey,
   sortDir,
   setSortDir,
+  hideUnowned,
+  setHideUnowned,
 }: Props) {
   const leaderboardQuery = api.tournament.leaderboard.useQuery(undefined, {
     refetchInterval: 5000,
@@ -64,11 +68,11 @@ export default function Leaderboard({
   const { players, cutLine, round } = leaderboardQuery.data;
 
   const query = search.toLowerCase();
-  const filtered = query
-    ? players.filter((p: LeaderboardPlayer) =>
-        `${p.firstName} ${p.lastName}`.toLowerCase().includes(query),
-      )
-    : players;
+  const filtered = players.filter((p: LeaderboardPlayer) => {
+    if (query && !`${p.firstName} ${p.lastName}`.toLowerCase().includes(query)) return false;
+    if (hideUnowned && p.ownedCount === 0) return false;
+    return true;
+  });
 
   const sorted = [...filtered].sort((a: LeaderboardPlayer, b: LeaderboardPlayer) => {
     const aVal = getSortValue(a, sortKey);
@@ -98,7 +102,7 @@ export default function Leaderboard({
     <>
       <SearchBar value={search} onChange={onSearchChange} placeholder="Search players..." />
 
-      <div className="flex gap-1">
+      <div className="flex items-center gap-1">
         {sortOptions.map((option) => {
           const isActive = sortKey === option.key;
           return (
@@ -119,6 +123,19 @@ export default function Leaderboard({
             </Button>
           );
         })}
+        <Button
+          className={`
+            ml-auto rounded-full px-3 py-1.5 text-sm font-medium
+            ${
+              hideUnowned
+                ? "bg-white text-black dark:bg-gray-700 dark:text-white"
+                : "text-gray-500 dark:text-gray-400"
+            }
+          `}
+          onClick={() => setHideUnowned(!hideUnowned)}
+        >
+          Hide unowned
+        </Button>
       </div>
 
       <main className="flex flex-col gap-1 pb-20">

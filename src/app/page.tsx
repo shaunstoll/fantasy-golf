@@ -26,6 +26,7 @@ export default function Home() {
   const [leaderboardSearch, setLeaderboardSearch] = useState("");
   const [leaderboardSortKey, setLeaderboardSortKey] = useState<LeaderboardSortKey>("score");
   const [leaderboardSortDir, setLeaderboardSortDir] = useState<LeaderboardSortDir>("asc");
+  const [leaderboardHideUnowned, setLeaderboardHideUnowned] = useState(false);
 
   useLayoutEffect(() => {
     window.scrollTo(0, scrollPositions.current[activeTab]);
@@ -54,6 +55,8 @@ export default function Home() {
           setSortKey={setLeaderboardSortKey}
           sortDir={leaderboardSortDir}
           setSortDir={setLeaderboardSortDir}
+          hideUnowned={leaderboardHideUnowned}
+          setHideUnowned={setLeaderboardHideUnowned}
         />
       )}
       <NavBar activeTab={activeTab} setActiveTab={handleTabChange} />
