@@ -1,6 +1,6 @@
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { Star } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Attribute from "@/components/attribute";
 import Button from "@/components/button";
@@ -11,28 +11,31 @@ import type { Player } from "@/interfaces/player.interface";
 import type { Standing as StandingType } from "@/interfaces/standing.interface";
 import { useStore } from "@/store";
 
+export interface TeamBonuses {
+  lowestRankedPlayerBonus: boolean;
+  firstPlaceBonus: boolean;
+  madeCutBonus: boolean;
+}
+
+type StandingsTab = TournamentName | "total";
+
 interface Props {
   standing: StandingType;
-  tournamentScores?: Record<TournamentName, number>;
-  tournamentRosters?: Record<TournamentName, Player[]>;
-  cutLine?: number;
-  round?: number;
-  liveRound?: number;
+  tournamentScores: Record<TournamentName, number>;
+  tournamentRosters: Record<TournamentName, Player[]>;
+  tournamentBonuses: Record<TournamentName, TeamBonuses>;
+  activeTab: StandingsTab;
+  liveRound: number;
 }
 
 /**
  * Picks which major's roster to show first when a team is tapped in the Total view.
  *
- * TODO(you): implement this. The interesting cases:
- *   - The "obvious" default is the live/current major: `getCurrentTournament()`.
- *   - But early in a major's week (or for a team that didn't enter one), that
- *     major's roster can be empty — `rosters[major].length === 0`. Showing an
- *     empty roster on first tap is a poor first impression.
- *   - `tournaments` is ordered Masters → PGA → US Open → Open (chronological).
- *
- * We honor the current major when the team has a roster there; otherwise we walk
- * backward through the chronological order to the most recent major they actually
- * fielded a roster for, so the first tap never opens to an empty list.
+ * The "obvious" default is the live/current major, but early in a major's week
+ * (or for a team that didn't enter one) that roster can be empty. So we honor
+ * the current major when the team has a roster there; otherwise we walk backward
+ * through the chronological order to the most recent major they actually fielded
+ * a roster for, so the first tap never opens to an empty list.
  */
 function getDefaultMajor(rosters: Record<TournamentName, Player[]>): TournamentName {
   const current = getCurrentTournament();
@@ -49,21 +52,38 @@ export default function Standing({
   standing,
   tournamentScores,
   tournamentRosters,
-  cutLine,
-  round,
+  tournamentBonuses,
+  activeTab,
   liveRound,
 }: Props) {
   const { favoriteTeams, toggleFavoriteTeam } = useStore();
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedMajor, setSelectedMajor] = useState<TournamentName>(() =>
-    tournamentRosters ? getDefaultMajor(tournamentRosters) : tournaments[0].name,
-  );
   const [playersRef] = useAutoAnimate();
-  const isTotalView = tournamentScores !== undefined;
+
+  // Default the in-roster selector to whatever the page is sorted by; the Total
+  // tab has no single major, so fall back to the smart "most recent roster" pick.
+  const defaultMajor = (): TournamentName =>
+    activeTab === "total" ? getDefaultMajor(tournamentRosters) : activeTab;
+  const [selectedMajor, setSelectedMajor] = useState<TournamentName>(defaultMajor);
+
+  // Re-sync the default whenever the top filter changes. Keyed only on activeTab
+  // so the 5s live refetch never clobbers a manual in-roster selection.
+  useEffect(() => {
+    setSelectedMajor(defaultMajor());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeTab]);
+
+  // Bonuses shown beneath the row reflect the active major filter; Total shows none.
+  const activeBonuses = activeTab === "total" ? undefined : tournamentBonuses[activeTab];
+  const hasBonus =
+    activeBonuses !== undefined &&
+    (activeBonuses.lowestRankedPlayerBonus ||
+      activeBonuses.firstPlaceBonus ||
+      activeBonuses.madeCutBonus);
 
   const rankBadge = (
     <Attribute
-      labelClassName={isTotalView ? "text-xs" : "text-sm"}
+      labelClassName="text-xs"
       valueClassName={
         standing.rank === 1
           ? "bg-amber-200 text-amber-800"
@@ -78,7 +98,7 @@ export default function Standing({
     />
   );
 
-  const rightCluster = isTotalView ? (
+  const scoreCluster = (
     <div className="flex shrink-0 items-center gap-1">
       {tournaments.map((t) => (
         <Attribute
@@ -96,49 +116,6 @@ export default function Standing({
         value={standing.score}
       />
     </div>
-  ) : (
-    <div className="flex items-center gap-1">
-      {standing.lowestRankedPlayerBonus && (
-        <Attribute
-          labelClassName="text-sm"
-          valueClassName="bg-purple-200 text-purple-800"
-          label="Bonus"
-          value="Low"
-        />
-      )}
-      {standing.firstPlaceBonus && (
-        <Attribute
-          labelClassName="text-sm"
-          valueClassName="bg-amber-200 text-amber-800"
-          label="Bonus"
-          value="1st"
-        />
-      )}
-      {standing.madeCutBonus && (
-        <Attribute
-          labelClassName="text-sm"
-          valueClassName="bg-green-200 text-green-800"
-          label="Bonus"
-          value="MC"
-        />
-      )}
-      <Attribute
-        labelClassName="text-sm"
-        valueClassName="bg-gray-200 text-black"
-        label="Points"
-        value={standing.score}
-      />
-    </div>
-  );
-
-  const rowContent = (
-    <>
-      <div className="flex min-w-0 items-center gap-3 overflow-hidden pr-1">
-        {rankBadge}
-        <p className="truncate">{standing.name}</p>
-      </div>
-      {rightCluster}
-    </>
   );
 
   return (
@@ -159,64 +136,86 @@ export default function Standing({
             fill={favoriteTeams.includes(standing.name) ? "currentColor" : "none"}
           />
         </Button>
-        {isTotalView ? (
-          <Button
-            className={`
-              flex w-full min-w-0 items-center justify-between gap-2 rounded-r
-              bg-white p-2 shadow
-              dark:bg-gray-800
-            `}
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label={`team ${standing.name}`}
-          >
-            {rowContent}
-          </Button>
-        ) : (
-          <Button
-            className={`
-              flex w-full items-center justify-between gap-2 rounded-r bg-white
-              p-2 shadow
-              dark:bg-gray-800
-            `}
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label={`team ${standing.name}`}
-          >
-            {rowContent}
-          </Button>
-        )}
+        <Button
+          className={`
+            flex w-full min-w-0 items-center justify-between gap-2 rounded-r
+            bg-white p-2 shadow
+            dark:bg-gray-800
+          `}
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label={`team ${standing.name}`}
+        >
+          <div className="flex min-w-0 items-center gap-3 overflow-hidden pr-1">
+            {rankBadge}
+            <p className="truncate">{standing.name}</p>
+          </div>
+          {scoreCluster}
+        </Button>
       </div>
 
+      {hasBonus && activeBonuses && (
+        <div
+          data-testid="bonus-row"
+          className={`
+            flex items-center justify-end gap-1 bg-white/70 px-2 py-1
+            dark:bg-gray-800/70
+          `}
+        >
+          {activeBonuses.lowestRankedPlayerBonus && (
+            <Attribute
+              labelClassName="hidden"
+              valueClassName="bg-purple-200 text-purple-800"
+              label="Bonus"
+              value="Low"
+            />
+          )}
+          {activeBonuses.firstPlaceBonus && (
+            <Attribute
+              labelClassName="hidden"
+              valueClassName="bg-amber-200 text-amber-800"
+              label="Bonus"
+              value="1st"
+            />
+          )}
+          {activeBonuses.madeCutBonus && (
+            <Attribute
+              labelClassName="hidden"
+              valueClassName="bg-green-200 text-green-800"
+              label="Bonus"
+              value="MC"
+            />
+          )}
+        </div>
+      )}
+
       <div ref={playersRef}>
-        {isOpen &&
-          (isTotalView && tournamentRosters ? (
-            <div className="flex flex-col gap-px overflow-hidden rounded-b">
-              <div className="flex gap-1 bg-gray-200 p-2 dark:bg-gray-700">
-                {tournaments.map((t) => (
-                  <Button
-                    key={t.name}
-                    className={`
-                      rounded-full px-3 py-1.5 text-sm font-medium
-                      ${
-                        selectedMajor === t.name
-                          ? "bg-white text-black dark:bg-gray-800 dark:text-white"
-                          : "text-gray-500 dark:text-gray-400"
-                      }
-                    `}
-                    onClick={() => setSelectedMajor(t.name)}
-                  >
-                    {t.sortLabel}
-                  </Button>
-                ))}
-              </div>
-              <Roster
-                players={tournamentRosters[selectedMajor]}
-                cutLine={getTournamentConfig(selectedMajor).cutLine}
-                round={selectedMajor === getCurrentTournament() ? (liveRound ?? 4) : 4}
-              />
+        {isOpen && (
+          <div className="flex flex-col gap-px overflow-hidden rounded-b">
+            <div className="flex gap-1 bg-gray-200 p-2 dark:bg-gray-700">
+              {tournaments.map((t) => (
+                <Button
+                  key={t.name}
+                  className={`
+                    rounded-full px-3 py-1.5 text-sm font-medium
+                    ${
+                      selectedMajor === t.name
+                        ? "bg-white text-black dark:bg-gray-800 dark:text-white"
+                        : "text-gray-500 dark:text-gray-400"
+                    }
+                  `}
+                  onClick={() => setSelectedMajor(t.name)}
+                >
+                  {t.sortLabel}
+                </Button>
+              ))}
             </div>
-          ) : (
-            !isTotalView && <Roster players={standing.players} cutLine={cutLine} round={round} />
-          ))}
+            <Roster
+              players={tournamentRosters[selectedMajor]}
+              cutLine={getTournamentConfig(selectedMajor).cutLine}
+              round={selectedMajor === getCurrentTournament() ? liveRound : 4}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

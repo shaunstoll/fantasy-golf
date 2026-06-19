@@ -84,4 +84,22 @@ describe("Home Component", () => {
     expect(screen.getByRole("button", { name: "US Open" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Open" })).toBeInTheDocument();
   });
+
+  it("shows per-major bonus rows on a major filter and hides them on Total", async () => {
+    render(<Home />);
+    // Default filter is a specific major, so teams with bonuses carry a bonus row.
+    expect(screen.getAllByTestId("bonus-row").length).toBeGreaterThan(0);
+
+    // Total has no per-major bonuses, so the bonus rows disappear entirely.
+    await userEvent.click(screen.getByRole("button", { name: "Total" }));
+    expect(screen.queryAllByTestId("bonus-row")).toHaveLength(0);
+  });
+
+  it("shows the four-major score cluster on every team row regardless of filter", async () => {
+    render(<Home />);
+    // Each team row carries every major's badge label (Masters/PGA/US/Open/Total),
+    // so there is at least one of each — the unified Total-style row.
+    expect(screen.getAllByText("Masters").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Total").length).toBeGreaterThan(0);
+  });
 });
