@@ -1,5 +1,8 @@
 import { TournamentName } from "@/enums/tournament.enum";
 
+/** A standings filter: one major, or the season-long aggregate. */
+export type StandingsTab = TournamentName | "total";
+
 export interface TournamentConfig {
   name: TournamentName;
   month: number;

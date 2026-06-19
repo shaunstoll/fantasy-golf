@@ -7,15 +7,17 @@ import Button from "@/components/button";
 import Footer from "@/components/footer";
 import StandingsSkeleton from "@/components/loaders/standings.skeleton";
 import SearchBar from "@/components/search-bar";
-import Standing, { type TeamBonuses } from "@/components/standing";
-import { getCurrentTournament, tournaments } from "@/config/tournaments";
+import Standing from "@/components/standing";
+import { type BonusFlags } from "@/config/bonuses";
+import { getCurrentTournament, tournaments, type StandingsTab } from "@/config/tournaments";
 import type { TournamentName } from "@/enums/tournament.enum";
 import type { Player } from "@/interfaces/player.interface";
 import type { Standing as StandingType } from "@/interfaces/standing.interface";
 import { useStore } from "@/store";
 import { api } from "@/trpc/react";
 
-export type StandingsTab = TournamentName | "total";
+// Re-exported for consumers (e.g. page.tsx) that import it from here.
+export type { StandingsTab };
 
 const tabOptions: { key: StandingsTab; label: string }[] = [
   { key: "total", label: "Total" },
@@ -36,7 +38,7 @@ const emptyBonuses = Object.fromEntries(
     t.name,
     { lowestRankedPlayerBonus: false, firstPlaceBonus: false, madeCutBonus: false },
   ]),
-) as Record<TournamentName, TeamBonuses>;
+) as Record<TournamentName, BonusFlags>;
 
 interface Props {
   search: string;
@@ -129,7 +131,7 @@ export default function Standings({
           },
         ];
       }),
-    ) as Record<TournamentName, TeamBonuses>;
+    ) as Record<TournamentName, BonusFlags>;
     const total = Object.values(scores).reduce((sum, v) => sum + v, 0);
     return { name, scores, rosters, bonuses, total };
   });

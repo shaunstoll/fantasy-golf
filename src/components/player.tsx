@@ -4,9 +4,10 @@ import { Fragment, useState } from "react";
 
 import Attribute from "@/components/attribute";
 import Button from "@/components/button";
-import { PlayerStatus } from "@/enums/player-status.enum";
+import { earnedBonuses } from "@/config/bonuses";
 import type { Player as PlayerType } from "@/interfaces/player.interface";
 import { flagCode } from "@/utils/nationality.utils";
+import { formatPlace } from "@/utils/player.utils";
 
 function Chip({ children }: { children: React.ReactNode }) {
   return (
@@ -25,16 +26,7 @@ export default function Player({ player }: { player: PlayerType }) {
   const [isOpen, setIsOpen] = useState(false);
   const [detailRef] = useAutoAnimate();
 
-  const place =
-    player.status === PlayerStatus.MISSED_CUT
-      ? "MC"
-      : player.status === PlayerStatus.WITHDRAWN
-        ? "WD"
-        : player.status === PlayerStatus.DID_NOT_START
-          ? "-"
-          : player.isTied
-            ? `T${player.place}`
-            : player.place;
+  const place = formatPlace(player);
 
   // Pre-multiplier point categories. `hasBreakdown` is false for results frozen
   // before these fields existed (e.g. masters-results.json), where we can only
@@ -84,35 +76,29 @@ export default function Player({ player }: { player: PlayerType }) {
               {player.multiplier}×
             </span>
           )}
-          {player.firstPlaceBonus && (
-            <span title="Winner" className="size-2 rounded-full bg-amber-400" />
-          )}
-          {player.madeCutBonus && (
-            <span title="Made cut" className="size-2 rounded-full bg-green-500" />
-          )}
-          {player.lowestRankedPlayerBonus && (
-            <span title="Lowest-ranked top 25" className="size-2 rounded-full bg-purple-500" />
-          )}
+          {earnedBonuses(player).map((b) => (
+            <span key={b.key} title={b.label} className={`size-2 rounded-full ${b.dotColor}`} />
+          ))}
           <Attribute
-            labelClassName="hidden"
+            labelClassName="text-xs"
             valueClassName="bg-gray-200 text-black"
             label="Rank"
             value={player.rank > 0 ? `#${player.rank}` : "-"}
           />
           <Attribute
-            labelClassName="hidden"
+            labelClassName="text-xs"
             valueClassName="bg-blue-200 text-blue-800"
             label="Owned"
             value={`${player.ownedCount}/${player.ownedTotal}`}
           />
           <Attribute
-            labelClassName="hidden"
+            labelClassName="text-xs"
             valueClassName="bg-gray-200 text-black"
             label="Thru"
             value={player.thru}
           />
           <Attribute
-            labelClassName="hidden"
+            labelClassName="text-xs"
             valueClassName={`font-bold text-sm w-10 text-white rounded p-1 text-center ${
               player.score > 0 ? "bg-green-700" : player.score < 0 ? "bg-red-700" : "bg-gray-600"
             }`}
@@ -120,7 +106,7 @@ export default function Player({ player }: { player: PlayerType }) {
             value={player.score > 0 ? `+${player.score}` : player.score === 0 ? "E" : player.score}
           />
           <Attribute
-            labelClassName="hidden"
+            labelClassName="text-xs"
             valueClassName="bg-gray-600 text-white"
             label="Points"
             value={player.fantasyScore}

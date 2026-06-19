@@ -1,4 +1,5 @@
 import { getTournamentConfig } from "@/config/tournaments";
+import { computePlayerPoints } from "@/services/scoring-rules";
 import type { LeaderboardPlayer } from "@/interfaces/leaderboard-player.interface";
 import type { Player } from "@/interfaces/player.interface";
 import type { Ranking } from "@/interfaces/ranking.interface";
@@ -38,34 +39,25 @@ export default class ScoringService {
         let firstPlaceBonus = false;
 
         if (p.place) {
-          if (p.place === 1 && !p.isTied) {
-            firstPlaceBonusPoints = 15;
-            firstPlaceBonus = true;
-            hasFirstPlaceBonus = true;
-          }
-          if (p.place <= 10) {
-            placementPoints += 11 - p.place;
-          }
-          if (p.place <= 15) {
-            placementPoints += 4;
-          }
-          if (p.place <= 25) {
-            placementPoints += 3;
-            if (player.rank > 10 && player.rank <= 20) {
-              rankingBonus = 6;
-            }
-            if (player.rank > 20) {
-              rankingBonus = 11;
-            }
-            if (player.rank > lowestRankedPlayerInTop25) {
-              lowestRankedPlayerInTop25 = player.rank;
-            }
-          }
+          ({ placementPoints, rankingBonus, madeCutBonusPoints, firstPlaceBonusPoints } =
+            computePlayerPoints({
+              place: p.place,
+              isTied: p.isTied,
+              rank: player.rank,
+              round: tournament.round,
+              cutLine: getTournamentConfig(tournament.name).cutLine,
+            }));
+          firstPlaceBonus = firstPlaceBonusPoints > 0;
+          if (firstPlaceBonus) hasFirstPlaceBonus = true;
+          insideCutLineOrMadCutBonus = madeCutBonusPoints > 0;
+          // The team's all-made-cut bonus survives only while every pick is inside
+          // the (projected) cut; one player outside it ends the streak.
           if (tournament.round < 3 && p.place > getTournamentConfig(tournament.name).cutLine) {
             allPlayersMadeCutBonus = false;
-          } else if (player.rank > 5) {
-            madeCutBonusPoints = 5;
-            insideCutLineOrMadCutBonus = true;
+          }
+          // Track the worst-ranked owned player to finish top 25 for the +15 bonus.
+          if (p.place <= 25 && player.rank > lowestRankedPlayerInTop25) {
+            lowestRankedPlayerInTop25 = player.rank;
           }
         } else {
           allPlayersMadeCutBonus = false;
@@ -185,29 +177,14 @@ export default class ScoringService {
       let firstPlaceBonusPoints = 0;
 
       if (p.place) {
-        if (p.place === 1 && !p.isTied) {
-          firstPlaceBonusPoints = 15;
-        }
-        if (p.place <= 10) {
-          placementPoints += 11 - p.place;
-        }
-        if (p.place <= 15) {
-          placementPoints += 4;
-        }
-        if (p.place <= 25) {
-          placementPoints += 3;
-          if (rank > 10 && rank <= 20) {
-            rankingBonus = 6;
-          }
-          if (rank > 20) {
-            rankingBonus = 11;
-          }
-        }
-        const outsideCutLine =
-          tournament.round < 3 && p.place > getTournamentConfig(tournament.name).cutLine;
-        if (!outsideCutLine && rank > 5) {
-          madeCutBonusPoints = 5;
-        }
+        ({ placementPoints, rankingBonus, madeCutBonusPoints, firstPlaceBonusPoints } =
+          computePlayerPoints({
+            place: p.place,
+            isTied: p.isTied,
+            rank,
+            round: tournament.round,
+            cutLine: getTournamentConfig(tournament.name).cutLine,
+          }));
       }
 
       const lowestRankedBonusPoints = rank === lowestRankedInTop25 ? 15 : 0;

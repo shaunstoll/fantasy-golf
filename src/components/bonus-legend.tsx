@@ -4,26 +4,9 @@ import { Info, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import Button from "@/components/button";
+import { bonuses } from "@/config/bonuses";
 
 const SEEN_KEY = "fantasy-golf:bonus-legend-seen";
-
-const dots = [
-  {
-    color: "bg-amber-400",
-    label: "Winner",
-    desc: "A pick finished 1st outright — worth a +15 bonus.",
-  },
-  {
-    color: "bg-green-500",
-    label: "Made cut",
-    desc: "Made-cut bonus earned (a team earns it only when every pick makes the cut).",
-  },
-  {
-    color: "bg-purple-500",
-    label: "Lowest ranked",
-    desc: "The lowest-ranked player to finish inside the top 25 — worth a +15 bonus.",
-  },
-];
 
 export default function BonusLegend() {
   const [open, setOpen] = useState(false);
@@ -77,12 +60,12 @@ export default function BonusLegend() {
               </Button>
             </div>
             <ul className="mt-3 flex flex-col gap-3">
-              {dots.map((d) => (
-                <li key={d.label} className="flex items-start gap-3">
-                  <span className={`mt-1.5 size-3 shrink-0 rounded-full ${d.color}`} />
+              {bonuses.map((b) => (
+                <li key={b.key} className="flex items-start gap-3">
+                  <span className={`mt-1.5 size-3 shrink-0 rounded-full ${b.dotColor}`} />
                   <div>
-                    <p className="font-semibold">{d.label}</p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">{d.desc}</p>
+                    <p className="font-semibold">{b.label}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">{b.description}</p>
                   </div>
                 </li>
               ))}

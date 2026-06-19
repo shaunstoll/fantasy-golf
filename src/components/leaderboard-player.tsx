@@ -4,24 +4,15 @@ import { Fragment, useState } from "react";
 
 import Attribute from "@/components/attribute";
 import Button from "@/components/button";
-import { PlayerStatus } from "@/enums/player-status.enum";
 import type { LeaderboardPlayer } from "@/interfaces/leaderboard-player.interface";
 import { flagCode } from "@/utils/nationality.utils";
+import { formatPlace } from "@/utils/player.utils";
 
 export default function LeaderboardPlayerRow({ player }: { player: LeaderboardPlayer }) {
   const [isOpen, setIsOpen] = useState(false);
   const [detailRef] = useAutoAnimate();
 
-  const place =
-    player.status === PlayerStatus.MISSED_CUT
-      ? "MC"
-      : player.status === PlayerStatus.WITHDRAWN
-        ? "WD"
-        : player.status === PlayerStatus.DID_NOT_START
-          ? "-"
-          : player.isTied
-            ? `T${player.place}`
-            : player.place;
+  const place = formatPlace(player);
 
   const parts: { label: string; value: number }[] = [];
   if (player.firstPlaceBonusPoints > 0)

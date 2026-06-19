@@ -5,25 +5,23 @@ import { useEffect, useState } from "react";
 import Attribute from "@/components/attribute";
 import Button from "@/components/button";
 import Roster from "@/components/roster";
-import { getCurrentTournament, getTournamentConfig, tournaments } from "@/config/tournaments";
+import { earnedBonuses, type BonusFlags } from "@/config/bonuses";
+import {
+  getCurrentTournament,
+  getTournamentConfig,
+  tournaments,
+  type StandingsTab,
+} from "@/config/tournaments";
 import type { TournamentName } from "@/enums/tournament.enum";
 import type { Player } from "@/interfaces/player.interface";
 import type { Standing as StandingType } from "@/interfaces/standing.interface";
 import { useStore } from "@/store";
 
-export interface TeamBonuses {
-  lowestRankedPlayerBonus: boolean;
-  firstPlaceBonus: boolean;
-  madeCutBonus: boolean;
-}
-
-type StandingsTab = TournamentName | "total";
-
 interface Props {
   standing: StandingType;
   tournamentScores: Record<TournamentName, number>;
   tournamentRosters: Record<TournamentName, Player[]>;
-  tournamentBonuses: Record<TournamentName, TeamBonuses>;
+  tournamentBonuses: Record<TournamentName, BonusFlags>;
   activeTab: StandingsTab;
   liveRound: number;
 }
@@ -74,15 +72,9 @@ export default function Standing({
   }, [activeTab]);
 
   // Bonus dots shown under the team name reflect the active major filter; Total
-  // shows none. Colors match the bonus chips used elsewhere in the app.
+  // shows none. Colors and labels come from the shared bonus config.
   const activeBonuses = activeTab === "total" ? undefined : tournamentBonuses[activeTab];
-  const bonusDots: { key: string; title: string; color: string }[] = [];
-  if (activeBonuses?.firstPlaceBonus)
-    bonusDots.push({ key: "1st", title: "Winner", color: "bg-amber-400" });
-  if (activeBonuses?.madeCutBonus)
-    bonusDots.push({ key: "mc", title: "All made cut", color: "bg-green-500" });
-  if (activeBonuses?.lowestRankedPlayerBonus)
-    bonusDots.push({ key: "low", title: "Lowest-ranked top 25", color: "bg-purple-500" });
+  const bonusDots = activeBonuses ? earnedBonuses(activeBonuses) : [];
 
   const rankBadge = (
     <Attribute
@@ -161,8 +153,8 @@ export default function Standing({
                   {bonusDots.map((d) => (
                     <span
                       key={d.key}
-                      title={d.title}
-                      className={`size-2 rounded-full ${d.color}`}
+                      title={d.label}
+                      className={`size-2 rounded-full ${d.dotColor}`}
                     />
                   ))}
                 </div>
