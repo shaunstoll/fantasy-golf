@@ -22,11 +22,22 @@ function Chip({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function Player({ player }: { player: PlayerType }) {
+type AttributeKey = "rank" | "owned" | "thru" | "score" | "points";
+
+export default function Player({
+  player,
+  focusedAttribute,
+}: {
+  player: PlayerType;
+  // When set (e.g. the leaderboard's active sort), that attribute stays solid and
+  // the rest fade back. Omitted on the roster, where every attribute is solid.
+  focusedAttribute?: AttributeKey;
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const [detailRef] = useAutoAnimate();
 
   const place = formatPlace(player);
+  const focusOf = (key: AttributeKey) => (focusedAttribute ? focusedAttribute === key : undefined);
 
   // Pre-multiplier point categories. `hasBreakdown` is false for results frozen
   // before these fields existed (e.g. masters-results.json), where we can only
@@ -80,24 +91,28 @@ export default function Player({ player }: { player: PlayerType }) {
             <span key={b.key} title={b.label} className={`size-2 rounded-full ${b.dotColor}`} />
           ))}
           <Attribute
+            focused={focusOf("rank")}
             labelClassName="text-xs"
             valueClassName="bg-gray-200 text-black"
             label="Rank"
             value={player.rank > 0 ? `#${player.rank}` : "-"}
           />
           <Attribute
+            focused={focusOf("owned")}
             labelClassName="text-xs"
             valueClassName="bg-blue-200 text-blue-800"
             label="Owned"
             value={`${player.ownedCount}/${player.ownedTotal}`}
           />
           <Attribute
+            focused={focusOf("thru")}
             labelClassName="text-xs"
             valueClassName="bg-gray-200 text-black"
             label="Thru"
             value={player.thru}
           />
           <Attribute
+            focused={focusOf("score")}
             labelClassName="text-xs"
             valueClassName={`font-bold text-sm w-10 text-white rounded p-1 text-center ${
               player.score > 0 ? "bg-green-700" : player.score < 0 ? "bg-red-700" : "bg-gray-600"
@@ -106,6 +121,7 @@ export default function Player({ player }: { player: PlayerType }) {
             value={player.score > 0 ? `+${player.score}` : player.score === 0 ? "E" : player.score}
           />
           <Attribute
+            focused={focusOf("points")}
             labelClassName="text-xs"
             valueClassName="bg-gray-600 text-white"
             label="Points"

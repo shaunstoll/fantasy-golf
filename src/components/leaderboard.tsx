@@ -4,11 +4,12 @@ import { Fragment } from "react";
 
 import Button from "@/components/button";
 import Footer from "@/components/footer";
-import LeaderboardPlayerRow from "@/components/leaderboard-player";
+import Player from "@/components/player";
 import StandingsSkeleton from "@/components/loaders/standings.skeleton";
 import SearchBar from "@/components/search-bar";
 import type { LeaderboardPlayer } from "@/interfaces/leaderboard-player.interface";
 import { api } from "@/trpc/react";
+import { leaderboardPlayerToPlayer } from "@/utils/player.utils";
 
 export type SortKey = "score" | "points" | "rank" | "owned";
 export type SortDir = "asc" | "desc";
@@ -148,7 +149,7 @@ export default function Leaderboard({
                 <div className="h-px flex-1 bg-red-500/60" />
               </div>
             )}
-            <LeaderboardPlayerRow player={player} />
+            <Player player={leaderboardPlayerToPlayer(player)} focusedAttribute={sortKey} />
           </Fragment>
         ))}
         <div className="mt-4">
