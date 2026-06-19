@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef } from "react";
 
 import Leaderboard from "@/components/leaderboard";
 import type {
@@ -12,21 +12,33 @@ import type { Tab } from "@/components/nav-bar";
 import Standings from "@/components/standings";
 import type { StandingsTab } from "@/components/standings";
 import { getCurrentTournament } from "@/config/tournaments";
+import { useSessionState } from "@/hooks/use-session-state";
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<Tab>("standings");
+  const [activeTab, setActiveTab] = useSessionState<Tab>("fg.activeTab", "standings");
   const scrollPositions = useRef({ standings: 0, leaderboard: 0 });
 
   // Standings state
-  const [standingsSearch, setStandingsSearch] = useState("");
-  const [standingsTournament, setStandingsTournament] =
-    useState<StandingsTab>(getCurrentTournament);
+  const [standingsSearch, setStandingsSearch] = useSessionState("fg.standings.search", "");
+  const [standingsTournament, setStandingsTournament] = useSessionState<StandingsTab>(
+    "fg.standings.tournament",
+    getCurrentTournament(),
+  );
 
   // Leaderboard state
-  const [leaderboardSearch, setLeaderboardSearch] = useState("");
-  const [leaderboardSortKey, setLeaderboardSortKey] = useState<LeaderboardSortKey>("score");
-  const [leaderboardSortDir, setLeaderboardSortDir] = useState<LeaderboardSortDir>("asc");
-  const [leaderboardHideUnowned, setLeaderboardHideUnowned] = useState(false);
+  const [leaderboardSearch, setLeaderboardSearch] = useSessionState("fg.leaderboard.search", "");
+  const [leaderboardSortKey, setLeaderboardSortKey] = useSessionState<LeaderboardSortKey>(
+    "fg.leaderboard.sortKey",
+    "score",
+  );
+  const [leaderboardSortDir, setLeaderboardSortDir] = useSessionState<LeaderboardSortDir>(
+    "fg.leaderboard.sortDir",
+    "asc",
+  );
+  const [leaderboardHideUnowned, setLeaderboardHideUnowned] = useSessionState(
+    "fg.leaderboard.hideUnowned",
+    false,
+  );
 
   useLayoutEffect(() => {
     window.scrollTo(0, scrollPositions.current[activeTab]);

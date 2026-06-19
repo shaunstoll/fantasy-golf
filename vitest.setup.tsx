@@ -1,5 +1,10 @@
 import "@testing-library/jest-dom";
-import { vi } from "vitest";
+import { afterEach, vi } from "vitest";
+
+// Persisted UI state (sessionStorage) must not leak between tests.
+afterEach(() => {
+  sessionStorage.clear();
+});
 
 vi.mock("next/image", () => ({
   default: ({ src, alt, className }: { src: string; alt: string; className?: string }) => (
