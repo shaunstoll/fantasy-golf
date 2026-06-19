@@ -77,7 +77,9 @@ export default function Player({ player }: { player: PlayerType }) {
             </span>
           )}
           {earnedBonuses(player).map((b) => (
-            <span key={b.key} title={b.label} className={`size-2 rounded-full ${b.dotColor}`} />
+            <span key={b.key} title={b.label} className={`text-sm font-bold ${b.colorClass}`}>
+              {b.letter}
+            </span>
           ))}
           <Attribute
             labelClassName="text-xs"

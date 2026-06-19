@@ -154,8 +154,10 @@ export default function Standing({
                     <span
                       key={d.key}
                       title={d.label}
-                      className={`size-2 rounded-full ${d.dotColor}`}
-                    />
+                      className={`text-sm font-bold ${d.colorClass}`}
+                    >
+                      {d.letter}
+                    </span>
                   ))}
                 </div>
               )}

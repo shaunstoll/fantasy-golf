@@ -13,7 +13,10 @@ export interface BonusFlags {
 
 export interface BonusDef {
   key: keyof BonusFlags;
-  dotColor: string;
+  /** Single bold letter shown as the marker. */
+  letter: string;
+  /** Tailwind text-color class for the letter (kept in light and dark modes). */
+  colorClass: string;
   label: string;
   description: string;
 }
@@ -21,19 +24,22 @@ export interface BonusDef {
 export const bonuses: BonusDef[] = [
   {
     key: "firstPlaceBonus",
-    dotColor: "bg-amber-400",
+    letter: "1",
+    colorClass: "text-amber-500",
     label: "Winner",
     description: "A pick finished 1st outright — worth a +15 bonus.",
   },
   {
     key: "madeCutBonus",
-    dotColor: "bg-green-500",
+    letter: "M",
+    colorClass: "text-green-500",
     label: "Made cut",
     description: "Made-cut bonus earned (a team earns it only when every pick makes the cut).",
   },
   {
     key: "lowestRankedPlayerBonus",
-    dotColor: "bg-purple-500",
+    letter: "L",
+    colorClass: "text-purple-500",
     label: "Lowest ranked",
     description: "The lowest-ranked player to finish inside the top 25 — worth a +15 bonus.",
   },

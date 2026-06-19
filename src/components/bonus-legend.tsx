@@ -62,7 +62,9 @@ export default function BonusLegend() {
             <ul className="mt-3 flex flex-col gap-3">
               {bonuses.map((b) => (
                 <li key={b.key} className="flex items-start gap-3">
-                  <span className={`mt-1.5 size-3 shrink-0 rounded-full ${b.dotColor}`} />
+                  <span className={`w-4 shrink-0 text-center text-base font-bold ${b.colorClass}`}>
+                    {b.letter}
+                  </span>
                   <div>
                     <p className="font-semibold">{b.label}</p>
                     <p className="text-sm text-gray-500 dark:text-gray-400">{b.description}</p>
