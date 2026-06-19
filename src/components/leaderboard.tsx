@@ -149,7 +149,7 @@ export default function Leaderboard({
                 <div className="h-px flex-1 bg-red-500/60" />
               </div>
             )}
-            <Player player={leaderboardPlayerToPlayer(player)} focusedAttribute={sortKey} />
+            <Player player={leaderboardPlayerToPlayer(player)} />
           </Fragment>
         ))}
         <div className="mt-4">
