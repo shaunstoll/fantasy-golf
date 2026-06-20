@@ -38,6 +38,12 @@ Worked example: `src/scripts/build-pga-results.ts` (run `npm run build-pga-resul
 
 Note on rankings: `getLeaderboard` takes `allRankings`, which `src/db/rankings.ts` hardcodes to `masters-rankings.json`. Standings (the Total tab) use the **roster's own** `rank` field and are unaffected; only the leaderboard view's ranking-bonus column leans on `allRankings`. Reusing Masters rankings matches existing live behavior — fine unless you deliberately add a per-tournament rankings file.
 
+## The score-breakdown fields (don't strip them)
+
+`ScoringService` emits per-category point fields on every player — `placementPoints`, `rankingBonus`, `madeCutBonusPoints`, `firstPlaceBonusPoints`, `lowestRankedBonusPoints` — and the UI uses them to power the **expandable point math** when you click a roster player (`src/components/player.tsx` keys on `player.placementPoints !== undefined`). Because you freeze by running the real `ScoringService` (step 3), these come for free — just **don't post-process them out** of the JSON. A frozen file missing them collapses the breakdown to a bare total.
+
+**Backfilling an old frozen file:** files frozen _before_ these fields existed (the 2026 Masters was the original offender) show only the total. To backfill without touching the totals, reconstruct the `Tournament` from the file's **own frozen `leaderboard`** array (it already has `place`/`isTied`/`score`/`status` per player — no Wikipedia needed), re-run `ScoringService`, **assert each team's recomputed `score` equals the frozen one**, then overwrite. `src/scripts/build-masters-results.ts` (`npm run build-masters-results`) is the worked example.
+
 ## The name-matching trap (most likely failure)
 
 Player matching is by exact `"FirstName LastName"` string (see CLAUDE.md). Wikipedia spells names differently than the rosters, so unmatched rostered players silently score **zero** with only a `console.error`. Build an alias map (Wikipedia display name → exact roster name) and **prove zero rostered players are unmatched** before committing. Known 2026 PGA cases:
@@ -62,6 +68,7 @@ Other tournaments have their own accented/reordered names — rebuild the alias 
 - Build script logs **no** `Player ... not found in leaderboard` errors.
 - Rostered-players-unmatched count is `0`.
 - Spot-check a few finishers' `place`/`isTied`/`score` against the source (winner, a tie group, a missed-cut name, and every aliased name).
+- Every player in both `standings[].players[]` and `leaderboard[]` has the breakdown fields (`placementPoints`, etc.) — otherwise the click-to-expand point math won't render.
 - `npm run check` (fmt + lint + typecheck + tests) and `npm run build` both pass.
 
 ## Common mistakes
