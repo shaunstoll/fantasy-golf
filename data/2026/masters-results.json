@@ -20,7 +20,12 @@
           "firstPlaceBonus": true,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 17,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 15,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Scottie",
@@ -38,7 +43,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Tyrrell",
@@ -56,7 +66,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 2,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Justin",
@@ -74,7 +89,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Xander",
@@ -92,7 +112,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 23,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 9,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Patrick",
@@ -110,7 +135,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 11,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 7,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Sepp",
@@ -128,7 +158,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 3,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Bryson",
@@ -145,7 +180,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 25,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 1,
@@ -174,7 +214,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Patrick",
@@ -192,7 +237,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 11,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 7,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Brooks",
@@ -210,7 +260,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 3,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 7,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Jordan",
@@ -228,7 +283,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 2,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 7,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Hideki",
@@ -246,7 +306,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 4,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 7,
+          "rankingBonus": 6,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Viktor",
@@ -264,7 +329,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 4,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Chris",
@@ -282,7 +352,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 6,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Bryson",
@@ -299,7 +374,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 25,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 2,
@@ -328,7 +408,12 @@
           "firstPlaceBonus": true,
           "multiplier": 1.5,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 17,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 15,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Scottie",
@@ -346,7 +431,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Russell",
@@ -364,7 +454,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 2,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Xander",
@@ -382,7 +477,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 23,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 9,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Hideki",
@@ -400,7 +500,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 4,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 7,
+          "rankingBonus": 6,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Patrick",
@@ -418,7 +523,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 3,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 7,
+          "rankingBonus": 6,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Jon",
@@ -436,7 +546,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Corey",
@@ -454,7 +569,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 5,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 3,
@@ -483,7 +603,12 @@
           "firstPlaceBonus": true,
           "multiplier": 1.5,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 17,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 15,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Scottie",
@@ -501,7 +626,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Justin",
@@ -519,7 +649,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Xander",
@@ -537,7 +672,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 23,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 9,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Jordan",
@@ -555,7 +695,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 2,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 7,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Matt",
@@ -573,7 +718,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Ludvig",
@@ -591,7 +741,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Akshay",
@@ -608,7 +763,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 9,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 4,
@@ -637,7 +797,12 @@
           "firstPlaceBonus": true,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 17,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 15,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Scottie",
@@ -655,7 +820,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Justin",
@@ -673,7 +843,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Cameron",
@@ -691,7 +866,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 17,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Xander",
@@ -709,7 +889,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 23,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 9,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Matt",
@@ -727,7 +912,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Adam",
@@ -745,7 +935,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 4,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Bryson",
@@ -762,7 +957,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 25,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 5,
@@ -791,7 +991,12 @@
           "firstPlaceBonus": true,
           "multiplier": 1.5,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 17,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 15,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Scottie",
@@ -809,7 +1014,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Justin",
@@ -827,7 +1037,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Cameron",
@@ -845,7 +1060,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 17,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Chris",
@@ -863,7 +1083,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 6,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Jon",
@@ -881,7 +1106,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Sungjae",
@@ -899,7 +1129,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 2,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Bryson",
@@ -916,7 +1151,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 25,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 6,
@@ -945,7 +1185,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Justin",
@@ -963,7 +1208,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Max",
@@ -981,7 +1231,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 1,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 9,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 15
         },
         {
           "firstName": "Xander",
@@ -999,7 +1254,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 23,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 9,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Brooks",
@@ -1017,7 +1277,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 3,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 7,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Ludvig",
@@ -1035,7 +1300,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Tommy",
@@ -1053,7 +1323,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 14,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Daniel",
@@ -1070,7 +1345,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 2,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 7,
@@ -1099,7 +1379,12 @@
           "firstPlaceBonus": true,
           "multiplier": 1.5,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 17,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 15,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Scottie",
@@ -1117,7 +1402,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Justin",
@@ -1135,7 +1425,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Cameron",
@@ -1153,7 +1448,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 17,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Matt",
@@ -1171,7 +1471,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Ludvig",
@@ -1189,7 +1494,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Si Woo",
@@ -1207,7 +1517,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 3,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Bryson",
@@ -1224,7 +1539,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 25,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 8,
@@ -1253,7 +1573,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Collin",
@@ -1271,7 +1596,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 5,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 11,
+          "rankingBonus": 6,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Xander",
@@ -1289,7 +1619,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 23,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 9,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Hideki",
@@ -1307,7 +1642,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 4,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 7,
+          "rankingBonus": 6,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Patrick",
@@ -1325,7 +1665,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 3,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 7,
+          "rankingBonus": 6,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Adam",
@@ -1343,7 +1688,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 4,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Akshay",
@@ -1360,7 +1710,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 9,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Nicolai",
@@ -1377,7 +1732,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 4,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 9,
@@ -1406,7 +1766,12 @@
           "firstPlaceBonus": true,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 17,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 15,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Scottie",
@@ -1424,7 +1789,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Collin",
@@ -1442,7 +1812,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 5,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 11,
+          "rankingBonus": 6,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Xander",
@@ -1460,7 +1835,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 23,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 9,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Hideki",
@@ -1478,7 +1858,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 4,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 7,
+          "rankingBonus": 6,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Ludvig",
@@ -1496,7 +1881,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Tommy",
@@ -1514,7 +1904,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 14,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Corey",
@@ -1532,7 +1927,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 5,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 10,
@@ -1561,7 +1961,12 @@
           "firstPlaceBonus": true,
           "multiplier": 1.5,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 17,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 15,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Scottie",
@@ -1579,7 +1984,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Justin",
@@ -1597,7 +2007,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Collin",
@@ -1615,7 +2030,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 5,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 11,
+          "rankingBonus": 6,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Tommy",
@@ -1633,41 +2053,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 14,
-          "ownedTotal": 36
-        },
-        {
-          "firstName": "Daniel",
-          "lastName": "Berger",
-          "rank": 54,
-          "fantasyScore": 0,
-          "isTied": false,
-          "nationality": "USA",
-          "status": 1,
-          "score": 8,
-          "thru": "-",
-          "lowestRankedPlayerBonus": false,
-          "madeCutBonus": false,
-          "firstPlaceBonus": false,
-          "multiplier": 1,
-          "ownedCount": 2,
-          "ownedTotal": 36
-        },
-        {
-          "firstName": "Bryson",
-          "lastName": "DeChambeau",
-          "rank": 11,
-          "fantasyScore": 0,
-          "isTied": false,
-          "nationality": "USA",
-          "status": 1,
-          "score": 6,
-          "thru": "-",
-          "lowestRankedPlayerBonus": false,
-          "madeCutBonus": false,
-          "firstPlaceBonus": false,
-          "multiplier": 1,
-          "ownedCount": 25,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Ryan",
@@ -1685,7 +2076,56 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 1,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
+        },
+        {
+          "firstName": "Daniel",
+          "lastName": "Berger",
+          "rank": 54,
+          "fantasyScore": 0,
+          "isTied": false,
+          "nationality": "USA",
+          "status": 1,
+          "score": 8,
+          "thru": "-",
+          "lowestRankedPlayerBonus": false,
+          "madeCutBonus": false,
+          "firstPlaceBonus": false,
+          "multiplier": 1,
+          "ownedCount": 2,
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
+        },
+        {
+          "firstName": "Bryson",
+          "lastName": "DeChambeau",
+          "rank": 11,
+          "fantasyScore": 0,
+          "isTied": false,
+          "nationality": "USA",
+          "status": 1,
+          "score": 6,
+          "thru": "-",
+          "lowestRankedPlayerBonus": false,
+          "madeCutBonus": false,
+          "firstPlaceBonus": false,
+          "multiplier": 1,
+          "ownedCount": 25,
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 11,
@@ -1714,7 +2154,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Cameron",
@@ -1732,7 +2177,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 17,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Justin",
@@ -1750,7 +2200,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Xander",
@@ -1768,7 +2223,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 23,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 9,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Jake",
@@ -1786,7 +2246,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 3,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 7,
+          "rankingBonus": 6,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Patrick",
@@ -1804,7 +2269,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 11,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 7,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Jon",
@@ -1822,7 +2292,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Bryson",
@@ -1839,7 +2314,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 25,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 12,
@@ -1868,7 +2348,12 @@
           "firstPlaceBonus": true,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 17,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 15,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Scottie",
@@ -1886,7 +2371,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Cameron",
@@ -1904,7 +2394,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 17,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Patrick",
@@ -1922,7 +2417,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 11,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 7,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Shane",
@@ -1940,7 +2440,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 1,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Tommy",
@@ -1958,7 +2463,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 14,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Jon",
@@ -1976,7 +2486,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Casey",
@@ -1993,7 +2508,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 1,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 13,
@@ -2022,7 +2542,12 @@
           "firstPlaceBonus": true,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 17,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 15,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Scottie",
@@ -2040,7 +2565,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Justin",
@@ -2058,7 +2588,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Collin",
@@ -2076,7 +2611,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 5,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 11,
+          "rankingBonus": 6,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Adam",
@@ -2094,7 +2634,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 4,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Jacob",
@@ -2112,7 +2657,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 5,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Akshay",
@@ -2129,7 +2679,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 9,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Bryson",
@@ -2146,7 +2701,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 25,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 14,
@@ -2175,7 +2735,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Cameron",
@@ -2193,7 +2758,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 17,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Russell",
@@ -2211,7 +2781,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 2,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Jake",
@@ -2229,7 +2804,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 3,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 7,
+          "rankingBonus": 6,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Matt",
@@ -2247,7 +2827,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Adam",
@@ -2265,7 +2850,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 4,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Corey",
@@ -2283,7 +2873,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 5,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Bryson",
@@ -2300,7 +2895,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 25,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 15,
@@ -2329,7 +2929,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Cameron",
@@ -2347,7 +2952,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 17,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Xander",
@@ -2365,7 +2975,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 23,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 9,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Patrick",
@@ -2383,7 +2998,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 11,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 7,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Matt",
@@ -2401,7 +3021,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Ludvig",
@@ -2419,7 +3044,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Jacob",
@@ -2437,7 +3067,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 5,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Corey",
@@ -2455,7 +3090,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 5,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 16,
@@ -2484,7 +3124,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Justin",
@@ -2502,7 +3147,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Cameron",
@@ -2520,7 +3170,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 17,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Xander",
@@ -2538,7 +3193,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 23,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 9,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Ludvig",
@@ -2556,7 +3216,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Tommy",
@@ -2574,7 +3239,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 14,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Jacob",
@@ -2592,7 +3262,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 5,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Bryson",
@@ -2609,7 +3284,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 25,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 17,
@@ -2638,7 +3318,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 2,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Maverick",
@@ -2656,7 +3341,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 1,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 6,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Matt",
@@ -2674,7 +3364,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Ludvig",
@@ -2692,7 +3387,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Chris",
@@ -2710,7 +3410,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 6,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Sungjae",
@@ -2728,7 +3433,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 2,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Bryson",
@@ -2745,7 +3455,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 25,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Min Woo",
@@ -2762,7 +3477,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 3,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 18,
@@ -2791,7 +3511,12 @@
           "firstPlaceBonus": true,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 17,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 15,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Cameron",
@@ -2809,7 +3534,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 17,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Xander",
@@ -2827,7 +3557,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 23,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 9,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Patrick",
@@ -2845,7 +3580,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 3,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 7,
+          "rankingBonus": 6,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Viktor",
@@ -2863,7 +3603,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 4,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Matt",
@@ -2881,7 +3626,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Akshay",
@@ -2898,7 +3648,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 9,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Bryson",
@@ -2915,7 +3670,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 25,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 19,
@@ -2944,7 +3704,12 @@
           "firstPlaceBonus": true,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 17,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 15,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Scottie",
@@ -2962,7 +3727,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Cameron",
@@ -2980,7 +3750,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 17,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Xander",
@@ -2998,7 +3773,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 23,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 9,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Matt",
@@ -3016,7 +3796,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Ludvig",
@@ -3034,7 +3819,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Jon",
@@ -3052,7 +3842,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Bryson",
@@ -3069,7 +3864,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 25,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 20,
@@ -3098,7 +3898,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Justin",
@@ -3116,7 +3921,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Xander",
@@ -3134,7 +3944,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 23,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 9,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Patrick",
@@ -3152,7 +3967,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 11,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 7,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Viktor",
@@ -3170,7 +3990,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 4,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Matt",
@@ -3188,7 +4013,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Jon",
@@ -3206,7 +4036,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Akshay",
@@ -3223,7 +4058,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 9,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 21,
@@ -3252,7 +4092,12 @@
           "firstPlaceBonus": true,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 17,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 15,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Cameron",
@@ -3270,7 +4115,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 17,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Viktor",
@@ -3288,7 +4138,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 4,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Ludvig",
@@ -3306,7 +4161,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Chris",
@@ -3324,7 +4184,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 6,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Tommy",
@@ -3342,7 +4207,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 14,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Bryson",
@@ -3359,7 +4229,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 25,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "J.J.",
@@ -3376,7 +4251,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 2,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 21,
@@ -3405,7 +4285,12 @@
           "firstPlaceBonus": true,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 17,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 15,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Scottie",
@@ -3423,7 +4308,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Cameron",
@@ -3441,7 +4331,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 17,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Xander",
@@ -3459,7 +4354,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 23,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 9,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Matt",
@@ -3477,7 +4377,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Tommy",
@@ -3495,7 +4400,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 14,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Jon",
@@ -3513,7 +4423,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Bryson",
@@ -3530,7 +4445,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 25,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 23,
@@ -3559,7 +4479,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Justin",
@@ -3577,7 +4502,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Brooks",
@@ -3595,7 +4525,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 3,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 7,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Ludvig",
@@ -3613,7 +4548,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Ben",
@@ -3631,7 +4571,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 1,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Tommy",
@@ -3649,7 +4594,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 14,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Bryson",
@@ -3666,7 +4616,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 25,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Akshay",
@@ -3683,7 +4638,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 9,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 24,
@@ -3712,7 +4672,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Cameron",
@@ -3730,7 +4695,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 17,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Xander",
@@ -3748,7 +4718,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 23,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 9,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Patrick",
@@ -3766,7 +4741,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 11,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 7,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Matt",
@@ -3784,7 +4764,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Ludvig",
@@ -3802,7 +4787,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Jon",
@@ -3820,7 +4810,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Akshay",
@@ -3837,7 +4832,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 9,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 25,
@@ -3866,7 +4866,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Cameron",
@@ -3884,7 +4889,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 17,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Xander",
@@ -3902,7 +4912,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 23,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 9,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Matt",
@@ -3920,7 +4935,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Ludvig",
@@ -3938,7 +4958,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Chris",
@@ -3956,7 +4981,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 6,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Jon",
@@ -3974,7 +5004,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Bryson",
@@ -3991,7 +5026,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 25,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 26,
@@ -4020,7 +5060,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Justin",
@@ -4038,7 +5083,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Xander",
@@ -4056,7 +5106,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 23,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 9,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Jake",
@@ -4074,7 +5129,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 3,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 7,
+          "rankingBonus": 6,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Sepp",
@@ -4092,7 +5152,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 3,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Corey",
@@ -4110,7 +5175,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 5,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Bryson",
@@ -4127,7 +5197,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 25,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Akshay",
@@ -4144,7 +5219,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 9,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 27,
@@ -4173,7 +5253,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Cameron",
@@ -4191,7 +5276,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 17,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Collin",
@@ -4209,7 +5299,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 5,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 11,
+          "rankingBonus": 6,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Matt",
@@ -4227,7 +5322,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Ludvig",
@@ -4245,7 +5345,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Jon",
@@ -4263,7 +5368,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Bryson",
@@ -4280,7 +5390,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 25,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Min Woo",
@@ -4297,7 +5412,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 3,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 28,
@@ -4326,7 +5446,12 @@
           "firstPlaceBonus": true,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 17,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 15,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Scottie",
@@ -4344,7 +5469,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Patrick",
@@ -4362,7 +5492,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 11,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 7,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Matt",
@@ -4380,7 +5515,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Tommy",
@@ -4398,7 +5538,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 14,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Bryson",
@@ -4415,7 +5560,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 25,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Min Woo",
@@ -4432,7 +5582,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 3,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Cameron",
@@ -4449,7 +5604,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 1,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 29,
@@ -4478,7 +5638,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 17,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Patrick",
@@ -4496,7 +5661,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 11,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 7,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Matt",
@@ -4514,7 +5684,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Ludvig",
@@ -4532,7 +5707,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Tommy",
@@ -4550,7 +5730,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 14,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Jacob",
@@ -4568,7 +5753,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 5,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Robert",
@@ -4585,7 +5775,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 4,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Akshay",
@@ -4602,7 +5797,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 9,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 30,
@@ -4631,7 +5831,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Cameron",
@@ -4649,7 +5854,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 17,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 15,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Xander",
@@ -4667,7 +5877,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 23,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 9,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Ludvig",
@@ -4685,7 +5900,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Tommy",
@@ -4703,7 +5923,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 14,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Jon",
@@ -4721,7 +5946,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Robert",
@@ -4738,7 +5968,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 4,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Bryson",
@@ -4755,7 +5990,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 25,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 31,
@@ -4784,7 +6024,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Xander",
@@ -4802,7 +6047,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 23,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 9,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Patrick",
@@ -4820,7 +6070,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 11,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 7,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Ludvig",
@@ -4838,7 +6093,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Jon",
@@ -4856,7 +6116,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Si Woo",
@@ -4874,7 +6139,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 3,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Bryson",
@@ -4891,7 +6161,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 25,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Nicolai",
@@ -4908,7 +6183,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 4,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 32,
@@ -4937,7 +6217,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Xander",
@@ -4955,7 +6240,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 23,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 9,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Patrick",
@@ -4973,7 +6263,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 11,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 7,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Ludvig",
@@ -4991,7 +6286,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Tommy",
@@ -5009,7 +6309,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 14,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Jon",
@@ -5027,7 +6332,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Sepp",
@@ -5045,7 +6355,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 3,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Bryson",
@@ -5062,7 +6377,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 25,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 33,
@@ -5091,7 +6411,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Xander",
@@ -5109,7 +6434,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 23,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 9,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Matt",
@@ -5127,7 +6457,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Chris",
@@ -5145,7 +6480,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 6,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 11,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Tommy",
@@ -5163,7 +6503,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 14,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Jon",
@@ -5181,7 +6526,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Bryson",
@@ -5198,7 +6548,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 25,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Robert",
@@ -5215,7 +6570,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 4,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 34,
@@ -5244,7 +6604,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Xander",
@@ -5262,7 +6627,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 23,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 9,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Matt",
@@ -5280,7 +6650,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Jon",
@@ -5298,7 +6673,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 15,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Jacob",
@@ -5316,7 +6696,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 5,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Si Woo",
@@ -5334,7 +6719,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 3,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Nicolai",
@@ -5351,7 +6741,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 4,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Robert",
@@ -5368,7 +6763,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 4,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 35,
@@ -5397,7 +6797,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 30,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 16,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Xander",
@@ -5415,7 +6820,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 23,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 9,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Matt",
@@ -5433,7 +6843,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Ludvig",
@@ -5451,7 +6866,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 18,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 3,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 5,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Tommy",
@@ -5469,7 +6889,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 14,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "J.J.",
@@ -5486,7 +6911,12 @@
           "firstPlaceBonus": false,
           "multiplier": 2,
           "ownedCount": 2,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Bryson",
@@ -5503,7 +6933,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1.5,
           "ownedCount": 25,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         },
         {
           "firstName": "Nicolai",
@@ -5520,7 +6955,12 @@
           "firstPlaceBonus": false,
           "multiplier": 1,
           "ownedCount": 4,
-          "ownedTotal": 36
+          "ownedTotal": 36,
+          "placementPoints": 0,
+          "rankingBonus": 0,
+          "madeCutBonusPoints": 0,
+          "firstPlaceBonusPoints": 0,
+          "lowestRankedBonusPoints": 0
         }
       ],
       "rank": 36,
@@ -5697,8 +7137,8 @@
       "rankingBonus": 11,
       "madeCutBonusPoints": 5,
       "firstPlaceBonusPoints": 0,
-      "lowestRankedBonusPoints": 0,
-      "fantasyScore": 25,
+      "lowestRankedBonusPoints": 15,
+      "fantasyScore": 40,
       "ownedCount": 1,
       "ownedTotal": 36
     },
@@ -5982,8 +7422,8 @@
       "rankingBonus": 11,
       "madeCutBonusPoints": 5,
       "firstPlaceBonusPoints": 0,
-      "lowestRankedBonusPoints": 15,
-      "fantasyScore": 34,
+      "lowestRankedBonusPoints": 0,
+      "fantasyScore": 19,
       "ownedCount": 0,
       "ownedTotal": 36
     },
