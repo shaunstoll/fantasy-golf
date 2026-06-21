@@ -81,7 +81,7 @@ export default function RosterTotal({ tournamentRosters }: Props) {
           {tournaments.map((t) => (
             <span
               key={t.name}
-              className="w-9 text-center text-xs font-semibold text-gray-500 dark:text-gray-400"
+              className="w-12 text-center text-xs font-semibold text-gray-500 dark:text-gray-400"
             >
               {t.badgeLabel}
             </span>
@@ -118,7 +118,7 @@ export default function RosterTotal({ tournamentRosters }: Props) {
             {tournaments.map((t) => {
               const a = s.appearances.get(t.name);
               return (
-                <span key={t.name} className="flex w-9 items-center justify-center">
+                <span key={t.name} className="flex w-12 items-center justify-center">
                   {!a ? (
                     <span className="text-gray-300 dark:text-gray-600">–</span>
                   ) : a.multiplier > 1 ? (
