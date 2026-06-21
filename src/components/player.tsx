@@ -58,7 +58,7 @@ export function PlayerColumnsHeader({
         {PLAYER_COLUMNS.map((column) => {
           if (!onSort || !column.sortKey) {
             return (
-              <span key={column.label} className="w-12 text-center">
+              <span key={column.label} className="w-10 text-center">
                 {column.label}
               </span>
             );
@@ -70,7 +70,7 @@ export function PlayerColumnsHeader({
               onClick={() => onSort(column.sortKey!)}
               aria-pressed={isActive}
               className={`
-                flex w-12 flex-col items-center rounded py-1.5 leading-tight
+                flex w-10 flex-col items-center rounded py-1.5 leading-tight
                 ${
                   isActive
                     ? "bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
@@ -182,7 +182,7 @@ export default function Player({ player }: { player: PlayerType }) {
           />
           <Attribute
             hideLabel
-            valueClassName={`font-bold text-sm w-12 text-white rounded p-1 text-center ${
+            valueClassName={`font-bold text-sm w-10 text-white rounded p-1 text-center ${
               player.score > 0 ? "bg-green-700" : player.score < 0 ? "bg-red-700" : "bg-gray-600"
             }`}
             label="Score"
