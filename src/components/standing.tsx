@@ -112,11 +112,11 @@ export default function Standing({
 
   return (
     <div className="flex flex-col gap-px">
-      <div className="flex items-center">
+      <div className="flex items-stretch">
         <Button
           className={`
-            flex shrink-0 flex-col items-center justify-center gap-0.5
-            self-stretch rounded-l bg-white p-2 shadow
+            flex shrink-0 flex-col items-center justify-center gap-0.5 rounded-l
+            bg-white p-2 shadow
             dark:bg-gray-800
           `}
           onClick={(e) => {
@@ -126,7 +126,7 @@ export default function Standing({
           aria-label={`favorite ${standing.name}`}
         >
           <Star
-            className="size-5 text-amber-400"
+            className="size-4 text-amber-400"
             fill={favoriteTeams.includes(standing.name) ? "currentColor" : "none"}
           />
           <p className="w-9 rounded text-center text-sm font-bold">{rankText}</p>
