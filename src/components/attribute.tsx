@@ -9,6 +9,7 @@ export default function Attribute({
   label,
   value,
   focused,
+  hideLabel,
 }: {
   className?: string;
   labelClassName?: string;
@@ -18,10 +19,14 @@ export default function Attribute({
   // When explicitly false, the attribute fades back (e.g. a score column that
   // isn't the active sort). Undefined or true leaves it at full strength.
   focused?: boolean;
+  // Drop the stacked label entirely — used when a shared header row already
+  // titles the columns (teams, roster/leaderboard players). The native `title`
+  // tooltip is kept for hover accessibility.
+  hideLabel?: boolean;
 }) {
   const [showLabel, setShowLabel] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const isHidden = labelClassName?.includes("hidden");
+  const isHidden = !hideLabel && labelClassName?.includes("hidden");
 
   useEffect(() => {
     if (!showLabel) return;
@@ -55,15 +60,17 @@ export default function Attribute({
           {label}
         </div>
       )}
-      <label
-        className={`
-          text-gray-500
-          dark:text-white
-          ${labelClassName}
-        `}
-      >
-        {label}
-      </label>
+      {!hideLabel && (
+        <label
+          className={`
+            text-gray-500
+            dark:text-white
+            ${labelClassName}
+          `}
+        >
+          {label}
+        </label>
+      )}
       {/* When not focused, fade the value box (fill + number); the label/title
           above stays at full strength so you can still read what it is. */}
       <p

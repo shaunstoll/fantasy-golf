@@ -4,7 +4,7 @@ import { Fragment } from "react";
 
 import Button from "@/components/button";
 import Footer from "@/components/footer";
-import Player from "@/components/player";
+import Player, { PlayerColumnsHeader } from "@/components/player";
 import StandingsSkeleton from "@/components/loaders/standings.skeleton";
 import SearchBar from "@/components/search-bar";
 import type { LeaderboardPlayer } from "@/interfaces/leaderboard-player.interface";
@@ -140,6 +140,7 @@ export default function Leaderboard({
       </div>
 
       <main className="flex flex-col gap-1 pb-20">
+        <PlayerColumnsHeader />
         {sorted.map((player: LeaderboardPlayer, index: number) => (
           <Fragment key={`${player.firstName} ${player.lastName}`}>
             {index === cutInsertIndex && (

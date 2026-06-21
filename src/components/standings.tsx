@@ -40,6 +40,38 @@ const emptyBonuses = Object.fromEntries(
   ]),
 ) as Record<TournamentName, BonusFlags>;
 
+/**
+ * Header row that titles the team columns, mirroring the team row layout: an
+ * empty cell over the favorite-star button, then Rank, each major, and Total —
+ * each at the same fixed width as the Attribute value boxes below.
+ */
+function TeamColumnsHeader() {
+  return (
+    <div className="flex items-center text-xs font-semibold text-gray-500 dark:text-gray-400">
+      <div className="w-10 shrink-0 self-stretch rounded-l bg-white dark:bg-gray-800" aria-hidden />
+      <div
+        className={`
+          flex w-full min-w-0 items-center justify-between gap-2 rounded-r
+          bg-white p-2
+          dark:bg-gray-800
+        `}
+      >
+        <div className="flex min-w-0 items-center gap-3 pr-1">
+          <span className="w-10 text-center">Rank</span>
+        </div>
+        <div className="flex shrink-0 items-center gap-1">
+          {tournaments.map((t) => (
+            <span key={t.name} className="w-10 text-center">
+              {t.badgeLabel}
+            </span>
+          ))}
+          <span className="w-10 text-center">Total</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 interface Props {
   search: string;
   onSearchChange: (s: string) => void;
@@ -198,6 +230,7 @@ export default function Standings({
       </div>
 
       <main className="flex flex-col gap-1 pb-20" ref={standingsRef}>
+        {filtered.length > 0 && <TeamColumnsHeader />}
         {favoriteStandings.map((standing) => (
           <Standing
             key={standing.name}

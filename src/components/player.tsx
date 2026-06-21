@@ -9,6 +9,36 @@ import type { Player as PlayerType } from "@/interfaces/player.interface";
 import { flagCode } from "@/utils/nationality.utils";
 import { formatPlace } from "@/utils/player.utils";
 
+// Column titles for the player rows, shared by the header and kept in sync with
+// the Attribute order in the row below. Rendered once at the top of a list
+// (roster / leaderboard) so individual rows don't repeat the labels.
+const PLAYER_COLUMNS = ["Rank", "Owned", "Thru", "Score", "Points"];
+
+/**
+ * Header row that titles the player columns, aligned with the right-hand
+ * Attribute cluster in each Player row (same fixed widths, gaps and padding).
+ */
+export function PlayerColumnsHeader() {
+  return (
+    <div
+      className={`
+        flex items-center justify-between gap-1 bg-white p-1 pr-2 text-xs
+        font-semibold text-gray-500
+        dark:bg-gray-800 dark:text-gray-400
+      `}
+    >
+      <span className="min-w-0 flex-1 truncate pl-1">Player</span>
+      <div className="flex shrink-0 items-center gap-1.5">
+        {PLAYER_COLUMNS.map((column) => (
+          <span key={column} className="w-10 text-center">
+            {column}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function Chip({ children }: { children: React.ReactNode }) {
   return (
     <span
@@ -82,25 +112,25 @@ export default function Player({ player }: { player: PlayerType }) {
             </span>
           ))}
           <Attribute
-            labelClassName="text-xs"
+            hideLabel
             valueClassName="bg-gray-200 text-black"
             label="Rank"
             value={player.rank > 0 ? `#${player.rank}` : "-"}
           />
           <Attribute
-            labelClassName="text-xs"
+            hideLabel
             valueClassName="bg-blue-200 text-blue-800"
             label="Owned"
             value={`${player.ownedCount}/${player.ownedTotal}`}
           />
           <Attribute
-            labelClassName="text-xs"
+            hideLabel
             valueClassName="bg-gray-200 text-black"
             label="Thru"
             value={player.thru}
           />
           <Attribute
-            labelClassName="text-xs"
+            hideLabel
             valueClassName={`font-bold text-sm w-10 text-white rounded p-1 text-center ${
               player.score > 0 ? "bg-green-700" : player.score < 0 ? "bg-red-700" : "bg-gray-600"
             }`}
@@ -108,7 +138,7 @@ export default function Player({ player }: { player: PlayerType }) {
             value={player.score > 0 ? `+${player.score}` : player.score === 0 ? "E" : player.score}
           />
           <Attribute
-            labelClassName="text-xs"
+            hideLabel
             valueClassName="bg-gray-600 text-white"
             label="Points"
             value={player.fantasyScore}

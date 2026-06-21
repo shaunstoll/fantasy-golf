@@ -56,7 +56,7 @@ export default function Standing({
 
   const rankBadge = (
     <Attribute
-      labelClassName="text-xs"
+      hideLabel
       valueClassName={
         standing.rank === 1
           ? "bg-amber-200 text-amber-800"
@@ -78,16 +78,16 @@ export default function Standing({
       {tournaments.map((t) => (
         <Attribute
           key={t.name}
+          hideLabel
           focused={activeTab === t.name}
-          labelClassName="text-xs"
           valueClassName={t.badgeColor}
           label={t.badgeLabel}
           value={tournamentScores[t.name]}
         />
       ))}
       <Attribute
+        hideLabel
         focused={activeTab === "total"}
-        labelClassName="text-xs"
         valueClassName="bg-gray-200 text-black"
         label="Total"
         value={standing.score}

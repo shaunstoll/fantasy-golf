@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-import Player from "@/components/player";
+import Player, { PlayerColumnsHeader } from "@/components/player";
 import type { Player as PlayerType } from "@/interfaces/player.interface";
 
 const brackets = [
@@ -40,6 +40,7 @@ export default function Roster({ players, cutLine, round }: Props) {
           );
         })}
       </div>
+      <PlayerColumnsHeader />
       {players.map((player, index) => (
         <Fragment key={`${player.firstName} ${player.lastName}`}>
           {index === cutInsertIndex && cutInsertIndex >= 0 && (
