@@ -18,6 +18,12 @@ import type { Player } from "@/interfaces/player.interface";
 import type { Standing as StandingType } from "@/interfaces/standing.interface";
 import { useStore } from "@/store";
 
+// Explicit [top, bottom] name splits for team names the default first-word
+// split gets wrong (e.g. a shared surname on a pair).
+const NAME_SPLIT_OVERRIDES: Record<string, readonly [string, string]> = {
+  "Josh & Jimmy Shizgal": ["Josh & Jimmy", "Shizgal"],
+};
+
 interface Props {
   standing: StandingType;
   tournamentScores: Record<TournamentName, number>;
@@ -55,27 +61,19 @@ export default function Standing({
   const bonusDots = activeBonuses ? earnedBonuses(activeBonuses) : [];
 
   // Split the team name into a small top line + a larger bottom line, mirroring
-  // how player names render (first name over surname). The first word goes on
-  // top; everything after it (incl. "& Partner") drops to the larger line.
-  const [nameTop, ...nameRest] = standing.name.split(" ");
-  const nameBottom = nameRest.join(" ");
+  // how player names render (first name over surname). By default the first word
+  // goes on top and the rest (incl. "& Partner") drops to the larger line; a few
+  // names read better with an explicit split.
+  const [nameTop, nameBottom] = (() => {
+    const override = NAME_SPLIT_OVERRIDES[standing.name];
+    if (override) return override;
+    const [first, ...rest] = standing.name.split(" ");
+    return [first, rest.join(" ")] as const;
+  })();
 
-  const rankBadge = (
-    <Attribute
-      hideLabel
-      valueClassName={
-        standing.rank === 1
-          ? "bg-amber-200 text-amber-800"
-          : standing.rank === 2
-            ? "bg-slate-200 text-slate-800"
-            : standing.rank === 3
-              ? "bg-orange-200 text-orange-800"
-              : "bg-gray-600 text-white"
-      }
-      label="Rank"
-      value={`${standing.isTied ? "T" : ""}${standing.rank}`}
-    />
-  );
+  // Rank sits under the favorite star (like a player's finish under their flag),
+  // rendered as plain text — no medal colors — to match the leaderboard.
+  const rankText = `${standing.isTied ? "T" : ""}${standing.rank}`;
 
   // The badge for the active sort (a major, or Total) stays solid; the rest fade
   // back so it's clear which column the list is ranked by. The active filter's
@@ -117,6 +115,7 @@ export default function Standing({
       <div className="flex items-center">
         <Button
           className={`
+            flex shrink-0 flex-col items-center justify-center gap-0.5
             self-stretch rounded-l bg-white p-2 shadow
             dark:bg-gray-800
           `}
@@ -124,11 +123,13 @@ export default function Standing({
             e.stopPropagation();
             toggleFavoriteTeam(standing.name);
           }}
+          aria-label={`favorite ${standing.name}`}
         >
           <Star
-            className="size-6 text-amber-400"
+            className="size-5 text-amber-400"
             fill={favoriteTeams.includes(standing.name) ? "currentColor" : "none"}
           />
+          <p className="w-9 rounded text-center text-sm font-bold">{rankText}</p>
         </Button>
         <Button
           className={`
@@ -139,18 +140,15 @@ export default function Standing({
           onClick={() => setIsOpen(!isOpen)}
           aria-label={`team ${standing.name}`}
         >
-          <div className="flex min-w-0 items-center gap-3 overflow-hidden pr-1">
-            {rankBadge}
-            <div className="min-w-0 text-left leading-tight">
-              {nameBottom ? (
-                <>
-                  <p className="truncate text-sm">{nameTop}</p>
-                  <p className="truncate">{nameBottom}</p>
-                </>
-              ) : (
-                <p className="truncate">{nameTop}</p>
-              )}
-            </div>
+          <div className="min-w-0 overflow-hidden text-left leading-tight">
+            {nameBottom ? (
+              <>
+                <p className="truncate text-sm">{nameTop}</p>
+                <p className="truncate">{nameBottom}</p>
+              </>
+            ) : (
+              <p className="truncate">{nameTop}</p>
+            )}
           </div>
           {scoreCluster}
         </Button>

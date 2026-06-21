@@ -69,7 +69,16 @@ function TeamColumnsHeader({
 
   return (
     <div className="flex items-center text-xs font-semibold text-gray-500 dark:text-gray-400">
-      <div className="w-10 shrink-0 self-stretch rounded-l bg-white dark:bg-gray-800" aria-hidden />
+      {/* Rank column, sitting over the favorite-star button where the rank now lives. */}
+      <div
+        className={`
+          flex shrink-0 flex-col items-center justify-center self-stretch
+          rounded-l bg-white p-2
+          dark:bg-gray-800
+        `}
+      >
+        <span className="w-9 text-center">Rank</span>
+      </div>
       <div
         className={`
           flex w-full min-w-0 items-center justify-between gap-2 rounded-r
@@ -77,9 +86,7 @@ function TeamColumnsHeader({
           dark:bg-gray-800
         `}
       >
-        <div className="flex min-w-0 items-center gap-3 pr-1">
-          <span className="w-10 text-center">Rank</span>
-        </div>
+        <span className="min-w-0 flex-1" aria-hidden />
         <div className="flex shrink-0 items-center gap-1">
           {tournaments.map((t) => sortCell(t.name, t.badgeLabel))}
           {sortCell("total", "Total")}

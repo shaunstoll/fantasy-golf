@@ -40,3 +40,4 @@ Team rosters are stored as JSON in `data/{year}/{tournament}.json` and loaded vi
 - Scoring rules live in one place: `src/services/scoring-rules.ts` (`computePlayerPoints`). Both `getStandings` and `getLeaderboard` must use it — never recompute point categories inline (they drifted once and caused a bonus bug).
 - Bonus dots and the header legend are driven by `src/config/bonuses.ts` (color + label + description). Add/edit a bonus there, not in the components.
 - Player nationalities may arrive as ISO alpha-3 codes; always build flag URLs via `flagCode()` (`src/utils/nationality.utils.ts`) since datagolf serves IOC codes.
+- Loading skeletons live in `src/components/loaders/` (`standings.skeleton.tsx`, `leaderboard.skeleton.tsx`). When a change alters a row/column/header layout enough that the skeleton would misrepresent it, update the matching skeleton to keep it in sync.
