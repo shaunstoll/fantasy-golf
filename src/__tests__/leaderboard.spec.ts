@@ -48,3 +48,33 @@ describe("Leaderboard lowest-ranked bonus", () => {
     expect(unowned?.lowestRankedBonusPoints).toBe(0);
   });
 });
+
+describe("Leaderboard rank source", () => {
+  it("uses a rostered player's roster rank, not the rankings map", () => {
+    // The rankings map disagrees with the roster (e.g. PGA was once built with
+    // the Masters table). The roster is the source standings trusts, so the
+    // leaderboard must match it for rostered players.
+    const leaderboard: Leaderboard = { "Justin Thomas": entry(4) };
+    const rankings: Record<string, Ranking> = {
+      "Justin Thomas": { firstName: "Justin", lastName: "Thomas", rank: 36 },
+    };
+    const teams: Team[] = [
+      { name: "team-0", players: [{ firstName: "Justin", lastName: "Thomas", rank: 45 }] },
+    ];
+    const tournament: Tournament = { name: TournamentName.Pga, round: 4, leaderboard };
+
+    const players = new ScoringService().getLeaderboard(teams, tournament, rankings);
+    expect(players.find((p) => p.lastName === "Thomas")?.rank).toBe(45);
+  });
+
+  it("falls back to the rankings map for unrostered field players", () => {
+    const leaderboard: Leaderboard = { "Some Pro": entry(10) };
+    const rankings: Record<string, Ranking> = {
+      "Some Pro": { firstName: "Some", lastName: "Pro", rank: 99 },
+    };
+    const tournament: Tournament = { name: TournamentName.Pga, round: 4, leaderboard };
+
+    const players = new ScoringService().getLeaderboard([], tournament, rankings);
+    expect(players.find((p) => p.lastName === "Pro")?.rank).toBe(99);
+  });
+});

@@ -7019,6 +7019,25 @@
       "ownedTotal": 36
     },
     {
+      "firstName": "Justin",
+      "lastName": "Thomas",
+      "rank": 45,
+      "place": 4,
+      "nationality": "USA",
+      "status": 0,
+      "score": -5,
+      "thru": "F",
+      "isTied": true,
+      "placementPoints": 14,
+      "rankingBonus": 11,
+      "madeCutBonusPoints": 5,
+      "firstPlaceBonusPoints": 0,
+      "lowestRankedBonusPoints": 15,
+      "fantasyScore": 45,
+      "ownedCount": 3,
+      "ownedTotal": 36
+    },
+    {
       "firstName": "Matti",
       "lastName": "Schmid",
       "rank": 152,
@@ -7038,28 +7057,9 @@
       "ownedTotal": 36
     },
     {
-      "firstName": "Justin",
-      "lastName": "Thomas",
-      "rank": 36,
-      "place": 4,
-      "nationality": "USA",
-      "status": 0,
-      "score": -5,
-      "thru": "F",
-      "isTied": true,
-      "placementPoints": 14,
-      "rankingBonus": 11,
-      "madeCutBonusPoints": 5,
-      "firstPlaceBonusPoints": 0,
-      "lowestRankedBonusPoints": 0,
-      "fantasyScore": 30,
-      "ownedCount": 3,
-      "ownedTotal": 36
-    },
-    {
       "firstName": "Ludvig",
       "lastName": "Aberg",
-      "rank": 10,
+      "rank": 6,
       "place": 4,
       "nationality": "SWE",
       "status": 0,
@@ -7095,9 +7095,28 @@
       "ownedTotal": 36
     },
     {
+      "firstName": "Xander",
+      "lastName": "Schauffele",
+      "rank": 8,
+      "place": 7,
+      "nationality": "USA",
+      "status": 0,
+      "score": -4,
+      "thru": "F",
+      "isTied": true,
+      "placementPoints": 11,
+      "rankingBonus": 0,
+      "madeCutBonusPoints": 5,
+      "firstPlaceBonusPoints": 0,
+      "lowestRankedBonusPoints": 0,
+      "fantasyScore": 16,
+      "ownedCount": 19,
+      "ownedTotal": 36
+    },
+    {
       "firstName": "Rory",
       "lastName": "McIlroy",
-      "rank": 3,
+      "rank": 4,
       "place": 7,
       "nationality": "NIR",
       "status": 0,
@@ -7114,28 +7133,9 @@
       "ownedTotal": 36
     },
     {
-      "firstName": "Xander",
-      "lastName": "Schauffele",
-      "rank": 4,
-      "place": 7,
-      "nationality": "USA",
-      "status": 0,
-      "score": -4,
-      "thru": "F",
-      "isTied": true,
-      "placementPoints": 11,
-      "rankingBonus": 0,
-      "madeCutBonusPoints": 0,
-      "firstPlaceBonusPoints": 0,
-      "lowestRankedBonusPoints": 0,
-      "fantasyScore": 11,
-      "ownedCount": 19,
-      "ownedTotal": 36
-    },
-    {
       "firstName": "Patrick",
       "lastName": "Reed",
-      "rank": 44,
+      "rank": 34,
       "place": 10,
       "nationality": "USA",
       "status": 0,
@@ -7146,15 +7146,15 @@
       "rankingBonus": 11,
       "madeCutBonusPoints": 5,
       "firstPlaceBonusPoints": 0,
-      "lowestRankedBonusPoints": 15,
-      "fantasyScore": 39,
+      "lowestRankedBonusPoints": 0,
+      "fantasyScore": 24,
       "ownedCount": 2,
       "ownedTotal": 36
     },
     {
       "firstName": "Chris",
       "lastName": "Gotterup",
-      "rank": 26,
+      "rank": 22,
       "place": 10,
       "nationality": "USA",
       "status": 0,
@@ -7192,7 +7192,7 @@
     {
       "firstName": "Justin",
       "lastName": "Rose",
-      "rank": 34,
+      "rank": 35,
       "place": 10,
       "nationality": "ENG",
       "status": 0,
@@ -7230,7 +7230,7 @@
     {
       "firstName": "Ben",
       "lastName": "Griffin",
-      "rank": 28,
+      "rank": 32,
       "place": 14,
       "nationality": "USA",
       "status": 0,
@@ -7249,7 +7249,7 @@
     {
       "firstName": "Matt",
       "lastName": "Fitzpatrick",
-      "rank": 6,
+      "rank": 5,
       "place": 14,
       "nationality": "ENG",
       "status": 0,
@@ -7258,10 +7258,10 @@
       "isTied": true,
       "placementPoints": 7,
       "rankingBonus": 0,
-      "madeCutBonusPoints": 5,
+      "madeCutBonusPoints": 0,
       "firstPlaceBonusPoints": 0,
       "lowestRankedBonusPoints": 0,
-      "fantasyScore": 12,
+      "fantasyScore": 7,
       "ownedCount": 15,
       "ownedTotal": 36
     },
@@ -7287,7 +7287,7 @@
     {
       "firstName": "Harris",
       "lastName": "English",
-      "rank": 27,
+      "rank": 25,
       "place": 18,
       "nationality": "USA",
       "status": 0,
@@ -7325,7 +7325,7 @@
     {
       "firstName": "Jordan",
       "lastName": "Spieth",
-      "rank": 39,
+      "rank": 37,
       "place": 18,
       "nationality": "USA",
       "status": 0,
@@ -7344,7 +7344,7 @@
     {
       "firstName": "Min",
       "lastName": "Woo Lee",
-      "rank": 15,
+      "rank": 23,
       "place": 18,
       "nationality": "AUS",
       "status": 0,
@@ -7352,11 +7352,11 @@
       "thru": "F",
       "isTied": true,
       "placementPoints": 3,
-      "rankingBonus": 6,
+      "rankingBonus": 11,
       "madeCutBonusPoints": 5,
       "firstPlaceBonusPoints": 0,
       "lowestRankedBonusPoints": 0,
-      "fantasyScore": 14,
+      "fantasyScore": 19,
       "ownedCount": 3,
       "ownedTotal": 36
     },
@@ -7439,7 +7439,7 @@
     {
       "firstName": "Sam",
       "lastName": "Burns",
-      "rank": 21,
+      "rank": 16,
       "place": 26,
       "nationality": "USA",
       "status": 0,
@@ -7515,7 +7515,7 @@
     {
       "firstName": "Hideki",
       "lastName": "Matsuyama",
-      "rank": 12,
+      "rank": 30,
       "place": 26,
       "nationality": "JPN",
       "status": 0,
@@ -7572,7 +7572,7 @@
     {
       "firstName": "Cameron",
       "lastName": "Young",
-      "rank": 7,
+      "rank": 3,
       "place": 26,
       "nationality": "USA",
       "status": 0,
@@ -7581,10 +7581,10 @@
       "isTied": true,
       "placementPoints": 0,
       "rankingBonus": 0,
-      "madeCutBonusPoints": 5,
+      "madeCutBonusPoints": 0,
       "firstPlaceBonusPoints": 0,
       "lowestRankedBonusPoints": 0,
-      "fantasyScore": 5,
+      "fantasyScore": 0,
       "ownedCount": 27,
       "ownedTotal": 36
     },
@@ -7629,7 +7629,7 @@
     {
       "firstName": "Christiaan",
       "lastName": "Bezuidenhout",
-      "rank": 56,
+      "rank": 57,
       "place": 35,
       "nationality": "ZAF",
       "status": 0,
@@ -7648,7 +7648,7 @@
     {
       "firstName": "Patrick",
       "lastName": "Cantlay",
-      "rank": 18,
+      "rank": 10,
       "place": 35,
       "nationality": "USA",
       "status": 0,
@@ -7724,7 +7724,7 @@
     {
       "firstName": "Si",
       "lastName": "Woo Kim",
-      "rank": 13,
+      "rank": 14,
       "place": 35,
       "nationality": "KOR",
       "status": 0,
@@ -7800,7 +7800,7 @@
     {
       "firstName": "Nicolai",
       "lastName": "Hojgaard",
-      "rank": 24,
+      "rank": 21,
       "place": 44,
       "nationality": "DNK",
       "status": 0,
@@ -7876,7 +7876,7 @@
     {
       "firstName": "Shane",
       "lastName": "Lowry",
-      "rank": 29,
+      "rank": 28,
       "place": 44,
       "nationality": "IRL",
       "status": 0,
@@ -7990,7 +7990,7 @@
     {
       "firstName": "Corey",
       "lastName": "Conners",
-      "rank": 38,
+      "rank": 49,
       "place": 55,
       "nationality": "CAN",
       "status": 0,
@@ -8009,7 +8009,7 @@
     {
       "firstName": "Brooks",
       "lastName": "Koepka",
-      "rank": 111,
+      "rank": 82,
       "place": 55,
       "nationality": "USA",
       "status": 0,
@@ -8047,7 +8047,7 @@
     {
       "firstName": "Collin",
       "lastName": "Morikawa",
-      "rank": 14,
+      "rank": 11,
       "place": 55,
       "nationality": "USA",
       "status": 0,
@@ -8085,7 +8085,7 @@
     {
       "firstName": "Rickie",
       "lastName": "Fowler",
-      "rank": 33,
+      "rank": 12,
       "place": 60,
       "nationality": "USA",
       "status": 0,
@@ -8180,7 +8180,7 @@
     {
       "firstName": "Jason",
       "lastName": "Day",
-      "rank": 37,
+      "rank": 50,
       "place": 65,
       "nationality": "AUS",
       "status": 0,
@@ -8218,7 +8218,7 @@
     {
       "firstName": "Keith",
       "lastName": "Mitchell",
-      "rank": 49,
+      "rank": 54,
       "place": 65,
       "nationality": "USA",
       "status": 0,
@@ -8389,7 +8389,7 @@
     {
       "firstName": "Alex",
       "lastName": "Fitzpatrick",
-      "rank": 94,
+      "rank": 48,
       "place": 75,
       "nationality": "ENG",
       "status": 0,
@@ -8522,7 +8522,7 @@
     {
       "firstName": "Akshay",
       "lastName": "Bhatia",
-      "rank": 19,
+      "rank": 27,
       "nationality": "USA",
       "status": 1,
       "score": 5,
@@ -8558,7 +8558,7 @@
     {
       "firstName": "Wyndham",
       "lastName": "Clark",
-      "rank": 98,
+      "rank": 66,
       "nationality": "USA",
       "status": 1,
       "score": 5,
@@ -8594,7 +8594,7 @@
     {
       "firstName": "Tommy",
       "lastName": "Fleetwood",
-      "rank": 5,
+      "rank": 7,
       "nationality": "ENG",
       "status": 1,
       "score": 5,
@@ -8648,7 +8648,7 @@
     {
       "firstName": "Sungjae",
       "lastName": "Im",
-      "rank": 113,
+      "rank": 105,
       "nationality": "KOR",
       "status": 1,
       "score": 5,
@@ -8684,7 +8684,7 @@
     {
       "firstName": "Robert",
       "lastName": "MacIntyre",
-      "rank": 8,
+      "rank": 17,
       "nationality": "SCO",
       "status": 1,
       "score": 5,
@@ -8774,7 +8774,7 @@
     {
       "firstName": "Keegan",
       "lastName": "Bradley",
-      "rank": 45,
+      "rank": 36,
       "nationality": "USA",
       "status": 1,
       "score": 6,
@@ -8864,7 +8864,7 @@
     {
       "firstName": "Tyrrell",
       "lastName": "Hatton",
-      "rank": 67,
+      "rank": 46,
       "nationality": "ENG",
       "status": 1,
       "score": 6,
@@ -8882,7 +8882,7 @@
     {
       "firstName": "Viktor",
       "lastName": "Hovland",
-      "rank": 22,
+      "rank": 24,
       "nationality": "NOR",
       "status": 1,
       "score": 6,
@@ -8990,7 +8990,7 @@
     {
       "firstName": "J.J.",
       "lastName": "Spaun",
-      "rank": 23,
+      "rank": 15,
       "nationality": "USA",
       "status": 1,
       "score": 6,
@@ -9008,7 +9008,7 @@
     {
       "firstName": "Sepp",
       "lastName": "Straka",
-      "rank": 32,
+      "rank": 39,
       "nationality": "AUT",
       "status": 1,
       "score": 6,
@@ -9026,7 +9026,7 @@
     {
       "firstName": "Gary",
       "lastName": "Woodland",
-      "rank": 77,
+      "rank": 51,
       "nationality": "USA",
       "status": 1,
       "score": 6,
@@ -9062,7 +9062,7 @@
     {
       "firstName": "Bryson",
       "lastName": "DeChambeau",
-      "rank": 11,
+      "rank": 13,
       "nationality": "USA",
       "status": 1,
       "score": 7,
@@ -9170,7 +9170,7 @@
     {
       "firstName": "Jacob",
       "lastName": "Bridgeman",
-      "rank": 17,
+      "rank": 41,
       "nationality": "USA",
       "status": 1,
       "score": 8,
@@ -9278,7 +9278,7 @@
     {
       "firstName": "Adam",
       "lastName": "Scott",
-      "rank": 30,
+      "rank": 19,
       "nationality": "AUS",
       "status": 1,
       "score": 8,
@@ -9440,7 +9440,7 @@
     {
       "firstName": "Matt",
       "lastName": "McCarty",
-      "rank": 72,
+      "rank": 42,
       "nationality": "USA",
       "status": 1,
       "score": 11,
@@ -9530,7 +9530,7 @@
     {
       "firstName": "Max",
       "lastName": "Homa",
-      "rank": 116,
+      "rank": 90,
       "nationality": "USA",
       "status": 1,
       "score": 12,

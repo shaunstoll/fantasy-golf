@@ -145,10 +145,16 @@ export default class ScoringService {
     rankings: Record<string, Ranking>,
   ): LeaderboardPlayer[] {
     const ownershipCounts = new Map<string, number>();
+    // A rostered player's rank comes from the roster — the per-tournament
+    // snapshot the teams were drafted with, and the same source getStandings
+    // uses. The `rankings` map is only a fallback for unrostered field players,
+    // so a rostered player's leaderboard rank can never drift from standings.
+    const rosterRank = new Map<string, number>();
     for (const team of teams) {
       for (const player of team.players) {
         const key = `${player.firstName} ${player.lastName}`;
         ownershipCounts.set(key, (ownershipCounts.get(key) ?? 0) + 1);
+        rosterRank.set(key, player.rank);
       }
     }
 
@@ -158,7 +164,7 @@ export default class ScoringService {
     // only ever iterates rostered players.
     let lowestRankedInTop25 = 0;
     for (const [name, entry] of Object.entries(tournament.leaderboard)) {
-      const rank = rankings[name]?.rank;
+      const rank = rosterRank.get(name) ?? rankings[name]?.rank;
       const isOwned = (ownershipCounts.get(name) ?? 0) > 0;
       if (isOwned && rank && entry.place && entry.place <= 25 && rank > lowestRankedInTop25) {
         lowestRankedInTop25 = rank;
@@ -169,7 +175,7 @@ export default class ScoringService {
     const leaderboard: LeaderboardPlayer[] = [];
 
     for (const [name, p] of Object.entries(tournament.leaderboard)) {
-      const rank = rankings[name]?.rank ?? 0;
+      const rank = rosterRank.get(name) ?? rankings[name]?.rank ?? 0;
 
       let placementPoints = 0;
       let rankingBonus = 0;
