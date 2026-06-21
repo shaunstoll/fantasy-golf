@@ -95,12 +95,14 @@ export default function RosterTotal({ tournamentRosters }: Props) {
           className="flex items-center gap-1 bg-white p-1 pr-2 dark:bg-gray-800"
         >
           <div className="flex min-w-0 flex-1 items-center gap-1">
-            <Image
-              src={`https://datagolf.com/static/flags/${flagCode(s.nationality)}.png`}
-              alt={s.nationality}
-              width={20}
-              height={20}
-            />
+            <div className="flex w-9 shrink-0 flex-col items-center">
+              <Image
+                src={`https://datagolf.com/static/flags/${flagCode(s.nationality)}.png`}
+                alt={s.nationality}
+                width={20}
+                height={20}
+              />
+            </div>
             <div className="min-w-0">
               <p className="truncate text-sm">{s.firstName}</p>
               <p className="truncate">{s.lastName}</p>
