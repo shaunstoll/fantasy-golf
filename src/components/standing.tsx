@@ -72,9 +72,20 @@ export default function Standing({
   );
 
   // The badge for the active sort (a major, or Total) stays solid; the rest fade
-  // back so it's clear which column the list is ranked by.
+  // back so it's clear which column the list is ranked by. The active filter's
+  // earned bonuses sit inline just before the score badges, the way a player's
+  // bonuses precede their attribute cluster.
   const scoreCluster = (
     <div className="flex shrink-0 items-center gap-1">
+      {bonusDots.length > 0 && (
+        <div data-testid="team-bonuses" className="flex items-center gap-1 pr-1">
+          {bonusDots.map((d) => (
+            <span key={d.key} title={d.label} className={`text-sm font-bold ${d.colorClass}`}>
+              {d.letter}
+            </span>
+          ))}
+        </div>
+      )}
       {tournaments.map((t) => (
         <Attribute
           key={t.name}
@@ -126,19 +137,6 @@ export default function Standing({
             {rankBadge}
             <div className="min-w-0">
               <p className="truncate">{standing.name}</p>
-              {bonusDots.length > 0 && (
-                <div data-testid="team-bonuses" className="mt-1 flex items-center gap-1">
-                  {bonusDots.map((d) => (
-                    <span
-                      key={d.key}
-                      title={d.label}
-                      className={`text-sm font-bold ${d.colorClass}`}
-                    >
-                      {d.letter}
-                    </span>
-                  ))}
-                </div>
-              )}
             </div>
           </div>
           {scoreCluster}
