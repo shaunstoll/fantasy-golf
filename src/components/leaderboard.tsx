@@ -5,7 +5,7 @@ import { Fragment } from "react";
 import Button from "@/components/button";
 import Footer from "@/components/footer";
 import Player, { PlayerColumnsHeader } from "@/components/player";
-import StandingsSkeleton from "@/components/loaders/standings.skeleton";
+import LeaderboardSkeleton from "@/components/loaders/leaderboard.skeleton";
 import SearchBar from "@/components/search-bar";
 import type { LeaderboardPlayer } from "@/interfaces/leaderboard-player.interface";
 import { api } from "@/trpc/react";
@@ -62,7 +62,7 @@ export default function Leaderboard({
   if (leaderboardQuery.error)
     return <main className="p-4 text-center">Error loading leaderboard</main>;
 
-  if (leaderboardQuery.isLoading) return <StandingsSkeleton />;
+  if (leaderboardQuery.isLoading) return <LeaderboardSkeleton />;
 
   if (!leaderboardQuery.data) return <main className="p-4 text-center">No leaderboard data</main>;
 
