@@ -25,7 +25,7 @@ export default function StandingsSkeleton() {
         <div
           className={`
             flex flex-col items-center justify-center self-stretch rounded-l
-            bg-white p-2
+            bg-white px-1 py-2
             dark:bg-gray-800
           `}
         >
@@ -49,7 +49,7 @@ export default function StandingsSkeleton() {
           <div
             className={`
               flex h-16 flex-col items-center justify-center gap-1 rounded-l
-              bg-white p-2 shadow
+              bg-white px-1 py-2 shadow
               dark:bg-gray-800
             `}
           >

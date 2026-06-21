@@ -73,7 +73,7 @@ function TeamColumnsHeader({
       <div
         className={`
           flex shrink-0 flex-col items-center justify-center self-stretch
-          rounded-l bg-white p-2
+          rounded-l bg-white px-1 py-2
           dark:bg-gray-800
         `}
       >
