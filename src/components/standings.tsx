@@ -73,11 +73,11 @@ function TeamColumnsHeader({
       <div
         className={`
           flex shrink-0 flex-col items-center justify-center self-stretch
-          rounded-l bg-white px-1 py-2
+          rounded-l bg-white p-2
           dark:bg-gray-800
         `}
       >
-        <span className="w-9 text-center">Rank</span>
+        <span className="w-7 text-center">Rank</span>
       </div>
       <div
         className={`

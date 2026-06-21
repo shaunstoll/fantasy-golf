@@ -118,7 +118,7 @@ export default function Standing({
         <Button
           className={`
             flex shrink-0 flex-col items-center justify-center gap-0.5 rounded-l
-            bg-white px-1 py-2 shadow
+            bg-white p-2 shadow
             dark:bg-gray-800
           `}
           onClick={(e) => {
@@ -131,7 +131,7 @@ export default function Standing({
             className="size-4 text-amber-400"
             fill={favoriteTeams.includes(standing.name) ? "currentColor" : "none"}
           />
-          <p className="w-9 rounded text-center text-sm font-bold">{rankText}</p>
+          <p className="w-7 rounded text-center text-sm font-bold">{rankText}</p>
         </Button>
         <Button
           className={`
