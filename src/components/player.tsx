@@ -164,19 +164,19 @@ export default function Player({ player }: { player: PlayerType }) {
           ))}
           <Attribute
             hideLabel
-            valueClassName="bg-gray-200 text-black"
+            valueClassName="bg-gray-200 text-black dark:bg-gray-600 dark:text-white"
             label="Rank"
             value={player.rank > 0 ? `#${player.rank}` : "-"}
           />
           <Attribute
             hideLabel
-            valueClassName="bg-blue-200 text-blue-800"
+            valueClassName="bg-blue-200 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
             label="Owned"
             value={`${player.ownedCount}/${player.ownedTotal}`}
           />
           <Attribute
             hideLabel
-            valueClassName="bg-gray-200 text-black"
+            valueClassName="bg-gray-200 text-black dark:bg-gray-600 dark:text-white"
             label="Thru"
             value={player.thru}
           />
@@ -190,7 +190,7 @@ export default function Player({ player }: { player: PlayerType }) {
           />
           <Attribute
             hideLabel
-            valueClassName="bg-gray-600 text-white"
+            valueClassName="bg-gray-600 text-white dark:bg-gray-200 dark:text-black"
             label="Points"
             value={player.fantasyScore}
           />
