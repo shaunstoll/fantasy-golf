@@ -68,7 +68,7 @@ function TeamColumnsHeader({
   );
 
   return (
-    <div className="flex items-center text-xs font-semibold text-gray-500 dark:text-gray-400">
+    <div className="flex items-center text-[10px] font-semibold text-gray-500 dark:text-gray-400">
       {/* Rank column, sitting over the favorite-star button where the rank now lives. */}
       <div
         className={`
