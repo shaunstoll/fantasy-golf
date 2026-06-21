@@ -89,12 +89,14 @@ describe("Home Component", () => {
     expect(screen.getAllByText("2×").length).toBeGreaterThan(0);
   });
 
-  it("should render tournament filter buttons on standings tab", () => {
+  it("should render the column sort headers on the standings tab", () => {
     render(<Home />);
+    // The sort control lives in the column header now, so each major/Total
+    // column is a button labelled by its compact badge ("US" for US Open).
     expect(screen.getByRole("button", { name: "Total" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Masters" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "PGA" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "US Open" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "US" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Open" })).toBeInTheDocument();
   });
 

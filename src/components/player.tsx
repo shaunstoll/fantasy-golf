@@ -4,21 +4,45 @@ import { Fragment, useState } from "react";
 
 import Attribute from "@/components/attribute";
 import Button from "@/components/button";
+import type { SortDir, SortKey } from "@/components/leaderboard";
 import { earnedBonuses } from "@/config/bonuses";
 import type { Player as PlayerType } from "@/interfaces/player.interface";
 import { flagCode } from "@/utils/nationality.utils";
 import { formatPlace } from "@/utils/player.utils";
 
-// Column titles for the player rows, shared by the header and kept in sync with
-// the Attribute order in the row below. Rendered once at the top of a list
-// (roster / leaderboard) so individual rows don't repeat the labels.
-const PLAYER_COLUMNS = ["Rank", "Owned", "Thru", "Score", "Points"];
+// Column titles for the player rows, kept in sync with the Attribute order in
+// the row below. `sortKey` marks the columns the leaderboard can sort by; Thru
+// has none. Rendered once at the top of a list so rows don't repeat the labels.
+const PLAYER_COLUMNS: { label: string; sortKey?: SortKey }[] = [
+  { label: "Rank", sortKey: "rank" },
+  { label: "Owned", sortKey: "owned" },
+  { label: "Thru" },
+  { label: "Score", sortKey: "score" },
+  { label: "Points", sortKey: "points" },
+];
+
+interface PlayerColumnsHeaderProps {
+  // Left-region content (defaults to a "Player" label). The leaderboard passes
+  // its "Hide Unowned" toggle here.
+  children?: React.ReactNode;
+  // When provided, the matching columns become the sort control: tapping a
+  // column sorts by it and the active one shows a direction caret. Omitted for
+  // the roster, where the columns are plain titles.
+  sortKey?: SortKey;
+  sortDir?: SortDir;
+  onSort?: (key: SortKey) => void;
+}
 
 /**
  * Header row that titles the player columns, aligned with the right-hand
  * Attribute cluster in each Player row (same fixed widths, gaps and padding).
  */
-export function PlayerColumnsHeader() {
+export function PlayerColumnsHeader({
+  children,
+  sortKey,
+  sortDir,
+  onSort,
+}: PlayerColumnsHeaderProps) {
   return (
     <div
       className={`
@@ -27,13 +51,40 @@ export function PlayerColumnsHeader() {
         dark:bg-gray-800 dark:text-gray-400
       `}
     >
-      <span className="min-w-0 flex-1 truncate pl-1">Player</span>
+      <div className="flex min-w-0 flex-1 flex-wrap items-center gap-1 pl-1">
+        {children ?? <span className="truncate">Player</span>}
+      </div>
       <div className="flex shrink-0 items-center gap-1.5">
-        {PLAYER_COLUMNS.map((column) => (
-          <span key={column} className="w-10 text-center">
-            {column}
-          </span>
-        ))}
+        {PLAYER_COLUMNS.map((column) => {
+          if (!onSort || !column.sortKey) {
+            return (
+              <span key={column.label} className="w-10 text-center">
+                {column.label}
+              </span>
+            );
+          }
+          const isActive = sortKey === column.sortKey;
+          return (
+            <Button
+              key={column.label}
+              onClick={() => onSort(column.sortKey!)}
+              aria-pressed={isActive}
+              className={`
+                flex w-10 flex-col items-center rounded leading-tight
+                ${
+                  isActive
+                    ? "bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
+                    : "text-gray-500 dark:text-gray-400"
+                }
+              `}
+            >
+              <span>{column.label}</span>
+              {isActive && (
+                <span className="text-[10px] leading-none">{sortDir === "asc" ? "▲" : "▼"}</span>
+              )}
+            </Button>
+          );
+        })}
       </div>
     </div>
   );
