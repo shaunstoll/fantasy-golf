@@ -52,8 +52,14 @@ describe("Home Component", () => {
     render(<Home />);
     const totalButton = screen.getByRole("button", { name: "Total" });
     await userEvent.click(totalButton);
-    expect(screen.getByText(resultsStandings[0].name)).toBeInTheDocument();
-    expect(screen.getByText(resultsStandings[1].name)).toBeInTheDocument();
+    // Team names render split across two lines, so match the row by its button
+    // (the aria-label keeps the full name) rather than a single text node.
+    expect(
+      screen.getByRole("button", { name: `team ${resultsStandings[0].name}` }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: `team ${resultsStandings[1].name}` }),
+    ).toBeInTheDocument();
   });
 
   it("opens a team to the Total pick breakdown by default when sorted by Total", async () => {

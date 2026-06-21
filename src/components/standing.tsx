@@ -49,10 +49,16 @@ export default function Standing({
     setSelectedView(activeTab);
   }, [activeTab]);
 
-  // Bonus dots shown under the team name reflect the active major filter; Total
-  // shows none. Colors and labels come from the shared bonus config.
+  // Bonus dots reflect the active major filter; Total shows none. Colors and
+  // labels come from the shared bonus config.
   const activeBonuses = activeTab === "total" ? undefined : tournamentBonuses[activeTab];
   const bonusDots = activeBonuses ? earnedBonuses(activeBonuses) : [];
+
+  // Split the team name into a small top line + a larger bottom line, mirroring
+  // how player names render (first name over surname). The first word goes on
+  // top; everything after it (incl. "& Partner") drops to the larger line.
+  const [nameTop, ...nameRest] = standing.name.split(" ");
+  const nameBottom = nameRest.join(" ");
 
   const rankBadge = (
     <Attribute
@@ -135,8 +141,15 @@ export default function Standing({
         >
           <div className="flex min-w-0 items-center gap-3 overflow-hidden pr-1">
             {rankBadge}
-            <div className="min-w-0">
-              <p className="truncate">{standing.name}</p>
+            <div className="min-w-0 leading-tight">
+              {nameBottom ? (
+                <>
+                  <p className="truncate text-sm">{nameTop}</p>
+                  <p className="truncate">{nameBottom}</p>
+                </>
+              ) : (
+                <p className="truncate">{nameTop}</p>
+              )}
             </div>
           </div>
           {scoreCluster}
