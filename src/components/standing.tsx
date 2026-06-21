@@ -94,6 +94,7 @@ export default function Standing({
         <Attribute
           key={t.name}
           hideLabel
+          widthClassName="w-11"
           focused={activeTab === t.name}
           valueClassName={t.badgeColor}
           label={t.badgeLabel}
@@ -102,8 +103,9 @@ export default function Standing({
       ))}
       <Attribute
         hideLabel
+        widthClassName="w-11"
         focused={activeTab === "total"}
-        valueClassName="bg-gray-700 text-white"
+        valueClassName="bg-gray-600 text-white"
         label="Total"
         value={standing.score}
       />

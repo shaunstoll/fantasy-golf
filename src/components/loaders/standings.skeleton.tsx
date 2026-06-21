@@ -38,7 +38,7 @@ export default function StandingsSkeleton() {
           `}
         >
           {Array.from({ length: 5 }).map((_, index) => (
-            <div key={index} className={`h-3 w-10 rounded-full ${shimmer}`} />
+            <div key={index} className={`h-3 w-11 rounded-full ${shimmer}`} />
           ))}
         </div>
       </div>
@@ -69,7 +69,7 @@ export default function StandingsSkeleton() {
             </div>
             <div className="flex shrink-0 items-center gap-1">
               {Array.from({ length: 5 }).map((_, box) => (
-                <div key={box} className={`h-9 w-10 rounded ${shimmer}`} />
+                <div key={box} className={`h-9 w-11 rounded ${shimmer}`} />
               ))}
             </div>
           </div>

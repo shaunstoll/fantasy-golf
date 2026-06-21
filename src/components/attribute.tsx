@@ -10,6 +10,7 @@ export default function Attribute({
   value,
   focused,
   hideLabel,
+  widthClassName = "w-10",
 }: {
   className?: string;
   labelClassName?: string;
@@ -23,6 +24,9 @@ export default function Attribute({
   // titles the columns (teams, roster/leaderboard players). The native `title`
   // tooltip is kept for hover accessibility.
   hideLabel?: boolean;
+  // Width of the value box. Defaults to w-10; teams use a touch wider so the
+  // longer header labels (e.g. "Masters") fit their column at text-xs.
+  widthClassName?: string;
 }) {
   const [showLabel, setShowLabel] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -75,7 +79,7 @@ export default function Attribute({
           above stays at full strength so you can still read what it is. */}
       <p
         className={`
-          w-10 rounded p-1 text-center text-sm font-bold
+          ${widthClassName} rounded p-1 text-center text-sm font-bold
           ${focused === false ? "opacity-40" : ""}
           ${valueClassName}
         `}

@@ -55,7 +55,7 @@ function TeamColumnsHeader({
       onClick={() => onTournamentChange(key)}
       aria-pressed={tournament === key}
       className={`
-        w-10 rounded py-1.5 text-center
+        w-11 rounded py-1.5 text-center
         ${
           tournament === key
             ? "bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
@@ -68,7 +68,7 @@ function TeamColumnsHeader({
   );
 
   return (
-    <div className="flex items-center text-[10px] font-semibold text-gray-500 dark:text-gray-400">
+    <div className="flex items-center text-xs font-semibold text-gray-500 dark:text-gray-400">
       {/* Rank column, sitting over the favorite-star button where the rank now lives. */}
       <div
         className={`
