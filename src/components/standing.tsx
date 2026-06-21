@@ -27,26 +27,6 @@ interface Props {
   liveRound: number;
 }
 
-/**
- * Picks which major's roster to show first when a team is tapped in the Total view.
- *
- * The "obvious" default is the live/current major, but early in a major's week
- * (or for a team that didn't enter one) that roster can be empty. So we honor
- * the current major when the team has a roster there; otherwise we walk backward
- * through the chronological order to the most recent major they actually fielded
- * a roster for, so the first tap never opens to an empty list.
- */
-function getDefaultMajor(rosters: Record<TournamentName, Player[]>): TournamentName {
-  const current = getCurrentTournament();
-  if (rosters[current]?.length) return current;
-
-  const order = tournaments.map((t) => t.name);
-  for (let i = order.indexOf(current) - 1; i >= 0; i--) {
-    if (rosters[order[i]]?.length) return order[i];
-  }
-  return current;
-}
-
 export default function Standing({
   standing,
   tournamentScores,
@@ -59,18 +39,14 @@ export default function Standing({
   const [isOpen, setIsOpen] = useState(false);
   const [playersRef] = useAutoAnimate();
 
-  // Default the in-roster view to whatever the page is sorted by; the Total tab
-  // has no single major, so fall back to the smart "most recent roster" pick.
-  // The selector can also switch to "total" for the season-long pick breakdown.
-  const defaultView = (): StandingsTab =>
-    activeTab === "total" ? getDefaultMajor(tournamentRosters) : activeTab;
-  const [selectedView, setSelectedView] = useState<StandingsTab>(defaultView);
+  // Open the roster to whatever the page is sorted by: a single major, or the
+  // season-long Total pick breakdown when the page is sorted by Total.
+  const [selectedView, setSelectedView] = useState<StandingsTab>(activeTab);
 
   // Re-sync the default whenever the top filter changes. Keyed only on activeTab
   // so the 5s live refetch never clobbers a manual in-roster selection.
   useEffect(() => {
-    setSelectedView(defaultView());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    setSelectedView(activeTab);
   }, [activeTab]);
 
   // Bonus dots shown under the team name reflect the active major filter; Total

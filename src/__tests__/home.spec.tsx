@@ -56,7 +56,7 @@ describe("Home Component", () => {
     expect(screen.getByText(resultsStandings[1].name)).toBeInTheDocument();
   });
 
-  it("should open the roster with major selectors when tapping a team in total view", async () => {
+  it("opens a team to the Total pick breakdown by default when sorted by Total", async () => {
     render(<Home />);
     await userEvent.click(screen.getByRole("button", { name: "Total" }));
 
@@ -65,25 +65,23 @@ describe("Home Component", () => {
 
     await userEvent.click(screen.getByRole("button", { name: `team ${resultsStandings[0].name}` }));
 
-    // Expanding adds a second "Masters" control: the in-roster major selector.
+    // Expanding adds the in-roster selector (a second Masters control)...
     expect(screen.getAllByRole("button", { name: "Masters" })).toHaveLength(2);
-    // The roster for the default major is shown.
-    expect(screen.getByText(standingsMock[0].players[0].lastName)).toBeInTheDocument();
+    // ...and, because the page is sorted by Total, opens straight to the
+    // season-long pick breakdown rather than a single major's roster.
+    expect(screen.getByText(/\d+ players/)).toBeInTheDocument();
 
-    // Switching majors via the in-roster selector keeps the roster open.
+    // Switching to a major via the in-roster selector shows that major's roster.
     const mastersSelector = screen.getAllByRole("button", { name: "Masters" })[1];
     await userEvent.click(mastersSelector);
+    expect(screen.queryByText(/\d+ players/)).not.toBeInTheDocument();
     expect(screen.getByText(resultsStandings[0].players[0].lastName)).toBeInTheDocument();
   });
 
-  it("should show the season-long Total pick breakdown via the in-roster selector", async () => {
+  it("should show the season-long Total pick breakdown with captain multipliers", async () => {
     render(<Home />);
     await userEvent.click(screen.getByRole("button", { name: "Total" }));
     await userEvent.click(screen.getByRole("button", { name: `team ${resultsStandings[0].name}` }));
-
-    // Expanding adds a second "Total" control: the in-roster view selector.
-    const inRosterTotal = screen.getAllByRole("button", { name: "Total" })[1];
-    await userEvent.click(inRosterTotal);
 
     // The breakdown header counts the unique players the team picked...
     expect(screen.getByText(/\d+ players/)).toBeInTheDocument();
