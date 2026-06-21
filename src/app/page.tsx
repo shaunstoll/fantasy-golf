@@ -12,6 +12,7 @@ import type { Tab } from "@/components/nav-bar";
 import Standings from "@/components/standings";
 import type { StandingsTab } from "@/components/standings";
 import { getCurrentTournament } from "@/config/tournaments";
+import type { TournamentName } from "@/enums/tournament.enum";
 import { useSessionState } from "@/hooks/use-session-state";
 
 export default function Home() {
@@ -38,6 +39,10 @@ export default function Home() {
   const [leaderboardHideUnowned, setLeaderboardHideUnowned] = useSessionState(
     "fg.leaderboard.hideUnowned",
     false,
+  );
+  const [leaderboardTournament, setLeaderboardTournament] = useSessionState<TournamentName>(
+    "fg.leaderboard.tournament",
+    getCurrentTournament(),
   );
 
   useLayoutEffect(() => {
@@ -69,6 +74,8 @@ export default function Home() {
           setSortDir={setLeaderboardSortDir}
           hideUnowned={leaderboardHideUnowned}
           setHideUnowned={setLeaderboardHideUnowned}
+          tournament={leaderboardTournament}
+          onTournamentChange={setLeaderboardTournament}
         />
       )}
       <NavBar activeTab={activeTab} setActiveTab={handleTabChange} />

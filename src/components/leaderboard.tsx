@@ -7,6 +7,8 @@ import Footer from "@/components/footer";
 import Player, { PlayerColumnsHeader } from "@/components/player";
 import LeaderboardSkeleton from "@/components/loaders/leaderboard.skeleton";
 import SearchBar from "@/components/search-bar";
+import { getCurrentTournament, getTournamentConfig, tournaments } from "@/config/tournaments";
+import type { TournamentName } from "@/enums/tournament.enum";
 import type { LeaderboardPlayer } from "@/interfaces/leaderboard-player.interface";
 import { api } from "@/trpc/react";
 import { leaderboardPlayerToPlayer } from "@/utils/player.utils";
@@ -43,6 +45,8 @@ interface Props {
   setSortDir: (d: SortDir) => void;
   hideUnowned: boolean;
   setHideUnowned: (h: boolean) => void;
+  tournament: TournamentName;
+  onTournamentChange: (t: TournamentName) => void;
 }
 
 export default function Leaderboard({
@@ -54,19 +58,36 @@ export default function Leaderboard({
   setSortDir,
   hideUnowned,
   setHideUnowned,
+  tournament,
+  onTournamentChange,
 }: Props) {
-  const leaderboardQuery = api.tournament.leaderboard.useQuery(undefined, {
+  // The current major streams live (5s polling); past majors come from their
+  // frozen results. Either source is a LeaderboardPlayer[].
+  const live = getCurrentTournament();
+  const isLive = tournament === live;
+
+  const liveQuery = api.tournament.leaderboard.useQuery(undefined, {
     refetchInterval: 5000,
   });
+  const resultsQueries = tournaments.map((t) =>
+    api.tournament.results.useQuery({ tournament: t.name }, { enabled: t.name !== live }),
+  );
+  const selectedResultsQuery = resultsQueries[tournaments.findIndex((t) => t.name === tournament)];
 
-  if (leaderboardQuery.error)
-    return <main className="p-4 text-center">Error loading leaderboard</main>;
+  const activeQuery = isLive ? liveQuery : selectedResultsQuery;
 
-  if (leaderboardQuery.isLoading) return <LeaderboardSkeleton />;
+  if (activeQuery.error) return <main className="p-4 text-center">Error loading leaderboard</main>;
 
-  if (!leaderboardQuery.data) return <main className="p-4 text-center">No leaderboard data</main>;
+  if (activeQuery.isLoading) return <LeaderboardSkeleton />;
 
-  const { players, cutLine, round } = leaderboardQuery.data;
+  const players: LeaderboardPlayer[] = isLive
+    ? (liveQuery.data?.players ?? [])
+    : (selectedResultsQuery.data?.leaderboard ?? []);
+  // Frozen majors are final (round 4); the live cut line comes from the query.
+  const cutLine = isLive
+    ? (liveQuery.data?.cutLine ?? getTournamentConfig(tournament).cutLine)
+    : getTournamentConfig(tournament).cutLine;
+  const round = isLive ? (liveQuery.data?.round ?? 4) : 4;
 
   const query = search.toLowerCase();
   const filtered = players.filter((p: LeaderboardPlayer) => {
@@ -102,6 +123,25 @@ export default function Leaderboard({
   return (
     <>
       <SearchBar value={search} onChange={onSearchChange} placeholder="Search players..." />
+
+      <div className="flex gap-1">
+        {tournaments.map((t) => (
+          <Button
+            key={t.name}
+            className={`
+              rounded-full px-3 py-1.5 text-sm font-medium
+              ${
+                tournament === t.name
+                  ? "bg-white text-black dark:bg-gray-700 dark:text-white"
+                  : "text-gray-500 dark:text-gray-400"
+              }
+            `}
+            onClick={() => onTournamentChange(t.name)}
+          >
+            {t.sortLabel}
+          </Button>
+        ))}
+      </div>
 
       <main className="flex flex-col gap-1 pb-20">
         <PlayerColumnsHeader sortKey={sortKey} sortDir={sortDir} onSort={handleSortClick}>
