@@ -103,7 +103,7 @@ export default function Standing({
       <Attribute
         hideLabel
         focused={activeTab === "total"}
-        valueClassName="bg-gray-200 text-black"
+        valueClassName="bg-gray-700 text-white"
         label="Total"
         value={standing.score}
       />
