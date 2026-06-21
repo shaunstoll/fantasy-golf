@@ -55,7 +55,7 @@ function TeamColumnsHeader({
       onClick={() => onTournamentChange(key)}
       aria-pressed={tournament === key}
       className={`
-        w-10 rounded py-0.5 text-center
+        w-12 rounded py-1.5 text-center
         ${
           tournament === key
             ? "bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
@@ -78,7 +78,7 @@ function TeamColumnsHeader({
         `}
       >
         <div className="flex min-w-0 items-center gap-3 pr-1">
-          <span className="w-10 text-center">Rank</span>
+          <span className="w-12 text-center">Rank</span>
         </div>
         <div className="flex shrink-0 items-center gap-1">
           {tournaments.map((t) => sortCell(t.name, t.badgeLabel))}

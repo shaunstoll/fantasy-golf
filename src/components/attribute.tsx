@@ -75,7 +75,7 @@ export default function Attribute({
           above stays at full strength so you can still read what it is. */}
       <p
         className={`
-          w-10 rounded p-1 text-center text-sm font-bold
+          w-12 rounded p-1 text-center text-sm font-bold
           ${focused === false ? "opacity-40" : ""}
           ${valueClassName}
         `}

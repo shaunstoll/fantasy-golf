@@ -141,7 +141,7 @@ export default function Standing({
         >
           <div className="flex min-w-0 items-center gap-3 overflow-hidden pr-1">
             {rankBadge}
-            <div className="min-w-0 leading-tight">
+            <div className="min-w-0 text-left leading-tight">
               {nameBottom ? (
                 <>
                   <p className="truncate text-sm">{nameTop}</p>
