@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Attribute from "@/components/attribute";
 import Button from "@/components/button";
 import Roster from "@/components/roster";
+import RosterTotal from "@/components/roster-total";
 import { earnedBonuses, type BonusFlags } from "@/config/bonuses";
 import {
   getCurrentTournament,
@@ -26,26 +27,6 @@ interface Props {
   liveRound: number;
 }
 
-/**
- * Picks which major's roster to show first when a team is tapped in the Total view.
- *
- * The "obvious" default is the live/current major, but early in a major's week
- * (or for a team that didn't enter one) that roster can be empty. So we honor
- * the current major when the team has a roster there; otherwise we walk backward
- * through the chronological order to the most recent major they actually fielded
- * a roster for, so the first tap never opens to an empty list.
- */
-function getDefaultMajor(rosters: Record<TournamentName, Player[]>): TournamentName {
-  const current = getCurrentTournament();
-  if (rosters[current]?.length) return current;
-
-  const order = tournaments.map((t) => t.name);
-  for (let i = order.indexOf(current) - 1; i >= 0; i--) {
-    if (rosters[order[i]]?.length) return order[i];
-  }
-  return current;
-}
-
 export default function Standing({
   standing,
   tournamentScores,
@@ -58,17 +39,14 @@ export default function Standing({
   const [isOpen, setIsOpen] = useState(false);
   const [playersRef] = useAutoAnimate();
 
-  // Default the in-roster selector to whatever the page is sorted by; the Total
-  // tab has no single major, so fall back to the smart "most recent roster" pick.
-  const defaultMajor = (): TournamentName =>
-    activeTab === "total" ? getDefaultMajor(tournamentRosters) : activeTab;
-  const [selectedMajor, setSelectedMajor] = useState<TournamentName>(defaultMajor);
+  // Open the roster to whatever the page is sorted by: a single major, or the
+  // season-long Total pick breakdown when the page is sorted by Total.
+  const [selectedView, setSelectedView] = useState<StandingsTab>(activeTab);
 
   // Re-sync the default whenever the top filter changes. Keyed only on activeTab
   // so the 5s live refetch never clobbers a manual in-roster selection.
   useEffect(() => {
-    setSelectedMajor(defaultMajor());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    setSelectedView(activeTab);
   }, [activeTab]);
 
   // Bonus dots shown under the team name reflect the active major filter; Total
@@ -171,28 +149,45 @@ export default function Standing({
         {isOpen && (
           <div className="flex flex-col gap-px overflow-hidden rounded-b">
             <div className="flex gap-1 bg-white p-2 dark:bg-gray-800">
+              <Button
+                className={`
+                  rounded-full px-3 py-1.5 text-sm font-medium
+                  ${
+                    selectedView === "total"
+                      ? "bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
+                      : "text-gray-500 dark:text-gray-400"
+                  }
+                `}
+                onClick={() => setSelectedView("total")}
+              >
+                Total
+              </Button>
               {tournaments.map((t) => (
                 <Button
                   key={t.name}
                   className={`
                     rounded-full px-3 py-1.5 text-sm font-medium
                     ${
-                      selectedMajor === t.name
+                      selectedView === t.name
                         ? "bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
                         : "text-gray-500 dark:text-gray-400"
                     }
                   `}
-                  onClick={() => setSelectedMajor(t.name)}
+                  onClick={() => setSelectedView(t.name)}
                 >
                   {t.sortLabel}
                 </Button>
               ))}
             </div>
-            <Roster
-              players={tournamentRosters[selectedMajor]}
-              cutLine={getTournamentConfig(selectedMajor).cutLine}
-              round={selectedMajor === getCurrentTournament() ? liveRound : 4}
-            />
+            {selectedView === "total" ? (
+              <RosterTotal tournamentRosters={tournamentRosters} />
+            ) : (
+              <Roster
+                players={tournamentRosters[selectedView]}
+                cutLine={getTournamentConfig(selectedView).cutLine}
+                round={selectedView === getCurrentTournament() ? liveRound : 4}
+              />
+            )}
           </div>
         )}
       </div>
