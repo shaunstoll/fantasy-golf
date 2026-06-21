@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { brackets } from "@/components/roster";
 import { tournaments } from "@/config/tournaments";
 import type { TournamentName } from "@/enums/tournament.enum";
 import type { Player } from "@/interfaces/player.interface";
@@ -59,6 +60,10 @@ export default function RosterTotal({ tournamentRosters }: Props) {
     (a, b) => b.count - a.count || b.totalPoints - a.totalPoints || a.rank - b.rank,
   );
 
+  // Every pick across all four majors, so the rank buckets below are the sum of
+  // each major's roster distribution (a player picked in N majors counts N).
+  const allPicks = tournaments.flatMap((t) => tournamentRosters[t.name] ?? []);
+
   if (summaries.length === 0) {
     return (
       <div className="bg-white p-4 text-center text-sm text-gray-500 dark:bg-gray-800 dark:text-gray-400">
@@ -69,6 +74,22 @@ export default function RosterTotal({ tournamentRosters }: Props) {
 
   return (
     <div className="flex flex-col gap-px overflow-hidden rounded-b">
+      {/* Rank distribution, summed across the four majors (same buckets the
+          individual roster shows). */}
+      <div className="flex justify-around bg-white p-2 dark:bg-gray-800">
+        {brackets.map((bracket) => {
+          const count = allPicks.filter(
+            (p) => p.rank >= bracket.min && p.rank <= bracket.max,
+          ).length;
+          return (
+            <div key={bracket.label} className="flex flex-col items-center">
+              <span className="text-xs text-gray-500 dark:text-gray-400">{bracket.label}</span>
+              <span className="text-sm font-bold">{count}</span>
+            </div>
+          );
+        })}
+      </div>
+
       {/* Header: a column per major (chronological), plus a pick-count column. */}
       <div className="flex items-center gap-1 bg-white px-2 py-1 dark:bg-gray-800">
         <span className="flex-1 text-xs text-gray-500 dark:text-gray-400">

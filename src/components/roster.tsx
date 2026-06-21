@@ -3,7 +3,9 @@ import { Fragment } from "react";
 import Player, { PlayerColumnsHeader } from "@/components/player";
 import type { Player as PlayerType } from "@/interfaces/player.interface";
 
-const brackets = [
+// The rank-distribution buckets shown above a roster. Exported so the Total
+// view can show the same buckets summed across the four majors.
+export const brackets = [
   { label: "1-5", min: 1, max: 5 },
   { label: "6-10", min: 6, max: 10 },
   { label: "11-20", min: 11, max: 20 },
