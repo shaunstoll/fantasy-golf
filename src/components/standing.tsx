@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Attribute from "@/components/attribute";
 import Button from "@/components/button";
 import Roster from "@/components/roster";
+import RosterTotal from "@/components/roster-total";
 import { earnedBonuses, type BonusFlags } from "@/config/bonuses";
 import {
   getCurrentTournament,
@@ -58,16 +59,17 @@ export default function Standing({
   const [isOpen, setIsOpen] = useState(false);
   const [playersRef] = useAutoAnimate();
 
-  // Default the in-roster selector to whatever the page is sorted by; the Total
-  // tab has no single major, so fall back to the smart "most recent roster" pick.
-  const defaultMajor = (): TournamentName =>
+  // Default the in-roster view to whatever the page is sorted by; the Total tab
+  // has no single major, so fall back to the smart "most recent roster" pick.
+  // The selector can also switch to "total" for the season-long pick breakdown.
+  const defaultView = (): StandingsTab =>
     activeTab === "total" ? getDefaultMajor(tournamentRosters) : activeTab;
-  const [selectedMajor, setSelectedMajor] = useState<TournamentName>(defaultMajor);
+  const [selectedView, setSelectedView] = useState<StandingsTab>(defaultView);
 
   // Re-sync the default whenever the top filter changes. Keyed only on activeTab
   // so the 5s live refetch never clobbers a manual in-roster selection.
   useEffect(() => {
-    setSelectedMajor(defaultMajor());
+    setSelectedView(defaultView());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTab]);
 
@@ -171,28 +173,45 @@ export default function Standing({
         {isOpen && (
           <div className="flex flex-col gap-px overflow-hidden rounded-b">
             <div className="flex gap-1 bg-white p-2 dark:bg-gray-800">
+              <Button
+                className={`
+                  rounded-full px-3 py-1.5 text-sm font-medium
+                  ${
+                    selectedView === "total"
+                      ? "bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
+                      : "text-gray-500 dark:text-gray-400"
+                  }
+                `}
+                onClick={() => setSelectedView("total")}
+              >
+                Total
+              </Button>
               {tournaments.map((t) => (
                 <Button
                   key={t.name}
                   className={`
                     rounded-full px-3 py-1.5 text-sm font-medium
                     ${
-                      selectedMajor === t.name
+                      selectedView === t.name
                         ? "bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
                         : "text-gray-500 dark:text-gray-400"
                     }
                   `}
-                  onClick={() => setSelectedMajor(t.name)}
+                  onClick={() => setSelectedView(t.name)}
                 >
                   {t.sortLabel}
                 </Button>
               ))}
             </div>
-            <Roster
-              players={tournamentRosters[selectedMajor]}
-              cutLine={getTournamentConfig(selectedMajor).cutLine}
-              round={selectedMajor === getCurrentTournament() ? liveRound : 4}
-            />
+            {selectedView === "total" ? (
+              <RosterTotal tournamentRosters={tournamentRosters} />
+            ) : (
+              <Roster
+                players={tournamentRosters[selectedView]}
+                cutLine={getTournamentConfig(selectedView).cutLine}
+                round={selectedView === getCurrentTournament() ? liveRound : 4}
+              />
+            )}
           </div>
         )}
       </div>

@@ -76,6 +76,21 @@ describe("Home Component", () => {
     expect(screen.getByText(resultsStandings[0].players[0].lastName)).toBeInTheDocument();
   });
 
+  it("should show the season-long Total pick breakdown via the in-roster selector", async () => {
+    render(<Home />);
+    await userEvent.click(screen.getByRole("button", { name: "Total" }));
+    await userEvent.click(screen.getByRole("button", { name: `team ${resultsStandings[0].name}` }));
+
+    // Expanding adds a second "Total" control: the in-roster view selector.
+    const inRosterTotal = screen.getAllByRole("button", { name: "Total" })[1];
+    await userEvent.click(inRosterTotal);
+
+    // The breakdown header counts the unique players the team picked...
+    expect(screen.getByText(/\d+ players/)).toBeInTheDocument();
+    // ...and surfaces where the team spent its captain multiplier.
+    expect(screen.getAllByText("2×").length).toBeGreaterThan(0);
+  });
+
   it("should render tournament filter buttons on standings tab", () => {
     render(<Home />);
     expect(screen.getByRole("button", { name: "Total" })).toBeInTheDocument();
