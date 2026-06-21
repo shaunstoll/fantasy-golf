@@ -19,11 +19,6 @@ import { api } from "@/trpc/react";
 // Re-exported for consumers (e.g. page.tsx) that import it from here.
 export type { StandingsTab };
 
-const tabOptions: { key: StandingsTab; label: string }[] = [
-  { key: "total", label: "Total" },
-  ...tournaments.map((t) => ({ key: t.name, label: t.sortLabel })),
-];
-
 // Defensive fallbacks for the rare case a team isn't in the aggregate maps.
 const emptyScores = Object.fromEntries(tournaments.map((t) => [t.name, 0])) as Record<
   TournamentName,
@@ -41,11 +36,11 @@ const emptyBonuses = Object.fromEntries(
 ) as Record<TournamentName, BonusFlags>;
 
 /**
- * Header row that titles the team columns, mirroring the team row layout: an
- * empty cell over the favorite-star button, then Rank, each major, and Total —
- * each at the same fixed width as the Attribute value boxes below. The sort
- * pills (Total + each major) live inline on this row in place of a separate
- * filter bar; their active style is gray so it reads against the white header.
+ * Header row for the team columns, mirroring the team row layout: an empty cell
+ * over the favorite-star button, a Rank label, then one cell per major and
+ * Total. Those score cells double as the sort control — tapping a column sorts
+ * the table by it — so there's no separate filter bar. Each cell lines up with
+ * the Attribute value box it titles; the active column is highlighted.
  */
 function TeamColumnsHeader({
   tournament,
@@ -54,6 +49,24 @@ function TeamColumnsHeader({
   tournament: StandingsTab;
   onTournamentChange: (t: StandingsTab) => void;
 }) {
+  const sortCell = (key: StandingsTab, label: string) => (
+    <Button
+      key={key}
+      onClick={() => onTournamentChange(key)}
+      aria-pressed={tournament === key}
+      className={`
+        w-10 rounded py-0.5 text-center
+        ${
+          tournament === key
+            ? "bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
+            : "text-gray-500 dark:text-gray-400"
+        }
+      `}
+    >
+      {label}
+    </Button>
+  );
+
   return (
     <div className="flex items-center text-xs font-semibold text-gray-500 dark:text-gray-400">
       <div className="w-10 shrink-0 self-stretch rounded-l bg-white dark:bg-gray-800" aria-hidden />
@@ -64,34 +77,12 @@ function TeamColumnsHeader({
           dark:bg-gray-800
         `}
       >
-        <div className="flex min-w-0 flex-1 items-center gap-2 pr-1">
-          <span className="w-10 shrink-0 text-center">Rank</span>
-          <div className="flex flex-wrap items-center gap-1">
-            {tabOptions.map((option) => (
-              <Button
-                key={option.key}
-                className={`
-                  rounded-full px-3 py-1.5 text-sm font-medium
-                  ${
-                    tournament === option.key
-                      ? "bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
-                      : "text-gray-500 dark:text-gray-400"
-                  }
-                `}
-                onClick={() => onTournamentChange(option.key)}
-              >
-                {option.label}
-              </Button>
-            ))}
-          </div>
+        <div className="flex min-w-0 items-center gap-3 pr-1">
+          <span className="w-10 text-center">Rank</span>
         </div>
         <div className="flex shrink-0 items-center gap-1">
-          {tournaments.map((t) => (
-            <span key={t.name} className="w-10 text-center">
-              {t.badgeLabel}
-            </span>
-          ))}
-          <span className="w-10 text-center">Total</span>
+          {tournaments.map((t) => sortCell(t.name, t.badgeLabel))}
+          {sortCell("total", "Total")}
         </div>
       </div>
     </div>

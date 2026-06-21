@@ -104,30 +104,10 @@ export default function Leaderboard({
       <SearchBar value={search} onChange={onSearchChange} placeholder="Search players..." />
 
       <main className="flex flex-col gap-1 pb-20">
-        <PlayerColumnsHeader>
-          {sortOptions.map((option) => {
-            const isActive = sortKey === option.key;
-            return (
-              <Button
-                key={option.key}
-                className={`
-                  rounded-full px-3 py-1.5 text-sm font-medium
-                  ${
-                    isActive
-                      ? "bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
-                      : "text-gray-500 dark:text-gray-400"
-                  }
-                `}
-                onClick={() => handleSortClick(option.key)}
-              >
-                {option.label}
-                {isActive && (sortDir === "asc" ? " ↑" : " ↓")}
-              </Button>
-            );
-          })}
+        <PlayerColumnsHeader sortKey={sortKey} sortDir={sortDir} onSort={handleSortClick}>
           <Button
             className={`
-              ml-auto rounded-full px-3 py-1.5 text-sm font-medium
+              rounded-full px-3 py-1 text-sm font-medium
               ${
                 hideUnowned
                   ? "bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
