@@ -43,9 +43,17 @@ const emptyBonuses = Object.fromEntries(
 /**
  * Header row that titles the team columns, mirroring the team row layout: an
  * empty cell over the favorite-star button, then Rank, each major, and Total —
- * each at the same fixed width as the Attribute value boxes below.
+ * each at the same fixed width as the Attribute value boxes below. The sort
+ * pills (Total + each major) live inline on this row in place of a separate
+ * filter bar; their active style is gray so it reads against the white header.
  */
-function TeamColumnsHeader() {
+function TeamColumnsHeader({
+  tournament,
+  onTournamentChange,
+}: {
+  tournament: StandingsTab;
+  onTournamentChange: (t: StandingsTab) => void;
+}) {
   return (
     <div className="flex items-center text-xs font-semibold text-gray-500 dark:text-gray-400">
       <div className="w-10 shrink-0 self-stretch rounded-l bg-white dark:bg-gray-800" aria-hidden />
@@ -56,8 +64,26 @@ function TeamColumnsHeader() {
           dark:bg-gray-800
         `}
       >
-        <div className="flex min-w-0 items-center gap-3 pr-1">
-          <span className="w-10 text-center">Rank</span>
+        <div className="flex min-w-0 flex-1 items-center gap-2 pr-1">
+          <span className="w-10 shrink-0 text-center">Rank</span>
+          <div className="flex flex-wrap items-center gap-1">
+            {tabOptions.map((option) => (
+              <Button
+                key={option.key}
+                className={`
+                  rounded-full px-3 py-1.5 text-sm font-medium
+                  ${
+                    tournament === option.key
+                      ? "bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
+                      : "text-gray-500 dark:text-gray-400"
+                  }
+                `}
+                onClick={() => onTournamentChange(option.key)}
+              >
+                {option.label}
+              </Button>
+            ))}
+          </div>
         </div>
         <div className="flex shrink-0 items-center gap-1">
           {tournaments.map((t) => (
@@ -210,27 +236,8 @@ export default function Standings({
     <>
       <SearchBar value={search} onChange={onSearchChange} placeholder="Search teams..." />
 
-      <div className="flex gap-1">
-        {tabOptions.map((option) => (
-          <Button
-            key={option.key}
-            className={`
-              rounded-full px-3 py-1.5 text-sm font-medium
-              ${
-                tournament === option.key
-                  ? "bg-white text-black dark:bg-gray-700 dark:text-white"
-                  : "text-gray-500 dark:text-gray-400"
-              }
-            `}
-            onClick={() => onTournamentChange(option.key)}
-          >
-            {option.label}
-          </Button>
-        ))}
-      </div>
-
       <main className="flex flex-col gap-1 pb-20" ref={standingsRef}>
-        {filtered.length > 0 && <TeamColumnsHeader />}
+        <TeamColumnsHeader tournament={tournament} onTournamentChange={onTournamentChange} />
         {favoriteStandings.map((standing) => (
           <Standing
             key={standing.name}

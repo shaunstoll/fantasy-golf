@@ -103,44 +103,42 @@ export default function Leaderboard({
     <>
       <SearchBar value={search} onChange={onSearchChange} placeholder="Search players..." />
 
-      <div className="flex items-center gap-1">
-        {sortOptions.map((option) => {
-          const isActive = sortKey === option.key;
-          return (
-            <Button
-              key={option.key}
-              className={`
-                rounded-full px-3 py-1.5 text-sm font-medium
-                ${
-                  isActive
-                    ? "bg-white text-black dark:bg-gray-700 dark:text-white"
-                    : "text-gray-500 dark:text-gray-400"
-                }
-              `}
-              onClick={() => handleSortClick(option.key)}
-            >
-              {option.label}
-              {isActive && (sortDir === "asc" ? " ↑" : " ↓")}
-            </Button>
-          );
-        })}
-        <Button
-          className={`
-            ml-auto rounded-full px-3 py-1.5 text-sm font-medium
-            ${
-              hideUnowned
-                ? "bg-white text-black dark:bg-gray-700 dark:text-white"
-                : "text-gray-500 dark:text-gray-400"
-            }
-          `}
-          onClick={() => setHideUnowned(!hideUnowned)}
-        >
-          Hide Unowned
-        </Button>
-      </div>
-
       <main className="flex flex-col gap-1 pb-20">
-        <PlayerColumnsHeader />
+        <PlayerColumnsHeader>
+          {sortOptions.map((option) => {
+            const isActive = sortKey === option.key;
+            return (
+              <Button
+                key={option.key}
+                className={`
+                  rounded-full px-3 py-1.5 text-sm font-medium
+                  ${
+                    isActive
+                      ? "bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
+                      : "text-gray-500 dark:text-gray-400"
+                  }
+                `}
+                onClick={() => handleSortClick(option.key)}
+              >
+                {option.label}
+                {isActive && (sortDir === "asc" ? " ↑" : " ↓")}
+              </Button>
+            );
+          })}
+          <Button
+            className={`
+              ml-auto rounded-full px-3 py-1.5 text-sm font-medium
+              ${
+                hideUnowned
+                  ? "bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
+                  : "text-gray-500 dark:text-gray-400"
+              }
+            `}
+            onClick={() => setHideUnowned(!hideUnowned)}
+          >
+            Hide Unowned
+          </Button>
+        </PlayerColumnsHeader>
         {sorted.map((player: LeaderboardPlayer, index: number) => (
           <Fragment key={`${player.firstName} ${player.lastName}`}>
             {index === cutInsertIndex && (

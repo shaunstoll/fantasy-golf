@@ -17,8 +17,12 @@ const PLAYER_COLUMNS = ["Rank", "Owned", "Thru", "Score", "Points"];
 /**
  * Header row that titles the player columns, aligned with the right-hand
  * Attribute cluster in each Player row (same fixed widths, gaps and padding).
+ *
+ * The flexible left region defaults to a "Player" label, but a caller can pass
+ * `children` to host controls there instead — e.g. the leaderboard puts its
+ * sort pills on this row in place of a separate filter bar.
  */
-export function PlayerColumnsHeader() {
+export function PlayerColumnsHeader({ children }: { children?: React.ReactNode }) {
   return (
     <div
       className={`
@@ -27,7 +31,9 @@ export function PlayerColumnsHeader() {
         dark:bg-gray-800 dark:text-gray-400
       `}
     >
-      <span className="min-w-0 flex-1 truncate pl-1">Player</span>
+      <div className="flex min-w-0 flex-1 flex-wrap items-center gap-1 pl-1">
+        {children ?? <span className="truncate">Player</span>}
+      </div>
       <div className="flex shrink-0 items-center gap-1.5">
         {PLAYER_COLUMNS.map((column) => (
           <span key={column} className="w-10 text-center">
