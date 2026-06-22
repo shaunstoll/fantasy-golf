@@ -151,28 +151,43 @@ export default function TotalPlayer({
         {isOpen && (
           <div
             data-testid="total-finishes"
-            className={`
-              flex flex-wrap items-center justify-center gap-3 bg-white/80 p-2
-              text-sm
-              dark:bg-gray-800/80
-            `}
+            className="flex flex-col gap-px bg-white/80 py-1 dark:bg-gray-800/80"
           >
+            {/* Column header for the per-major breakdown. */}
+            <div
+              className={`
+                flex items-center justify-between gap-1 px-1 pr-2 text-xs
+                font-semibold text-gray-500
+                dark:text-gray-400
+              `}
+            >
+              <span className="flex-1 pl-1">Major</span>
+              <div className="flex shrink-0 items-center gap-1.5">
+                <span className="w-10 text-center">Finish</span>
+                <span className="w-10 text-center">Points</span>
+              </div>
+            </div>
+            {/* One row per major: name on the left, finish + points on the right. */}
             {majors.map((t) => {
               const finish = entry.finishByMajor[t.name];
               return (
-                <span key={t.name} className="flex items-center gap-1.5">
-                  <span className={`rounded px-1.5 py-0.5 text-xs font-bold ${t.badgeColor}`}>
-                    {t.badgeLabel}
-                  </span>
-                  <span className="font-semibold">
-                    {finish ? (formatPlace(finish) ?? "-") : "—"}
-                  </span>
-                  {finish && (
-                    <span className="rounded bg-gray-600 px-1.5 py-0.5 font-mono text-xs font-bold text-white">
-                      {finish.fantasyScore}
-                    </span>
-                  )}
-                </span>
+                <div key={t.name} className="flex items-center justify-between gap-1 px-1 pr-2">
+                  <span className="flex-1 truncate pl-1 text-sm font-medium">{t.sortLabel}</span>
+                  <div className="flex shrink-0 items-center gap-1.5">
+                    <Attribute
+                      hideLabel
+                      valueClassName="bg-gray-200 text-black dark:bg-gray-600 dark:text-white"
+                      label="Finish"
+                      value={finish ? (formatPlace(finish) ?? "-") : "—"}
+                    />
+                    <Attribute
+                      hideLabel
+                      valueClassName="bg-gray-600 text-white dark:bg-gray-200 dark:text-black"
+                      label="Points"
+                      value={finish ? finish.fantasyScore : "—"}
+                    />
+                  </div>
+                </div>
               );
             })}
           </div>

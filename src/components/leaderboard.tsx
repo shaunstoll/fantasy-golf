@@ -180,19 +180,22 @@ export default function Leaderboard({
       }
     }
 
+    // Total sorts by points or ownership; it defaults to points descending,
+    // ignoring the per-major place/rank sorts that don't apply to a season total.
     const totalKey = sortKey === "owned" ? "owned" : "points";
+    const totalDir: SortDir = sortKey === "owned" || sortKey === "points" ? sortDir : "desc";
     const sortValue = (e: TotalEntry) => (totalKey === "owned" ? e.picks : e.totalPoints);
     const entries = [...byPlayer.values()]
       .filter((e) => matchesSearch(e.firstName, e.lastName) && (!hideUnowned || e.picks > 0))
       .sort((a, b) =>
-        sortDir === "asc" ? sortValue(a) - sortValue(b) : sortValue(b) - sortValue(a),
+        totalDir === "asc" ? sortValue(a) - sortValue(b) : sortValue(b) - sortValue(a),
       );
 
     return (
       <>
         {header}
         <main className="flex flex-col gap-1 pb-20">
-          <TotalColumnsHeader activeKey={totalKey} sortDir={sortDir} onSort={handleSortClick}>
+          <TotalColumnsHeader activeKey={totalKey} sortDir={totalDir} onSort={handleSortClick}>
             {hideUnownedButton}
           </TotalColumnsHeader>
           {entries.map((entry) => (

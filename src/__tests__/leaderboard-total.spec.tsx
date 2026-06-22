@@ -89,10 +89,13 @@ describe("Leaderboard Total view", () => {
     expect(screen.getByText("46")).toBeInTheDocument();
     expect(screen.getByText("85%")).toBeInTheDocument();
 
-    // Clicking the row reveals each major's finish.
+    // Clicking the row reveals a row per major with its finish and points.
     await userEvent.click(screen.getByRole("button", { name: "player Scottie Scheffler" }));
     const finishes = screen.getByTestId("total-finishes");
     expect(within(finishes).getByText("Masters")).toBeInTheDocument();
-    expect(within(finishes).getByText("US")).toBeInTheDocument();
+    expect(within(finishes).getByText("US Open")).toBeInTheDocument();
+    // Per-major points (Masters 32, US Open 14) appear in the breakdown.
+    expect(within(finishes).getByText("32")).toBeInTheDocument();
+    expect(within(finishes).getByText("14")).toBeInTheDocument();
   });
 });
