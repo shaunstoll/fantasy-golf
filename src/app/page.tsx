@@ -46,7 +46,7 @@ export default function Home() {
   );
   const [leaderboardLowBonus, setLeaderboardLowBonus] = useSessionState(
     "fg.leaderboard.lowBonus",
-    true,
+    false,
   );
 
   useLayoutEffect(() => {
