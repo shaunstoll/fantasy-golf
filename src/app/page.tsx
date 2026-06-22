@@ -4,6 +4,7 @@ import { useLayoutEffect, useRef } from "react";
 
 import Leaderboard from "@/components/leaderboard";
 import type {
+  LeaderboardTab,
   SortDir as LeaderboardSortDir,
   SortKey as LeaderboardSortKey,
 } from "@/components/leaderboard";
@@ -12,7 +13,6 @@ import type { Tab } from "@/components/nav-bar";
 import Standings from "@/components/standings";
 import type { StandingsTab } from "@/components/standings";
 import { getCurrentTournament } from "@/config/tournaments";
-import type { TournamentName } from "@/enums/tournament.enum";
 import { useSessionState } from "@/hooks/use-session-state";
 
 export default function Home() {
@@ -40,7 +40,7 @@ export default function Home() {
     "fg.leaderboard.hideUnowned",
     false,
   );
-  const [leaderboardTournament, setLeaderboardTournament] = useSessionState<TournamentName>(
+  const [leaderboardTournament, setLeaderboardTournament] = useSessionState<LeaderboardTab>(
     "fg.leaderboard.tournament",
     getCurrentTournament(),
   );

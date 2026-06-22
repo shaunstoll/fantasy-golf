@@ -7,6 +7,7 @@ import Footer from "@/components/footer";
 import Player, { PlayerColumnsHeader } from "@/components/player";
 import LeaderboardSkeleton from "@/components/loaders/leaderboard.skeleton";
 import SearchBar from "@/components/search-bar";
+import TotalPlayer, { TotalColumnsHeader, type TotalEntry } from "@/components/total-player";
 import { getCurrentTournament, getTournamentConfig, tournaments } from "@/config/tournaments";
 import type { TournamentName } from "@/enums/tournament.enum";
 import type { LeaderboardPlayer } from "@/interfaces/leaderboard-player.interface";
@@ -15,6 +16,9 @@ import { leaderboardPlayerToPlayer } from "@/utils/player.utils";
 
 export type SortKey = "score" | "points" | "rank" | "owned";
 export type SortDir = "asc" | "desc";
+
+/** A leaderboard tab: one major, or the season Total across all majors. */
+export type LeaderboardTab = TournamentName | "total";
 
 const sortOptions: { key: SortKey; label: string; defaultDir: SortDir }[] = [
   { key: "score", label: "Score", defaultDir: "asc" },
@@ -45,8 +49,8 @@ interface Props {
   setSortDir: (d: SortDir) => void;
   hideUnowned: boolean;
   setHideUnowned: (h: boolean) => void;
-  tournament: TournamentName;
-  onTournamentChange: (t: TournamentName) => void;
+  tournament: LeaderboardTab;
+  onTournamentChange: (t: LeaderboardTab) => void;
 }
 
 export default function Leaderboard({
@@ -64,7 +68,7 @@ export default function Leaderboard({
   // The current major streams live (5s polling); past majors come from their
   // frozen results. Either source is a LeaderboardPlayer[].
   const live = getCurrentTournament();
-  const isLive = tournament === live;
+  const isTotal = tournament === "total";
 
   const liveQuery = api.tournament.leaderboard.useQuery(undefined, {
     refetchInterval: 5000,
@@ -72,26 +76,159 @@ export default function Leaderboard({
   const resultsQueries = tournaments.map((t) =>
     api.tournament.results.useQuery({ tournament: t.name }, { enabled: t.name !== live }),
   );
-  const selectedResultsQuery = resultsQueries[tournaments.findIndex((t) => t.name === tournament)];
 
+  // Per-major leaderboard: the live major from polling, the rest from results.
+  const leaderboardFor = (name: TournamentName): LeaderboardPlayer[] =>
+    name === live
+      ? (liveQuery.data?.players ?? [])
+      : (resultsQueries[tournaments.findIndex((t) => t.name === name)].data?.leaderboard ?? []);
+
+  const handleSortClick = (key: SortKey) => {
+    if (key === sortKey) {
+      setSortDir(sortDir === "asc" ? "desc" : "asc");
+    } else {
+      setSortKey(key);
+      setSortDir(sortOptions.find((o) => o.key === key)!.defaultDir);
+    }
+  };
+
+  const tabPill = (key: LeaderboardTab, label: string) => (
+    <Button
+      key={key}
+      className={`
+        rounded-full px-3 py-1.5 text-sm font-medium
+        ${
+          tournament === key
+            ? "bg-white text-black dark:bg-gray-700 dark:text-white"
+            : "text-gray-500 dark:text-gray-400"
+        }
+      `}
+      onClick={() => onTournamentChange(key)}
+    >
+      {label}
+    </Button>
+  );
+
+  const header = (
+    <>
+      <SearchBar value={search} onChange={onSearchChange} placeholder="Search players..." />
+      <div className="flex gap-1">
+        {tabPill("total", "Total")}
+        {tournaments.map((t) => tabPill(t.name, t.sortLabel))}
+      </div>
+    </>
+  );
+
+  const hideUnownedButton = (
+    <Button
+      className={`
+        rounded-full px-3 py-1 text-sm font-medium
+        ${
+          hideUnowned
+            ? "bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
+            : "text-gray-500 dark:text-gray-400"
+        }
+      `}
+      onClick={() => setHideUnowned(!hideUnowned)}
+    >
+      Hide Unowned
+    </Button>
+  );
+
+  const query = search.toLowerCase();
+  const matchesSearch = (firstName: string, lastName: string) =>
+    !query || `${firstName} ${lastName}`.toLowerCase().includes(query);
+
+  // ----- Season Total view: aggregate every major into one row per player -----
+  if (isTotal) {
+    const activeQueries = [liveQuery, ...resultsQueries].filter((q) => q.fetchStatus !== "idle");
+    if (activeQueries.find((q) => q.error))
+      return <main className="p-4 text-center">Error loading leaderboard</main>;
+    if (activeQueries.some((q) => q.isLoading)) return <LeaderboardSkeleton />;
+
+    const majorsWithData = tournaments.filter((t) => leaderboardFor(t.name).length > 0);
+    // Ownership denominator: every team-major slot (e.g. 36 teams × majors played).
+    const slots = majorsWithData.reduce(
+      (sum, t) => sum + (leaderboardFor(t.name)[0]?.ownedTotal ?? 0),
+      0,
+    );
+
+    const byPlayer = new Map<string, TotalEntry>();
+    for (const t of majorsWithData) {
+      for (const p of leaderboardFor(t.name)) {
+        const key = `${p.firstName} ${p.lastName}`;
+        let entry = byPlayer.get(key);
+        if (!entry) {
+          entry = {
+            firstName: p.firstName,
+            lastName: p.lastName,
+            nationality: p.nationality,
+            totalPoints: 0,
+            picks: 0,
+            finishByMajor: {},
+          };
+          byPlayer.set(key, entry);
+        }
+        entry.totalPoints += p.fantasyScore;
+        entry.picks += p.ownedCount;
+        entry.finishByMajor[t.name] = {
+          place: p.place,
+          isTied: p.isTied,
+          status: p.status,
+          fantasyScore: p.fantasyScore,
+        };
+      }
+    }
+
+    const totalKey = sortKey === "owned" ? "owned" : "points";
+    const sortValue = (e: TotalEntry) => (totalKey === "owned" ? e.picks : e.totalPoints);
+    const entries = [...byPlayer.values()]
+      .filter((e) => matchesSearch(e.firstName, e.lastName) && (!hideUnowned || e.picks > 0))
+      .sort((a, b) =>
+        sortDir === "asc" ? sortValue(a) - sortValue(b) : sortValue(b) - sortValue(a),
+      );
+
+    return (
+      <>
+        {header}
+        <main className="flex flex-col gap-1 pb-20">
+          <TotalColumnsHeader activeKey={totalKey} sortDir={sortDir} onSort={handleSortClick}>
+            {hideUnownedButton}
+          </TotalColumnsHeader>
+          {entries.map((entry) => (
+            <TotalPlayer
+              key={`${entry.firstName} ${entry.lastName}`}
+              entry={entry}
+              slots={slots}
+              majors={majorsWithData}
+            />
+          ))}
+          <div className="mt-4">
+            <Footer />
+          </div>
+        </main>
+      </>
+    );
+  }
+
+  // ----- Single-major view -----
+  const isLive = tournament === live;
+  const selectedResultsQuery = resultsQueries[tournaments.findIndex((t) => t.name === tournament)];
   const activeQuery = isLive ? liveQuery : selectedResultsQuery;
 
   if (activeQuery.error) return <main className="p-4 text-center">Error loading leaderboard</main>;
 
   if (activeQuery.isLoading) return <LeaderboardSkeleton />;
 
-  const players: LeaderboardPlayer[] = isLive
-    ? (liveQuery.data?.players ?? [])
-    : (selectedResultsQuery.data?.leaderboard ?? []);
+  const players: LeaderboardPlayer[] = leaderboardFor(tournament);
   // Frozen majors are final (round 4); the live cut line comes from the query.
   const cutLine = isLive
     ? (liveQuery.data?.cutLine ?? getTournamentConfig(tournament).cutLine)
     : getTournamentConfig(tournament).cutLine;
   const round = isLive ? (liveQuery.data?.round ?? 4) : 4;
 
-  const query = search.toLowerCase();
   const filtered = players.filter((p: LeaderboardPlayer) => {
-    if (query && !`${p.firstName} ${p.lastName}`.toLowerCase().includes(query)) return false;
+    if (!matchesSearch(p.firstName, p.lastName)) return false;
     if (hideUnowned && p.ownedCount === 0) return false;
     return true;
   });
@@ -111,53 +248,13 @@ export default function Leaderboard({
     return sorted.findIndex((p: LeaderboardPlayer) => p.place === undefined);
   })();
 
-  const handleSortClick = (key: SortKey) => {
-    if (key === sortKey) {
-      setSortDir(sortDir === "asc" ? "desc" : "asc");
-    } else {
-      setSortKey(key);
-      setSortDir(sortOptions.find((o) => o.key === key)!.defaultDir);
-    }
-  };
-
   return (
     <>
-      <SearchBar value={search} onChange={onSearchChange} placeholder="Search players..." />
-
-      <div className="flex gap-1">
-        {tournaments.map((t) => (
-          <Button
-            key={t.name}
-            className={`
-              rounded-full px-3 py-1.5 text-sm font-medium
-              ${
-                tournament === t.name
-                  ? "bg-white text-black dark:bg-gray-700 dark:text-white"
-                  : "text-gray-500 dark:text-gray-400"
-              }
-            `}
-            onClick={() => onTournamentChange(t.name)}
-          >
-            {t.sortLabel}
-          </Button>
-        ))}
-      </div>
+      {header}
 
       <main className="flex flex-col gap-1 pb-20">
         <PlayerColumnsHeader sortKey={sortKey} sortDir={sortDir} onSort={handleSortClick}>
-          <Button
-            className={`
-              rounded-full px-3 py-1 text-sm font-medium
-              ${
-                hideUnowned
-                  ? "bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
-                  : "text-gray-500 dark:text-gray-400"
-              }
-            `}
-            onClick={() => setHideUnowned(!hideUnowned)}
-          >
-            Hide Unowned
-          </Button>
+          {hideUnownedButton}
         </PlayerColumnsHeader>
         {sorted.map((player: LeaderboardPlayer, index: number) => (
           <Fragment key={`${player.firstName} ${player.lastName}`}>
