@@ -51,6 +51,8 @@ interface Props {
   setHideUnowned: (h: boolean) => void;
   tournament: LeaderboardTab;
   onTournamentChange: (t: LeaderboardTab) => void;
+  lowBonus: boolean;
+  setLowBonus: (l: boolean) => void;
 }
 
 export default function Leaderboard({
@@ -64,6 +66,8 @@ export default function Leaderboard({
   setHideUnowned,
   tournament,
   onTournamentChange,
+  lowBonus,
+  setLowBonus,
 }: Props) {
   // The current major streams live (5s polling); past majors come from their
   // frozen results. Either source is a LeaderboardPlayer[].
@@ -135,6 +139,23 @@ export default function Leaderboard({
     </Button>
   );
 
+  // Total-only toggle: include the lowest-ranked +15 bonus in the season totals.
+  const lowBonusButton = (
+    <Button
+      className={`
+        rounded-full px-3 py-1 text-sm font-medium
+        ${
+          lowBonus
+            ? "bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
+            : "text-gray-500 dark:text-gray-400"
+        }
+      `}
+      onClick={() => setLowBonus(!lowBonus)}
+    >
+      Low Bonus
+    </Button>
+  );
+
   const query = search.toLowerCase();
   const matchesSearch = (firstName: string, lastName: string) =>
     !query || `${firstName} ${lastName}`.toLowerCase().includes(query);
@@ -164,12 +185,14 @@ export default function Leaderboard({
             lastName: p.lastName,
             nationality: p.nationality,
             totalPoints: 0,
+            lowPoints: 0,
             picks: 0,
             finishByMajor: {},
           };
           byPlayer.set(key, entry);
         }
         entry.totalPoints += p.fantasyScore;
+        entry.lowPoints += p.lowestRankedBonusPoints;
         entry.picks += p.ownedCount;
         entry.finishByMajor[t.name] = {
           place: p.place,
@@ -181,16 +204,18 @@ export default function Leaderboard({
           ownedTotal: p.ownedTotal,
           firstPlaceBonus: p.firstPlaceBonusPoints > 0,
           madeCutBonus: p.madeCutBonusPoints > 0,
-          lowestRankedPlayerBonus: p.lowestRankedBonusPoints > 0,
+          lowestRankedBonusPoints: p.lowestRankedBonusPoints,
         };
       }
     }
 
     // Total sorts by points or ownership; it defaults to points descending,
     // ignoring the per-major place/rank sorts that don't apply to a season total.
+    // Points honor the Low toggle (drop the lowest-ranked +15 bonuses when off).
     const totalKey = sortKey === "owned" ? "owned" : "points";
     const totalDir: SortDir = sortKey === "owned" || sortKey === "points" ? sortDir : "desc";
-    const sortValue = (e: TotalEntry) => (totalKey === "owned" ? e.picks : e.totalPoints);
+    const points = (e: TotalEntry) => e.totalPoints - (lowBonus ? 0 : e.lowPoints);
+    const sortValue = (e: TotalEntry) => (totalKey === "owned" ? e.picks : points(e));
     const entries = [...byPlayer.values()]
       .filter((e) => matchesSearch(e.firstName, e.lastName) && (!hideUnowned || e.picks > 0))
       .sort((a, b) =>
@@ -203,12 +228,14 @@ export default function Leaderboard({
         <main className="flex flex-col gap-1 pb-20">
           <TotalColumnsHeader activeKey={totalKey} sortDir={totalDir} onSort={handleSortClick}>
             {hideUnownedButton}
+            {lowBonusButton}
           </TotalColumnsHeader>
           {entries.map((entry) => (
             <TotalPlayer
               key={`${entry.firstName} ${entry.lastName}`}
               entry={entry}
               slots={slots}
+              lowEnabled={lowBonus}
               majors={majorsWithData}
             />
           ))}

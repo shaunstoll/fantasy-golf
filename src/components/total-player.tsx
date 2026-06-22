@@ -21,10 +21,11 @@ export interface MajorFinish {
   ownedCount: number;
   ownedTotal: number;
   // Bonus flags for this major, so the breakdown shows the same markers
-  // (Winner / Made cut / Lowest ranked) as the rest of the app.
+  // (Winner / Made cut / Lowest ranked) as the rest of the app. The
+  // lowest-ranked +15 is kept as points so the Total view can toggle it off.
   firstPlaceBonus: boolean;
   madeCutBonus: boolean;
-  lowestRankedPlayerBonus: boolean;
+  lowestRankedBonusPoints: number;
 }
 
 /** A player's season totals across the majors, for the leaderboard Total view. */
@@ -33,6 +34,9 @@ export interface TotalEntry {
   lastName: string;
   nationality: string;
   totalPoints: number;
+  // The portion of totalPoints from lowest-ranked +15 bonuses, so it can be
+  // removed when the Low toggle is off.
+  lowPoints: number;
   // Total picks across every major (a team-major slot), and the per-major finish.
   picks: number;
   finishByMajor: Partial<Record<TournamentName, MajorFinish>>;
@@ -104,16 +108,20 @@ export default function TotalPlayer({
   entry,
   slots,
   majors,
+  lowEnabled,
 }: {
   entry: TotalEntry;
   // Total team-major slots across the majors with data — the ownership %
   // denominator (e.g. 36 teams × 3 majors), so it's a season %, not "x/36".
   slots: number;
   majors: TournamentConfig[];
+  // When false, the lowest-ranked +15 is excluded from points and the "L" marker.
+  lowEnabled: boolean;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [detailRef] = useAutoAnimate();
   const ownership = slots > 0 ? Math.round((entry.picks / slots) * 100) : 0;
+  const totalPoints = entry.totalPoints - (lowEnabled ? 0 : entry.lowPoints);
 
   return (
     <div className="flex flex-col gap-px">
@@ -151,7 +159,7 @@ export default function TotalPlayer({
             hideLabel
             valueClassName="bg-gray-600 text-white dark:bg-gray-200 dark:text-black"
             label="Points"
-            value={entry.totalPoints}
+            value={totalPoints}
           />
         </div>
       </Button>
@@ -181,20 +189,30 @@ export default function TotalPlayer({
             {/* One row per major: name on the left, finish + points on the right. */}
             {majors.map((t) => {
               const finish = entry.finishByMajor[t.name];
+              const lowOn = lowEnabled && (finish?.lowestRankedBonusPoints ?? 0) > 0;
+              const markers = finish
+                ? earnedBonuses({
+                    firstPlaceBonus: finish.firstPlaceBonus,
+                    madeCutBonus: finish.madeCutBonus,
+                    lowestRankedPlayerBonus: lowOn,
+                  })
+                : [];
+              const points = finish
+                ? finish.fantasyScore - (lowEnabled ? 0 : finish.lowestRankedBonusPoints)
+                : undefined;
               return (
                 <div key={t.name} className="flex items-center justify-between gap-1 px-1 pr-2">
                   <span className="flex-1 truncate pl-1 text-sm font-medium">{t.sortLabel}</span>
                   <div className="flex shrink-0 items-center gap-1.5">
-                    {finish &&
-                      earnedBonuses(finish).map((b) => (
-                        <span
-                          key={b.key}
-                          title={b.label}
-                          className={`text-sm font-bold ${b.colorClass}`}
-                        >
-                          {b.letter}
-                        </span>
-                      ))}
+                    {markers.map((b) => (
+                      <span
+                        key={b.key}
+                        title={b.label}
+                        className={`text-sm font-bold ${b.colorClass}`}
+                      >
+                        {b.letter}
+                      </span>
+                    ))}
                     <Attribute
                       hideLabel
                       valueClassName="bg-gray-200 text-black dark:bg-gray-600 dark:text-white"
@@ -217,7 +235,7 @@ export default function TotalPlayer({
                       hideLabel
                       valueClassName="bg-gray-600 text-white dark:bg-gray-200 dark:text-black"
                       label="Points"
-                      value={finish ? finish.fantasyScore : "—"}
+                      value={points ?? "—"}
                     />
                   </div>
                 </div>

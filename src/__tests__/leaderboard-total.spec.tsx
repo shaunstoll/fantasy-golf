@@ -83,22 +83,28 @@ vi.mock("@/trpc/react", () => ({
 
 const noop = () => {};
 
+function renderTotal(lowBonus = true) {
+  return render(
+    <Leaderboard
+      search=""
+      onSearchChange={noop}
+      sortKey="points"
+      setSortKey={noop}
+      sortDir="desc"
+      setSortDir={noop}
+      hideUnowned={false}
+      setHideUnowned={noop}
+      tournament="total"
+      onTournamentChange={noop}
+      lowBonus={lowBonus}
+      setLowBonus={noop}
+    />,
+  );
+}
+
 describe("Leaderboard Total view", () => {
   it("sums points and ownership across majors and expands to per-major finishes", async () => {
-    render(
-      <Leaderboard
-        search=""
-        onSearchChange={noop}
-        sortKey="points"
-        setSortKey={noop}
-        sortDir="desc"
-        setSortDir={noop}
-        hideUnowned={false}
-        setHideUnowned={noop}
-        tournament="total"
-        onTournamentChange={noop}
-      />,
-    );
+    renderTotal();
 
     // Combined points (14 + 32) and season ownership ((31 + 30) / (36 * 2) = 85%).
     expect(screen.getByText("46")).toBeInTheDocument();
@@ -119,5 +125,20 @@ describe("Leaderboard Total view", () => {
     expect(within(finishes).getByText("30/36")).toBeInTheDocument();
     expect(within(finishes).getByText("31/36")).toBeInTheDocument();
     expect(within(finishes).getByText("#18")).toBeInTheDocument();
+  });
+
+  it("excludes the lowest-ranked +15 from points and hides its marker when Low is off", async () => {
+    renderTotal(false);
+
+    // Total drops the Masters +15 low bonus: 46 - 15 = 31.
+    expect(screen.getByText("31")).toBeInTheDocument();
+
+    await userEvent.click(screen.getByRole("button", { name: "player Scottie Scheffler" }));
+    const finishes = screen.getByTestId("total-finishes");
+    // Masters per-major points fall to 32 - 15 = 17, and the "L" marker is gone.
+    expect(within(finishes).getByText("17")).toBeInTheDocument();
+    expect(within(finishes).queryByText("L")).not.toBeInTheDocument();
+    // Other bonuses (made cut "M") are unaffected.
+    expect(within(finishes).getByText("M")).toBeInTheDocument();
   });
 });

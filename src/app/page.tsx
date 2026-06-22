@@ -44,6 +44,10 @@ export default function Home() {
     "fg.leaderboard.tournament",
     getCurrentTournament(),
   );
+  const [leaderboardLowBonus, setLeaderboardLowBonus] = useSessionState(
+    "fg.leaderboard.lowBonus",
+    true,
+  );
 
   useLayoutEffect(() => {
     window.scrollTo(0, scrollPositions.current[activeTab]);
@@ -76,6 +80,8 @@ export default function Home() {
           setHideUnowned={setLeaderboardHideUnowned}
           tournament={leaderboardTournament}
           onTournamentChange={setLeaderboardTournament}
+          lowBonus={leaderboardLowBonus}
+          setLowBonus={setLeaderboardLowBonus}
         />
       )}
       <NavBar activeTab={activeTab} setActiveTab={handleTabChange} />
