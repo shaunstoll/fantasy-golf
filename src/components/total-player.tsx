@@ -5,6 +5,7 @@ import { useState } from "react";
 import Attribute from "@/components/attribute";
 import Button from "@/components/button";
 import type { SortDir, SortKey } from "@/components/leaderboard";
+import { earnedBonuses } from "@/config/bonuses";
 import { type TournamentConfig } from "@/config/tournaments";
 import type { PlayerStatus } from "@/enums/player-status.enum";
 import type { TournamentName } from "@/enums/tournament.enum";
@@ -16,6 +17,11 @@ export interface MajorFinish {
   isTied: boolean;
   status: PlayerStatus;
   fantasyScore: number;
+  // Bonus flags for this major, so the breakdown shows the same markers
+  // (Winner / Made cut / Lowest ranked) as the rest of the app.
+  firstPlaceBonus: boolean;
+  madeCutBonus: boolean;
+  lowestRankedPlayerBonus: boolean;
 }
 
 /** A player's season totals across the majors, for the leaderboard Total view. */
@@ -174,6 +180,16 @@ export default function TotalPlayer({
                 <div key={t.name} className="flex items-center justify-between gap-1 px-1 pr-2">
                   <span className="flex-1 truncate pl-1 text-sm font-medium">{t.sortLabel}</span>
                   <div className="flex shrink-0 items-center gap-1.5">
+                    {finish &&
+                      earnedBonuses(finish).map((b) => (
+                        <span
+                          key={b.key}
+                          title={b.label}
+                          className={`text-sm font-bold ${b.colorClass}`}
+                        >
+                          {b.letter}
+                        </span>
+                      ))}
                     <Attribute
                       hideLabel
                       valueClassName="bg-gray-200 text-black dark:bg-gray-600 dark:text-white"

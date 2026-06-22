@@ -40,7 +40,15 @@ const usOpenPlayers = [
   lp({ firstName: "Scottie", lastName: "Scheffler", place: 4, fantasyScore: 14, ownedCount: 31 }),
 ];
 const mastersPlayers = [
-  lp({ firstName: "Scottie", lastName: "Scheffler", place: 2, fantasyScore: 32, ownedCount: 30 }),
+  lp({
+    firstName: "Scottie",
+    lastName: "Scheffler",
+    place: 2,
+    fantasyScore: 32,
+    ownedCount: 30,
+    madeCutBonusPoints: 5,
+    lowestRankedBonusPoints: 15,
+  }),
 ];
 
 vi.mock("@/trpc/react", () => ({
@@ -97,5 +105,8 @@ describe("Leaderboard Total view", () => {
     // Per-major points (Masters 32, US Open 14) appear in the breakdown.
     expect(within(finishes).getByText("32")).toBeInTheDocument();
     expect(within(finishes).getByText("14")).toBeInTheDocument();
+    // Per-major bonus markers render (Masters: made cut "M" + lowest ranked "L").
+    expect(within(finishes).getByText("M")).toBeInTheDocument();
+    expect(within(finishes).getByText("L")).toBeInTheDocument();
   });
 });

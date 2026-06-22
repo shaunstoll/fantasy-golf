@@ -176,6 +176,9 @@ export default function Leaderboard({
           isTied: p.isTied,
           status: p.status,
           fantasyScore: p.fantasyScore,
+          firstPlaceBonus: p.firstPlaceBonusPoints > 0,
+          madeCutBonus: p.madeCutBonusPoints > 0,
+          lowestRankedPlayerBonus: p.lowestRankedBonusPoints > 0,
         };
       }
     }
