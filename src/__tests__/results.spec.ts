@@ -3,6 +3,7 @@ import { describe, it, expect } from "vitest";
 import { getResults } from "@/db/results";
 import { TournamentName } from "@/enums/tournament.enum";
 import pgaTeams from "@data/2026/pga.json";
+import usOpenTeams from "@data/2026/us-open.json";
 
 describe("Results", () => {
   it("should return masters results", () => {
@@ -26,6 +27,28 @@ describe("Results", () => {
     );
     const rostered = new Set<string>();
     for (const team of pgaTeams) {
+      for (const player of team.players) {
+        rostered.add(`${player.firstName} ${player.lastName}`);
+      }
+    }
+    const missing = [...rostered].filter((name) => !leaderboardNames.has(name));
+    expect(missing).toEqual([]);
+  });
+
+  it("should return us open results", () => {
+    const results = getResults(TournamentName.UsOpen);
+    expect(results).toBeDefined();
+    expect(results!.standings.length).toBeGreaterThan(0);
+    expect(results!.leaderboard.length).toBeGreaterThan(0);
+  });
+
+  it("should have every us open rostered player resolved on the leaderboard", () => {
+    const results = getResults(TournamentName.UsOpen)!;
+    const leaderboardNames = new Set(
+      results.leaderboard.map((p) => `${p.firstName} ${p.lastName}`),
+    );
+    const rostered = new Set<string>();
+    for (const team of usOpenTeams) {
       for (const player of team.players) {
         rostered.add(`${player.firstName} ${player.lastName}`);
       }
@@ -69,7 +92,6 @@ describe("Results", () => {
   });
 
   it("should return undefined for tournaments without results", () => {
-    expect(getResults(TournamentName.UsOpen)).toBeUndefined();
     expect(getResults(TournamentName.Open)).toBeUndefined();
   });
 });
