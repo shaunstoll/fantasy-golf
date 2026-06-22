@@ -71,6 +71,54 @@ Other tournaments have their own accented/reordered names — rebuild the alias 
 - Every player in both `standings[].players[]` and `leaderboard[]` has the breakdown fields (`placementPoints`, etc.) — otherwise the click-to-expand point math won't render.
 - `npm run check` (fmt + lint + typecheck + tests) and `npm run build` both pass.
 
+## Cross-checking totals against the source site
+
+The fantasy-golf-neon Vercel app (the same site `get-teams` scrapes) is the authoritative scorer. Use it to prove our frozen totals are right — after a freeze, a WD/backup adjustment, or any time the standings look off. Two endpoints:
+
+- **`/api/leaderboard`** — the **current event only**. Per team: `Name`, `Total Score`, `Place`, `AllCut`, `WorstRankedBonus`, and a `Roster` of `{ Name, Cut, "Points scored", Finish }`. Rolls over to the next event after the tournament ends (same rollover trap as everything else here). Use it to cross-check the in-progress/just-finished major's per-team total and place, and to discover WD/backup substitutions (re-scrape and diff the roster against `data/{year}/{tournament}.json`).
+- **`/api/overall`** — the **season**. `Teams[]` of `{ name, email, masters, pga, US, open, total, place }`. This is the only place the all-tournaments-combined total exists — our app computes the Total tab by summing the frozen files, so `/api/overall` is the external source of truth for both the per-major columns _and_ the combined total. Use it to validate every major + the total in one shot.
+
+**Name-matching trap (worse than the player one):** team names are spelled differently on every endpoint and in our files — `Ari & Micah` / `Ari and Micah`, `Noah & Joey` / `Noah + Joey` / `Noah Joey`, `Jude Skove` / `jude skove`, `Josh & Jimmy Shizgal` / `Josh and jimmy Shizgal`, `Bill Mayer` / `William Mayer`, `Donald Campbell` / `Don Campbell`. `/api/leaderboard` and `/api/overall` don't even agree with each other. Match on a normalized key, not the raw string:
+
+```js
+const norm = (s) =>
+  s
+    .toLowerCase()
+    .replace(/\band\b/g, "")
+    .replace(/[^a-z0-9]/g, "");
+```
+
+This folds `&`/`+`/`and`/case/spacing together (and is safe for `Donald` — no standalone `and`). Assert **zero unmatched teams** before trusting a "0 mismatches" result — an unmatched team is a silent miss, not a pass. Worked check (all 36 teams must match on Masters/PGA/US/Total, 0 unmatched):
+
+```js
+const axios = require("axios");
+const m = require("./data/2026/masters-results.json").standings;
+const p = require("./data/2026/pga-results.json").standings;
+const u = require("./data/2026/us-open-results.json").standings;
+const sc = (t, n) => t.find((x) => x.name === n)?.score ?? 0;
+const norm = (s) =>
+  s
+    .toLowerCase()
+    .replace(/\band\b/g, "")
+    .replace(/[^a-z0-9]/g, "");
+const names = [...new Set([...m, ...p, ...u].map((s) => s.name))];
+axios.get("https://fantasy-golf-neon.vercel.app/api/overall").then((r) => {
+  const src = new Map(r.data.Teams.map((t) => [norm(t.name), t]));
+  for (const n of names) {
+    const s = src.get(norm(n));
+    if (!s) {
+      console.log("UNMATCHED", n);
+      continue;
+    }
+    const M = sc(m, n),
+      P = sc(p, n),
+      U = sc(u, n);
+    if (s.masters !== M || s.pga !== P || s.US !== U || Math.abs(s.total - (M + P + U)) > 0.001)
+      console.log("MISMATCH", n, { M, P, U, src: s });
+  }
+});
+```
+
 ## Common mistakes
 
 - Running `save-results` for an event that already rolled over → empty/wrong data.
