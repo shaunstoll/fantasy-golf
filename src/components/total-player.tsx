@@ -17,6 +17,9 @@ export interface MajorFinish {
   isTied: boolean;
   status: PlayerStatus;
   fantasyScore: number;
+  rank: number;
+  ownedCount: number;
+  ownedTotal: number;
   // Bonus flags for this major, so the breakdown shows the same markers
   // (Winner / Made cut / Lowest ranked) as the rest of the app.
   firstPlaceBonus: boolean;
@@ -169,6 +172,8 @@ export default function TotalPlayer({
             >
               <span className="flex-1 pl-1">Major</span>
               <div className="flex shrink-0 items-center gap-1.5">
+                <span className="w-10 text-center">Rank</span>
+                <span className="w-10 text-center">Owned</span>
                 <span className="w-10 text-center">Finish</span>
                 <span className="w-10 text-center">Points</span>
               </div>
@@ -190,6 +195,18 @@ export default function TotalPlayer({
                           {b.letter}
                         </span>
                       ))}
+                    <Attribute
+                      hideLabel
+                      valueClassName="bg-gray-200 text-black dark:bg-gray-600 dark:text-white"
+                      label="Rank"
+                      value={finish ? (finish.rank > 0 ? `#${finish.rank}` : "-") : "—"}
+                    />
+                    <Attribute
+                      hideLabel
+                      valueClassName="bg-blue-200 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
+                      label="Owned"
+                      value={finish ? `${finish.ownedCount}/${finish.ownedTotal}` : "—"}
+                    />
                     <Attribute
                       hideLabel
                       valueClassName="bg-gray-200 text-black dark:bg-gray-600 dark:text-white"

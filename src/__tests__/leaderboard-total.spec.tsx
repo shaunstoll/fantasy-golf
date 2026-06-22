@@ -37,7 +37,14 @@ function lp(
 }
 
 const usOpenPlayers = [
-  lp({ firstName: "Scottie", lastName: "Scheffler", place: 4, fantasyScore: 14, ownedCount: 31 }),
+  lp({
+    firstName: "Scottie",
+    lastName: "Scheffler",
+    rank: 18,
+    place: 4,
+    fantasyScore: 14,
+    ownedCount: 31,
+  }),
 ];
 const mastersPlayers = [
   lp({
@@ -108,5 +115,9 @@ describe("Leaderboard Total view", () => {
     // Per-major bonus markers render (Masters: made cut "M" + lowest ranked "L").
     expect(within(finishes).getByText("M")).toBeInTheDocument();
     expect(within(finishes).getByText("L")).toBeInTheDocument();
+    // Per-major ownership (x/36) and that major's world ranking.
+    expect(within(finishes).getByText("30/36")).toBeInTheDocument();
+    expect(within(finishes).getByText("31/36")).toBeInTheDocument();
+    expect(within(finishes).getByText("#18")).toBeInTheDocument();
   });
 });
