@@ -1,0 +1,1622 @@
+[
+  {
+    "name": "Noah & Joey",
+    "players": [
+      {
+        "firstName": "Scottie",
+        "lastName": "Scheffler",
+        "rank": 1
+      },
+      {
+        "firstName": "Rory",
+        "lastName": "McIlroy",
+        "rank": 2
+      },
+      {
+        "firstName": "Tyrrell",
+        "lastName": "Hatton",
+        "rank": 23
+      },
+      {
+        "firstName": "Jon",
+        "lastName": "Rahm",
+        "rank": 5
+      },
+      {
+        "firstName": "Sungjae",
+        "lastName": "Im",
+        "rank": 132
+      },
+      {
+        "firstName": "Russell",
+        "lastName": "Henley",
+        "rank": 11
+      },
+      {
+        "firstName": "Tommy",
+        "lastName": "Fleetwood",
+        "rank": 4
+      },
+      {
+        "firstName": "Robert",
+        "lastName": "MacIntyre",
+        "rank": 17
+      }
+    ]
+  },
+  {
+    "name": "Daniel Bland",
+    "players": [
+      {
+        "firstName": "Tyrrell",
+        "lastName": "Hatton",
+        "rank": 23
+      },
+      {
+        "firstName": "Robert",
+        "lastName": "MacIntyre",
+        "rank": 17
+      },
+      {
+        "firstName": "Justin",
+        "lastName": "Rose",
+        "rank": 22
+      },
+      {
+        "firstName": "Viktor",
+        "lastName": "Hovland",
+        "rank": 14
+      },
+      {
+        "firstName": "Ludvig",
+        "lastName": "Aberg",
+        "rank": 13
+      },
+      {
+        "firstName": "Shane",
+        "lastName": "Lowry",
+        "rank": 32
+      },
+      {
+        "firstName": "Xander",
+        "lastName": "Schauffele",
+        "rank": 15
+      },
+      {
+        "firstName": "Chris",
+        "lastName": "Gotterup",
+        "rank": 12
+      }
+    ]
+  },
+  {
+    "name": "Michael Young",
+    "players": [
+      {
+        "firstName": "Xander",
+        "lastName": "Schauffele",
+        "rank": 15
+      },
+      {
+        "firstName": "Collin",
+        "lastName": "Morikawa",
+        "rank": 8
+      },
+      {
+        "firstName": "Matt",
+        "lastName": "Fitzpatrick",
+        "rank": 3
+      },
+      {
+        "firstName": "Viktor",
+        "lastName": "Hovland",
+        "rank": 14
+      },
+      {
+        "firstName": "Chris",
+        "lastName": "Gotterup",
+        "rank": 12
+      },
+      {
+        "firstName": "Tommy",
+        "lastName": "Fleetwood",
+        "rank": 4
+      },
+      {
+        "firstName": "Tyrrell",
+        "lastName": "Hatton",
+        "rank": 23
+      },
+      {
+        "firstName": "Robert",
+        "lastName": "MacIntyre",
+        "rank": 17
+      }
+    ]
+  },
+  {
+    "name": "Mike Mike",
+    "players": [
+      {
+        "firstName": "Robert",
+        "lastName": "MacIntyre",
+        "rank": 17
+      },
+      {
+        "firstName": "Tommy",
+        "lastName": "Fleetwood",
+        "rank": 4
+      },
+      {
+        "firstName": "Scottie",
+        "lastName": "Scheffler",
+        "rank": 1
+      },
+      {
+        "firstName": "Justin",
+        "lastName": "Rose",
+        "rank": 22
+      },
+      {
+        "firstName": "Matt",
+        "lastName": "Fitzpatrick",
+        "rank": 3
+      },
+      {
+        "firstName": "Xander",
+        "lastName": "Schauffele",
+        "rank": 15
+      },
+      {
+        "firstName": "Rory",
+        "lastName": "McIlroy",
+        "rank": 2
+      },
+      {
+        "firstName": "Tyrrell",
+        "lastName": "Hatton",
+        "rank": 23
+      }
+    ]
+  },
+  {
+    "name": "Danny Frankel",
+    "players": [
+      {
+        "firstName": "Xander",
+        "lastName": "Schauffele",
+        "rank": 15
+      },
+      {
+        "firstName": "Viktor",
+        "lastName": "Hovland",
+        "rank": 14
+      },
+      {
+        "firstName": "Ludvig",
+        "lastName": "Aberg",
+        "rank": 13
+      },
+      {
+        "firstName": "Chris",
+        "lastName": "Gotterup",
+        "rank": 12
+      },
+      {
+        "firstName": "Robert",
+        "lastName": "MacIntyre",
+        "rank": 17
+      },
+      {
+        "firstName": "Justin",
+        "lastName": "Rose",
+        "rank": 22
+      },
+      {
+        "firstName": "Tyrrell",
+        "lastName": "Hatton",
+        "rank": 23
+      },
+      {
+        "firstName": "Shane",
+        "lastName": "Lowry",
+        "rank": 32
+      }
+    ]
+  },
+  {
+    "name": "Ralston Welch",
+    "players": [
+      {
+        "firstName": "Collin",
+        "lastName": "Morikawa",
+        "rank": 8
+      },
+      {
+        "firstName": "Matt",
+        "lastName": "Fitzpatrick",
+        "rank": 3
+      },
+      {
+        "firstName": "Tommy",
+        "lastName": "Fleetwood",
+        "rank": 4
+      },
+      {
+        "firstName": "Min Woo",
+        "lastName": "Lee",
+        "rank": 27
+      },
+      {
+        "firstName": "Chris",
+        "lastName": "Gotterup",
+        "rank": 12
+      },
+      {
+        "firstName": "Russell",
+        "lastName": "Henley",
+        "rank": 11
+      },
+      {
+        "firstName": "Tom",
+        "lastName": "Kim",
+        "rank": 41
+      },
+      {
+        "firstName": "Robert",
+        "lastName": "MacIntyre",
+        "rank": 17
+      }
+    ]
+  },
+  {
+    "name": "George Monastra",
+    "players": [
+      {
+        "firstName": "Scottie",
+        "lastName": "Scheffler",
+        "rank": 1
+      },
+      {
+        "firstName": "Rory",
+        "lastName": "McIlroy",
+        "rank": 2
+      },
+      {
+        "firstName": "Collin",
+        "lastName": "Morikawa",
+        "rank": 8
+      },
+      {
+        "firstName": "Sam",
+        "lastName": "Burns",
+        "rank": 6
+      },
+      {
+        "firstName": "Shane",
+        "lastName": "Lowry",
+        "rank": 32
+      },
+      {
+        "firstName": "Cameron",
+        "lastName": "Young",
+        "rank": 9
+      },
+      {
+        "firstName": "Tyrrell",
+        "lastName": "Hatton",
+        "rank": 23
+      },
+      {
+        "firstName": "Viktor",
+        "lastName": "Hovland",
+        "rank": 14
+      }
+    ]
+  },
+  {
+    "name": "John Chronley",
+    "players": [
+      {
+        "firstName": "Tyrrell",
+        "lastName": "Hatton",
+        "rank": 23
+      },
+      {
+        "firstName": "Tommy",
+        "lastName": "Fleetwood",
+        "rank": 4
+      },
+      {
+        "firstName": "Shane",
+        "lastName": "Lowry",
+        "rank": 32
+      },
+      {
+        "firstName": "Scottie",
+        "lastName": "Scheffler",
+        "rank": 1
+      },
+      {
+        "firstName": "Xander",
+        "lastName": "Schauffele",
+        "rank": 15
+      },
+      {
+        "firstName": "Wyndham",
+        "lastName": "Clark",
+        "rank": 7
+      },
+      {
+        "firstName": "Viktor",
+        "lastName": "Hovland",
+        "rank": 14
+      },
+      {
+        "firstName": "Sam",
+        "lastName": "Burns",
+        "rank": 6
+      }
+    ]
+  },
+  {
+    "name": "Jude Skove",
+    "players": [
+      {
+        "firstName": "Ludvig",
+        "lastName": "Aberg",
+        "rank": 13
+      },
+      {
+        "firstName": "Bryson",
+        "lastName": "DeChambeau",
+        "rank": 24
+      },
+      {
+        "firstName": "Tommy",
+        "lastName": "Fleetwood",
+        "rank": 4
+      },
+      {
+        "firstName": "Rory",
+        "lastName": "McIlroy",
+        "rank": 2
+      },
+      {
+        "firstName": "Cameron",
+        "lastName": "Young",
+        "rank": 9
+      },
+      {
+        "firstName": "Chris",
+        "lastName": "Gotterup",
+        "rank": 12
+      },
+      {
+        "firstName": "Viktor",
+        "lastName": "Hovland",
+        "rank": 14
+      },
+      {
+        "firstName": "J.J.",
+        "lastName": "Spaun",
+        "rank": 18
+      }
+    ]
+  },
+  {
+    "name": "Jacques Mosseri",
+    "players": [
+      {
+        "firstName": "Tyrrell",
+        "lastName": "Hatton",
+        "rank": 23
+      },
+      {
+        "firstName": "Xander",
+        "lastName": "Schauffele",
+        "rank": 15
+      },
+      {
+        "firstName": "Tom",
+        "lastName": "Kim",
+        "rank": 41
+      },
+      {
+        "firstName": "Justin",
+        "lastName": "Rose",
+        "rank": 22
+      },
+      {
+        "firstName": "Aaron",
+        "lastName": "Rai",
+        "rank": 34
+      },
+      {
+        "firstName": "Alex",
+        "lastName": "Fitzpatrick",
+        "rank": 28
+      },
+      {
+        "firstName": "Justin",
+        "lastName": "Thomas",
+        "rank": 21
+      },
+      {
+        "firstName": "Chris",
+        "lastName": "Gotterup",
+        "rank": 12
+      }
+    ]
+  },
+  {
+    "name": "Chad Yoshinaka",
+    "players": [
+      {
+        "firstName": "Scottie",
+        "lastName": "Scheffler",
+        "rank": 1
+      },
+      {
+        "firstName": "Rory",
+        "lastName": "McIlroy",
+        "rank": 2
+      },
+      {
+        "firstName": "Tommy",
+        "lastName": "Fleetwood",
+        "rank": 4
+      },
+      {
+        "firstName": "Shane",
+        "lastName": "Lowry",
+        "rank": 32
+      },
+      {
+        "firstName": "Corey",
+        "lastName": "Conners",
+        "rank": 61
+      },
+      {
+        "firstName": "Matt",
+        "lastName": "Fitzpatrick",
+        "rank": 3
+      },
+      {
+        "firstName": "Robert",
+        "lastName": "MacIntyre",
+        "rank": 17
+      },
+      {
+        "firstName": "Aaron",
+        "lastName": "Rai",
+        "rank": 34
+      }
+    ]
+  },
+  {
+    "name": "Donald Campbell",
+    "players": [
+      {
+        "firstName": "Scottie",
+        "lastName": "Scheffler",
+        "rank": 1
+      },
+      {
+        "firstName": "Rory",
+        "lastName": "McIlroy",
+        "rank": 2
+      },
+      {
+        "firstName": "Jon",
+        "lastName": "Rahm",
+        "rank": 5
+      },
+      {
+        "firstName": "Collin",
+        "lastName": "Morikawa",
+        "rank": 8
+      },
+      {
+        "firstName": "Haotong",
+        "lastName": "Li",
+        "rank": 174
+      },
+      {
+        "firstName": "Xander",
+        "lastName": "Schauffele",
+        "rank": 15
+      },
+      {
+        "firstName": "Tommy",
+        "lastName": "Fleetwood",
+        "rank": 4
+      },
+      {
+        "firstName": "Robert",
+        "lastName": "MacIntyre",
+        "rank": 17
+      }
+    ]
+  },
+  {
+    "name": "Alex Khalaf",
+    "players": [
+      {
+        "firstName": "Rory",
+        "lastName": "McIlroy",
+        "rank": 2
+      },
+      {
+        "firstName": "Chris",
+        "lastName": "Gotterup",
+        "rank": 12
+      },
+      {
+        "firstName": "Bryson",
+        "lastName": "DeChambeau",
+        "rank": 24
+      },
+      {
+        "firstName": "Scottie",
+        "lastName": "Scheffler",
+        "rank": 1
+      },
+      {
+        "firstName": "Sepp",
+        "lastName": "Straka",
+        "rank": 104
+      },
+      {
+        "firstName": "Tom",
+        "lastName": "Kim",
+        "rank": 41
+      },
+      {
+        "firstName": "Akshay",
+        "lastName": "Bhatia",
+        "rank": 25
+      },
+      {
+        "firstName": "Xander",
+        "lastName": "Schauffele",
+        "rank": 15
+      }
+    ]
+  },
+  {
+    "name": "Bill Mayer",
+    "players": [
+      {
+        "firstName": "Rory",
+        "lastName": "McIlroy",
+        "rank": 2
+      },
+      {
+        "firstName": "Scottie",
+        "lastName": "Scheffler",
+        "rank": 1
+      },
+      {
+        "firstName": "Tommy",
+        "lastName": "Fleetwood",
+        "rank": 4
+      },
+      {
+        "firstName": "Shane",
+        "lastName": "Lowry",
+        "rank": 32
+      },
+      {
+        "firstName": "Justin",
+        "lastName": "Rose",
+        "rank": 22
+      },
+      {
+        "firstName": "Matt",
+        "lastName": "Fitzpatrick",
+        "rank": 3
+      },
+      {
+        "firstName": "Xander",
+        "lastName": "Schauffele",
+        "rank": 15
+      },
+      {
+        "firstName": "Robert",
+        "lastName": "MacIntyre",
+        "rank": 17
+      }
+    ]
+  },
+  {
+    "name": "Ari & Micah",
+    "players": [
+      {
+        "firstName": "Sam",
+        "lastName": "Burns",
+        "rank": 6
+      },
+      {
+        "firstName": "Ludvig",
+        "lastName": "Aberg",
+        "rank": 13
+      },
+      {
+        "firstName": "Matt",
+        "lastName": "Fitzpatrick",
+        "rank": 3
+      },
+      {
+        "firstName": "Jordan",
+        "lastName": "Spieth",
+        "rank": 62
+      },
+      {
+        "firstName": "Rickie",
+        "lastName": "Fowler",
+        "rank": 43
+      },
+      {
+        "firstName": "Robert",
+        "lastName": "MacIntyre",
+        "rank": 17
+      },
+      {
+        "firstName": "Xander",
+        "lastName": "Schauffele",
+        "rank": 15
+      },
+      {
+        "firstName": "Tyrrell",
+        "lastName": "Hatton",
+        "rank": 23
+      }
+    ]
+  },
+  {
+    "name": "Sammy Frankel",
+    "players": [
+      {
+        "firstName": "Xander",
+        "lastName": "Schauffele",
+        "rank": 15
+      },
+      {
+        "firstName": "Scottie",
+        "lastName": "Scheffler",
+        "rank": 1
+      },
+      {
+        "firstName": "Matt",
+        "lastName": "Fitzpatrick",
+        "rank": 3
+      },
+      {
+        "firstName": "Alex",
+        "lastName": "Fitzpatrick",
+        "rank": 28
+      },
+      {
+        "firstName": "Harris",
+        "lastName": "English",
+        "rank": 26
+      },
+      {
+        "firstName": "Chris",
+        "lastName": "Gotterup",
+        "rank": 12
+      },
+      {
+        "firstName": "Justin",
+        "lastName": "Rose",
+        "rank": 22
+      },
+      {
+        "firstName": "Collin",
+        "lastName": "Morikawa",
+        "rank": 8
+      }
+    ]
+  },
+  {
+    "name": "David Scoular",
+    "players": [
+      {
+        "firstName": "Collin",
+        "lastName": "Morikawa",
+        "rank": 8
+      },
+      {
+        "firstName": "Matt",
+        "lastName": "Fitzpatrick",
+        "rank": 3
+      },
+      {
+        "firstName": "Ludvig",
+        "lastName": "Aberg",
+        "rank": 13
+      },
+      {
+        "firstName": "Rory",
+        "lastName": "McIlroy",
+        "rank": 2
+      },
+      {
+        "firstName": "Justin",
+        "lastName": "Rose",
+        "rank": 22
+      },
+      {
+        "firstName": "Tommy",
+        "lastName": "Fleetwood",
+        "rank": 4
+      },
+      {
+        "firstName": "Chris",
+        "lastName": "Gotterup",
+        "rank": 12
+      },
+      {
+        "firstName": "Scottie",
+        "lastName": "Scheffler",
+        "rank": 1
+      }
+    ]
+  },
+  {
+    "name": "Noam Itzhak",
+    "players": [
+      {
+        "firstName": "Matt",
+        "lastName": "Fitzpatrick",
+        "rank": 3
+      },
+      {
+        "firstName": "Chris",
+        "lastName": "Gotterup",
+        "rank": 12
+      },
+      {
+        "firstName": "Tommy",
+        "lastName": "Fleetwood",
+        "rank": 4
+      },
+      {
+        "firstName": "Scottie",
+        "lastName": "Scheffler",
+        "rank": 1
+      },
+      {
+        "firstName": "Akshay",
+        "lastName": "Bhatia",
+        "rank": 25
+      },
+      {
+        "firstName": "Robert",
+        "lastName": "MacIntyre",
+        "rank": 17
+      },
+      {
+        "firstName": "Rory",
+        "lastName": "McIlroy",
+        "rank": 2
+      },
+      {
+        "firstName": "Jordan",
+        "lastName": "Spieth",
+        "rank": 62
+      }
+    ]
+  },
+  {
+    "name": "David Frankel",
+    "players": [
+      {
+        "firstName": "Rory",
+        "lastName": "McIlroy",
+        "rank": 2
+      },
+      {
+        "firstName": "Scottie",
+        "lastName": "Scheffler",
+        "rank": 1
+      },
+      {
+        "firstName": "Xander",
+        "lastName": "Schauffele",
+        "rank": 15
+      },
+      {
+        "firstName": "Aaron",
+        "lastName": "Rai",
+        "rank": 34
+      },
+      {
+        "firstName": "Chris",
+        "lastName": "Gotterup",
+        "rank": 12
+      },
+      {
+        "firstName": "Matt",
+        "lastName": "Fitzpatrick",
+        "rank": 3
+      },
+      {
+        "firstName": "Robert",
+        "lastName": "MacIntyre",
+        "rank": 17
+      },
+      {
+        "firstName": "Justin",
+        "lastName": "Rose",
+        "rank": 22
+      }
+    ]
+  },
+  {
+    "name": "Stuart Rosenthal",
+    "players": [
+      {
+        "firstName": "Collin",
+        "lastName": "Morikawa",
+        "rank": 8
+      },
+      {
+        "firstName": "Xander",
+        "lastName": "Schauffele",
+        "rank": 15
+      },
+      {
+        "firstName": "Hideki",
+        "lastName": "Matsuyama",
+        "rank": 35
+      },
+      {
+        "firstName": "Justin",
+        "lastName": "Rose",
+        "rank": 22
+      },
+      {
+        "firstName": "Nicolai",
+        "lastName": "Hojgaard",
+        "rank": 36
+      },
+      {
+        "firstName": "Adam",
+        "lastName": "Scott",
+        "rank": 47
+      },
+      {
+        "firstName": "Patrick",
+        "lastName": "Cantlay",
+        "rank": 16
+      },
+      {
+        "firstName": "Akshay",
+        "lastName": "Bhatia",
+        "rank": 25
+      }
+    ]
+  },
+  {
+    "name": "Searle Videlefsky",
+    "players": [
+      {
+        "firstName": "Xander",
+        "lastName": "Schauffele",
+        "rank": 15
+      },
+      {
+        "firstName": "Scottie",
+        "lastName": "Scheffler",
+        "rank": 1
+      },
+      {
+        "firstName": "Rory",
+        "lastName": "McIlroy",
+        "rank": 2
+      },
+      {
+        "firstName": "Shane",
+        "lastName": "Lowry",
+        "rank": 32
+      },
+      {
+        "firstName": "Tommy",
+        "lastName": "Fleetwood",
+        "rank": 4
+      },
+      {
+        "firstName": "Ludvig",
+        "lastName": "Aberg",
+        "rank": 13
+      },
+      {
+        "firstName": "Sam",
+        "lastName": "Burns",
+        "rank": 6
+      },
+      {
+        "firstName": "Eric",
+        "lastName": "Cole",
+        "rank": 57
+      }
+    ]
+  },
+  {
+    "name": "Luke Colley",
+    "players": [
+      {
+        "firstName": "Rory",
+        "lastName": "McIlroy",
+        "rank": 2
+      },
+      {
+        "firstName": "Scottie",
+        "lastName": "Scheffler",
+        "rank": 1
+      },
+      {
+        "firstName": "Matt",
+        "lastName": "Fitzpatrick",
+        "rank": 3
+      },
+      {
+        "firstName": "Cameron",
+        "lastName": "Young",
+        "rank": 9
+      },
+      {
+        "firstName": "Padraig",
+        "lastName": "Harrington",
+        "rank": 381
+      },
+      {
+        "firstName": "Wyndham",
+        "lastName": "Clark",
+        "rank": 7
+      },
+      {
+        "firstName": "Tommy",
+        "lastName": "Fleetwood",
+        "rank": 4
+      },
+      {
+        "firstName": "Shane",
+        "lastName": "Lowry",
+        "rank": 32
+      }
+    ]
+  },
+  {
+    "name": "Neill Videlefsky",
+    "players": [
+      {
+        "firstName": "Tommy",
+        "lastName": "Fleetwood",
+        "rank": 4
+      },
+      {
+        "firstName": "Rory",
+        "lastName": "McIlroy",
+        "rank": 2
+      },
+      {
+        "firstName": "Robert",
+        "lastName": "MacIntyre",
+        "rank": 17
+      },
+      {
+        "firstName": "Justin",
+        "lastName": "Rose",
+        "rank": 22
+      },
+      {
+        "firstName": "Adam",
+        "lastName": "Scott",
+        "rank": 47
+      },
+      {
+        "firstName": "Matt",
+        "lastName": "Fitzpatrick",
+        "rank": 3
+      },
+      {
+        "firstName": "Min Woo",
+        "lastName": "Lee",
+        "rank": 27
+      },
+      {
+        "firstName": "Patrick",
+        "lastName": "Reed",
+        "rank": 38
+      }
+    ]
+  },
+  {
+    "name": "Douglas Ducray",
+    "players": [
+      {
+        "firstName": "Matt",
+        "lastName": "Fitzpatrick",
+        "rank": 3
+      },
+      {
+        "firstName": "Chris",
+        "lastName": "Gotterup",
+        "rank": 12
+      },
+      {
+        "firstName": "Rory",
+        "lastName": "McIlroy",
+        "rank": 2
+      },
+      {
+        "firstName": "Shane",
+        "lastName": "Lowry",
+        "rank": 32
+      },
+      {
+        "firstName": "Jon",
+        "lastName": "Rahm",
+        "rank": 5
+      },
+      {
+        "firstName": "Tommy",
+        "lastName": "Fleetwood",
+        "rank": 4
+      },
+      {
+        "firstName": "Scottie",
+        "lastName": "Scheffler",
+        "rank": 1
+      },
+      {
+        "firstName": "Tom",
+        "lastName": "Kim",
+        "rank": 41
+      }
+    ]
+  },
+  {
+    "name": "Cullen Welch",
+    "players": [
+      {
+        "firstName": "Min Woo",
+        "lastName": "Lee",
+        "rank": 27
+      },
+      {
+        "firstName": "Tom",
+        "lastName": "Kim",
+        "rank": 41
+      },
+      {
+        "firstName": "Rory",
+        "lastName": "McIlroy",
+        "rank": 2
+      },
+      {
+        "firstName": "Patrick",
+        "lastName": "Reed",
+        "rank": 38
+      },
+      {
+        "firstName": "Si Woo",
+        "lastName": "Kim",
+        "rank": 10
+      },
+      {
+        "firstName": "Alex",
+        "lastName": "Fitzpatrick",
+        "rank": 28
+      },
+      {
+        "firstName": "Matt",
+        "lastName": "Fitzpatrick",
+        "rank": 3
+      },
+      {
+        "firstName": "Wyndham",
+        "lastName": "Clark",
+        "rank": 7
+      }
+    ]
+  },
+  {
+    "name": "Paul Costa",
+    "players": [
+      {
+        "firstName": "Matt",
+        "lastName": "Fitzpatrick",
+        "rank": 3
+      },
+      {
+        "firstName": "Tommy",
+        "lastName": "Fleetwood",
+        "rank": 4
+      },
+      {
+        "firstName": "Viktor",
+        "lastName": "Hovland",
+        "rank": 14
+      },
+      {
+        "firstName": "Chris",
+        "lastName": "Gotterup",
+        "rank": 12
+      },
+      {
+        "firstName": "Rory",
+        "lastName": "McIlroy",
+        "rank": 2
+      },
+      {
+        "firstName": "Alex",
+        "lastName": "Fitzpatrick",
+        "rank": 28
+      },
+      {
+        "firstName": "Justin",
+        "lastName": "Rose",
+        "rank": 22
+      },
+      {
+        "firstName": "Scottie",
+        "lastName": "Scheffler",
+        "rank": 1
+      }
+    ]
+  },
+  {
+    "name": "Z Machine",
+    "players": [
+      {
+        "firstName": "Matt",
+        "lastName": "Fitzpatrick",
+        "rank": 3
+      },
+      {
+        "firstName": "Jon",
+        "lastName": "Rahm",
+        "rank": 5
+      },
+      {
+        "firstName": "Sam",
+        "lastName": "Burns",
+        "rank": 6
+      },
+      {
+        "firstName": "J.J.",
+        "lastName": "Spaun",
+        "rank": 18
+      },
+      {
+        "firstName": "Scottie",
+        "lastName": "Scheffler",
+        "rank": 1
+      },
+      {
+        "firstName": "Ben",
+        "lastName": "Griffin",
+        "rank": 19
+      },
+      {
+        "firstName": "Xander",
+        "lastName": "Schauffele",
+        "rank": 15
+      },
+      {
+        "firstName": "Russell",
+        "lastName": "Henley",
+        "rank": 11
+      }
+    ]
+  },
+  {
+    "name": "Nate Robinson",
+    "players": [
+      {
+        "firstName": "Chris",
+        "lastName": "Gotterup",
+        "rank": 12
+      },
+      {
+        "firstName": "Joaquin",
+        "lastName": "Niemann",
+        "rank": 31
+      },
+      {
+        "firstName": "Scottie",
+        "lastName": "Scheffler",
+        "rank": 1
+      },
+      {
+        "firstName": "Justin",
+        "lastName": "Thomas",
+        "rank": 21
+      },
+      {
+        "firstName": "Viktor",
+        "lastName": "Hovland",
+        "rank": 14
+      },
+      {
+        "firstName": "Matt",
+        "lastName": "Fitzpatrick",
+        "rank": 3
+      },
+      {
+        "firstName": "Cameron",
+        "lastName": "Smith",
+        "rank": 92
+      },
+      {
+        "firstName": "Collin",
+        "lastName": "Morikawa",
+        "rank": 8
+      }
+    ]
+  },
+  {
+    "name": "Ezra Weener",
+    "players": [
+      {
+        "firstName": "Chris",
+        "lastName": "Gotterup",
+        "rank": 12
+      },
+      {
+        "firstName": "Matt",
+        "lastName": "Fitzpatrick",
+        "rank": 3
+      },
+      {
+        "firstName": "Rory",
+        "lastName": "McIlroy",
+        "rank": 2
+      },
+      {
+        "firstName": "Scottie",
+        "lastName": "Scheffler",
+        "rank": 1
+      },
+      {
+        "firstName": "Cameron",
+        "lastName": "Smith",
+        "rank": 92
+      },
+      {
+        "firstName": "Collin",
+        "lastName": "Morikawa",
+        "rank": 8
+      },
+      {
+        "firstName": "Aaron",
+        "lastName": "Rai",
+        "rank": 34
+      },
+      {
+        "firstName": "Xander",
+        "lastName": "Schauffele",
+        "rank": 15
+      }
+    ]
+  },
+  {
+    "name": "Josh & Jimmy Shizgal",
+    "players": [
+      {
+        "firstName": "Jon",
+        "lastName": "Rahm",
+        "rank": 5
+      },
+      {
+        "firstName": "Tom",
+        "lastName": "Kim",
+        "rank": 41
+      },
+      {
+        "firstName": "Rory",
+        "lastName": "McIlroy",
+        "rank": 2
+      },
+      {
+        "firstName": "Justin",
+        "lastName": "Rose",
+        "rank": 22
+      },
+      {
+        "firstName": "Matt",
+        "lastName": "Fitzpatrick",
+        "rank": 3
+      },
+      {
+        "firstName": "Cameron",
+        "lastName": "Smith",
+        "rank": 92
+      },
+      {
+        "firstName": "Tyrrell",
+        "lastName": "Hatton",
+        "rank": 23
+      },
+      {
+        "firstName": "Si Woo",
+        "lastName": "Kim",
+        "rank": 10
+      }
+    ]
+  },
+  {
+    "name": "Shaun Stoll",
+    "players": [
+      {
+        "firstName": "Xander",
+        "lastName": "Schauffele",
+        "rank": 15
+      },
+      {
+        "firstName": "Justin",
+        "lastName": "Rose",
+        "rank": 22
+      },
+      {
+        "firstName": "Tyrrell",
+        "lastName": "Hatton",
+        "rank": 23
+      },
+      {
+        "firstName": "Hideki",
+        "lastName": "Matsuyama",
+        "rank": 35
+      },
+      {
+        "firstName": "Cameron",
+        "lastName": "Smith",
+        "rank": 92
+      },
+      {
+        "firstName": "Justin",
+        "lastName": "Thomas",
+        "rank": 21
+      },
+      {
+        "firstName": "Aaron",
+        "lastName": "Rai",
+        "rank": 34
+      },
+      {
+        "firstName": "Max",
+        "lastName": "Homa",
+        "rank": 70
+      }
+    ]
+  },
+  {
+    "name": "Jake Maziar",
+    "players": [
+      {
+        "firstName": "Scottie",
+        "lastName": "Scheffler",
+        "rank": 1
+      },
+      {
+        "firstName": "Wyndham",
+        "lastName": "Clark",
+        "rank": 7
+      },
+      {
+        "firstName": "Akshay",
+        "lastName": "Bhatia",
+        "rank": 25
+      },
+      {
+        "firstName": "Sam",
+        "lastName": "Burns",
+        "rank": 6
+      },
+      {
+        "firstName": "Patrick",
+        "lastName": "Cantlay",
+        "rank": 16
+      },
+      {
+        "firstName": "Harris",
+        "lastName": "English",
+        "rank": 26
+      },
+      {
+        "firstName": "Rory",
+        "lastName": "McIlroy",
+        "rank": 2
+      },
+      {
+        "firstName": "Cameron",
+        "lastName": "Young",
+        "rank": 9
+      }
+    ]
+  },
+  {
+    "name": "Wolfe Welch",
+    "players": [
+      {
+        "firstName": "Xander",
+        "lastName": "Schauffele",
+        "rank": 15
+      },
+      {
+        "firstName": "Chris",
+        "lastName": "Gotterup",
+        "rank": 12
+      },
+      {
+        "firstName": "Scottie",
+        "lastName": "Scheffler",
+        "rank": 1
+      },
+      {
+        "firstName": "Tommy",
+        "lastName": "Fleetwood",
+        "rank": 4
+      },
+      {
+        "firstName": "Wyndham",
+        "lastName": "Clark",
+        "rank": 7
+      },
+      {
+        "firstName": "Rory",
+        "lastName": "McIlroy",
+        "rank": 2
+      },
+      {
+        "firstName": "Matt",
+        "lastName": "Fitzpatrick",
+        "rank": 3
+      },
+      {
+        "firstName": "Jon",
+        "lastName": "Rahm",
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "name": "Matt Akins",
+    "players": [
+      {
+        "firstName": "Xander",
+        "lastName": "Schauffele",
+        "rank": 15
+      },
+      {
+        "firstName": "Jon",
+        "lastName": "Rahm",
+        "rank": 5
+      },
+      {
+        "firstName": "Patrick",
+        "lastName": "Reed",
+        "rank": 38
+      },
+      {
+        "firstName": "Chris",
+        "lastName": "Gotterup",
+        "rank": 12
+      },
+      {
+        "firstName": "Rory",
+        "lastName": "McIlroy",
+        "rank": 2
+      },
+      {
+        "firstName": "Matt",
+        "lastName": "Fitzpatrick",
+        "rank": 3
+      },
+      {
+        "firstName": "Viktor",
+        "lastName": "Hovland",
+        "rank": 14
+      },
+      {
+        "firstName": "Scottie",
+        "lastName": "Scheffler",
+        "rank": 1
+      }
+    ]
+  },
+  {
+    "name": "Ed Hetherington",
+    "players": [
+      {
+        "firstName": "Matt",
+        "lastName": "Fitzpatrick",
+        "rank": 3
+      },
+      {
+        "firstName": "Scottie",
+        "lastName": "Scheffler",
+        "rank": 1
+      },
+      {
+        "firstName": "Rory",
+        "lastName": "McIlroy",
+        "rank": 2
+      },
+      {
+        "firstName": "Jon",
+        "lastName": "Rahm",
+        "rank": 5
+      },
+      {
+        "firstName": "Viktor",
+        "lastName": "Hovland",
+        "rank": 14
+      },
+      {
+        "firstName": "Justin",
+        "lastName": "Rose",
+        "rank": 22
+      },
+      {
+        "firstName": "Tommy",
+        "lastName": "Fleetwood",
+        "rank": 4
+      },
+      {
+        "firstName": "Chris",
+        "lastName": "Gotterup",
+        "rank": 12
+      }
+    ]
+  },
+  {
+    "name": "AJ Robinson",
+    "players": [
+      {
+        "firstName": "Rory",
+        "lastName": "McIlroy",
+        "rank": 2
+      },
+      {
+        "firstName": "Scottie",
+        "lastName": "Scheffler",
+        "rank": 1
+      },
+      {
+        "firstName": "Matt",
+        "lastName": "Fitzpatrick",
+        "rank": 3
+      },
+      {
+        "firstName": "Brian",
+        "lastName": "Harman",
+        "rank": 51
+      },
+      {
+        "firstName": "Jordan",
+        "lastName": "Spieth",
+        "rank": 62
+      },
+      {
+        "firstName": "Tommy",
+        "lastName": "Fleetwood",
+        "rank": 4
+      },
+      {
+        "firstName": "Justin",
+        "lastName": "Rose",
+        "rank": 22
+      },
+      {
+        "firstName": "Johnny",
+        "lastName": "Keefer",
+        "rank": 81
+      }
+    ]
+  }
+]

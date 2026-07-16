@@ -16,6 +16,12 @@ describe("Rankings", () => {
     expect(rankings["Jon Rahm"]?.rank).toBe(2);
   });
 
+  it("returns the Open rankings for the Open", () => {
+    const rankings = getRankings(TournamentName.Open);
+    expect(Object.keys(rankings).length).toBeGreaterThan(0);
+    expect(rankings["Jon Rahm"]?.rank).toBe(5);
+  });
+
   it("serves different rankings per tournament", () => {
     const masters = getRankings(TournamentName.Masters);
     const usOpen = getRankings(TournamentName.UsOpen);
@@ -23,6 +29,6 @@ describe("Rankings", () => {
   });
 
   it("returns an empty record for a tournament without a rankings file", () => {
-    expect(getRankings(TournamentName.Open)).toEqual({});
+    expect(getRankings(TournamentName.Pga)).toEqual({});
   });
 });
