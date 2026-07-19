@@ -13,6 +13,15 @@ export interface PGAInfo {
   current_round: string; // "1" | "2" | "3" | "4"
   event_name: string; // "The Open Championship"
   iso: string; // ISO timestamp
+  // First (`f`) and last (`l`) tee times per round as UTC instants, keyed by
+  // round number ("1".."4"). These anchor the event-local tee-time strings in
+  // `t` to real instants — see src/utils/tee-time.utils.ts.
+  times?: Record<string, RoundTeeTimes>;
+}
+
+export interface RoundTeeTimes {
+  f: string; // first tee time of the round, UTC ISO
+  l: string; // last tee time of the round, UTC ISO
 }
 
 export interface PlayerLeaderboardEntry {

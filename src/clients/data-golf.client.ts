@@ -6,6 +6,7 @@ import type { Ranking } from "@/interfaces/ranking.interface";
 import type { TournamentData } from "@/interfaces/tournament-data.interface";
 import type { Tournament } from "@/interfaces/tournament.interface";
 import { overrides } from "@/overrides";
+import { isTeeTime, resolveTeeTimesUtc } from "@/utils/tee-time.utils";
 
 export default class DataGolfClient {
   private cache: {
@@ -60,6 +61,15 @@ export default class DataGolfClient {
       round: Number.parseInt(tournamentData.info.current_round),
       leaderboard: {},
     };
+    // Unstarted players carry their event-local tee time in `t`; anchor those
+    // strings against the current round's UTC tee window to get real instants.
+    const roundTimes = tournamentData.info.times?.[tournamentData.info.current_round];
+    const teeTimesUtc = roundTimes
+      ? resolveTeeTimesUtc(
+          tournamentData.lb.map((p) => p.t).filter((t) => isTeeTime(t)),
+          roundTimes,
+        )
+      : new Map<string, string>();
     for (const player of tournamentData.lb) {
       const isCut = player.p === "CUT";
       const withdrawn = player.p === "WD";
@@ -70,6 +80,7 @@ export default class DataGolfClient {
         nationality: player.n,
         score: isEvenPar ? 0 : Number.parseInt(player.s),
         thru: player.t.toString(),
+        teeTimeUtc: teeTimesUtc.get(player.t),
         isTied,
         place: overrides.get(`${player.f} ${player.l}`)?.madeCut
           ? Infinity

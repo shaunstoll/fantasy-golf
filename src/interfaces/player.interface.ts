@@ -9,6 +9,9 @@ export interface Player {
   status: PlayerStatus;
   score: number;
   thru: string;
+  // UTC instant of the player's tee time, present only while `thru` holds a
+  // tee-time string; the UI renders it in the viewer's local timezone.
+  teeTimeUtc?: string;
   lowestRankedPlayerBonus: boolean;
   madeCutBonus: boolean;
   firstPlaceBonus: boolean;
