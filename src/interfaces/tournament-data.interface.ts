@@ -31,6 +31,8 @@ export interface PlayerLeaderboardEntry {
   n: string; // nationality
   p: string; // position (e.g., '1', 'T2', 'CUT', 'WD')
   s: string; // score
-  t: string; // thru (e.g., 'F', '2:30', '-', 9)
+  // thru — a bare number for holes completed (e.g. 9), or a string: 'F', '-',
+  // or an event-local tee time like '2:30'. Always stringify before use.
+  t: string | number;
   w: string; // win probability
 }

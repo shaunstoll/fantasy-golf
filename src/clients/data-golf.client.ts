@@ -66,7 +66,7 @@ export default class DataGolfClient {
     const roundTimes = tournamentData.info.times?.[tournamentData.info.current_round];
     const teeTimesUtc = roundTimes
       ? resolveTeeTimesUtc(
-          tournamentData.lb.map((p) => p.t).filter((t) => isTeeTime(t)),
+          tournamentData.lb.map((p) => p.t.toString()).filter((t) => isTeeTime(t)),
           roundTimes,
         )
       : new Map<string, string>();
@@ -76,11 +76,12 @@ export default class DataGolfClient {
       const isTied = player.p.startsWith("T");
       const didNotStart = player.p === "-";
       const isEvenPar = player.s === "E";
+      const thru = player.t.toString();
       tournament.leaderboard[`${player.f} ${player.l}`] = {
         nationality: player.n,
         score: isEvenPar ? 0 : Number.parseInt(player.s),
-        thru: player.t.toString(),
-        teeTimeUtc: teeTimesUtc.get(player.t),
+        thru,
+        teeTimeUtc: teeTimesUtc.get(thru),
         isTied,
         place: overrides.get(`${player.f} ${player.l}`)?.madeCut
           ? Infinity
