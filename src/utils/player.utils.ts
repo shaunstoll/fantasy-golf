@@ -40,7 +40,6 @@ export function leaderboardPlayerToPlayer(p: LeaderboardPlayer): Player {
     status: p.status,
     score: p.score,
     thru: p.thru,
-    teeTimeUtc: p.teeTimeUtc,
     isTied: p.isTied,
     fantasyScore: p.fantasyScore,
     multiplier: 1,

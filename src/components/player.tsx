@@ -9,7 +9,6 @@ import { earnedBonuses } from "@/config/bonuses";
 import type { Player as PlayerType } from "@/interfaces/player.interface";
 import { flagCode } from "@/utils/nationality.utils";
 import { formatPlace } from "@/utils/player.utils";
-import { formatLocalTeeTime } from "@/utils/tee-time.utils";
 
 // Column titles for the player rows, kept in sync with the Attribute order in
 // the row below. `sortKey` marks the columns the leaderboard can sort by; Thru
@@ -179,7 +178,7 @@ export default function Player({ player }: { player: PlayerType }) {
             hideLabel
             valueClassName="bg-gray-200 text-black dark:bg-gray-600 dark:text-white"
             label="Thru"
-            value={player.teeTimeUtc ? formatLocalTeeTime(player.teeTimeUtc) : player.thru}
+            value={player.thru}
           />
           <Attribute
             hideLabel
