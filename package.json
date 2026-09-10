@@ -24,6 +24,7 @@
     "build-pga-results": "npx tsx src/scripts/build-pga-results.ts",
     "build-masters-results": "npx tsx src/scripts/build-masters-results.ts",
     "build-us-open-results": "npx tsx src/scripts/build-us-open-results.ts",
+    "build-open-results": "npx tsx src/scripts/build-open-results.ts",
     "refreeze-leaderboards": "npx tsx src/scripts/refreeze-leaderboards.ts"
   },
   "dependencies": {

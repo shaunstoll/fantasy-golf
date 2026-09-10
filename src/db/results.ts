@@ -2,6 +2,7 @@ import type { LeaderboardPlayer } from "@/interfaces/leaderboard-player.interfac
 import type { Standing } from "@/interfaces/standing.interface";
 import { TournamentName } from "@/enums/tournament.enum";
 import mastersResults from "@data/2026/masters-results.json";
+import openResults from "@data/2026/open-results.json";
 import pgaResults from "@data/2026/pga-results.json";
 import usOpenResults from "@data/2026/us-open-results.json";
 
@@ -14,6 +15,7 @@ const resultsByTournament: Partial<Record<TournamentName, TournamentResults>> = 
   [TournamentName.Masters]: mastersResults as TournamentResults,
   [TournamentName.Pga]: pgaResults as TournamentResults,
   [TournamentName.UsOpen]: usOpenResults as TournamentResults,
+  [TournamentName.Open]: openResults as TournamentResults,
 };
 
 export function getResults(tournament: TournamentName): TournamentResults | undefined {
